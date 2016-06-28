@@ -1,0 +1,1002 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Android,干货,ViewObject," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="作者：李旺成时间：2016年4月12日
+
+
+这里使用了一个解析当前天气 JSON 字符串得到原始 Model 后，将该 Model 的数据展示到一个简单的页面上来进行演示。
+
+先看下 Demo 的效果图：
+我理解的 VOVO，ViewObject 或 ViewModel。关于它的解释在 Android MVP 详解（下）中，我做过简要的阐述。这里，再说说我是怎么理解 VO 的。
+VO，就是一切给">
+<meta property="og:type" content="article">
+<meta property="og:title" content="为什么你需要ViewObject">
+<meta property="og:url" content="http://diy-green.com/2016/05/07/Android干货[原创]/为什么你需要ViewObject/index.html">
+<meta property="og:site_name" content="DIY-green">
+<meta property="og:description" content="作者：李旺成时间：2016年4月12日
+
+
+这里使用了一个解析当前天气 JSON 字符串得到原始 Model 后，将该 Model 的数据展示到一个简单的页面上来进行演示。
+
+先看下 Demo 的效果图：
+我理解的 VOVO，ViewObject 或 ViewModel。关于它的解释在 Android MVP 详解（下）中，我做过简要的阐述。这里，再说说我是怎么理解 VO 的。
+VO，就是一切给">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidganhuo\yuanchuang\whyneed_viewobject\whyneed_viewobject_1.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidganhuo\yuanchuang\whyneed_viewobject\whyneed_viewobject_2.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidganhuo\yuanchuang\whyneed_viewobject\whyneed_viewobject_3.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidganhuo\yuanchuang\whyneed_viewobject\whyneed_viewobject_4.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidganhuo\yuanchuang\whyneed_viewobject\whyneed_viewobject_5.png">
+<meta property="og:updated_time" content="2016-04-26T00:25:30.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="为什么你需要ViewObject">
+<meta name="twitter:description" content="作者：李旺成时间：2016年4月12日
+
+
+这里使用了一个解析当前天气 JSON 字符串得到原始 Model 后，将该 Model 的数据展示到一个简单的页面上来进行演示。
+
+先看下 Demo 的效果图：
+我理解的 VOVO，ViewObject 或 ViewModel。关于它的解释在 Android MVP 详解（下）中，我做过简要的阐述。这里，再说说我是怎么理解 VO 的。
+VO，就是一切给">
+<meta name="twitter:image" content="http://diy-green.com/\uploads\androidganhuo\yuanchuang\whyneed_viewobject\whyneed_viewobject_1.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'DIY-green'
+    }
+  };
+</script>
+
+  <title> 为什么你需要ViewObject | DIY-green </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?af1b7efbf565bc568165c5a0600a0207";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+  <div style="display: none;">
+    <script src="http://s6.cnzz.com/stat.php?id=1258791461&web_id=1258791461" type="text/javascript"></script>
+  </div>
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">DIY-green</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            全部
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-androidstudydemo">
+          <a href="/categories/AndroidStudyDemo/" rel="section">
+            
+              <i class="menu-item-icon fa fa-hand-right fa-fw"></i> <br />
+            
+            ● &nbsp; AndroidStudyDemo
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-androidganhuo">
+          <a href="/categories/Android干货/" rel="section">
+            
+              <i class="menu-item-icon fa fa-hand-right fa-fw"></i> <br />
+            
+            ● &nbsp; Android干货
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-androidhacks">
+          <a href="/categories/Android小技巧/" rel="section">
+            
+              <i class="menu-item-icon fa fa-hand-right fa-fw"></i> <br />
+            
+            ● &nbsp; Android小技巧
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-androidstudio">
+          <a href="/categories/AndroidStudio/" rel="section">
+            
+              <i class="menu-item-icon fa fa-hand-right fa-fw"></i> <br />
+            
+            ● &nbsp; AndroidStudio
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-essay">
+          <a href="/categories/随笔/" rel="section">
+            
+              <i class="menu-item-icon fa fa-hand-right fa-fw"></i> <br />
+            
+            ● &nbsp; 随笔
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                为什么你需要ViewObject
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-05-07T20:39:24+08:00" content="2016-05-07">
+              2016-05-07
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Android干货/" itemprop="url" rel="index">
+                    <span itemprop="name">Android干货</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Android干货/原创/" itemprop="url" rel="index">
+                    <span itemprop="name">原创</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/05/07/Android干货[原创]/为什么你需要ViewObject/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/07/Android干货[原创]/为什么你需要ViewObject/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+		  &nbsp; | &nbsp;
+             <span id="/2016/05/07/Android干货[原创]/为什么你需要ViewObject/" class="leancloud_visitors" data-flag-title="为什么你需要ViewObject">
+               
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+		  
+		  <!--<span id="busuanzi_container_page_pv">
+		    &nbsp; | &nbsp;<span id="busuanzi_value_page_pv"></span>阅读
+		  </span>
+		  
+		  
+			&nbsp; | &nbsp;
+			<span id="/2016/05/07/Android干货[原创]/为什么你需要ViewObject/"class="leancloud_visitors" data-flag-title="为什么你需要ViewObject">
+					 &nbsp;阅读
+					</span>
+			-->
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="\uploads\androidganhuo\yuanchuang\whyneed_viewobject\whyneed_viewobject_1.png" alt="WhyNeedViewObject" title="WhyNeedViewObject"></p>
+<p><strong>作者：<a href="https://github.com/DIY-green/" target="_blank" rel="external">李旺成</a></strong><br><strong>时间：2016年4月12日</strong></p>
+<hr>
+<blockquote>
+<p>这里使用了一个解析当前天气 JSON 字符串得到原始 Model 后，将该 Model 的数据展示到一个简单的页面上来进行演示。</p>
+</blockquote>
+<p>先看下 Demo 的效果图：<br><img src="\uploads\androidganhuo\yuanchuang\whyneed_viewobject\whyneed_viewobject_2.png" alt="天气展示 Demo" title="天气展示 Demo"></p>
+<h1 id="我理解的-VO"><a href="#我理解的-VO" class="headerlink" title="我理解的 VO"></a>我理解的 VO</h1><p><strong>VO</strong>，<strong>ViewObject</strong> 或 <strong>ViewModel</strong>。关于它的解释在 <a href="http://www.jianshu.com/p/0590f530c617" target="_blank" rel="external">Android MVP 详解（下）</a>中，我做过简要的阐述。这里，再说说我是怎么理解 VO 的。</p>
+<p><strong>VO</strong>，就是一切给 View 提供数据的对象。这个定义就很广泛了，所以我对 VO 做了如下的分类（下面会细说）。</p>
+<h1 id="VO-的实现方式"><a href="#VO-的实现方式" class="headerlink" title="VO 的实现方式"></a>VO 的实现方式</h1><p>既然，所有给 View 提供数据的对象都可以称之为 VO，那么 VO 的来源或者说形式就很多了。我在这里根据 VO 的实现方式进行了分类，仅仅是一家之言，有疏漏之处，见谅。</p>
+<h2 id="1-单独的-VO-类"><a href="#1-单独的-VO-类" class="headerlink" title="1. 单独的 VO 类"></a>1. 单独的 VO 类</h2><p>在 <a href="http://www.jianshu.com/p/0590f530c617" target="_blank" rel="external">Android MVP 详解（下）</a>中建议专门建一个包 vo，用来存放该模块下的所有 VO 类。对于这一类，那就属于单独的 VO 类，或者更准确的说明是“<strong>独立的 VO 类</strong>”。</p>
+<p>要使用这种类型的 VO，有一个问题，它是独立的类，那么就需要另外的对象给它提供数据。在这里我认为提供（传递）数据的方式，大致有如下两种：</p>
+<h3 id="A-使用转换器"><a href="#A-使用转换器" class="headerlink" title="A. 使用转换器"></a>A. 使用转换器</h3><p>专门使用一个转换器类，来做原始 Model 到 VO 的转换。如示例项目中的 VOConverterUtil.java 类。（在这类里偷了个懒，直接调用了“<strong>构造方法中转换</strong>”的方式进行了转换）<br>还是看下代码吧：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">VOConverterUtil</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> WeatherVO <span class="title">getWeatherVOFromWeatherBean</span><span class="params">(WeatherBean weatherBean)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 这里偷个懒</span></span><br><span class="line">        WeatherVO weatherVO = <span class="keyword">new</span> WeatherVO(weatherBean);</span><br><span class="line">        <span class="keyword">return</span> weatherVO;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="B-构造方法中转换"><a href="#B-构造方法中转换" class="headerlink" title="B. 构造方法中转换"></a>B. 构造方法中转换</h3><p>这个很好理解，就是在构造方法中进行数据转换。代码很简单，直接看代码：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">WeatherVO</span><span class="params">(WeatherBean weatherBean)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (weatherBean == <span class="keyword">null</span>) <span class="keyword">return</span>;</span><br><span class="line">	isSuccess = <span class="string">"ok"</span>.equals(weatherBean.getStatus());</span><br><span class="line">	<span class="keyword">int</span> condCode = Integer.parseInt(weatherBean.getNow().getCond().getCode());</span><br><span class="line">	String condCodeColorStr = <span class="string">""</span>;</span><br><span class="line">	<span class="keyword">if</span> (condCode &lt; <span class="number">0</span>) &#123;</span><br><span class="line">		weatherInfoIcon = R.mipmap.ic_snow;</span><br><span class="line">		condCodeColorStr = <span class="string">"#000066"</span>;</span><br><span class="line">	&#125; <span class="keyword">else</span> <span class="keyword">if</span> (condCode &lt; <span class="number">60</span>) &#123;</span><br><span class="line">		weatherInfoIcon = R.mipmap.ic_rain;</span><br><span class="line">		condCodeColorStr = <span class="string">"#009900"</span>;</span><br><span class="line">	&#125; <span class="keyword">else</span> <span class="keyword">if</span> (condCode &lt; <span class="number">90</span>) &#123;</span><br><span class="line">		weatherInfoIcon = R.mipmap.ic_cloudy;</span><br><span class="line">		condCodeColorStr = <span class="string">"#993300"</span>;</span><br><span class="line">	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">		weatherInfoIcon = R.mipmap.ic_sunshine;</span><br><span class="line">		condCodeColorStr = <span class="string">"#cccc00"</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	weatherInfoText = Html.fromHtml(<span class="string">"&lt;font color='"</span>+condCodeColorStr+<span class="string">"'&gt;"</span>+weatherBean.getNow().getCond().getTxt()+<span class="string">"&lt;/font&gt;"</span>);</span><br><span class="line">	relativeHumidity = <span class="string">"相对湿度："</span> + weatherBean.getNow().getHum();</span><br><span class="line">	<span class="keyword">int</span> tmpInt = Integer.parseInt(weatherBean.getNow().getTmp());</span><br><span class="line">	<span class="keyword">if</span> (tmpInt &lt; <span class="number">15</span>) &#123;</span><br><span class="line">		temperatureIcon = R.mipmap.ic_lowtemperature;</span><br><span class="line">	&#125; <span class="keyword">else</span> <span class="keyword">if</span> (tmpInt &lt; <span class="number">33</span>) &#123;</span><br><span class="line">		temperatureIcon = R.mipmap.ic_thermophilic;</span><br><span class="line">	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">		temperatureIcon = R.mipmap.ic_hightemperature;</span><br><span class="line">	&#125;</span><br><span class="line">	airPressure = <span class="string">"气压："</span> + weatherBean.getNow().getPres();</span><br><span class="line">	precipitation = <span class="string">"降水量："</span> + weatherBean.getNow().getPcpn();</span><br><span class="line">	visibility = <span class="string">"能见度："</span> + weatherBean.getNow().getVis() + <span class="string">" KM"</span>;</span><br><span class="line">	windDirectionAngle = <span class="string">"风向角度："</span> + weatherBean.getNow().getWind().getDeg();</span><br><span class="line">	windDirection = <span class="string">"风向："</span> + weatherBean.getNow().getWind().getDir();</span><br><span class="line">	windPower = <span class="string">"风力："</span> + weatherBean.getNow().getWind().getSc();</span><br><span class="line">	windSpeed = <span class="string">"风速"</span> + weatherBean.getNow().getWind().getSpd();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="2-实现接口成-VO"><a href="#2-实现接口成-VO" class="headerlink" title="2. 实现接口成 VO"></a>2. 实现接口成 VO</h2><p>抽出单独的类，那么就多了一个类， Modle 如果很多的话，那不可避免 VO 的数量也会增加。有些人可能觉得没必要，这增加了项目复杂度（哈哈，任何的设计都有可能造成复杂度上升）。那么，这样，我们抽取一个接口，然后让原始 Model 去实现这个接口 —— 以后就可以“面向接口编程”了。</p>
+<p>思路很简单，那么直接上代码吧：<br>抽取接口 IWeatherVO.java：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">IWeatherVO</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">boolean</span> <span class="title">isSuccess</span><span class="params">()</span></span>; <span class="comment">// "status": "ok", //接口状态</span></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">getWeatherInfoIcon</span><span class="params">()</span></span>; <span class="comment">// "code": "100", //天气状况代码 假设 &lt;0 下雪， &lt; 60 雨，大于 &gt;60 &lt; 90 阴， &gt; 90 晴</span></span><br><span class="line">    <span class="function">Spanned <span class="title">getWeatherInfoText</span><span class="params">()</span></span>; <span class="comment">// "txt": "晴" //天气状况描述 天气的文本描述</span></span><br><span class="line">    <span class="function">String <span class="title">getRelativeHumidity</span><span class="params">()</span></span>; <span class="comment">//  "hum": "20%", //相对湿度（%）</span></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">getTemperatureIcon</span><span class="params">()</span></span>; <span class="comment">// "tmp": "32", //温度 温度图标</span></span><br><span class="line">    <span class="function">String <span class="title">getAirPressure</span><span class="params">()</span></span>; <span class="comment">// "pres": "1001", //气压</span></span><br><span class="line">    <span class="function">String <span class="title">getPrecipitation</span><span class="params">()</span></span>; <span class="comment">// 降水量</span></span><br><span class="line">    <span class="function">String <span class="title">getVisibility</span><span class="params">()</span></span>; <span class="comment">// "vis": "10", //能见度（km）</span></span><br><span class="line">    <span class="function">String <span class="title">getWindDirectionAngle</span><span class="params">()</span></span>; <span class="comment">// "deg": "10", //风向（360度）</span></span><br><span class="line">    <span class="function">String <span class="title">getWindDirection</span><span class="params">()</span></span>; <span class="comment">// "dir": "北风", //风向</span></span><br><span class="line">    <span class="function">String <span class="title">getWindPower</span><span class="params">()</span></span>; <span class="comment">// "sc": "3级", //风力</span></span><br><span class="line">    <span class="function">String <span class="title">getWindSpeed</span><span class="params">()</span></span>; <span class="comment">// "spd": "15" //风速（kmph）</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>实现接口<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">WeatherBean</span> <span class="keyword">implements</span> <span class="title">IWeatherVO</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 原始 Modle 中的字段都省略了，具体看源码吧</span></span><br><span class="line">	...</span><br><span class="line"></span><br><span class="line">    <span class="comment">//==========实现 VO 接口==========</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isSuccess</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"ok"</span>.equals(status);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getWeatherInfoIcon</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> weatherInfoIcon;</span><br><span class="line">        <span class="keyword">int</span> condCode = Integer.parseInt(getNow().getCond().getCode());</span><br><span class="line">        <span class="keyword">if</span> (condCode &lt; <span class="number">0</span>) &#123;</span><br><span class="line">            weatherInfoIcon = R.mipmap.ic_snow;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (condCode &lt; <span class="number">60</span>) &#123;</span><br><span class="line">            weatherInfoIcon = R.mipmap.ic_rain;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (condCode &lt; <span class="number">90</span>) &#123;</span><br><span class="line">            weatherInfoIcon = R.mipmap.ic_cloudy;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            weatherInfoIcon = R.mipmap.ic_sunshine;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> weatherInfoIcon;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Spanned <span class="title">getWeatherInfoText</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        Spanned weatherInfoText;</span><br><span class="line">        <span class="keyword">int</span> condCode = Integer.parseInt(getNow().getCond().getCode());</span><br><span class="line">        String condCodeColorStr = <span class="string">""</span>;</span><br><span class="line">        <span class="keyword">if</span> (condCode &lt; <span class="number">0</span>) &#123;</span><br><span class="line">            condCodeColorStr = <span class="string">"#000066"</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (condCode &lt; <span class="number">60</span>) &#123;</span><br><span class="line">            condCodeColorStr = <span class="string">"#009900"</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (condCode &lt; <span class="number">90</span>) &#123;</span><br><span class="line">            condCodeColorStr = <span class="string">"#993300"</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            condCodeColorStr = <span class="string">"#cccc00"</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        weatherInfoText = Html.fromHtml(<span class="string">"&lt;font color='"</span>+condCodeColorStr+<span class="string">"'&gt;"</span>+getNow().getCond().getTxt()+<span class="string">"&lt;/font&gt;"</span>);</span><br><span class="line">        <span class="keyword">return</span> weatherInfoText;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getRelativeHumidity</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"相对湿度："</span> + getNow().getHum();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getTemperatureIcon</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> temperatureIcon;</span><br><span class="line">        <span class="keyword">int</span> tmpInt = Integer.parseInt(getNow().getTmp());</span><br><span class="line">        <span class="keyword">if</span> (tmpInt &lt; <span class="number">15</span>) &#123;</span><br><span class="line">            temperatureIcon = R.mipmap.ic_lowtemperature;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (tmpInt &lt; <span class="number">33</span>) &#123;</span><br><span class="line">            temperatureIcon = R.mipmap.ic_thermophilic;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            temperatureIcon = R.mipmap.ic_hightemperature;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> temperatureIcon;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getAirPressure</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"气压："</span> + getNow().getPres();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getPrecipitation</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"降水量："</span> + getNow().getPcpn();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getVisibility</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"能见度："</span> + getNow().getVis() + <span class="string">" KM"</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getWindDirectionAngle</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"风向角度："</span> + getNow().getWind().getDeg();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getWindDirection</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"风向："</span> + getNow().getWind().getDir();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getWindPower</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"风力："</span> + getNow().getWind().getSc();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getWindSpeed</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"风速"</span> + getNow().getWind().getSpd();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="3-添加方法成-VO"><a href="#3-添加方法成-VO" class="headerlink" title="3. 添加方法成 VO"></a>3. 添加方法成 VO</h2><p>这个就更简单了，那就是连接口都不抽取了，直接提供上述接口中的方法。这里就不赘述了，思路是和上面提取接口一致，所提供的方法，目的就是方便在 View 中<strong>直接使用</strong>。（这个在 <a href="http://www.jianshu.com/p/0590f530c617" target="_blank" rel="external">Android MVP 详解（下）</a>中讨论过，略）</p>
+<h2 id="4-没有-VO"><a href="#4-没有-VO" class="headerlink" title="4. 没有 VO"></a>4. 没有 VO</h2><p>没有 VO，那就是根本不使用 VO。如果你的项目是 MVP 的，那么就在 Presenter 中做数据转换的工作，然后提供给 View 展示。</p>
+<p>这对于很简单的 Model 和 简单的 View 是没有问题的，如果，Model 很复杂（字段很多，而且不能直接使用），那么 Presenter 的任务就会很重。</p>
+<p>这里就不做演示了，很多人应该都在这么用，或者曾经是这么用的。</p>
+<h1 id="使用-VO-的好处"><a href="#使用-VO-的好处" class="headerlink" title="使用 VO 的好处"></a>使用 VO 的好处</h1><p>上面说了一堆 VO 的实现方式，但是就是没提使用 VO 到底有何益处；或者说 VO 存在的意义。下面就我个人的理解，谈谈我认为 VO 的好处。</p>
+<h2 id="统一命名习惯"><a href="#统一命名习惯" class="headerlink" title="统一命名习惯"></a>统一命名习惯</h2><p>很多时候数据来源是网络（服务器端），那么这就可能有一个问题。服务器端的命名习惯可能与客户端有很大区别，还有不同服务器端开发的命名习惯也可能不同（如：使用 PHP 开发的服务器程序和使用 Java 开发的服务器程序命名很可能就是不同的）。</p>
+<p>简而言之，那就是服务器反给我们的字段和我们项目中的命名习惯不同，很多人说，这没办法啊！总不能让服务器改吧！</p>
+<p>是的，客户端和服务器端的命名很难统一，有人会说，不统一就不统一，又不影响使用。确实，不影响使用，但是，我们追求完美不是（先从最基本的命名规范做起，哈哈）。</p>
+<p>所以，从这个角度来考虑，我建议原始的 Model 那就按照接口文档来（当然，如果使用 Gson 的话，关于命名不统一还是可以解决的，有兴趣的可以自行 Google）。我们自己针对 View 定义一套 VO，这个可以完全按照我们自己的命名规范来，至少这里是统一的。</p>
+<h2 id="解耦-View-和-Model"><a href="#解耦-View-和-Model" class="headerlink" title="解耦 View 和 Model"></a>解耦 View 和 Model</h2><p>解耦，这个就不用多说了吧！我都不直接使用你了，这还不是<strong>解耦</strong>，View 依赖的是 VO，而不再依赖原始的 Modle。关于解耦所带来的优点，这里就不详述了，一搜一堆…</p>
+<h2 id="铺平数据结构"><a href="#铺平数据结构" class="headerlink" title="铺平数据结构"></a>铺平数据结构</h2><p>“<strong>铺平数据结构</strong>” —— 可以理解为将原来有多级（层级较深）的对象，转换为层级较浅的对象。</p>
+<p>我曾在项目中遇到这样一个问题：有很多相似的页面，但是服务器端给的字段都是不同的，这就需要建立多个 Model 来解析服务器给的数据。考虑到页面基本一样，那就不需要提供多个页面了，直接用一个页面，往里面填充不同的数据就可以了。那么，问题来了，这会导致要写很多重复的填充 View 的代码，因为 Model 是不同的。</p>
+<p>对于上述的问题，我的解决方案是，将页面中要使用的数据抽取为独立的 VO，该页面只需要从 VO 中获取数据即可。再就是，关于如何建立 Modle 去解析服务器数据的问题。这里，我只建了一个 Modle，将所有使用这个页面的接口中的返回字段都封装到一个 Modle 中。这得益于 Model 中多了字段，并不会影响 JSON 字符串到对象的转换（至少 Gson 是这样的）。</p>
+<p>上面说的这个例子，也可以认为是“铺平了数据结构”。</p>
+<p>在这个示例 Demo 中，可以很好的演示 —— “<strong>铺平数据结构</strong>” 。<br>先看下原始的 JSON 字符串：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	<span class="string">"status"</span>: <span class="string">"ok"</span>,</span><br><span class="line">	<span class="string">"now"</span>: &#123;</span><br><span class="line">		<span class="string">"cond"</span>: &#123;</span><br><span class="line">			<span class="string">"code"</span>: <span class="string">"100"</span>,</span><br><span class="line">			<span class="string">"txt"</span>: <span class="string">"晴"</span></span><br><span class="line">		&#125;,</span><br><span class="line">		<span class="string">"fl"</span>: <span class="string">"30"</span>,</span><br><span class="line">		<span class="string">"hum"</span>: <span class="string">"20%"</span>,</span><br><span class="line">		<span class="string">"pcpn"</span>: <span class="string">"0.0"</span>,</span><br><span class="line">		<span class="string">"pres"</span>: <span class="string">"1001"</span>,</span><br><span class="line">		<span class="string">"tmp"</span>: <span class="string">"32"</span>,</span><br><span class="line">		<span class="string">"vis"</span>: <span class="string">"10"</span>,</span><br><span class="line">		<span class="string">"wind"</span>: &#123;</span><br><span class="line">			<span class="string">"deg"</span>: <span class="string">"10"</span>, <span class="comment">//风向（360度）</span></span><br><span class="line">			<span class="string">"dir"</span>: <span class="string">"北风"</span>, <span class="comment">//风向</span></span><br><span class="line">			<span class="string">"sc"</span>: <span class="string">"3级"</span>, <span class="comment">//风力</span></span><br><span class="line">			<span class="string">"spd"</span>: <span class="string">"15"</span> <span class="comment">//风速（kmph）</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>看一下，上面的 JSON 字符串，如果需要获取风速，那么需要先访问 now，在访问 wind，然后才能获取到 spd 字段。在代码中就如下：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">weatherBean.getNow().getWind().getSpd();</span><br></pre></td></tr></table></figure></p>
+<p>而在我们的 VO 中，可以直接取到：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 数据已经转换过了，这里直接可以取到</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">getWindSpeed</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> windSpeed;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="减少可能的问题"><a href="#减少可能的问题" class="headerlink" title="减少可能的问题"></a>减少可能的问题</h2><p>其实，View 和 Model 的耦合就是一个很大的问题，哈哈，这个确实能解决。</p>
+<p>还有一些问题可以得到避免，例如，减少 View 中对 Model 的取值的各种判断（当然 MVP 就能解决），避免 Model 中的数据异常导致 View 崩溃。</p>
+<p>这里就不多说这个问题了，等你遇到的时候，自然就知道能够避免哪些问题了。（偷个懒，这个以后有机会再丰富吧）</p>
+<h1 id="VO-使用演示"><a href="#VO-使用演示" class="headerlink" title="VO 使用演示"></a>VO 使用演示</h1><p>直接看图吧，就不上 GIF 了。</p>
+<p><img src="\uploads\androidganhuo\yuanchuang\whyneed_viewobject\whyneed_viewobject_3.png" alt="VO Class 演示" title="VO Class 演示"></p>
+<p><img src="\uploads\androidganhuo\yuanchuang\whyneed_viewobject\whyneed_viewobject_4.png" alt="VO Interface 演示" title="VO Interface 演示"></p>
+<p><img src="\uploads\androidganhuo\yuanchuang\whyneed_viewobject\whyneed_viewobject_5.png" alt="VO Method 演示" title="VO Method 演示"></p>
+<h1 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h1><p>没有可以解决一切问题的妙药，no magic。</p>
+<p>关于上述 VO 的各种形式，需要根据具体的场景（项目）来区分，当然这也在很大程度上取决于个人的习惯以及项目的大小。</p>
+<p>如果是比较大的项目，那么建议直接抽出一个 VO 包来，为每个 View 都提供单独的 VO 对象，这样也可以保证项目的统一性，不会破坏层之间的依赖。</p>
+<p>如果是小项目，那么可以混着用，觉得哪种方式使用起来最方便，那就使用哪种吧！</p>
+<p>还是那句话，没有一定之规，要依据使用场景来确定。</p>
+<p>项目地址：<br><a href="https://github.com/DIY-green/ViewObjectDemo" target="_blank" rel="external">GitHub</a></p>
+
+      
+    </div>
+    
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+<div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton", disable="enable", onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}", style="cursor: pointer; border: 0; outline: 0; border-radius: 100%; padding: 0; margin: 0; letter-spacing: normal; text-transform: none; text-indent: 0px; text-shadow: none">
+    <span onmouseover="this.style.color='rgb(236,96,0)';this.style.background='rgb(204,204,204)'" onMouseOut="this.style.color='#fff';this.style.background='rgb(236,96,0)'" style="display: inline-block; width: 70px; height: 70px; border-radius: 100%; line-height: 81px; color: #fff; font: 400 35px/75px 'microsofty'; background: rgb(236,96,0)">赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/uploads/images/wechat-reward-image.png" alt="DIY-green WeChat Pay" style="width: 200px; max-width: 100%; display: inline-block"/>
+        <p>微信打赏</p>
+      </div>
+    
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/uploads/images/alipay-reward-image.png" alt="DIY-green Alipay" style="width: 200px; max-width: 100%; display: inline-block"/>
+        <p>支付宝打赏</p>
+      </div>
+    
+  </div>
+</div>
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Android/" rel="tag">#Android</a>
+          
+            <a href="/tags/干货/" rel="tag">#干货</a>
+          
+            <a href="/tags/ViewObject/" rel="tag">#ViewObject</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/05/07/Android干货[原创]/Android编码规范/" rel="next" title="Android编码规范">
+                <i class="fa fa-chevron-left"></i> Android编码规范
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/05/07/Android干货[原创]/Android MVP 详解（上）/" rel="prev" title="Android MVP 详解（上）">
+                Android MVP 详解（上） <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/05/07/Android干货[原创]/为什么你需要ViewObject/"
+           data-title="为什么你需要ViewObject" data-url="http://diy-green.com/2016/05/07/Android干货[原创]/为什么你需要ViewObject/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/images/avatar.jpg"
+               alt="DIY-green" />
+          <p class="site-author-name" itemprop="name">DIY-green</p>
+          <p class="site-description motion-element" itemprop="description">男子千年志，吾生未有涯。心随朗月高，志与秋霜洁。</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">52</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">27</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/DIY-green" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/users/0ad0a0afc409/latest_articles" target="_blank" title="JianShu">
+                  
+                    <i class="fa fa-globe"></i>
+                  
+                  JianShu
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element">
+            <div class="links-of-blogroll-title">
+              <i class="fa fa-globe fa-fw"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.jianshu.com/users/0ad0a0afc409/latest_articles" title="DIY-green简书" target="_blank">DIY-green简书</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.jianshu.com/users/3a482c4f0658/latest_articles" title="天接水0001" target="_blank">天接水0001</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://sunfusheng.com" title="孙福生" target="_blank">孙福生</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://kuanggang.github.io" title="匡罡" target="_blank">匡罡</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://Ivorfason.github.io" title="尹明仁" target="_blank">尹明仁</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://mengqingxiang.github.io" title="孟庆祥" target="_blank">孟庆祥</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#我理解的-VO"><span class="nav-number">1.</span> <span class="nav-text">我理解的 VO</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#VO-的实现方式"><span class="nav-number">2.</span> <span class="nav-text">VO 的实现方式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-单独的-VO-类"><span class="nav-number">2.1.</span> <span class="nav-text">1. 单独的 VO 类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#A-使用转换器"><span class="nav-number">2.1.1.</span> <span class="nav-text">A. 使用转换器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#B-构造方法中转换"><span class="nav-number">2.1.2.</span> <span class="nav-text">B. 构造方法中转换</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-实现接口成-VO"><span class="nav-number">2.2.</span> <span class="nav-text">2. 实现接口成 VO</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-添加方法成-VO"><span class="nav-number">2.3.</span> <span class="nav-text">3. 添加方法成 VO</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-没有-VO"><span class="nav-number">2.4.</span> <span class="nav-text">4. 没有 VO</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用-VO-的好处"><span class="nav-number">3.</span> <span class="nav-text">使用 VO 的好处</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#统一命名习惯"><span class="nav-number">3.1.</span> <span class="nav-text">统一命名习惯</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解耦-View-和-Model"><span class="nav-number">3.2.</span> <span class="nav-text">解耦 View 和 Model</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#铺平数据结构"><span class="nav-number">3.3.</span> <span class="nav-text">铺平数据结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#减少可能的问题"><span class="nav-number">3.4.</span> <span class="nav-text">减少可能的问题</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#VO-使用演示"><span class="nav-number">4.</span> <span class="nav-text">VO 使用演示</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#小结"><span class="nav-number">5.</span> <span class="nav-text">小结</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+<div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">DIY-green</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info powered-by">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+<div class="powered-by">
+  <span id="busuanzi_container_site_pv">
+    本站总访问量<span id="busuanzi_value_site_pv"></span>次
+  </span>
+</div>
+<div style="display:inline-block;">
+  <span id="busuanzi_container_site_uv">
+    本站访客数<span id="busuanzi_value_site_uv"></span>人次
+  </span>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"DIY-green"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+      
+      <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+      <script src="/js/src/hook-duoshuo.js"></script>
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+  
+  
+  <!-- custom analytics part create by xiamo -->
+<script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+<script>AV.initialize("UnkeFG0pM1t3q8H3y7NTLUA0-gzGzoHsz", "2oBUu9nxByteYjLFtBtqOPwN");</script>
+<script>
+function showTime(Counter) {
+	var query = new AV.Query(Counter);
+	$(".leancloud_visitors").each(function() {
+		var url = $(this).attr("id").trim();
+		query.equalTo("url", url);
+		query.find({
+			success: function(results) {
+				if (results.length == 0) {
+					var content = '0 ' + $(document.getElementById(url)).text();
+					$(document.getElementById(url)).text(content);
+					return;
+				}
+				for (var i = 0; i < results.length; i++) {
+					var object = results[i];
+					var content = object.get('time') + ' ' + $(document.getElementById(url)).text();
+					$(document.getElementById(url)).text(content);
+				}
+			},
+			error: function(object, error) {
+				console.log("Error: " + error.code + " " + error.message);
+			}
+		});
+
+	});
+}
+
+function addCount(Counter) {
+	var Counter = AV.Object.extend("Counter");
+	url = $(".leancloud_visitors").attr('id').trim();
+	title = $(".leancloud_visitors").attr('data-flag-title').trim();
+	var query = new AV.Query(Counter);
+	query.equalTo("url", url);
+	query.find({
+		success: function(results) {
+			if (results.length > 0) {
+				var counter = results[0];
+				counter.fetchWhenSave(true);
+				counter.increment("time");
+				counter.save(null, {
+					success: function(counter) {
+						var content =  counter.get('time') + ' ' + $(document.getElementById(url)).text();
+						$(document.getElementById(url)).text(content);
+					},
+					error: function(counter, error) {
+						console.log('Failed to save Visitor num, with error message: ' + error.message);
+					}
+				});
+			} else {
+				var newcounter = new Counter();
+				newcounter.set("title", title);
+				newcounter.set("url", url);
+				newcounter.set("time", 1);
+				newcounter.save(null, {
+					success: function(newcounter) {
+					    console.log("newcounter.get('time')="+newcounter.get('time'));
+						var content = newcounter.get('time') + ' ' + $(document.getElementById(url)).text();
+						$(document.getElementById(url)).text(content);
+					},
+					error: function(newcounter, error) {
+						console.log('Failed to create');
+					}
+				});
+			}
+		},
+		error: function(error) {
+			console.log('Error:' + error.code + " " + error.message);
+		}
+	});
+}
+$(function() {
+	var Counter = AV.Object.extend("Counter");
+	if ($('.leancloud_visitors').length == 1) {
+		addCount(Counter);
+	} else if ($('.post-title-link').length > 1) {
+		showTime(Counter);
+	}
+}); 
+</script>
+  
+  
+</body>
+</html>

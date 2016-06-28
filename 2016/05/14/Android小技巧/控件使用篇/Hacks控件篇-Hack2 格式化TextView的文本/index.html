@@ -1,0 +1,993 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Android,Android小技巧,Hacks控件使用篇," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="作者：李旺成时间：2016年5月14日
+
+
+这个 Hack 将介绍关于 TextView 格式化的相关知识。
+
+特殊样式文本先来看看微博中一段文本包含不同样式的示例：
+
+在网页上要实现类似上面的效果会比较简单：
+
+网页源码：12345678910&amp;lt;div class=&quot;WB_text W_f14&quot; node-type=&quot;feed_list_content&quot;&amp;gt;&amp;lt;a target=">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hacks控件篇-Hack2 格式化TextView的文本">
+<meta property="og:url" content="http://diy-green.com/2016/05/14/Android小技巧/控件使用篇/Hacks控件篇-Hack2 格式化TextView的文本/index.html">
+<meta property="og:site_name" content="DIY-green">
+<meta property="og:description" content="作者：李旺成时间：2016年5月14日
+
+
+这个 Hack 将介绍关于 TextView 格式化的相关知识。
+
+特殊样式文本先来看看微博中一段文本包含不同样式的示例：
+
+在网页上要实现类似上面的效果会比较简单：
+
+网页源码：12345678910&amp;lt;div class=&quot;WB_text W_f14&quot; node-type=&quot;feed_list_content&quot;&amp;gt;&amp;lt;a target=">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidhacks\widgetuse\hack2\widgetuse_hack2_1.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidhacks\widgetuse\hack2\widgetuse_hack2_2.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidhacks\widgetuse\hack2\widgetuse_hack2_3.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidhacks\widgetuse\hack2\widgetuse_hack2_4.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidhacks\widgetuse\hack2\widgetuse_hack2_5.png">
+<meta property="og:updated_time" content="2016-05-14T11:02:40.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hacks控件篇-Hack2 格式化TextView的文本">
+<meta name="twitter:description" content="作者：李旺成时间：2016年5月14日
+
+
+这个 Hack 将介绍关于 TextView 格式化的相关知识。
+
+特殊样式文本先来看看微博中一段文本包含不同样式的示例：
+
+在网页上要实现类似上面的效果会比较简单：
+
+网页源码：12345678910&amp;lt;div class=&quot;WB_text W_f14&quot; node-type=&quot;feed_list_content&quot;&amp;gt;&amp;lt;a target=">
+<meta name="twitter:image" content="http://diy-green.com/\uploads\androidhacks\widgetuse\hack2\widgetuse_hack2_1.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'DIY-green'
+    }
+  };
+</script>
+
+  <title> Hacks控件篇-Hack2 格式化TextView的文本 | DIY-green </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?af1b7efbf565bc568165c5a0600a0207";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+  <div style="display: none;">
+    <script src="http://s6.cnzz.com/stat.php?id=1258791461&web_id=1258791461" type="text/javascript"></script>
+  </div>
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">DIY-green</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            全部
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-androidstudydemo">
+          <a href="/categories/AndroidStudyDemo/" rel="section">
+            
+              <i class="menu-item-icon fa fa-hand-right fa-fw"></i> <br />
+            
+            ● &nbsp; AndroidStudyDemo
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-androidganhuo">
+          <a href="/categories/Android干货/" rel="section">
+            
+              <i class="menu-item-icon fa fa-hand-right fa-fw"></i> <br />
+            
+            ● &nbsp; Android干货
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-androidhacks">
+          <a href="/categories/Android小技巧/" rel="section">
+            
+              <i class="menu-item-icon fa fa-hand-right fa-fw"></i> <br />
+            
+            ● &nbsp; Android小技巧
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-androidstudio">
+          <a href="/categories/AndroidStudio/" rel="section">
+            
+              <i class="menu-item-icon fa fa-hand-right fa-fw"></i> <br />
+            
+            ● &nbsp; AndroidStudio
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-essay">
+          <a href="/categories/随笔/" rel="section">
+            
+              <i class="menu-item-icon fa fa-hand-right fa-fw"></i> <br />
+            
+            ● &nbsp; 随笔
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Hacks控件篇-Hack2 格式化TextView的文本
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-05-14T19:02:40+08:00" content="2016-05-14">
+              2016-05-14
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Android小技巧/" itemprop="url" rel="index">
+                    <span itemprop="name">Android小技巧</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/05/14/Android小技巧/控件使用篇/Hacks控件篇-Hack2 格式化TextView的文本/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/14/Android小技巧/控件使用篇/Hacks控件篇-Hack2 格式化TextView的文本/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+		  &nbsp; | &nbsp;
+             <span id="/2016/05/14/Android小技巧/控件使用篇/Hacks控件篇-Hack2 格式化TextView的文本/" class="leancloud_visitors" data-flag-title="Hacks控件篇-Hack2 格式化TextView的文本">
+               
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+		  
+		  <!--<span id="busuanzi_container_page_pv">
+		    &nbsp; | &nbsp;<span id="busuanzi_value_page_pv"></span>阅读
+		  </span>
+		  
+		  
+			&nbsp; | &nbsp;
+			<span id="/2016/05/14/Android小技巧/控件使用篇/Hacks控件篇-Hack2 格式化TextView的文本/"class="leancloud_visitors" data-flag-title="Hacks控件篇-Hack2 格式化TextView的文本">
+					 &nbsp;阅读
+					</span>
+			-->
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="\uploads\androidhacks\widgetuse\hack2\widgetuse_hack2_1.png" alt="格式化TextView的文本" title="格式化TextView的文本"></p>
+<p><strong>作者：<a href="https://github.com/DIY-green/" target="_blank" rel="external">李旺成</a></strong><br><strong>时间：2016年5月14日</strong></p>
+<hr>
+<blockquote>
+<p>这个 Hack 将介绍关于 TextView 格式化的相关知识。</p>
+</blockquote>
+<h1 id="特殊样式文本"><a href="#特殊样式文本" class="headerlink" title="特殊样式文本"></a>特殊样式文本</h1><p>先来看看微博中一段文本包含不同样式的示例：</p>
+<p><img src="\uploads\androidhacks\widgetuse\hack2\widgetuse_hack2_2.png" alt="微博示例" title="微博示例"></p>
+<p>在网页上要实现类似上面的效果会比较简单：</p>
+<p><img src="\uploads\androidhacks\widgetuse\hack2\widgetuse_hack2_3.png" alt="网页微博示例" title="网页微博示例"></p>
+<p>网页源码：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"WB_text W_f14"</span> <span class="attr">node-type</span>=<span class="string">"feed_list_content"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">target</span>=<span class="string">"_blank"</span> <span class="attr">render</span>=<span class="string">"ext"</span> <span class="attr">suda-uatrack</span>=<span class="string">"key=topic_click&amp;value=click_topic"</span> <span class="attr">class</span>=<span class="string">"a_topic"</span> <span class="attr">extra-data</span>=<span class="string">"type=topic"</span> <span class="attr">href</span>=<span class="string">"http://huati.weibo.com/k/%E5%A5%87%E8%91%A9%E8%AF%B4?from=501"</span>&gt;</span>#奇葩说#<span class="tag">&lt;/<span class="name">a</span>&gt;</span> </span><br><span class="line">面对辩题</span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">target</span>=<span class="string">"_blank"</span> <span class="attr">render</span>=<span class="string">"ext"</span> <span class="attr">suda-uatrack</span>=<span class="string">"key=topic_click&amp;value=click_topic"</span> <span class="attr">class</span>=<span class="string">"a_topic"</span> <span class="attr">extra-data</span>=<span class="string">"type=topic"</span> <span class="attr">href</span>=<span class="string">"http://huati.weibo.com/k/%E7%88%B1%E4%B8%8A%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E7%AE%97%E4%B8%8D%E7%AE%97%E7%88%B1%E6%83%85?from=501"</span>&gt;</span>#爱上人工智能算不算爱情#<span class="tag">&lt;/<span class="name">a</span>&gt;</span> </span><br><span class="line">大美玲</span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">target</span>=<span class="string">"_blank"</span> <span class="attr">render</span>=<span class="string">"ext"</span> <span class="attr">extra-data</span>=<span class="string">"type=atname"</span> <span class="attr">href</span>=<span class="string">"http://weibo.com/n/Daghe?from=feed&amp;loc=at"</span> <span class="attr">usercard</span>=<span class="string">"name=Daghe"</span>&gt;</span>@Daghe<span class="tag">&lt;/<span class="name">a</span>&gt;</span> </span><br><span class="line">说完自己的观点之后，给我们讲了一个自己的故事。当思达站在路上像一个笨蛋一样，呆呆的回头看的时候，那种等不到的失落感充满整个心的时候，大概这就是爱吧。我不明白那个人为什么迟迟不出现，我想</span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">target</span>=<span class="string">"_blank"</span> <span class="attr">render</span>=<span class="string">"ext"</span> <span class="attr">suda-uatrack</span>=<span class="string">"key=topic_click&amp;value=click_topic"</span> <span class="attr">class</span>=<span class="string">"a_topic"</span> <span class="attr">extra-data</span>=<span class="string">"type=topic"</span> <span class="attr">href</span>=<span class="string">"http://huati.weibo.com/k/%E5%B8%AE%E5%A7%9C%E6%80%9D%E8%BE%BE%E6%89%BE%E5%88%B0%E4%BB%96?from=501"</span>&gt;</span>#帮姜思达找到他#<span class="tag">&lt;/<span class="name">a</span>&gt;</span>。</span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">suda-uatrack</span>=<span class="string">"key=tblog_card&amp;value=click_title:3974797250061553:1034-video:1034%3A0a3f8741d4d5d557a14ea26facccedd2:page_102803_home:5512188486:3974797250061553:5512188486"</span> <span class="attr">title</span>=<span class="string">"秒拍视频"</span> <span class="attr">href</span>=<span class="string">"http://t.cn/RqdNBky"</span> <span class="attr">action-type</span>=<span class="string">"feed_list_url"</span> <span class="attr">target</span>=<span class="string">"_blank"</span>&gt;</span><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"W_ficon ficon_cd_video"</span>&gt;</span>L<span class="tag">&lt;/<span class="name">i</span>&gt;</span>秒拍视频<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>那在 Android 中要实现上述效果该如何做？</p>
+<h1 id="使用-TextView-展示多样式文本"><a href="#使用-TextView-展示多样式文本" class="headerlink" title="使用 TextView 展示多样式文本"></a>使用 TextView 展示多样式文本</h1><p>一般在类微博、QQ空间这类社交 App 中使用这类多样式文本的地方比较常见。要实现这些效果并不需要什么自定义控件，因为 Android 里面的 TextView 已经足以胜任。（话说 TextView 一个非常常用的控件，但是可能你并不知道它所“蕴含的能量”，它的强大可能让人惊讶…）</p>
+<p>示例：</p>
+<p><img src="\uploads\androidhacks\widgetuse\hack2\widgetuse_hack2_4.png" alt="使用 TextView 展示多样式文本" title="使用 TextView 展示多样式文本"></p>
+<h2 id="使用-Html-实现"><a href="#使用-Html-实现" class="headerlink" title="使用 Html 实现"></a>使用 Html 实现</h2><p>先介绍一种直观或者说使用比较简单的方法来实现：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mTestTV1 = (TextView) findViewById(R.id.tv_test1);</span><br><span class="line"></span><br><span class="line">String htmlText = <span class="string">"&lt;a href=\"http://diy-green.github.io/\"&gt;我是链接&lt;/a&gt;哈哈&lt;font color='#ff0000'&gt;@XXX&lt;font&gt;"</span>;</span><br><span class="line">mTestTV1.setText(Html.fromHtml(htmlText));</span><br></pre></td></tr></table></figure></p>
+<p>很简单，两行代码或者一行代码就搞定了，是的没错就是用了两个 Html 标签（<strong>注意：</strong>TextView 只支持部分的 Html 标签，不要当 WebView 用）。</p>
+<p>也就是说，只需两步：</p>
+<ol>
+<li>使用 Html 标签包裹目标文本</li>
+<li>将 Html.fromHtml() 方法处理过的文本赋值给 TextView</li>
+</ol>
+<p>那 Html.fromHtml() 方法到底做了什么工作？这里不打算介绍该方法的源码实现，我们更关心的是该方法处理后返回的对象。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Spanned <span class="title">fromHtml</span><span class="params">(String source)</span></span>;</span><br></pre></td></tr></table></figure></p>
+<p>Spanned 是什么？这是个接口：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Spanned</span> <span class="keyword">extends</span> <span class="title">CharSequence</span> </span>&#123;&#125;</span><br></pre></td></tr></table></figure></p>
+<p>那就可以解释为什么能够直接将 Spanned 赋值给 TextView 的 setText(CharSequence text) 方法了。</p>
+<p>来看下 Spanned 的继承结构，找找它的子类什么的：</p>
+<p><img src="\uploads\androidhacks\widgetuse\hack2\widgetuse_hack2_5.png" alt="Spanned 的继承结构" title="Spanned 的继承结构"></p>
+<p>通过继承结构，我们知道了该接口的实现类，那么我们直接使用它的实现类即可。</p>
+<h2 id="SpannableString-实现"><a href="#SpannableString-实现" class="headerlink" title="SpannableString 实现"></a>SpannableString 实现</h2><p>上面介绍的使用 Html 标签实现方式虽然直观，而且使用简便，但是有如下不足：</p>
+<ul>
+<li>功能局限性：并不支持所有的 Html 标签，有些效果不能实现</li>
+<li>性能损耗：由于使用的是 Html 标签，那么不可避免需要解析这些标签，这是有性能损耗的</li>
+</ul>
+<p>看代码吧：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">mTestTV2 = (TextView) findViewById(R.id.tv_test2);</span><br><span class="line"></span><br><span class="line">Spannable spannableString = <span class="keyword">new</span> SpannableString(<span class="string">"我是不同颜色的文本，哈哈，不同颜色文本"</span>);</span><br><span class="line">spannableString.setSpan(<span class="keyword">new</span> BackgroundColorSpan(Color.RED), <span class="number">1</span>, <span class="number">4</span>, <span class="number">0</span>);</span><br><span class="line">spannableString.setSpan(<span class="keyword">new</span> ForegroundColorSpan(Color.BLUE), <span class="number">5</span>, <span class="number">9</span>, <span class="number">0</span>);</span><br><span class="line">mTestTV2.setText(spannableString);</span><br></pre></td></tr></table></figure></p>
+<p>这种方式稍显麻烦，但也还好，主要是如下两步：</p>
+<ol>
+<li>创建 SpannableString 对象</li>
+<li>为不同的文本段设置不同的 “Span”</li>
+</ol>
+<p>上面两种方式的本质是一样的，都需要生成 Spanned 对象，只是生成的方式的差别而已。</p>
+<p>这里就不展开对 Spanned 进行介绍，这个将会在 <a href="http://www.jianshu.com/p/faf1ce1e232b" target="_blank" rel="external">AndroidStudyDemo 系列</a> 和 <a href="http://diy-green.github.io/categories/AndroidStudyDemo/" target="_blank" rel="external">AndroidStudyDemo 分类</a> 中写一篇详解。</p>
+<h1 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h1><p>TextView 使用简单，但是功能非常强大。上面介绍的两种格式化文本的方式，可以根据实际需要选择。</p>
+<h1 id="项目地址"><a href="#项目地址" class="headerlink" title="项目地址"></a>项目地址</h1><p><strong><a href="https://github.com/DIY-green/AndroidHacks" target="_blank" rel="external">AndroidHacks合集</a></strong><br><strong><a href="https://github.com/DIY-green/AndroidHacksWidgetUse" target="_blank" rel="external">控件使用篇</a></strong></p>
+<p>项目示例代码：<br><strong><a href="https://github.com/DIY-green/AndroidHacksWidgetUse/blob/master/app/src/main/java/com/diygreen/widgetuse/FormatTextActivity.java" target="_blank" rel="external">FormatTextActivity.java</a></strong><br><strong><a href="https://github.com/DIY-green/AndroidHacksWidgetUse/blob/master/app/src/main/res/layout/activity_format_text.xml" target="_blank" rel="external">activity_format_text.xml</a></strong></p>
+
+      
+    </div>
+    
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+<div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton", disable="enable", onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}", style="cursor: pointer; border: 0; outline: 0; border-radius: 100%; padding: 0; margin: 0; letter-spacing: normal; text-transform: none; text-indent: 0px; text-shadow: none">
+    <span onmouseover="this.style.color='rgb(236,96,0)';this.style.background='rgb(204,204,204)'" onMouseOut="this.style.color='#fff';this.style.background='rgb(236,96,0)'" style="display: inline-block; width: 70px; height: 70px; border-radius: 100%; line-height: 81px; color: #fff; font: 400 35px/75px 'microsofty'; background: rgb(236,96,0)">赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/uploads/images/wechat-reward-image.png" alt="DIY-green WeChat Pay" style="width: 200px; max-width: 100%; display: inline-block"/>
+        <p>微信打赏</p>
+      </div>
+    
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/uploads/images/alipay-reward-image.png" alt="DIY-green Alipay" style="width: 200px; max-width: 100%; display: inline-block"/>
+        <p>支付宝打赏</p>
+      </div>
+    
+  </div>
+</div>
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Android/" rel="tag">#Android</a>
+          
+            <a href="/tags/Android小技巧/" rel="tag">#Android小技巧</a>
+          
+            <a href="/tags/Hacks控件使用篇/" rel="tag">#Hacks控件使用篇</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/05/14/Android小技巧/控件使用篇/Hacks控件篇-Hack1 避免在 EditText 中验证日期/" rel="next" title="Hacks控件篇-Hack1 避免在 EditText 中验证日期">
+                <i class="fa fa-chevron-left"></i> Hacks控件篇-Hack1 避免在 EditText 中验证日期
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/05/14/Android小技巧/控件使用篇/Hacks控件篇-Hack3 为文本添加发亮的效果/" rel="prev" title="Hacks控件篇-Hack3 为文本添加发亮的效果">
+                Hacks控件篇-Hack3 为文本添加发亮的效果 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/05/14/Android小技巧/控件使用篇/Hacks控件篇-Hack2 格式化TextView的文本/"
+           data-title="Hacks控件篇-Hack2 格式化TextView的文本" data-url="http://diy-green.com/2016/05/14/Android小技巧/控件使用篇/Hacks控件篇-Hack2 格式化TextView的文本/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/images/avatar.jpg"
+               alt="DIY-green" />
+          <p class="site-author-name" itemprop="name">DIY-green</p>
+          <p class="site-description motion-element" itemprop="description">男子千年志，吾生未有涯。心随朗月高，志与秋霜洁。</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">52</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">27</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/DIY-green" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/users/0ad0a0afc409/latest_articles" target="_blank" title="JianShu">
+                  
+                    <i class="fa fa-globe"></i>
+                  
+                  JianShu
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element">
+            <div class="links-of-blogroll-title">
+              <i class="fa fa-globe fa-fw"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.jianshu.com/users/0ad0a0afc409/latest_articles" title="DIY-green简书" target="_blank">DIY-green简书</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.jianshu.com/users/3a482c4f0658/latest_articles" title="天接水0001" target="_blank">天接水0001</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://sunfusheng.com" title="孙福生" target="_blank">孙福生</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://kuanggang.github.io" title="匡罡" target="_blank">匡罡</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://Ivorfason.github.io" title="尹明仁" target="_blank">尹明仁</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://mengqingxiang.github.io" title="孟庆祥" target="_blank">孟庆祥</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#特殊样式文本"><span class="nav-number">1.</span> <span class="nav-text">特殊样式文本</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用-TextView-展示多样式文本"><span class="nav-number">2.</span> <span class="nav-text">使用 TextView 展示多样式文本</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#使用-Html-实现"><span class="nav-number">2.1.</span> <span class="nav-text">使用 Html 实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SpannableString-实现"><span class="nav-number">2.2.</span> <span class="nav-text">SpannableString 实现</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#小结"><span class="nav-number">3.</span> <span class="nav-text">小结</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#项目地址"><span class="nav-number">4.</span> <span class="nav-text">项目地址</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+<div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">DIY-green</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info powered-by">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+<div class="powered-by">
+  <span id="busuanzi_container_site_pv">
+    本站总访问量<span id="busuanzi_value_site_pv"></span>次
+  </span>
+</div>
+<div style="display:inline-block;">
+  <span id="busuanzi_container_site_uv">
+    本站访客数<span id="busuanzi_value_site_uv"></span>人次
+  </span>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"DIY-green"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+      
+      <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+      <script src="/js/src/hook-duoshuo.js"></script>
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+  
+  
+  <!-- custom analytics part create by xiamo -->
+<script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+<script>AV.initialize("UnkeFG0pM1t3q8H3y7NTLUA0-gzGzoHsz", "2oBUu9nxByteYjLFtBtqOPwN");</script>
+<script>
+function showTime(Counter) {
+	var query = new AV.Query(Counter);
+	$(".leancloud_visitors").each(function() {
+		var url = $(this).attr("id").trim();
+		query.equalTo("url", url);
+		query.find({
+			success: function(results) {
+				if (results.length == 0) {
+					var content = '0 ' + $(document.getElementById(url)).text();
+					$(document.getElementById(url)).text(content);
+					return;
+				}
+				for (var i = 0; i < results.length; i++) {
+					var object = results[i];
+					var content = object.get('time') + ' ' + $(document.getElementById(url)).text();
+					$(document.getElementById(url)).text(content);
+				}
+			},
+			error: function(object, error) {
+				console.log("Error: " + error.code + " " + error.message);
+			}
+		});
+
+	});
+}
+
+function addCount(Counter) {
+	var Counter = AV.Object.extend("Counter");
+	url = $(".leancloud_visitors").attr('id').trim();
+	title = $(".leancloud_visitors").attr('data-flag-title').trim();
+	var query = new AV.Query(Counter);
+	query.equalTo("url", url);
+	query.find({
+		success: function(results) {
+			if (results.length > 0) {
+				var counter = results[0];
+				counter.fetchWhenSave(true);
+				counter.increment("time");
+				counter.save(null, {
+					success: function(counter) {
+						var content =  counter.get('time') + ' ' + $(document.getElementById(url)).text();
+						$(document.getElementById(url)).text(content);
+					},
+					error: function(counter, error) {
+						console.log('Failed to save Visitor num, with error message: ' + error.message);
+					}
+				});
+			} else {
+				var newcounter = new Counter();
+				newcounter.set("title", title);
+				newcounter.set("url", url);
+				newcounter.set("time", 1);
+				newcounter.save(null, {
+					success: function(newcounter) {
+					    console.log("newcounter.get('time')="+newcounter.get('time'));
+						var content = newcounter.get('time') + ' ' + $(document.getElementById(url)).text();
+						$(document.getElementById(url)).text(content);
+					},
+					error: function(newcounter, error) {
+						console.log('Failed to create');
+					}
+				});
+			}
+		},
+		error: function(error) {
+			console.log('Error:' + error.code + " " + error.message);
+		}
+	});
+}
+$(function() {
+	var Counter = AV.Object.extend("Counter");
+	if ($('.leancloud_visitors').length == 1) {
+		addCount(Counter);
+	} else if ($('.post-title-link').length > 1) {
+		showTime(Counter);
+	}
+}); 
+</script>
+  
+  
+</body>
+</html>

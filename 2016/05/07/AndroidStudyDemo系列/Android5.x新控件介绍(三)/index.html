@@ -1,0 +1,1058 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="StudyDemo,Android 5," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="作者：李旺成时间：2016年4月18日
+
+接上篇 Android5.x新控件介绍（二）
+
+这是 Android 5.x 中的新控件介绍的最后一篇，在这一篇中主要介绍 RecyclerView，该系列文章以讲解新特性和简单使用为主。
+
+简介RecyclerView 是 android-support-v7-21版本中新增的一个 Widget，看看一句话介绍：
+
+能够在有限的窗口中展示大数据集合的灵">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android5.x新控件介绍(三)">
+<meta property="og:url" content="http://diy-green.com/2016/05/07/AndroidStudyDemo系列/Android5.x新控件介绍(三)/index.html">
+<meta property="og:site_name" content="DIY-green">
+<meta property="og:description" content="作者：李旺成时间：2016年4月18日
+
+接上篇 Android5.x新控件介绍（二）
+
+这是 Android 5.x 中的新控件介绍的最后一篇，在这一篇中主要介绍 RecyclerView，该系列文章以讲解新特性和简单使用为主。
+
+简介RecyclerView 是 android-support-v7-21版本中新增的一个 Widget，看看一句话介绍：
+
+能够在有限的窗口中展示大数据集合的灵">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android5\android5_newwidget3_1.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android5\android5_newwidget3_2.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android5\android5_newwidget3_3.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android5\android5_newwidget3_4.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android5\android5_newwidget3_5.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android5\android5_newwidget3_6.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android5\android5_newwidget3_7.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android5\android5_newwidget3_8.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android5\android5_newwidget3_9.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android5\android5_newwidget3_10.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android5\android5_newwidget3_11.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android5\android5_newwidget3_12.png">
+<meta property="og:updated_time" content="2016-04-26T05:30:40.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android5.x新控件介绍(三)">
+<meta name="twitter:description" content="作者：李旺成时间：2016年4月18日
+
+接上篇 Android5.x新控件介绍（二）
+
+这是 Android 5.x 中的新控件介绍的最后一篇，在这一篇中主要介绍 RecyclerView，该系列文章以讲解新特性和简单使用为主。
+
+简介RecyclerView 是 android-support-v7-21版本中新增的一个 Widget，看看一句话介绍：
+
+能够在有限的窗口中展示大数据集合的灵">
+<meta name="twitter:image" content="http://diy-green.com/\uploads\androidstudydemo\android5\android5_newwidget3_1.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'DIY-green'
+    }
+  };
+</script>
+
+  <title> Android5.x新控件介绍(三) | DIY-green </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?af1b7efbf565bc568165c5a0600a0207";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+  <div style="display: none;">
+    <script src="http://s6.cnzz.com/stat.php?id=1258791461&web_id=1258791461" type="text/javascript"></script>
+  </div>
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">DIY-green</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            全部
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-androidstudydemo">
+          <a href="/categories/AndroidStudyDemo/" rel="section">
+            
+              <i class="menu-item-icon fa fa-hand-right fa-fw"></i> <br />
+            
+            ● &nbsp; AndroidStudyDemo
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-androidganhuo">
+          <a href="/categories/Android干货/" rel="section">
+            
+              <i class="menu-item-icon fa fa-hand-right fa-fw"></i> <br />
+            
+            ● &nbsp; Android干货
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-androidhacks">
+          <a href="/categories/Android小技巧/" rel="section">
+            
+              <i class="menu-item-icon fa fa-hand-right fa-fw"></i> <br />
+            
+            ● &nbsp; Android小技巧
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-androidstudio">
+          <a href="/categories/AndroidStudio/" rel="section">
+            
+              <i class="menu-item-icon fa fa-hand-right fa-fw"></i> <br />
+            
+            ● &nbsp; AndroidStudio
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-essay">
+          <a href="/categories/随笔/" rel="section">
+            
+              <i class="menu-item-icon fa fa-hand-right fa-fw"></i> <br />
+            
+            ● &nbsp; 随笔
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Android5.x新控件介绍(三)
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-05-07T20:39:24+08:00" content="2016-05-07">
+              2016-05-07
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/AndroidStudyDemo/" itemprop="url" rel="index">
+                    <span itemprop="name">AndroidStudyDemo</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/AndroidStudyDemo/Android-5/" itemprop="url" rel="index">
+                    <span itemprop="name">Android 5</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/05/07/AndroidStudyDemo系列/Android5.x新控件介绍(三)/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/07/AndroidStudyDemo系列/Android5.x新控件介绍(三)/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+		  &nbsp; | &nbsp;
+             <span id="/2016/05/07/AndroidStudyDemo系列/Android5.x新控件介绍(三)/" class="leancloud_visitors" data-flag-title="Android5.x新控件介绍(三)">
+               
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+		  
+		  <!--<span id="busuanzi_container_page_pv">
+		    &nbsp; | &nbsp;<span id="busuanzi_value_page_pv"></span>阅读
+		  </span>
+		  
+		  
+			&nbsp; | &nbsp;
+			<span id="/2016/05/07/AndroidStudyDemo系列/Android5.x新控件介绍(三)/"class="leancloud_visitors" data-flag-title="Android5.x新控件介绍(三)">
+					 &nbsp;阅读
+					</span>
+			-->
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="\uploads\androidstudydemo\android5\android5_newwidget3_1.png" alt="Android 5.x 新控件" title="Android5.x新控件(三)思维导图"></p>
+<p><strong>作者：<a href="https://github.com/DIY-green/" target="_blank" rel="external">李旺成</a></strong><br><strong>时间：2016年4月18日</strong></p>
+<hr>
+<p>接上篇 <a href="http://www.jianshu.com/p/03e9ff737d35" target="_blank" rel="external">Android5.x新控件介绍（二）</a></p>
+<blockquote>
+<p>这是 Android 5.x 中的<strong>新控件</strong>介绍的最后一篇，在这一篇中主要介绍 RecyclerView，该系列文章以讲解新特性和简单使用为主。</p>
+</blockquote>
+<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>RecyclerView 是 android-support-v7-21版本中新增的一个 Widget，看看一句话介绍：</p>
+<ul>
+<li>能够在有限的窗口中展示大数据集合的灵活视图</li>
+<li>ListView 的升级版本，更加先进和灵活</li>
+<li>通过方便的视图复用轻松实现自定义高效的视图集</li>
+<li>它就是一个容器，可以有效的重用和滚动</li>
+</ul>
+<p>上面从不同角度指出了 RecyclerView 的一些特点，我觉得可以简单的从其命名上来理解：<br><strong>Recycler：</strong>反复循环器，再循环器。</p>
+<p>对，就是循环，这个概念有没有很熟悉的感觉。回想下 ListView、GridView等，这些 AdapterView，它们就是利用视图回收技术来展示大量数据的控件；RecyclerView 与它们有什么区别，或者说其优势在哪里？</p>
+<p>先看看官方介绍：</p>
+<p><img src="\uploads\androidstudydemo\android5\android5_newwidget3_2.png" alt="RecyclerView 类" title="RecyclerView 类"><br>继承自 ViewGroup，这个情理之中意料之外，为什么这么说？</p>
+<p>情理之中，是指 RecyclerView 它是个容器，那么肯定会直接或间接继承自 ViewGroup。<br>意料之外，上面提到的 ListView 都是继承自 AdapterView，而 RecyclerView 又何其有类似的功能 —— 视图复用。但是他竟然没有继承自 AdapterView，从这一点来看，RecyclerView 的改动应该不小，完全不按以前那一套来了。</p>
+<p>好了，闲话不多说，看看 RecyclerView 的相关类：</p>
+<p><img src="\uploads\androidstudydemo\android5\android5_newwidget3_3.png" alt="RecyclerView 相关类" title="RecyclerView 相关类"></p>
+<p>这里直接列了出来，不是说它们都很常用，不要紧张，常用到的没这么多。</p>
+<p>大致说一下 RecyclerView 的实现思路：</p>
+<p><img src="\uploads\androidstudydemo\android5\android5_newwidget3_4.png" alt="RecyclerView原理" title="RecyclerView原理"></p>
+<p>上图只是为了说明一个问题：RecyclerView 只负责 Receiver，其他的功能都交给其他专门的类去处理，比如：Adapter 专门负责数据绑定（PS：话说，ListView 也有Adapter，哈哈，举个例子而已）。有没有一点单一职责原则的感觉。</p>
+<p>可以看出 RecyclerView 的设计更利于解耦，更灵活，可操作性更高。</p>
+<p>下面来看看怎么用。</p>
+<h1 id="简单使用"><a href="#简单使用" class="headerlink" title="简单使用"></a>简单使用</h1><p>先看看效果：</p>
+<p><img src="\uploads\androidstudydemo\android5\android5_newwidget3_5.png" alt="RecyclerView 示例" title="RecyclerView 示例"></p>
+<p>一个简单的 Demo，演示了 RecyclerView 的简单使用，下面看看所涉及到的几个类。</p>
+<h2 id="几个关键类"><a href="#几个关键类" class="headerlink" title="几个关键类"></a>几个关键类</h2><h3 id="Adapter"><a href="#Adapter" class="headerlink" title="Adapter"></a>Adapter</h3><p>这个与 ListView 的 Adapter 功能类似，可以托管数据集合，为每一项Item创建视图并且绑定数据。<br>先看官方文档：</p>
+<p><img src="\uploads\androidstudydemo\android5\android5_newwidget3_6.png" alt="RecyclerView 的 Adapter 类" title="RecyclerView 的 Adapter 类"></p>
+<p>继承自 Object，与 AdapterView 所使用的 BaseAdapter 没有多少关系。但是不用急，看看它提供的方法，和 BaseAdapter 提供了不少类似的。</p>
+<p>关于具体用法，在下面介绍吧！</p>
+<h3 id="ViewHolder"><a href="#ViewHolder" class="headerlink" title="ViewHolder"></a>ViewHolder</h3><p>Google 建议 在 ListView 的 Adapter 中使用 ViewHolder，但是没有严格的限制，使用与否（还有用对与否）都没有什么标准，完全看开发者的意愿。</p>
+<p>ViewHolder ，主要用来将数据和布局 item 进行绑定。所有对视图的操作都需要通过 ViewHolder 来进行，这是强制性的。</p>
+<p>看下官方的介绍：</p>
+<p><img src="\uploads\androidstudydemo\android5\android5_newwidget3_7.png" alt="RecyclerView 的 ViewHolder 类" title="RecyclerView 的 ViewHolder 类"></p>
+<h3 id="LayoutManager"><a href="#LayoutManager" class="headerlink" title="LayoutManager"></a>LayoutManager</h3><p>LayoutManager，这个是新概念，在 ListView 中从没听说过；其作用就是负责Item 视图的布局的显示管理。</p>
+<p>先看下官方介绍：<br><img src="\uploads\androidstudydemo\android5\android5_newwidget3_8.png" alt="LayoutManager 类" title="LayoutManager 类"></p>
+<p>它有三个实现类，看下它们的继承结构：<br><img src="\uploads\androidstudydemo\android5\android5_newwidget3_9.png" alt="LayoutManager的继承结构" title="LayoutManager的继承结构"></p>
+<ul>
+<li>LinearLayoutManager：水平或者垂直的 Item 视图</li>
+<li>GridLayoutManager：网格 Item 视图</li>
+<li>StaggeredGridLayoutManager：交错的网格 Item 视图（瀑布流，明白了吧）</li>
+</ul>
+<p>这几个类负责 RecyclerView 中 Item 的排布，具体使用在下面介绍。</p>
+<h3 id="ItemDecoration"><a href="#ItemDecoration" class="headerlink" title="ItemDecoration"></a>ItemDecoration</h3><p>ItemDecoration 用于设置条目的分割线，在 <strong>ListView</strong> 中通过 android:divider 属性来为条目设置分割线。RecyclerView 可不管这些了，都交给“专人”（专门的类）负责。这样灵活了，效果也更丰富，也稍微麻烦了（呵呵，哪有两全其美的设计）。</p>
+<p>看下官方介绍：</p>
+<p><img src="\uploads\androidstudydemo\android5\android5_newwidget3_10.png" alt="ItemDecoration 类" title="ItemDecoration 类"></p>
+<p>上面使用红色框圈出来的 onDrawXxx() 方法，可想而知，你想要什么样式/效果，自己画去。</p>
+<h3 id="ItemAnimator"><a href="#ItemAnimator" class="headerlink" title="ItemAnimator"></a>ItemAnimator</h3><p>还记得给 ListView 的 Item 添加动画吗？全部都得自己弄，现在好了，RecyclerView Item 的添加/删除动画都交给 ItemAnimator。</p>
+<p>ItemAnimator 就是负责处理数据添加或者删除时候的动画效果的。</p>
+<p>看下官方介绍：</p>
+<p><img src="\uploads\androidstudydemo\android5\android5_newwidget3_11.png" alt="ItemAnimator 类" title="ItemAnimator 类"></p>
+<p>提供了很多方法，这里就不全部贴出来了，幸好 ItemAnimator 提供了默认实现，如果你不打算自定义的话，那用默认的即可。</p>
+<p>下面介绍具体使用。</p>
+<h2 id="使用示例"><a href="#使用示例" class="headerlink" title="使用示例"></a>使用示例</h2><p><strong>1、导入兼容包</strong><br>RecyclerView 是兼容包中提供的，要使用，首先需要导入兼容包：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">compile <span class="string">'com.android.support:recyclerview-v7:23.2.0'</span></span><br></pre></td></tr></table></figure></p>
+<p>注意，不同版本可能稍有差别，例如：条目根布局设置为 much_parent，早期的版本和目前的版本是有区别的。</p>
+<p><strong>2、在 Layout 中使用</strong><br>RecyclerView 在布局中的使用与 ListView 类似，就把它当作 ListView 即可。看代码：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;android.support.v7.widget.RecyclerView</span><br><span class="line">	android:id=<span class="string">"@+id/rv_content"</span></span><br><span class="line">	android:layout_width=<span class="string">"match_parent"</span></span><br><span class="line">	android:layout_height=<span class="string">"match_parent"</span>/&gt;</span><br></pre></td></tr></table></figure></p>
+<p>这里只是简单使用，所以没有去尝试使用更多的属性了。</p>
+<p><strong>3、设置 LayoutManager</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">LinearLayoutManager layoutManager = <span class="keyword">new</span> LinearLayoutManager(<span class="keyword">this</span>);</span><br><span class="line">layoutManager.setOrientation(mOrientation); <span class="comment">// 可以设置LinearLayoutManager.VERTICAL/LinearLayoutManager.HORIZONTAL</span></span><br><span class="line"><span class="comment">// 设置布局管理器</span></span><br><span class="line">mContentRV.setLayoutManager(layoutManager);</span><br></pre></td></tr></table></figure></p>
+<p>横向布局与纵向布局在示例 Demo 中可以通过开关来切换，自己 Down 下 Demo 去试试吧！</p>
+<p><strong>4、设置 ItemAnimator</strong><br>这里直接用默认的来演示了：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mContentRV.setItemAnimator(<span class="keyword">new</span> DefaultItemAnimator());</span><br></pre></td></tr></table></figure></p>
+<p><strong>5、自定义 Adapter</strong><br>这个与 ListView 的 Adapter 稍有不同，具体看注释吧：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RecyclerAdapter1</span> <span class="keyword">extends</span> <span class="title">RecyclerView</span>.<span class="title">Adapter</span>&lt;<span class="title">RecyclerAdapter1</span>.<span class="title">ViewHolder</span>&gt; </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> List&lt;String&gt; mDataList;</span><br><span class="line">    <span class="keyword">private</span> OnRVItemClickListener mListener;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">RecyclerAdapter1</span><span class="params">(List&lt;String&gt; dataList)</span> </span>&#123;</span><br><span class="line">        mDataList = dataList;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 设置 Item 点击监听</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setOnItemClickListener</span><span class="params">(OnRVItemClickListener listener)</span> </span>&#123;</span><br><span class="line">        mListener = listener;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 自定义的 ViewHolder，持有每个 Item 的所有 View 控件</span></span><br><span class="line">    <span class="comment">// 必须继承自 RecyclerView.ViewHolder</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">ViewHolder</span> <span class="keyword">extends</span> <span class="title">RecyclerView</span>.<span class="title">ViewHolder</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">public</span> TextView mTextView;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="title">ViewHolder</span><span class="params">(View itemView)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">super</span>(itemView);</span><br><span class="line">            mTextView = (TextView) itemView;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 获取Item的数量</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getItemCount</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> mDataList.size();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 将数据与 View 控件进行绑定</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onBindViewHolder</span><span class="params">(ViewHolder holder, <span class="keyword">final</span> <span class="keyword">int</span> position)</span> </span>&#123;</span><br><span class="line">        holder.mTextView.setText(mDataList.get(position));</span><br><span class="line">        <span class="keyword">if</span> (mListener != <span class="keyword">null</span>) &#123;</span><br><span class="line">            holder.mTextView.setOnClickListener(<span class="keyword">new</span> View.OnClickListener() &#123;</span><br><span class="line">                <span class="meta">@Override</span></span><br><span class="line">                <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</span><br><span class="line">                    mListener.onItemClick(v, position);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 创建新 View，被 LayoutManager 所调用</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> ViewHolder <span class="title">onCreateViewHolder</span><span class="params">(ViewGroup parent, <span class="keyword">int</span> viewType)</span> </span>&#123;</span><br><span class="line">        View view = View.inflate(parent.getContext(),</span><br><span class="line">                android.R.layout.simple_list_item_1, <span class="keyword">null</span>);</span><br><span class="line">        ViewHolder holder = <span class="keyword">new</span> ViewHolder(view);</span><br><span class="line">        <span class="keyword">return</span> holder;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>6、设置分割线</strong><br>首先，定义出分割线，直接看代码，都有注释：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DIYDecoration</span> <span class="keyword">extends</span> <span class="title">RecyclerView</span>.<span class="title">ItemDecoration</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 采用系统内置的风格的分割线</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span>[] attrs = <span class="keyword">new</span> <span class="keyword">int</span>[]&#123;android.R.attr.listDivider&#125;;</span><br><span class="line">    <span class="keyword">private</span> Drawable mDivider;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> orientation;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">DIYDecoration</span><span class="params">(Context context, <span class="keyword">int</span> orientation)</span> </span>&#123;</span><br><span class="line">        TypedArray typedArray = context.obtainStyledAttributes(attrs);</span><br><span class="line">        mDivider = typedArray.getDrawable(<span class="number">0</span>);</span><br><span class="line">        typedArray.recycle();</span><br><span class="line">        <span class="keyword">this</span>.orientation = orientation;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onDraw</span><span class="params">(Canvas c, RecyclerView parent, RecyclerView.State state)</span> </span>&#123;</span><br><span class="line">        drawHDeraction(c, parent);</span><br><span class="line">        drawVDeraction(c, parent);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * 绘制水平方向的分割线</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">drawHDeraction</span><span class="params">(Canvas c, RecyclerView parent)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> left = parent.getPaddingLeft();</span><br><span class="line">        <span class="keyword">int</span> right = parent.getWidth() - parent.getPaddingRight();</span><br><span class="line">        <span class="keyword">int</span> childCount = parent.getChildCount();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; childCount; i++) &#123;</span><br><span class="line">            View child = parent.getChildAt(i);</span><br><span class="line">            RecyclerView.LayoutParams layoutParams = (RecyclerView.LayoutParams) child.getLayoutParams();</span><br><span class="line">            <span class="keyword">int</span> top = child.getBottom() + layoutParams.bottomMargin;</span><br><span class="line">            <span class="keyword">int</span> bottom = top + mDivider.getIntrinsicHeight();</span><br><span class="line">            mDivider.setBounds(left, top, right, bottom);</span><br><span class="line">            mDivider.draw(c);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * 绘制垂直方向的分割线</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">drawVDeraction</span><span class="params">(Canvas c, RecyclerView parent)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> top = parent.getPaddingTop();</span><br><span class="line">        <span class="keyword">int</span> bottom = parent.getHeight() - parent.getPaddingBottom();</span><br><span class="line">        <span class="keyword">int</span> childCount = parent.getChildCount();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; childCount; i++) &#123;</span><br><span class="line">            View child = parent.getChildAt(i);</span><br><span class="line">            RecyclerView.LayoutParams layoutParams = (RecyclerView.LayoutParams) child.getLayoutParams();</span><br><span class="line">            <span class="keyword">int</span> left = child.getRight() + layoutParams.rightMargin;</span><br><span class="line">            <span class="keyword">int</span> right = left + mDivider.getIntrinsicWidth();</span><br><span class="line">            mDivider.setBounds(left, top, right, bottom);</span><br><span class="line">            mDivider.draw(c);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">getItemOffsets</span><span class="params">(Rect outRect, View view, RecyclerView parent, RecyclerView.State state)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (OrientationHelper.HORIZONTAL == orientation) &#123;</span><br><span class="line">            outRect.set(<span class="number">0</span>, <span class="number">0</span>, mDivider.getIntrinsicWidth(), <span class="number">0</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            outRect.set(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, mDivider.getIntrinsicHeight());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>（参考自：<a href="http://www.2cto.com/kf/201511/450814.html" target="_blank" rel="external">RecyclerView完全解析,让你从此爱上它(二十八)</a>）</p>
+<p>然后，为 RecyclerView 设置分割线：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mDIYDecoration = <span class="keyword">new</span> DIYDecoration(RecyclerViewActivity.<span class="keyword">this</span>, OrientationHelper.HORIZONTAL);</span><br><span class="line"></span><br><span class="line">mContentRV.addItemDecoration(mDIYDecoration);</span><br></pre></td></tr></table></figure></p>
+<p><strong>7、更新数据</strong><br>ListView 中使用 Adapter 更新数据提供了 <strong>notifyDataSetChanged()</strong>，而 RecyclerView 的 Adapter 提供了更多，更细粒度的更新数据的方法：</p>
+<p><img src="\uploads\androidstudydemo\android5\android5_newwidget3_12.png" alt="更新数据" title="更新数据"></p>
+<p>基本上都可以见名知义，直接看看用法吧：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">mDataList.add(<span class="number">0</span>, <span class="string">"DIY-ITEM:NEW"</span>);</span><br><span class="line"><span class="keyword">if</span> (mAdapter1 != <span class="keyword">null</span>) &#123;</span><br><span class="line">	mAdapter1.notifyItemInserted(<span class="number">0</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">mDataList.remove(<span class="number">0</span>);</span><br><span class="line"><span class="keyword">if</span> (mAdapter1 != <span class="keyword">null</span>) &#123;</span><br><span class="line">	mAdapter1.notifyItemRemoved(<span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>在 RecyclerView 中要做局部刷新那就很简单了，RecyclerView 还提供了一些很实用的方法（LayoutManager 中提供的）：</p>
+<ul>
+<li>findFirstVisibleItemPosition() ：返回当前第一个可见Item的position</li>
+<li>findFirstCompletelyVisibleItemPosition() ：返回当前第一个完全可见Item的position</li>
+<li>findLastVisibleItemPosition() ：返回当前最后一个可见Item的position</li>
+<li>findLastCompletelyVisibleItemPosition() ：返回当前最后一个完全可见Item的position</li>
+</ul>
+<p>这些东西就不再这里详述了，方法名已经给出了它的作用，有兴趣可以自己去试试。</p>
+<h1 id="进阶"><a href="#进阶" class="headerlink" title="进阶"></a>进阶</h1><p>所谓进阶，就是在 RecyclerView 的基本使用上进行扩展，主要有如下几个方面：</p>
+<ol>
+<li>下拉刷新上拉加载更多</li>
+<li>万能Adapter</li>
+<li>多View Type</li>
+<li>AddHeader和AddFooter</li>
+<li>Drag</li>
+<li>动画</li>
+<li>嵌套 ViewPager/Gridview</li>
+</ol>
+<p>这里只是说一下有这么几个扩展的方向，不在这里展开介绍了，计划以后专门出几篇来介绍。</p>
+<h1 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h1><p>关于 Android 5.x 的新控件的介绍就到这里了，都只是简单的介绍了下使用方法。</p>
+<p>对于其他的控件这样介绍过之后使用应该基本没问题了，但是对于 RecyclerView 的使用，这里只是个引子。关于 RecyclerView 的进阶内容打算用几篇（暂定三篇）来专门介绍，这里就不做展开了。</p>
+<p>下一篇就是 Android 6.x 的相关介绍了，<a href="">未完待续…</a></p>
+<h1 id="项目地址"><a href="#项目地址" class="headerlink" title="项目地址"></a>项目地址</h1><p><a href="https://github.com/DIY-green/ASD-Android5Study" target="_blank" rel="external">GitHub</a></p>
+<p><a href="http://www.tuicool.com/articles/uyymAf" target="_blank" rel="external">Android学习之RecyclerView</a><br><a href="http://www.bubuko.com/infodetail-733763.html" target="_blank" rel="external">使用StaggeredGridLayoutManager实现瀑布流效果</a><br><a href="http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2014/1216/2173.html" target="_blank" rel="external">关于RecyclerView的卡顿问题，对谷歌非常失望</a><br><a href="http://jcodecraeer.com/a/anzhuokaifa/androidkaifa/2014/1118/2004.html" target="_blank" rel="external">RecyclerView使用介绍</a><br><a href="http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2016/0307/4031.html" target="_blank" rel="external">RecyclerView技术栈</a><br><a href="http://www.2cto.com/kf/201511/450814.html" target="_blank" rel="external">RecyclerView完全解析,让你从此爱上它(二十八)</a></p>
+
+      
+    </div>
+    
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+<div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton", disable="enable", onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}", style="cursor: pointer; border: 0; outline: 0; border-radius: 100%; padding: 0; margin: 0; letter-spacing: normal; text-transform: none; text-indent: 0px; text-shadow: none">
+    <span onmouseover="this.style.color='rgb(236,96,0)';this.style.background='rgb(204,204,204)'" onMouseOut="this.style.color='#fff';this.style.background='rgb(236,96,0)'" style="display: inline-block; width: 70px; height: 70px; border-radius: 100%; line-height: 81px; color: #fff; font: 400 35px/75px 'microsofty'; background: rgb(236,96,0)">赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/uploads/images/wechat-reward-image.png" alt="DIY-green WeChat Pay" style="width: 200px; max-width: 100%; display: inline-block"/>
+        <p>微信打赏</p>
+      </div>
+    
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/uploads/images/alipay-reward-image.png" alt="DIY-green Alipay" style="width: 200px; max-width: 100%; display: inline-block"/>
+        <p>支付宝打赏</p>
+      </div>
+    
+  </div>
+</div>
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/StudyDemo/" rel="tag">#StudyDemo</a>
+          
+            <a href="/tags/Android-5/" rel="tag">#Android 5</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/05/07/Android Debug 系列/解决 Could not read entry xxx from cache taskArtifacts.bin/" rel="next" title="解决 Could not read entry xxx from cache taskArtifacts.bin">
+                <i class="fa fa-chevron-left"></i> 解决 Could not read entry xxx from cache taskArtifacts.bin
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/05/07/AndroidStudyDemo系列/Android5.x新控件介绍(一)/" rel="prev" title="Android5.x新控件介绍(一)">
+                Android5.x新控件介绍(一) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/05/07/AndroidStudyDemo系列/Android5.x新控件介绍(三)/"
+           data-title="Android5.x新控件介绍(三)" data-url="http://diy-green.com/2016/05/07/AndroidStudyDemo系列/Android5.x新控件介绍(三)/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/images/avatar.jpg"
+               alt="DIY-green" />
+          <p class="site-author-name" itemprop="name">DIY-green</p>
+          <p class="site-description motion-element" itemprop="description">男子千年志，吾生未有涯。心随朗月高，志与秋霜洁。</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">52</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">27</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/DIY-green" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/users/0ad0a0afc409/latest_articles" target="_blank" title="JianShu">
+                  
+                    <i class="fa fa-globe"></i>
+                  
+                  JianShu
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element">
+            <div class="links-of-blogroll-title">
+              <i class="fa fa-globe fa-fw"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.jianshu.com/users/0ad0a0afc409/latest_articles" title="DIY-green简书" target="_blank">DIY-green简书</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.jianshu.com/users/3a482c4f0658/latest_articles" title="天接水0001" target="_blank">天接水0001</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://sunfusheng.com" title="孙福生" target="_blank">孙福生</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://kuanggang.github.io" title="匡罡" target="_blank">匡罡</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://Ivorfason.github.io" title="尹明仁" target="_blank">尹明仁</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://mengqingxiang.github.io" title="孟庆祥" target="_blank">孟庆祥</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#简单使用"><span class="nav-number">2.</span> <span class="nav-text">简单使用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#几个关键类"><span class="nav-number">2.1.</span> <span class="nav-text">几个关键类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Adapter"><span class="nav-number">2.1.1.</span> <span class="nav-text">Adapter</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ViewHolder"><span class="nav-number">2.1.2.</span> <span class="nav-text">ViewHolder</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LayoutManager"><span class="nav-number">2.1.3.</span> <span class="nav-text">LayoutManager</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ItemDecoration"><span class="nav-number">2.1.4.</span> <span class="nav-text">ItemDecoration</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ItemAnimator"><span class="nav-number">2.1.5.</span> <span class="nav-text">ItemAnimator</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用示例"><span class="nav-number">2.2.</span> <span class="nav-text">使用示例</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#进阶"><span class="nav-number">3.</span> <span class="nav-text">进阶</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#小结"><span class="nav-number">4.</span> <span class="nav-text">小结</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#项目地址"><span class="nav-number">5.</span> <span class="nav-text">项目地址</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+<div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">DIY-green</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info powered-by">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+<div class="powered-by">
+  <span id="busuanzi_container_site_pv">
+    本站总访问量<span id="busuanzi_value_site_pv"></span>次
+  </span>
+</div>
+<div style="display:inline-block;">
+  <span id="busuanzi_container_site_uv">
+    本站访客数<span id="busuanzi_value_site_uv"></span>人次
+  </span>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"DIY-green"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+      
+      <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+      <script src="/js/src/hook-duoshuo.js"></script>
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+  
+  
+  <!-- custom analytics part create by xiamo -->
+<script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+<script>AV.initialize("UnkeFG0pM1t3q8H3y7NTLUA0-gzGzoHsz", "2oBUu9nxByteYjLFtBtqOPwN");</script>
+<script>
+function showTime(Counter) {
+	var query = new AV.Query(Counter);
+	$(".leancloud_visitors").each(function() {
+		var url = $(this).attr("id").trim();
+		query.equalTo("url", url);
+		query.find({
+			success: function(results) {
+				if (results.length == 0) {
+					var content = '0 ' + $(document.getElementById(url)).text();
+					$(document.getElementById(url)).text(content);
+					return;
+				}
+				for (var i = 0; i < results.length; i++) {
+					var object = results[i];
+					var content = object.get('time') + ' ' + $(document.getElementById(url)).text();
+					$(document.getElementById(url)).text(content);
+				}
+			},
+			error: function(object, error) {
+				console.log("Error: " + error.code + " " + error.message);
+			}
+		});
+
+	});
+}
+
+function addCount(Counter) {
+	var Counter = AV.Object.extend("Counter");
+	url = $(".leancloud_visitors").attr('id').trim();
+	title = $(".leancloud_visitors").attr('data-flag-title').trim();
+	var query = new AV.Query(Counter);
+	query.equalTo("url", url);
+	query.find({
+		success: function(results) {
+			if (results.length > 0) {
+				var counter = results[0];
+				counter.fetchWhenSave(true);
+				counter.increment("time");
+				counter.save(null, {
+					success: function(counter) {
+						var content =  counter.get('time') + ' ' + $(document.getElementById(url)).text();
+						$(document.getElementById(url)).text(content);
+					},
+					error: function(counter, error) {
+						console.log('Failed to save Visitor num, with error message: ' + error.message);
+					}
+				});
+			} else {
+				var newcounter = new Counter();
+				newcounter.set("title", title);
+				newcounter.set("url", url);
+				newcounter.set("time", 1);
+				newcounter.save(null, {
+					success: function(newcounter) {
+					    console.log("newcounter.get('time')="+newcounter.get('time'));
+						var content = newcounter.get('time') + ' ' + $(document.getElementById(url)).text();
+						$(document.getElementById(url)).text(content);
+					},
+					error: function(newcounter, error) {
+						console.log('Failed to create');
+					}
+				});
+			}
+		},
+		error: function(error) {
+			console.log('Error:' + error.code + " " + error.message);
+		}
+	});
+}
+$(function() {
+	var Counter = AV.Object.extend("Counter");
+	if ($('.leancloud_visitors').length == 1) {
+		addCount(Counter);
+	} else if ($('.post-title-link').length > 1) {
+		showTime(Counter);
+	}
+}); 
+</script>
+  
+  
+</body>
+</html>

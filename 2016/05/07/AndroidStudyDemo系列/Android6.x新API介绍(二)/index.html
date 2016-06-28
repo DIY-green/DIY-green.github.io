@@ -1,0 +1,1013 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="StudyDemo,Android 6," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="作者：李旺成时间：2016年4月20日
+
+接上篇：Android6.x新API介绍（一）
+五、 Text Selection先看下效果：
+
+简介Android 6.x 提供了 Text Selection，在选择文本后，可以显示一个浮动工具栏，一般可以提供剪切、拷贝、粘贴等操作，这个 TextSelection 的交互过程和实现 与 contextual action bar 的实现一样。
+
+注">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android6.x新API介绍(二)">
+<meta property="og:url" content="http://diy-green.com/2016/05/07/AndroidStudyDemo系列/Android6.x新API介绍(二)/index.html">
+<meta property="og:site_name" content="DIY-green">
+<meta property="og:description" content="作者：李旺成时间：2016年4月20日
+
+接上篇：Android6.x新API介绍（一）
+五、 Text Selection先看下效果：
+
+简介Android 6.x 提供了 Text Selection，在选择文本后，可以显示一个浮动工具栏，一般可以提供剪切、拷贝、粘贴等操作，这个 TextSelection 的交互过程和实现 与 contextual action bar 的实现一样。
+
+注">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android6\android6_newapi2_1.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android6\android6_newapi2_2.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android6\android6_newapi2_3.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android6\android6_newapi2_4.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android6\android6_newapi2_5.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android6\android6_newapi2_6.png">
+<meta property="og:updated_time" content="2016-04-26T05:27:54.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android6.x新API介绍(二)">
+<meta name="twitter:description" content="作者：李旺成时间：2016年4月20日
+
+接上篇：Android6.x新API介绍（一）
+五、 Text Selection先看下效果：
+
+简介Android 6.x 提供了 Text Selection，在选择文本后，可以显示一个浮动工具栏，一般可以提供剪切、拷贝、粘贴等操作，这个 TextSelection 的交互过程和实现 与 contextual action bar 的实现一样。
+
+注">
+<meta name="twitter:image" content="http://diy-green.com/\uploads\androidstudydemo\android6\android6_newapi2_1.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'DIY-green'
+    }
+  };
+</script>
+
+  <title> Android6.x新API介绍(二) | DIY-green </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?af1b7efbf565bc568165c5a0600a0207";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+  <div style="display: none;">
+    <script src="http://s6.cnzz.com/stat.php?id=1258791461&web_id=1258791461" type="text/javascript"></script>
+  </div>
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">DIY-green</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            全部
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-androidstudydemo">
+          <a href="/categories/AndroidStudyDemo/" rel="section">
+            
+              <i class="menu-item-icon fa fa-hand-right fa-fw"></i> <br />
+            
+            ● &nbsp; AndroidStudyDemo
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-androidganhuo">
+          <a href="/categories/Android干货/" rel="section">
+            
+              <i class="menu-item-icon fa fa-hand-right fa-fw"></i> <br />
+            
+            ● &nbsp; Android干货
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-androidhacks">
+          <a href="/categories/Android小技巧/" rel="section">
+            
+              <i class="menu-item-icon fa fa-hand-right fa-fw"></i> <br />
+            
+            ● &nbsp; Android小技巧
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-androidstudio">
+          <a href="/categories/AndroidStudio/" rel="section">
+            
+              <i class="menu-item-icon fa fa-hand-right fa-fw"></i> <br />
+            
+            ● &nbsp; AndroidStudio
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-essay">
+          <a href="/categories/随笔/" rel="section">
+            
+              <i class="menu-item-icon fa fa-hand-right fa-fw"></i> <br />
+            
+            ● &nbsp; 随笔
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Android6.x新API介绍(二)
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-05-07T20:39:24+08:00" content="2016-05-07">
+              2016-05-07
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/AndroidStudyDemo/" itemprop="url" rel="index">
+                    <span itemprop="name">AndroidStudyDemo</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/AndroidStudyDemo/Android-6/" itemprop="url" rel="index">
+                    <span itemprop="name">Android 6</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/05/07/AndroidStudyDemo系列/Android6.x新API介绍(二)/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/07/AndroidStudyDemo系列/Android6.x新API介绍(二)/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+		  &nbsp; | &nbsp;
+             <span id="/2016/05/07/AndroidStudyDemo系列/Android6.x新API介绍(二)/" class="leancloud_visitors" data-flag-title="Android6.x新API介绍(二)">
+               
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+		  
+		  <!--<span id="busuanzi_container_page_pv">
+		    &nbsp; | &nbsp;<span id="busuanzi_value_page_pv"></span>阅读
+		  </span>
+		  
+		  
+			&nbsp; | &nbsp;
+			<span id="/2016/05/07/AndroidStudyDemo系列/Android6.x新API介绍(二)/"class="leancloud_visitors" data-flag-title="Android6.x新API介绍(二)">
+					 &nbsp;阅读
+					</span>
+			-->
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="\uploads\androidstudydemo\android6\android6_newapi2_1.png" alt="Android6.x新API介绍(二)" title="Android6.x新API介绍(二)思维导图"></p>
+<p><strong>作者：<a href="https://github.com/DIY-green/" target="_blank" rel="external">李旺成</a></strong><br><strong>时间：2016年4月20日</strong></p>
+<hr>
+<p>接上篇：<a href="http://www.jianshu.com/p/a721dee212cc" target="_blank" rel="external">Android6.x新API介绍（一）</a></p>
+<h1 id="五、-Text-Selection"><a href="#五、-Text-Selection" class="headerlink" title="五、 Text Selection"></a>五、 Text Selection</h1><p>先看下效果：</p>
+<p><img src="\uploads\androidstudydemo\android6\android6_newapi2_2.png" alt="TextSelection 示例" title="TextSelection 示例"></p>
+<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>Android 6.x 提供了 Text Selection，在选择文本后，可以显示一个浮动工具栏，一般可以提供剪切、拷贝、粘贴等操作，这个 TextSelection 的交互过程和实现 与 contextual action bar 的实现一样。</p>
+<blockquote>
+<p><strong>注意：</strong><br>如果使用的是 Android Support Library revision 22.2，需要注意浮动工具栏不向后兼容且因为 appcompat 默认接管 ActionMode 对象，阻止了浮动工具栏被显示。为了在 AppCompatActivity 中支持 ActionMode，需要调用getDelegate()方法，之后对返回的 AppCompatDelegate 对象调用setHandleNativeActionModesEnabled() 方法，并设置输入参数为 false，该调用将ActionMode对象的控制交还给系统框架层。在 Android6.0(API level 23) 的设备上，框架层支持 ActionBar 或浮动工具栏模式，在 Android 5.1(API level 22) 及以下的设备上，只支持 ActionBar 模式。</p>
+</blockquote>
+<h3 id="简单使用"><a href="#简单使用" class="headerlink" title="简单使用"></a>简单使用</h3><p>演示代码很简单，直接看代码：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@TargetApi</span>(<span class="number">23</span>)</span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">initData</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	mCallback2 = <span class="keyword">new</span> ActionMode.Callback2() &#123;</span><br><span class="line">		<span class="meta">@Override</span></span><br><span class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onCreateActionMode</span><span class="params">(ActionMode mode, Menu menu)</span> </span>&#123;</span><br><span class="line">			MenuInflater inflater = mode.getMenuInflater();</span><br><span class="line">			<span class="keyword">if</span> (inflater == <span class="keyword">null</span>) &#123;</span><br><span class="line">				<span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			inflater.inflate(R.menu.actionmode_menu, menu);</span><br><span class="line">			<span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="meta">@Override</span></span><br><span class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onPrepareActionMode</span><span class="params">(ActionMode mode, Menu menu)</span> </span>&#123;</span><br><span class="line">			<span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="meta">@Override</span></span><br><span class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onActionItemClicked</span><span class="params">(ActionMode mode, MenuItem item)</span> </span>&#123;</span><br><span class="line">			Toast.makeText(TextSelectionActivity.<span class="keyword">this</span>, item.getTitle(), Toast.LENGTH_LONG).show();</span><br><span class="line">			mode.finish();</span><br><span class="line">			<span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="meta">@Override</span></span><br><span class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onDestroyActionMode</span><span class="params">(ActionMode mode)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="comment">// 控制浮动菜单的位置</span></span><br><span class="line">		<span class="meta">@Override</span></span><br><span class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onGetContentRect</span><span class="params">(ActionMode mode, View view, Rect outRect)</span> </span>&#123;</span><br><span class="line">			<span class="keyword">super</span>.onGetContentRect(mode, view, outRect);</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">	&#125;;</span><br><span class="line">	<span class="keyword">this</span>.mTestTV.setCustomSelectionActionModeCallback(mCallback2);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><p>实现选择文字后的浮动工具栏，在app代码中需要做如下修改：</p>
+<ol>
+<li>在View 或 Activity对象<br>ActionMode的调用从startActionMode(Callback) 变为 startActionMode(Callback, ActionMode.TYPE_FLOATING)</li>
+<li>替换原有的ActionMode.Callback为ActionMode.Callback2</li>
+<li>重写OnGetContentRect()方法，提供内容Rect对象（文本选择的矩形框）在view中的位置</li>
+<li>在矩形框作为唯一的元素不再有效时，调用invalidateContentRect() 方法</li>
+</ol>
+<p>（参考自：<a href="http://blog.csdn.net/w7849516230/article/details/49704077" target="_blank" rel="external">值得你关注的Android6.0上的重要变化（一）</a>）</p>
+<h1 id="相机-API"><a href="#相机-API" class="headerlink" title="相机 API"></a>相机 API</h1><p>先看 Demo 效果：</p>
+<p><img src="\uploads\androidstudydemo\android6\android6_newapi2_3.png" alt="Camera TorchMode 演示" title="Camera TorchMode 演示"></p>
+<p>Android 6 提供了 setTorchMode() 方法来直接控制闪光灯，并且可以监听闪光灯的开光状态。这里演示一下闪关灯控制以及监听闪关灯状态，主要使用了 CameraManager 中的方法：</p>
+<p><img src="\uploads\androidstudydemo\android6\android6_newapi2_4.png" alt="CameraManager 类" title="CameraManager 类"></p>
+<p>代码很简单，直接看代码：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CameraTestActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> Switch mTorchModeSwitch;</span><br><span class="line">    <span class="keyword">private</span> TextView mShowTorchModeTV;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> CameraManager mCameraManager;</span><br><span class="line">    <span class="keyword">private</span> CameraManager.TorchCallback mTorchCallback;</span><br><span class="line">    <span class="keyword">private</span> String[] mCameraIdList;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_cameratest);</span><br><span class="line"></span><br><span class="line">        initView();</span><br><span class="line">        initData();</span><br><span class="line">        initListener();</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">initView</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.mTorchModeSwitch = (Switch) <span class="keyword">this</span>.findViewById(R.id.switch_torchmode);</span><br><span class="line">        <span class="keyword">this</span>.mShowTorchModeTV = (TextView) <span class="keyword">this</span>.findViewById(R.id.tv_showtorchmode);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@TargetApi</span>(<span class="number">23</span>)</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">initData</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        mCameraManager = (CameraManager) getSystemService(Context.CAMERA_SERVICE);</span><br><span class="line">        mTorchCallback = <span class="keyword">new</span> CameraManager.TorchCallback() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onTorchModeChanged</span><span class="params">(String cameraId, <span class="keyword">boolean</span> enabled)</span> </span>&#123;</span><br><span class="line">                <span class="keyword">super</span>.onTorchModeChanged(cameraId, enabled);</span><br><span class="line">                mShowTorchModeTV.setText(<span class="string">"Camera:"</span> + cameraId + <span class="string">" TorchMode change :"</span> + enabled);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onTorchModeUnavailable</span><span class="params">(String cameraId)</span> </span>&#123;</span><br><span class="line">                <span class="keyword">super</span>.onTorchModeUnavailable(cameraId);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            mCameraIdList = mCameraManager.getCameraIdList();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (CameraAccessException e) &#123;</span><br><span class="line">            mCameraIdList = <span class="keyword">null</span>;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 注册回调监听</span></span><br><span class="line">        mCameraManager.registerTorchCallback(mTorchCallback, <span class="keyword">new</span> Handler());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">initListener</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.mTorchModeSwitch.setOnCheckedChangeListener(<span class="keyword">new</span> CompoundButton.OnCheckedChangeListener() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCheckedChanged</span><span class="params">(CompoundButton buttonView, <span class="keyword">boolean</span> isChecked)</span> </span>&#123;</span><br><span class="line">                <span class="keyword">if</span> (mCameraIdList == <span class="keyword">null</span>) <span class="keyword">return</span>;</span><br><span class="line">                changeTorchMode(isChecked);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@TargetApi</span>(<span class="number">23</span>)</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">changeTorchMode</span><span class="params">(<span class="keyword">boolean</span> isChecked)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            mCameraManager.setTorchMode(mCameraIdList[<span class="number">0</span>], isChecked);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (CameraAccessException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@TargetApi</span>(<span class="number">23</span>)</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onDestroy</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onDestroy();</span><br><span class="line">        mCameraManager.unregisterTorchCallback(mTorchCallback);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h1 id="支持主题化的-ColorStateLists"><a href="#支持主题化的-ColorStateLists" class="headerlink" title="支持主题化的 ColorStateLists"></a>支持主题化的 ColorStateLists</h1><p>先看 Demo 的效果：</p>
+<p><img src="\uploads\androidstudydemo\android6\android6_newapi2_5.png" alt="ColorStateList 使用演示" title="ColorStateList 使用演示"></p>
+<h2 id="简介-1"><a href="#简介-1" class="headerlink" title="简介"></a>简介</h2><p>使用 context.getColorStateList(int id) 可以获取当前主题对应的 ColorStateLists，使用 ColorStateList，就能为按钮的每个状态提供不同的颜色。</p>
+<p>ColorStateList 并不是个新东西，看官方介绍：</p>
+<p><img src="\uploads\androidstudydemo\android6\android6_newapi2_6.png" alt="ColorStateList 类" title="ColorStateList 类"></p>
+<p>文档中说 ColorStateList 是从 xml 创建的，在 Resources 类中提供了如下方法：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Deprecated</span></span><br><span class="line">getColorStateList(<span class="meta">@ColorRes</span> <span class="keyword">int</span> id)</span><br><span class="line"></span><br><span class="line">getColorStateList(<span class="meta">@ColorRes</span> <span class="keyword">int</span> id, <span class="meta">@Nullable</span> Theme theme)</span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line">Android <span class="number">6</span> 在 Context 类中添加了 getColorStateList() 方法：</span><br><span class="line">```<span class="function">java</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">final</span> ColorStateList <span class="title">getColorStateList</span><span class="params">(<span class="keyword">int</span> id)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> getResources().getColorStateList(id, getTheme());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>其实还是调的 Resources 中的相关方法。</p>
+<h2 id="简单使用-1"><a href="#简单使用-1" class="headerlink" title="简单使用"></a>简单使用</h2><p>使用很简单，直接看代码：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@TargetApi</span>(<span class="number">23</span>)</span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">testGetColorStateList</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	ColorStateList csl = getColorStateList(R.color.text_selector1);</span><br><span class="line">	<span class="keyword">if</span> (csl != <span class="keyword">null</span>) &#123;</span><br><span class="line">		mTestBtn.setTextColor(csl);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	Resources resources = getResources();</span><br><span class="line">	ColorStateList csl2 = resources.getColorStateList(R.color.text_selector2);</span><br><span class="line">	<span class="keyword">if</span> (csl2 != <span class="keyword">null</span>) &#123;</span><br><span class="line">		mTestBtn2.setTextColor(csl2);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h1 id="App-Linking"><a href="#App-Linking" class="headerlink" title="App Linking"></a>App Linking</h1><h2 id="简介-2"><a href="#简介-2" class="headerlink" title="简介"></a>简介</h2><p>这是一个把 APP 和网页直接打通的技术，能够让 APP 能够直接来处理你的网站普通的 URL 链接，来展示你对应的网站内容。这绝对是一个值得关注的改进，Web 和 APP 之间缝隙将越来越小。这对既有网站又有 APP 的应用来说非常有利，例如知乎和淘宝等。</p>
+<p>有点类似于之前的 APP 的 Deep link，可以通过特殊的<em>Schema</em>也可以让 APP 直接打开对应的内容。APP Linking 的特点是，只要使用传统的 URL 就可以，而且是根据 URL 的域名对应特定的 APP 的。</p>
+<p>开发者需要做的是在AndroidManifest.xml做一下对应的声明即可。如果需要让系统默认用你的 APP 打开对应的 URL 的话，还需要网站配合提供assetlinks.json。详情可以参考<a href="http://developer.android.com/preview/features/app-linking.html" target="_blank" rel="external">这里</a>。<br>（参考自：<a href="http://www.codeceo.com/article/android-6-new-tech.html" target="_blank" rel="external">Android 6.0 中的新技术总结</a>）</p>
+<h2 id="简单使用-2"><a href="#简单使用-2" class="headerlink" title="简单使用"></a>简单使用</h2><p>鉴于手头的资源不够，没有服务器上传 web-app关联文（statements.json），所以这里就不做实验了。</p>
+<p>有几篇文章我认为讲解得挺详细了，有兴趣的建议去看看：<br><a href="http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2015/0609/3022.html" target="_blank" rel="external">Android M 的＂App Links＂实现详解</a><br><a href="http://www.tuicool.com/articles/6RFN32" target="_blank" rel="external">Android M DeepLinks AppLinks 详解</a><br><a href="http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2015/0718/3200.html" target="_blank" rel="external">Android M App Links: 实现, 缺陷以及解决办法</a></p>
+<h1 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h1><p>还有很多新 API 以及改动的 API 没有介绍，这里也不打算介绍了。前后两篇文章挑了 Android 6.x 中新提供的几个比较重要和我感兴趣的 API，简单的做了个 Demo。</p>
+<p>虽然，不打算继续介绍其余的新 API，这里做个简单的记录，以后用到了再去详细了解：</p>
+<ul>
+<li>指纹解锁：FingerprintManager</li>
+<li>支持蓝牙触控笔</li>
+<li>新的省电模式：Doze 和 App Standby</li>
+<li>APP 数据自动备份</li>
+<li>通知（Notifications）：移除了Notification.setLatestEventInfo()</li>
+<li>AudioManager Changes：setStreamSolo()方法过时和setStreamMute()方法过时</li>
+<li>Browser Bookmark Changes：移除了全局书签的支持、Browser.getAllBookmarks()移除、Browser.saveBookmark()移除、READ_HISTORY_BOOKMARKS权限移除、WRITE_HISTORY_BOOKMARKS权限移除</li>
+<li>Android KeyStore变化：Android Keystore provider 不再支持DSA，仍旧支持ECDSA</li>
+<li>Wi-If和网络变化：只能修改你自己创建的WifiConfiguration对象的状态，添加 multinetwork APIs</li>
+<li>相机服务变化：改为基于优先级的访问方式</li>
+<li>企业Android的变化</li>
+<li>数据流量统计(Data Usage)</li>
+<li>全局设置变化：不再能通过setGlobalSettings()来设置，现在能通过setGlobalSettings()来设置</li>
+<li>Runtime：可以恰当的实现newInstance()的访问规则</li>
+</ul>
+<h1 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h1><p>关于 Android 6.x 的新 API 介绍就到这里了，下一篇开始介绍 Android 6.x 的新控件。<br><a href="">未完待续…</a></p>
+<h1 id="项目地址"><a href="#项目地址" class="headerlink" title="项目地址"></a>项目地址</h1><p><a href="https://github.com/DIY-green/ASD-Android6New" target="_blank" rel="external">GitHub</a></p>
+<h1 id="附件"><a href="#附件" class="headerlink" title="附件"></a>附件</h1><p><a href="http://pan.baidu.com/s/1bKZv1k" target="_blank" rel="external">Andoid6思维导图</a></p>
+<p><a href="http://bbs.itheima.com/thread-262729-1-1.html" target="_blank" rel="external">揭秘Android 6.0之Text Selection</a><br><a href="http://blog.csdn.net/w7849516230/article/details/49704077" target="_blank" rel="external">值得你关注的Android6.0上的重要变化（一）</a><br><a href="http://blog.csdn.net/forlong401/article/details/49704475" target="_blank" rel="external">Android M新特性Doze and App Standby模式详解</a><br><a href="http://blog.csdn.net/ganlijianstyle/article/details/7593812" target="_blank" rel="external">Android学习 之 ColorStateList按钮文字变色</a><br><a href="http://www.2cto.com/kf/201404/292472.html" target="_blank" rel="external">Android ColorStateList使用方法</a><br><a href="http://www.codeceo.com/article/android-6-new-tech.html" target="_blank" rel="external">Android 6.0 中的新技术总结</a><br><a href="http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2015/0609/3022.html" target="_blank" rel="external">Android M 的＂App Links＂实现详解</a><br><a href="http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2015/0718/3200.html" target="_blank" rel="external">Android M App Links: 实现, 缺陷以及解决办法</a></p>
+
+      
+    </div>
+    
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+<div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton", disable="enable", onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}", style="cursor: pointer; border: 0; outline: 0; border-radius: 100%; padding: 0; margin: 0; letter-spacing: normal; text-transform: none; text-indent: 0px; text-shadow: none">
+    <span onmouseover="this.style.color='rgb(236,96,0)';this.style.background='rgb(204,204,204)'" onMouseOut="this.style.color='#fff';this.style.background='rgb(236,96,0)'" style="display: inline-block; width: 70px; height: 70px; border-radius: 100%; line-height: 81px; color: #fff; font: 400 35px/75px 'microsofty'; background: rgb(236,96,0)">赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/uploads/images/wechat-reward-image.png" alt="DIY-green WeChat Pay" style="width: 200px; max-width: 100%; display: inline-block"/>
+        <p>微信打赏</p>
+      </div>
+    
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/uploads/images/alipay-reward-image.png" alt="DIY-green Alipay" style="width: 200px; max-width: 100%; display: inline-block"/>
+        <p>支付宝打赏</p>
+      </div>
+    
+  </div>
+</div>
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/StudyDemo/" rel="tag">#StudyDemo</a>
+          
+            <a href="/tags/Android-6/" rel="tag">#Android 6</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/05/07/Android小技巧/布局篇/Hacks布局篇-Hack2 使用include标签避免代码重复/" rel="next" title="Hacks布局篇-Hack2 使用include标签避免代码重复">
+                <i class="fa fa-chevron-left"></i> Hacks布局篇-Hack2 使用include标签避免代码重复
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/05/07/AndroidStudyDemo系列/Android6.x新API介绍(一)/" rel="prev" title="Android6.x新API介绍(一)">
+                Android6.x新API介绍(一) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/05/07/AndroidStudyDemo系列/Android6.x新API介绍(二)/"
+           data-title="Android6.x新API介绍(二)" data-url="http://diy-green.com/2016/05/07/AndroidStudyDemo系列/Android6.x新API介绍(二)/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/images/avatar.jpg"
+               alt="DIY-green" />
+          <p class="site-author-name" itemprop="name">DIY-green</p>
+          <p class="site-description motion-element" itemprop="description">男子千年志，吾生未有涯。心随朗月高，志与秋霜洁。</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">52</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">27</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/DIY-green" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/users/0ad0a0afc409/latest_articles" target="_blank" title="JianShu">
+                  
+                    <i class="fa fa-globe"></i>
+                  
+                  JianShu
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element">
+            <div class="links-of-blogroll-title">
+              <i class="fa fa-globe fa-fw"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.jianshu.com/users/0ad0a0afc409/latest_articles" title="DIY-green简书" target="_blank">DIY-green简书</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.jianshu.com/users/3a482c4f0658/latest_articles" title="天接水0001" target="_blank">天接水0001</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://sunfusheng.com" title="孙福生" target="_blank">孙福生</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://kuanggang.github.io" title="匡罡" target="_blank">匡罡</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://Ivorfason.github.io" title="尹明仁" target="_blank">尹明仁</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://mengqingxiang.github.io" title="孟庆祥" target="_blank">孟庆祥</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#五、-Text-Selection"><span class="nav-number">1.</span> <span class="nav-text">五、 Text Selection</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介"><span class="nav-number">1.1.</span> <span class="nav-text">简介</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#简单使用"><span class="nav-number">1.1.1.</span> <span class="nav-text">简单使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#注意事项"><span class="nav-number">1.1.2.</span> <span class="nav-text">注意事项</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#相机-API"><span class="nav-number">2.</span> <span class="nav-text">相机 API</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#支持主题化的-ColorStateLists"><span class="nav-number">3.</span> <span class="nav-text">支持主题化的 ColorStateLists</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介-1"><span class="nav-number">3.1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#简单使用-1"><span class="nav-number">3.2.</span> <span class="nav-text">简单使用</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#App-Linking"><span class="nav-number">4.</span> <span class="nav-text">App Linking</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介-2"><span class="nav-number">4.1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#简单使用-2"><span class="nav-number">4.2.</span> <span class="nav-text">简单使用</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#其他"><span class="nav-number">5.</span> <span class="nav-text">其他</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#小结"><span class="nav-number">6.</span> <span class="nav-text">小结</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#项目地址"><span class="nav-number">7.</span> <span class="nav-text">项目地址</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#附件"><span class="nav-number">8.</span> <span class="nav-text">附件</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+<div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">DIY-green</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info powered-by">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+<div class="powered-by">
+  <span id="busuanzi_container_site_pv">
+    本站总访问量<span id="busuanzi_value_site_pv"></span>次
+  </span>
+</div>
+<div style="display:inline-block;">
+  <span id="busuanzi_container_site_uv">
+    本站访客数<span id="busuanzi_value_site_uv"></span>人次
+  </span>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"DIY-green"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+      
+      <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+      <script src="/js/src/hook-duoshuo.js"></script>
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+  
+  
+  <!-- custom analytics part create by xiamo -->
+<script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+<script>AV.initialize("UnkeFG0pM1t3q8H3y7NTLUA0-gzGzoHsz", "2oBUu9nxByteYjLFtBtqOPwN");</script>
+<script>
+function showTime(Counter) {
+	var query = new AV.Query(Counter);
+	$(".leancloud_visitors").each(function() {
+		var url = $(this).attr("id").trim();
+		query.equalTo("url", url);
+		query.find({
+			success: function(results) {
+				if (results.length == 0) {
+					var content = '0 ' + $(document.getElementById(url)).text();
+					$(document.getElementById(url)).text(content);
+					return;
+				}
+				for (var i = 0; i < results.length; i++) {
+					var object = results[i];
+					var content = object.get('time') + ' ' + $(document.getElementById(url)).text();
+					$(document.getElementById(url)).text(content);
+				}
+			},
+			error: function(object, error) {
+				console.log("Error: " + error.code + " " + error.message);
+			}
+		});
+
+	});
+}
+
+function addCount(Counter) {
+	var Counter = AV.Object.extend("Counter");
+	url = $(".leancloud_visitors").attr('id').trim();
+	title = $(".leancloud_visitors").attr('data-flag-title').trim();
+	var query = new AV.Query(Counter);
+	query.equalTo("url", url);
+	query.find({
+		success: function(results) {
+			if (results.length > 0) {
+				var counter = results[0];
+				counter.fetchWhenSave(true);
+				counter.increment("time");
+				counter.save(null, {
+					success: function(counter) {
+						var content =  counter.get('time') + ' ' + $(document.getElementById(url)).text();
+						$(document.getElementById(url)).text(content);
+					},
+					error: function(counter, error) {
+						console.log('Failed to save Visitor num, with error message: ' + error.message);
+					}
+				});
+			} else {
+				var newcounter = new Counter();
+				newcounter.set("title", title);
+				newcounter.set("url", url);
+				newcounter.set("time", 1);
+				newcounter.save(null, {
+					success: function(newcounter) {
+					    console.log("newcounter.get('time')="+newcounter.get('time'));
+						var content = newcounter.get('time') + ' ' + $(document.getElementById(url)).text();
+						$(document.getElementById(url)).text(content);
+					},
+					error: function(newcounter, error) {
+						console.log('Failed to create');
+					}
+				});
+			}
+		},
+		error: function(error) {
+			console.log('Error:' + error.code + " " + error.message);
+		}
+	});
+}
+$(function() {
+	var Counter = AV.Object.extend("Counter");
+	if ($('.leancloud_visitors').length == 1) {
+		addCount(Counter);
+	} else if ($('.post-title-link').length > 1) {
+		showTime(Counter);
+	}
+}); 
+</script>
+  
+  
+</body>
+</html>

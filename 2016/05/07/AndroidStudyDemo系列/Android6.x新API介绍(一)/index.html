@@ -1,0 +1,1090 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="StudyDemo,Android 6," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="作者：李旺成时间：2016年4月19日
+
+接上篇：Android5.x新控件介绍（三）
+新特性简介
+关于 Android 6 的新特性的文章非常多，这里我不打算做过多的介绍。在搜索了几篇文章后，我对 Android 6 的新特性做了个简单的分类（粗糙的分了下，别介），有兴趣的可以稍微瞄一眼。
+
+这里只是对 Android 6 的新特性做个简单的总结归纳，为了缩短篇幅，就不贴图了。想了解更多，可以">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android6.x新API介绍(一)">
+<meta property="og:url" content="http://diy-green.com/2016/05/07/AndroidStudyDemo系列/Android6.x新API介绍(一)/index.html">
+<meta property="og:site_name" content="DIY-green">
+<meta property="og:description" content="作者：李旺成时间：2016年4月19日
+
+接上篇：Android5.x新控件介绍（三）
+新特性简介
+关于 Android 6 的新特性的文章非常多，这里我不打算做过多的介绍。在搜索了几篇文章后，我对 Android 6 的新特性做了个简单的分类（粗糙的分了下，别介），有兴趣的可以稍微瞄一眼。
+
+这里只是对 Android 6 的新特性做个简单的总结归纳，为了缩短篇幅，就不贴图了。想了解更多，可以">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android6\android6_newapi1_1.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android6\android6_newapi1_2.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android6\android6_newapi1_3.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android6\android6_newapi1_4.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android6\android6_newapi1_5.gif">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android6\android6_newapi1_6.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android6\android6_newapi1_7.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android6\android6_newapi1_8.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android6\android6_newapi1_9.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android6\android6_newapi1_10.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android6\android6_newapi1_11.png">
+<meta property="og:updated_time" content="2016-04-26T05:27:52.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android6.x新API介绍(一)">
+<meta name="twitter:description" content="作者：李旺成时间：2016年4月19日
+
+接上篇：Android5.x新控件介绍（三）
+新特性简介
+关于 Android 6 的新特性的文章非常多，这里我不打算做过多的介绍。在搜索了几篇文章后，我对 Android 6 的新特性做了个简单的分类（粗糙的分了下，别介），有兴趣的可以稍微瞄一眼。
+
+这里只是对 Android 6 的新特性做个简单的总结归纳，为了缩短篇幅，就不贴图了。想了解更多，可以">
+<meta name="twitter:image" content="http://diy-green.com/\uploads\androidstudydemo\android6\android6_newapi1_1.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'DIY-green'
+    }
+  };
+</script>
+
+  <title> Android6.x新API介绍(一) | DIY-green </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?af1b7efbf565bc568165c5a0600a0207";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+  <div style="display: none;">
+    <script src="http://s6.cnzz.com/stat.php?id=1258791461&web_id=1258791461" type="text/javascript"></script>
+  </div>
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">DIY-green</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            全部
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-androidstudydemo">
+          <a href="/categories/AndroidStudyDemo/" rel="section">
+            
+              <i class="menu-item-icon fa fa-hand-right fa-fw"></i> <br />
+            
+            ● &nbsp; AndroidStudyDemo
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-androidganhuo">
+          <a href="/categories/Android干货/" rel="section">
+            
+              <i class="menu-item-icon fa fa-hand-right fa-fw"></i> <br />
+            
+            ● &nbsp; Android干货
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-androidhacks">
+          <a href="/categories/Android小技巧/" rel="section">
+            
+              <i class="menu-item-icon fa fa-hand-right fa-fw"></i> <br />
+            
+            ● &nbsp; Android小技巧
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-androidstudio">
+          <a href="/categories/AndroidStudio/" rel="section">
+            
+              <i class="menu-item-icon fa fa-hand-right fa-fw"></i> <br />
+            
+            ● &nbsp; AndroidStudio
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-essay">
+          <a href="/categories/随笔/" rel="section">
+            
+              <i class="menu-item-icon fa fa-hand-right fa-fw"></i> <br />
+            
+            ● &nbsp; 随笔
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Android6.x新API介绍(一)
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-05-07T20:39:24+08:00" content="2016-05-07">
+              2016-05-07
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/AndroidStudyDemo/" itemprop="url" rel="index">
+                    <span itemprop="name">AndroidStudyDemo</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/AndroidStudyDemo/Android-6/" itemprop="url" rel="index">
+                    <span itemprop="name">Android 6</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/05/07/AndroidStudyDemo系列/Android6.x新API介绍(一)/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/07/AndroidStudyDemo系列/Android6.x新API介绍(一)/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+		  &nbsp; | &nbsp;
+             <span id="/2016/05/07/AndroidStudyDemo系列/Android6.x新API介绍(一)/" class="leancloud_visitors" data-flag-title="Android6.x新API介绍(一)">
+               
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+		  
+		  <!--<span id="busuanzi_container_page_pv">
+		    &nbsp; | &nbsp;<span id="busuanzi_value_page_pv"></span>阅读
+		  </span>
+		  
+		  
+			&nbsp; | &nbsp;
+			<span id="/2016/05/07/AndroidStudyDemo系列/Android6.x新API介绍(一)/"class="leancloud_visitors" data-flag-title="Android6.x新API介绍(一)">
+					 &nbsp;阅读
+					</span>
+			-->
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="\uploads\androidstudydemo\android6\android6_newapi1_1.png" alt="Android6.x新API介绍(一)" title="Android6.x新API介绍(一)思维导图"></p>
+<p><strong>作者：<a href="https://github.com/DIY-green/" target="_blank" rel="external">李旺成</a></strong><br><strong>时间：2016年4月19日</strong></p>
+<hr>
+<p>接上篇：<a href="http://www.jianshu.com/p/7ca292a2fa6f" target="_blank" rel="external">Android5.x新控件介绍（三）</a></p>
+<h1 id="新特性简介"><a href="#新特性简介" class="headerlink" title="新特性简介"></a>新特性简介</h1><p><img src="\uploads\androidstudydemo\android6\android6_newapi1_2.png" alt="Android M" title="Android M"></p>
+<p>关于 Android 6 的新特性的文章非常多，这里我不打算做过多的介绍。在搜索了几篇文章后，我对 Android 6 的新特性做了个简单的分类（粗糙的分了下，别介），有兴趣的可以稍微瞄一眼。</p>
+<blockquote>
+<p>这里只是对 Android 6 的新特性做个简单的总结归纳，为了缩短篇幅，就不贴图了。想了解更多，可以下载文末的思维导图，里面有备注。</p>
+</blockquote>
+<h2 id="硬件相关"><a href="#硬件相关" class="headerlink" title="硬件相关"></a>硬件相关</h2><ul>
+<li>指纹识别</li>
+<li>Doze 电量管理</li>
+<li>相机新增专业模式</li>
+<li>支持 RAW 格式照片</li>
+<li>Chrome Custom Tabs</li>
+<li>外置存储融入系统存储中</li>
+<li>蓝牙 SAP</li>
+<li>支持 MIDI</li>
+<li>支持 WIFI 热点2.0</li>
+<li>USB Type-C 端口支持</li>
+</ul>
+<h2 id="安全相关"><a href="#安全相关" class="headerlink" title="安全相关"></a>安全相关</h2><ul>
+<li>更完整的应用权限管理</li>
+<li>启动验证</li>
+</ul>
+<h2 id="体验优化"><a href="#体验优化" class="headerlink" title="体验优化"></a>体验优化</h2><ul>
+<li>锁屏下语音搜索</li>
+<li>支持 4K 显示</li>
+<li>存储管理<br>  支持文件夹拖拽应用</li>
+<li>Now on Tap功能</li>
+<li>App Links</li>
+<li>改进通知</li>
+<li>Google Now Launcher</li>
+<li>文字选择界面</li>
+<li>音量控制界面</li>
+<li>锁屏界面</li>
+<li>直接分享</li>
+<li>全新的启动动画</li>
+<li>系统界面调谐器<br>快速设置<br>状态栏<br>显示电池百分比<br>演示模式</li>
+</ul>
+<h2 id="性能优化"><a href="#性能优化" class="headerlink" title="性能优化"></a>性能优化</h2><ul>
+<li>App Standby</li>
+<li>内存管理</li>
+</ul>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><ul>
+<li>Android Pay</li>
+<li>分屏显示</li>
+<li>USB 连接选项</li>
+<li>一些谜之特性<br>  消失的 Dark Theme<br>  改进Android for Work<br>  整合Android Wear<br>  或许存在的一键关闭全部最近应用<br>  增加信息中心<br>  更快的更新机制<br>  更开放应用程序卸载选项</li>
+</ul>
+<h1 id="新-API-介绍"><a href="#新-API-介绍" class="headerlink" title="新 API 介绍"></a>新 API 介绍</h1><h2 id="一、动态权限申请"><a href="#一、动态权限申请" class="headerlink" title="一、动态权限申请"></a>一、动态权限申请</h2><h3 id="什么是动态权限申请"><a href="#什么是动态权限申请" class="headerlink" title="什么是动态权限申请"></a>什么是动态权限申请</h3><p><img src="\uploads\androidstudydemo\android6\android6_newapi1_3.png" alt="MIUI 权限申请页面" title="MIUI 权限申请页面"></p>
+<p>动态权限申请也就是运行时权限，是 Android 6.0 上带来的权限管理新模式（就不说 iOS 上很早就有这个了，MIUI 上也很早就有了该特性…）。</p>
+<p>在 6.0 以前，Android 对权限的处理是一刀切，就是安装的时候给出一个权限列表提示，用户同意了那就可以安装（然后，就没有然后了…）。而在 Android 6.0 以后，可以直接安装，当 App 真正用到或者说申请某些权限时，系统会给出让用户授权的提示，这时可以拒绝。当然也提供了设置界面对每个 App 的权限进行管理。</p>
+<h3 id="Android-6-x-权限分类"><a href="#Android-6-x-权限分类" class="headerlink" title="Android 6.x 权限分类"></a>Android 6.x 权限分类</h3><p>在 Android 6.x 上对权限进行了分类，包括正常权限和危险权限。<br><strong>正常权限：</strong><br>定义：<br>访问外部数据或操作的行为对用户的隐私暴露风险很小的权限。<br>列举：<br>ACCESS_LOCATION_EXTRA_COMMANDS<br>CHANGE_WIFI_STATE<br>FLASHLIGHT<br>SET_ALARM INSTALL_SHORTCUT<br>UNINSTALL_SHORTCUT</p>
+<p><strong>危险权限：</strong><br>定义：<br>需要访问用户的个人数据，或是影响用户已保存的数据时发生的权限。<br>列举：<br><strong>CALENDAE</strong><br>READ_CALENDAR<br>WRITE_CALENDAR<br><strong>CAMERA</strong><br>CAMERA<br><strong>CONTACTS</strong><br>READ_CONTACTS<br>WRITE_CONTACTS<br>READ_PROFILE<br>WRITE_PROFILE<br><strong>LOCATION</strong><br>ACCESS_FINE_LOCATION<br>ACCESS_COARSE_LOCATION<br><strong>MICROPHONE</strong><br>RECORD_AUDIO<br><strong>PHONE</strong><br>READ_PHONE_STATE<br>CALL_PHONE<br>READ_CALL_LOG<br>WRITE_CALL_LOG<br>com.android.voicemail.permission.ADD_VOI<strong>CEMAIL</strong><br>USE_SIP<br>PROCESS_OUTGOING_CALLS<br><strong>SENSORS</strong><br>BODY_SENSORS<br>USE_FINGERPRINT<br><strong>SMS</strong><br>SEND_SMS<br>RECEIVE_SMS<br>READ_SMS<br>RECEIVE_WAP_PUSH<br>RECEIVE_MMS<br>READ_CELL_BROADCASTS<br><strong>STORAGE</strong><br>READ_EXTERNAL_STORAGE<br>WRITE_EXTERNAL_STORAGE</p>
+<p>在 Android 6.x 上危险权限进行了分组处理，这有什么作用？</p>
+<p>在 Android 6.x 上，授权机制是这样的：如果 App 申请某个危险的权限，假设该 App 已被授权过<strong>该组</strong>的某个权限，那么系统会立即授权，而不需要用户再点击授权。</p>
+<p>例如，如果你对某 App 授权过 SEND_SMS，那么当该 App 申请 RECEIVE_SMS 等属于 <strong>SMS Group</strong> 下的权限时，系统会直接授权通过。</p>
+<p><strong>注意：</strong>上图中的权限申请对话框上面的文本说明是对权限组的说明，而不是单个权限（PS：这个对话框是系统提供的）。</p>
+<p><strong>说明：</strong>在定义上述权限是，没有给出前缀的，其前缀都是“ <strong>android.permission.</strong>”，这里为了清晰起见就没有添加了。</p>
+<h3 id="Android-6-x-危险权限处理"><a href="#Android-6-x-危险权限处理" class="headerlink" title="Android 6.x 危险权限处理"></a>Android 6.x 危险权限处理</h3><h4 id="危险权限处理流程"><a href="#危险权限处理流程" class="headerlink" title="危险权限处理流程"></a>危险权限处理流程</h4><p><img src="\uploads\androidstudydemo\android6\android6_newapi1_4.png" alt="运行时权限处理流程" title="运行时权限处理流程"></p>
+<p>通过上面的流程图基本上可以了解 Andorid 6.x 对危险权限的处理流程，这里就不再用文字描述。</p>
+<h4 id="权限处理相关-API"><a href="#权限处理相关-API" class="headerlink" title="权限处理相关 API"></a>权限处理相关 API</h4><p>先看看效果：</p>
+<p><img src="\uploads\androidstudydemo\android6\android6_newapi1_5.gif" alt="运行时权限演示" title="运行时权限演示"></p>
+<p><strong>1、检查是否有权限</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ContextCompat.checkSelfPermission(<span class="keyword">this</span>, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED</span><br></pre></td></tr></table></figure></p>
+<p><strong>2、解释权限申请原因，引导用户授权</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (!ActivityCompat.shouldShowRequestPermissionRationale(<span class="keyword">this</span>, Manifest.permission.WRITE_EXTERNAL_STORAGE)) &#123;</span><br><span class="line">	<span class="comment">// 显示对话框解释为什么要申请权限</span></span><br><span class="line">	showMessage(<span class="string">"测试一下对SD卡进行读写操作"</span>,</span><br><span class="line">			<span class="keyword">new</span> DialogInterface.OnClickListener() &#123;</span><br><span class="line">				<span class="meta">@Override</span></span><br><span class="line">				<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(DialogInterface dialog,</span><br><span class="line">									<span class="keyword">int</span> which)</span> </span>&#123;</span><br><span class="line">					startAppSettings();</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;);</span><br><span class="line">	<span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>3、申请权限</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ActivityCompat.requestPermissions(this,</span><br><span class="line">		new String[]&#123;Manifest.permission.WRITE_EXTERNAL_STORAGE&#125;,</span><br><span class="line">		REQUEST_CODE_ASK_EXTERNAL_STORAGE_PERMISSON);</span><br></pre></td></tr></table></figure></p>
+<p><strong>4、获取用户是否授权结果</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onRequestPermissionsResult</span><span class="params">(<span class="keyword">int</span> requestCode, String[] permissions, <span class="keyword">int</span>[] grantResults)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">switch</span> (requestCode) &#123;</span><br><span class="line">		<span class="keyword">case</span> REQUEST_CODE_ASK_EXTERNAL_STORAGE_PERMISSON:</span><br><span class="line">			<span class="comment">// Permission Granted</span></span><br><span class="line">			<span class="keyword">if</span> (grantResults[<span class="number">0</span>] == PackageManager.PERMISSION_GRANTED) &#123;</span><br><span class="line">				Toast.makeText(DynamicPermissionActivity.<span class="keyword">this</span>, <span class="string">"用户确认授权操作SD卡权限"</span>, Toast.LENGTH_SHORT).show();</span><br><span class="line">			&#125; <span class="keyword">else</span> &#123; <span class="comment">// Permission Denied</span></span><br><span class="line">				Toast.makeText(DynamicPermissionActivity.<span class="keyword">this</span>, <span class="string">"用户拒绝授权操作SD卡权限"</span>, Toast.LENGTH_SHORT).show();</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">default</span>:</span><br><span class="line">			<span class="keyword">super</span>.onRequestPermissionsResult(requestCode, permissions, grantResults);</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="危险权限测试"><a href="#危险权限测试" class="headerlink" title="危险权限测试"></a>危险权限测试</h4><p><strong>1、按组列出权限</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ adb shell pm list permissions -d -g</span><br></pre></td></tr></table></figure>
+<p><img src="\uploads\androidstudydemo\android6\android6_newapi1_6.png" alt="检测权限的adb命令" title="检测权限的adb命令"></p>
+<p><strong>2、开启或者禁用某个权限</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ adb shell pm [grant|revoke] PACKAGE &lt;permission-name&gt;</span><br><span class="line"></span><br><span class="line">示例：</span><br><span class="line">$ adb shell pm grant com.diygreen.android6new android.permission.WRITE_EXTERNAL_STORAGE</span><br></pre></td></tr></table></figure>
+<p>自己去试试吧！这里就不贴图了。</p>
+<h4 id="动态权限使用示例"><a href="#动态权限使用示例" class="headerlink" title="动态权限使用示例"></a>动态权限使用示例</h4><p><em>1. 申请权限</em><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--危险权限--&gt;</span><br><span class="line">&lt;uses-permission android:name=<span class="string">"android.permission.READ_EXTERNAL_STORAGE"</span>/&gt;</span><br><span class="line">&lt;uses-permission android:name=<span class="string">"android.permission.WRITE_EXTERNAL_STORAGE"</span>/&gt;</span><br></pre></td></tr></table></figure></p>
+<p><em>2. 使用示例</em><br>示例代码很简单，直接看代码：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">testSDCardPermission</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (mCheckSwitch.isChecked()) &#123;</span><br><span class="line">		<span class="comment">// 1. 判断是否有权限</span></span><br><span class="line">		<span class="keyword">if</span> (ActivityCompat.checkSelfPermission(<span class="keyword">this</span>, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) &#123;</span><br><span class="line">			<span class="comment">// 在弹出权限选择的对话框前给用户show一个dialog，用于引导用户进行选择</span></span><br><span class="line">			<span class="keyword">if</span> (!ActivityCompat.shouldShowRequestPermissionRationale(<span class="keyword">this</span>, Manifest.permission.WRITE_EXTERNAL_STORAGE)) &#123;</span><br><span class="line">				<span class="comment">// 解释为什么要申请权限</span></span><br><span class="line">				showMessage(<span class="string">"测试一下对SD卡进行读写操作"</span>,</span><br><span class="line">						<span class="keyword">new</span> DialogInterface.OnClickListener() &#123;</span><br><span class="line">							<span class="meta">@Override</span></span><br><span class="line">							<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(DialogInterface dialog,</span><br><span class="line">												<span class="keyword">int</span> which)</span> </span>&#123;</span><br><span class="line">								startAppSettings();</span><br><span class="line">							&#125;</span><br><span class="line">						&#125;);</span><br><span class="line">				<span class="keyword">return</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			ActivityCompat.requestPermissions(<span class="keyword">this</span>,</span><br><span class="line">					<span class="keyword">new</span> String[]&#123;Manifest.permission.WRITE_EXTERNAL_STORAGE&#125;,</span><br><span class="line">					REQUEST_CODE_ASK_EXTERNAL_STORAGE_PERMISSON);</span><br><span class="line">		&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">			Toast.makeText(DynamicPermissionActivity.<span class="keyword">this</span>, <span class="string">"有权限了开始读写SD卡吧！"</span>, Toast.LENGTH_LONG).show();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">		<span class="comment">// 1. 判断是否有权限</span></span><br><span class="line">		<span class="keyword">if</span> (ContextCompat.checkSelfPermission(<span class="keyword">this</span>, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED</span><br><span class="line">				&amp;&amp;</span><br><span class="line">				ContextCompat.checkSelfPermission(<span class="keyword">this</span>, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) &#123;</span><br><span class="line">			<span class="comment">// 2. 弹出对话框申请权限给用户选择</span></span><br><span class="line">			<span class="comment">// 第二个参数code与onRequestPermissionResult()方法中的code对应</span></span><br><span class="line">			ActivityCompat.requestPermissions(<span class="keyword">this</span>, EXTERNAL_STORAGE_PERMISSIONS, REQUEST_CODE_ASK_EXTERNAL_STORAGE_PERMISSON);</span><br><span class="line">		&#125;  <span class="keyword">else</span> &#123;</span><br><span class="line">			Toast.makeText(DynamicPermissionActivity.<span class="keyword">this</span>, <span class="string">"有权限了开始读写SD卡吧！"</span>, Toast.LENGTH_LONG).show();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">showMessage</span><span class="params">(String message,</span><br><span class="line">                             DialogInterface.OnClickListener okListener)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">new</span> AlertDialog.Builder(<span class="keyword">this</span>)</span><br><span class="line">			.setMessage(message)</span><br><span class="line">			.setNegativeButton(<span class="string">"取消"</span>, <span class="keyword">null</span>)</span><br><span class="line">			.setPositiveButton(<span class="string">"设置"</span>, okListener).create().show();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 启动应用的设置</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">startAppSettings</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	Intent intent = <span class="keyword">new</span> Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);</span><br><span class="line">	intent.setData(Uri.parse(PACKAGE_URL_SCHEME + getPackageName()));</span><br><span class="line">	startActivity(intent);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="Fragment-中动态权限处理"><a href="#Fragment-中动态权限处理" class="headerlink" title="Fragment 中动态权限处理"></a>Fragment 中动态权限处理</h4><p>在 Fragment 中动态权限的使用与 Activity 中稍有差别，有几个需要注意的地方：</p>
+<ol>
+<li>申请权限<br>上面的示例程序中都是使用 ActivityCompat.requestPermissions() 静态方法在 Activity 中申请权限的，可以看一下该方法的方法签名：<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">requestPermissions</span><span class="params">(<span class="keyword">final</span> @NonNull Activity activity,</span><br><span class="line">            <span class="keyword">final</span> @NonNull String[] permissions, <span class="keyword">final</span> <span class="keyword">int</span> requestCode)</span></span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>第一个参数是 Activity，当然在 Fragment 中可以通过 getActivity() 方法获取它所 attach 的 Activity，但这就导致了一个问题 —— requestPermissions() 方法是异步的，它的返回值会回调到第一个参数传入的 Activity 中的 onRequestPermissionsResult() 方法上。</p>
+<p>当然，你可以将回调结果再传给 Fragment，但是，这样做不是平添了麻烦嘛。</p>
+<p>这里可以直接使用 Fragment 中提供的 requestPermissions() 方法，这个是要注意的地方。</p>
+<ol>
+<li>Fragment 嵌套<br>Fragment 嵌套往往有不少地方需要注意，在动态权限申请的时候也一样。你会发现在嵌套的子 Fragment 中使用上述方法申请权限后，onRequestPermissionsResult() 回调方法并没有执行。其实解决的方法和刚才提过的思路是一样的 —— 交给父 Fragment 去处理（上面的例子就是可以交给 Activity 去处理），然后再将回调结果传给子 Fragment。</li>
+</ol>
+<p>示例代码：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 在子 Fragment 中通过父 Fragment 申请权限</span></span><br><span class="line">getParentFragment().requestPermissions(permissions, requestCode); </span><br><span class="line"></span><br><span class="line"><span class="comment">// 在父 Fragment 中分发回调结果</span></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onRequestPermissionsResult</span><span class="params">(<span class="keyword">int</span> requestCode, String[] permissions, <span class="keyword">int</span>[] grantResults)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">super</span>.onRequestPermissionsResult(requestCode, permissions, grantResults);</span><br><span class="line">	List&lt;Fragment&gt; fragmentList = getChildFragmentManager().getFragments();</span><br><span class="line">	<span class="keyword">if</span> (fragmentList != <span class="keyword">null</span>) &#123;</span><br><span class="line">		<span class="keyword">for</span> (Fragment fragment : fragmentList) &#123;</span><br><span class="line">			<span class="keyword">if</span> (fragment != <span class="keyword">null</span>) &#123;</span><br><span class="line">				fragment.onRequestPermissionsResult(requestCode, permissions, grantResults);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="动态权限小结"><a href="#动态权限小结" class="headerlink" title="动态权限小结"></a>动态权限小结</h4><ol>
+<li>动态权限相关 API 建议使用静态方法（兼容包中提高）</li>
+<li>可尝试使用第三方库简化代码（这里不做介绍，有兴趣自己去看看），例如：<br>运行时注解库：<strong><a href="https://github.com/lovedise/PermissionGen" target="_blank" rel="external">PermissionGen</a></strong><br>编译时注解库：<strong><a href="https://github.com/hongyangAndroid/MPermissions" target="_blank" rel="external">MPermissions</a></strong></li>
+<li>如果不使用第三方库，建议使用工具类来管理危险权限</li>
+<li>在 Fragment 中处理动态权限的时候的一些注意事项</li>
+<li>在 AndroidStudio 中会提醒检测权限是否开启，可以自动生成代码</li>
+</ol>
+<p><img src="\uploads\androidstudydemo\android6\android6_newapi1_7.png" alt="提醒检测权限是否开启" title="提醒检测权限是否开启"></p>
+<h2 id="二、获取硬件标识符"><a href="#二、获取硬件标识符" class="headerlink" title="二、获取硬件标识符"></a>二、获取硬件标识符</h2><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>在 Andorid 6.x 中，为了更好的保护用户的数据，移除了从代码中通过 Wi-Fi 和蓝牙的 API 访问硬件标识符。因此 WifiInfo.getMacAddress() 和BluetoothAdapter.getAddress() 将始终返回 02:00:00:00:00:00 而为了能够通过Wi-Fi和蓝牙扫描时，获取周边设备的硬件标识符，应用必须具有ACCESS_FINE_LOCATION 和 ACCESS_COARSE_LOCATION权限：<br>WifiManager.getScanResults()<br>BluetoothDevice.ACTION_FOUND<br>BluetoothLeScanner.startScan()<br>（参考自：<a href="http://blog.csdn.net/w7849516230/article/details/49704077" target="_blank" rel="external">值得你关注的Android6.0上的重要变化（一）</a>）</p>
+<p><strong>注意：</strong>当运行 Android6.0(API level 23) 的设备启动后台 Wi-Fi 或蓝牙扫描时, 此操作对外部设备是可见的，且被显示为一个随机MAC的地址。</p>
+<h2 id="三、MIDI-API"><a href="#三、MIDI-API" class="headerlink" title="三、MIDI API"></a>三、MIDI API</h2><p>Android 6.x 提供了对 MIDI 的支持，这些 API 都在 android.media.midi 包下。MIDI API 可以用于从连接的 MIDI 输入设备接收和播放 MIDI 信息。从 Google 的展示来看，几乎任意可以输出 MIDI 音符和 CC 数据的设备都可以。</p>
+<p><img src="\uploads\androidstudydemo\android6\android6_newapi1_8.png" alt="MIDI 包" title="MIDI 包"></p>
+<p>Google 提供了一个示例程序：Android MidiSynth。该示例程序演示了 MIDI API 的基本功能：</p>
+<ul>
+<li>枚举当前的可用设备（包括名称、厂商、功能等）</li>
+<li>当 MIDI 设备插入或拔出时提示</li>
+<li>接收和处理 MIDI 信息</li>
+</ul>
+<p><img src="\uploads\androidstudydemo\android6\android6_newapi1_9.png" alt="Android MidiSynth" title="Android MidiSynth"></p>
+<p>这是官方提供的示例代码运行截图，手边没有可以演示的设备，所以看不到什么数据。</p>
+<p>本来打算分析一下该示例的源码，本人实在是对这块不了解，有兴趣的童鞋自己下载代码去看看吧。</p>
+<p><strong>Android MidiSynth 示例代码</strong><br><a href="https://github.com/DIY-green/android-MidiSynth-master" target="_blank" rel="external">GitHub</a></p>
+<h2 id="四、直接分享"><a href="#四、直接分享" class="headerlink" title="四、直接分享"></a>四、直接分享</h2><p>先看效果：</p>
+<p><img src="\uploads\androidstudydemo\android6\android6_newapi1_10.png" alt="直接分享示例" title="直接分享示例"></p>
+<p>上图左侧是直接分享本该有的效果，右侧是在小米 Note（汗，目前只有这个手机可以测试）上的效果。有点坑，还以为是哪里写错了，有原生系统的可以去试试。</p>
+<h3 id="简介-1"><a href="#简介-1" class="headerlink" title="简介"></a>简介</h3><p>Android 6 提供了直接分享的功能，允许用户在一个应用里面分享内容到其他地方，比如联系人。</p>
+<p>核心思想是，用户可以直接分享相关内容而无需先打开一个的应用程序再去分享，这样直接分享允许用户跳过通常的分享流程中的一个步骤。<br>（参考自：<a href="https://www.bignerdranch.com/blog/implementing-android-marshmallow-direct-share/" target="_blank" rel="external">Implementing Android Marshmallow Direct Share</a>）</p>
+<h3 id="简单使用"><a href="#简单使用" class="headerlink" title="简单使用"></a>简单使用</h3><h4 id="创建自定义-ChooserTargetService"><a href="#创建自定义-ChooserTargetService" class="headerlink" title="创建自定义 ChooserTargetService"></a>创建自定义 ChooserTargetService</h4><p>ChooserTargetService 就是个 Service，为直接分享提供 ChooserTarget 列表。<br>看下 ChooseTargetService 的继承结构：</p>
+<p><img src="\uploads\androidstudydemo\android6\android6_newapi1_11.png" alt="ChooseTargetService 类继承结构" title="ChooseTargetService 类继承结构"></p>
+<p>使用很简单：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@TargetApi</span>(Build.VERSION_CODES.M)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DirectShareService</span> <span class="keyword">extends</span> <span class="title">ChooserTargetService</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> List&lt;ChooserTarget&gt; <span class="title">onGetChooserTargets</span><span class="params">(ComponentName targetActivityName, IntentFilter matchedFilter)</span> </span>&#123;</span><br><span class="line">        ComponentName componentName = <span class="keyword">new</span> ComponentName(getPackageName(),</span><br><span class="line">                ShareActivity.class.getCanonicalName());</span><br><span class="line">        ArrayList&lt;ChooserTarget&gt; targets = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">            Bundle extras = <span class="keyword">new</span> Bundle();</span><br><span class="line">            extras.putInt(<span class="string">"directsharekey"</span>, i);</span><br><span class="line">            targets.add(<span class="keyword">new</span> ChooserTarget(</span><br><span class="line">                    <span class="string">"name_"</span> + i,</span><br><span class="line">                    Icon.createWithResource(<span class="keyword">this</span>, R.mipmap.ic_logo),</span><br><span class="line">                    <span class="number">0.5f</span>,</span><br><span class="line">                    componentName,</span><br><span class="line">                    extras));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> targets;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="在清单文件中配置-ChooserTargetService"><a href="#在清单文件中配置-ChooserTargetService" class="headerlink" title="在清单文件中配置 ChooserTargetService"></a>在清单文件中配置 ChooserTargetService</h4><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;service</span><br><span class="line">	android:name=".newapi.DirectShareService"</span><br><span class="line">	android:label="@string/app_name"</span><br><span class="line">	android:permission="android.permission.BIND_CHOOSER_TARGET_SERVICE"&gt;</span><br><span class="line">	&lt;intent-filter&gt;</span><br><span class="line">		&lt;action android:name="android.service.chooser.ChooserTargetService" /&gt;</span><br><span class="line">	&lt;/intent-filter&gt;</span><br><span class="line">&lt;/service&gt;</span><br></pre></td></tr></table></figure>
+<p>解释一下上面的配置：</p>
+<ol>
+<li>配置权限<br>android:permission=”android.permission.BIND_CHOOSER_TARGET_SERVICE”</li>
+<li>配置 intent-filter<action android:name="android.service.chooser.ChooserTargetService">
+
+</action></li>
+</ol>
+<h4 id="配置响应-ChooserTargetService-的-Activity"><a href="#配置响应-ChooserTargetService-的-Activity" class="headerlink" title="配置响应 ChooserTargetService 的 Activity"></a>配置响应 ChooserTargetService 的 Activity</h4><p>对于每一个你想要暴露给 ChooserTargetService 的 Activity，都需要加上 meta-data 。指定 name 是 android.service.chooser.chooser_target_service，在 Service 定义之前指明它的 value。当一个隐式的 Intent 和其中一个 Activity 匹配，这个 intent 的选择对话框将会显示包含这个 Activity 的应用的 ICON 同时还会显示 ChooserTarget 列表的图标。选择应用的图标会像标准的分享 Intent 一样，选择 ChooserTarget icon 的时候会打开对应的 Activity，根据 Intent 传递过来的数据初始化数据（在 ChooserTargetService 中指定的）。<br>（参考自：<a href="http://www.aichengxu.com/view/2541118" target="_blank" rel="external">实现安卓6.0的直接分享（Direct Share ）功能</a>）</p>
+<p>清单文件中配置：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;activity android:name=".newapi.ShareActivity"&gt;</span><br><span class="line">	&lt;intent-filter&gt;</span><br><span class="line">		&lt;action android:name="android.intent.action.SEND" /&gt;</span><br><span class="line">		&lt;category android:name="android.intent.category.DEFAULT" /&gt;</span><br><span class="line">		&lt;data android:mimeType="text/plain" /&gt;</span><br><span class="line">	&lt;/intent-filter&gt;</span><br><span class="line">	&lt;meta-data</span><br><span class="line">		android:name="android.service.chooser.chooser_target_service"</span><br><span class="line">		android:value=".newapi.DirectShareService" /&gt;</span><br><span class="line">&lt;/activity&gt;</span><br></pre></td></tr></table></figure></p>
+<h4 id="发起直接分享-Intent"><a href="#发起直接分享-Intent" class="headerlink" title="发起直接分享 Intent"></a>发起直接分享 Intent</h4><p>直接看代码：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">final</span> Intent intent = <span class="keyword">new</span> Intent(Intent.ACTION_SEND)</span><br><span class="line">		.setType(<span class="string">"text/plain"</span>)</span><br><span class="line">		.putExtra(Intent.EXTRA_TITLE, <span class="string">"直接分享"</span>);</span><br><span class="line">startActivity(Intent.createChooser(intent, <span class="string">"ChooserTargetService"</span>));</span><br></pre></td></tr></table></figure></p>
+<h1 id="示例-Demo"><a href="#示例-Demo" class="headerlink" title="示例 Demo"></a>示例 Demo</h1><p><a href="https://github.com/DIY-green/ASD-Android6New" target="_blank" rel="external">GitHub</a></p>
+<p><a href="http://www.jianshu.com/p/77aa0a0b90f5#" target="_blank" rel="external">未完待续…</a>下一篇继续介绍 Android 6.x 其余的新 API。</p>
+<p><strong>接下篇</strong><br><a href="http://www.jianshu.com/p/77aa0a0b90f5#" target="_blank" rel="external">AndroidStudyDemo之Android6.x新API介绍（二）</a></p>
+<h1 id="附件"><a href="#附件" class="headerlink" title="附件"></a>附件</h1><p><a href="http://pan.baidu.com/s/1bKZv1k" target="_blank" rel="external">Andoid6思维导图</a></p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="http://www.jb51.net/shouji/385682.html" target="_blank" rel="external">Android 6.0有哪些新功能新特性 安卓6.0功能详细介绍</a><br><a href="http://www.arpun.com/article/18524.html" target="_blank" rel="external">Android 6.0 新功能和新特性</a><br><a href="http://blog.csdn.net/annkie/article/details/49251073" target="_blank" rel="external">Android：Android 6.0新特性</a><br><a href="http://blog.csdn.net/annkie/article/details/48707547" target="_blank" rel="external">Android 6.0新特性[zz]</a><br><a href="http://www.pingwest.com/android-m/" target="_blank" rel="external">作为 Android 史上最人性化的升级，Android M 的新功能全在这</a><br><a href="http://www.th7.cn/Program/Android/201511/693296.shtml" target="_blank" rel="external">Android M 部分API变动研究</a><br><a href="http://www.midifan.com/modulenews-detailview-20714.htm" target="_blank" rel="external">6.0 版本的 Android M 加入了 MIDI API</a><br><a href="http://www.codeceo.com/article/android-6-new-tech.html" target="_blank" rel="external">Android 6.0 中的新技术总结</a><br><a href="http://blog.csdn.net/w7849516230/article/details/49704077" target="_blank" rel="external">值得你关注的Android6.0上的重要变化（一）</a><br><a href="http://blog.csdn.net/w7849516230/article/details/50358907" target="_blank" rel="external">值得你关注的Android6.0上的重要变化（二）</a><br><a href="http://inthecheesefactory.com/blog/things-you-need-to-know-about-android-m-permission-developer-edition/en" target="_blank" rel="external">Everything every Android Developer must know about new Android’s Runtime Permission</a><br><a href="http://developer.android.com/intl/zh-cn/training/permissions/index.html" target="_blank" rel="external">Working with System Permissions</a><br><a href="http://developer.android.com/intl/zh-cn/training/permissions/best-practices.html#testing" target="_blank" rel="external">Permissions Best Practices</a><br><a href="http://blog.csdn.net/lmj623565791/article/details/50709663" target="_blank" rel="external">Android 6.0 运行时权限处理完全解析</a><br><a href="http://blog.csdn.net/jdsjlzx/article/details/51180887" target="_blank" rel="external">Android M 动态权限获取</a><br><a href="http://blog.csdn.net/caroline_wendy/article/details/50587230" target="_blank" rel="external">Android 6.0: 动态权限管理的解决方案</a><br><a href="http://blog.csdn.net/hudashi/article/details/50775180" target="_blank" rel="external">android 6.0权限全面详细分析和解决方案</a><br><a href="http://blog.csdn.net/jdsjlzx/article/details/51180887" target="_blank" rel="external">Android M 动态权限获取</a><br><a href="http://www.jianshu.com/p/b4a8b3d4f587" target="_blank" rel="external">Android 6.0 运行时权限处理</a><br><a href="http://www.open-open.com/lib/view/open1447236259272.html" target="_blank" rel="external">在Android 6.0 设备上动态获取权限</a><br><a href="https://www.bignerdranch.com/blog/implementing-android-marshmallow-direct-share/" target="_blank" rel="external">Implementing Android Marshmallow Direct Share</a><br><a href="http://www.aichengxu.com/view/2541118" target="_blank" rel="external">安卓6.0新特性：直接分享功能</a></p>
+
+      
+    </div>
+    
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+<div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton", disable="enable", onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}", style="cursor: pointer; border: 0; outline: 0; border-radius: 100%; padding: 0; margin: 0; letter-spacing: normal; text-transform: none; text-indent: 0px; text-shadow: none">
+    <span onmouseover="this.style.color='rgb(236,96,0)';this.style.background='rgb(204,204,204)'" onMouseOut="this.style.color='#fff';this.style.background='rgb(236,96,0)'" style="display: inline-block; width: 70px; height: 70px; border-radius: 100%; line-height: 81px; color: #fff; font: 400 35px/75px 'microsofty'; background: rgb(236,96,0)">赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/uploads/images/wechat-reward-image.png" alt="DIY-green WeChat Pay" style="width: 200px; max-width: 100%; display: inline-block"/>
+        <p>微信打赏</p>
+      </div>
+    
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/uploads/images/alipay-reward-image.png" alt="DIY-green Alipay" style="width: 200px; max-width: 100%; display: inline-block"/>
+        <p>支付宝打赏</p>
+      </div>
+    
+  </div>
+</div>
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/StudyDemo/" rel="tag">#StudyDemo</a>
+          
+            <a href="/tags/Android-6/" rel="tag">#Android 6</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/05/07/AndroidStudyDemo系列/Android6.x新API介绍(二)/" rel="next" title="Android6.x新API介绍(二)">
+                <i class="fa fa-chevron-left"></i> Android6.x新API介绍(二)
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/05/07/AndroidStudyDemo系列/Android5.x新控件介绍(二)/" rel="prev" title="Android5.x新控件介绍(二)">
+                Android5.x新控件介绍(二) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/05/07/AndroidStudyDemo系列/Android6.x新API介绍(一)/"
+           data-title="Android6.x新API介绍(一)" data-url="http://diy-green.com/2016/05/07/AndroidStudyDemo系列/Android6.x新API介绍(一)/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/images/avatar.jpg"
+               alt="DIY-green" />
+          <p class="site-author-name" itemprop="name">DIY-green</p>
+          <p class="site-description motion-element" itemprop="description">男子千年志，吾生未有涯。心随朗月高，志与秋霜洁。</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">52</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">27</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/DIY-green" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/users/0ad0a0afc409/latest_articles" target="_blank" title="JianShu">
+                  
+                    <i class="fa fa-globe"></i>
+                  
+                  JianShu
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element">
+            <div class="links-of-blogroll-title">
+              <i class="fa fa-globe fa-fw"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.jianshu.com/users/0ad0a0afc409/latest_articles" title="DIY-green简书" target="_blank">DIY-green简书</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.jianshu.com/users/3a482c4f0658/latest_articles" title="天接水0001" target="_blank">天接水0001</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://sunfusheng.com" title="孙福生" target="_blank">孙福生</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://kuanggang.github.io" title="匡罡" target="_blank">匡罡</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://Ivorfason.github.io" title="尹明仁" target="_blank">尹明仁</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://mengqingxiang.github.io" title="孟庆祥" target="_blank">孟庆祥</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#新特性简介"><span class="nav-number">1.</span> <span class="nav-text">新特性简介</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#硬件相关"><span class="nav-number">1.1.</span> <span class="nav-text">硬件相关</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安全相关"><span class="nav-number">1.2.</span> <span class="nav-text">安全相关</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#体验优化"><span class="nav-number">1.3.</span> <span class="nav-text">体验优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#性能优化"><span class="nav-number">1.4.</span> <span class="nav-text">性能优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他"><span class="nav-number">1.5.</span> <span class="nav-text">其他</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#新-API-介绍"><span class="nav-number">2.</span> <span class="nav-text">新 API 介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、动态权限申请"><span class="nav-number">2.1.</span> <span class="nav-text">一、动态权限申请</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是动态权限申请"><span class="nav-number">2.1.1.</span> <span class="nav-text">什么是动态权限申请</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Android-6-x-权限分类"><span class="nav-number">2.1.2.</span> <span class="nav-text">Android 6.x 权限分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Android-6-x-危险权限处理"><span class="nav-number">2.1.3.</span> <span class="nav-text">Android 6.x 危险权限处理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#危险权限处理流程"><span class="nav-number">2.1.3.1.</span> <span class="nav-text">危险权限处理流程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#权限处理相关-API"><span class="nav-number">2.1.3.2.</span> <span class="nav-text">权限处理相关 API</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#危险权限测试"><span class="nav-number">2.1.3.3.</span> <span class="nav-text">危险权限测试</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#动态权限使用示例"><span class="nav-number">2.1.3.4.</span> <span class="nav-text">动态权限使用示例</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Fragment-中动态权限处理"><span class="nav-number">2.1.3.5.</span> <span class="nav-text">Fragment 中动态权限处理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#动态权限小结"><span class="nav-number">2.1.3.6.</span> <span class="nav-text">动态权限小结</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、获取硬件标识符"><span class="nav-number">2.2.</span> <span class="nav-text">二、获取硬件标识符</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#简介"><span class="nav-number">2.2.1.</span> <span class="nav-text">简介</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、MIDI-API"><span class="nav-number">2.3.</span> <span class="nav-text">三、MIDI API</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、直接分享"><span class="nav-number">2.4.</span> <span class="nav-text">四、直接分享</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#简介-1"><span class="nav-number">2.4.1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#简单使用"><span class="nav-number">2.4.2.</span> <span class="nav-text">简单使用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#创建自定义-ChooserTargetService"><span class="nav-number">2.4.2.1.</span> <span class="nav-text">创建自定义 ChooserTargetService</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#在清单文件中配置-ChooserTargetService"><span class="nav-number">2.4.2.2.</span> <span class="nav-text">在清单文件中配置 ChooserTargetService</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#配置响应-ChooserTargetService-的-Activity"><span class="nav-number">2.4.2.3.</span> <span class="nav-text">配置响应 ChooserTargetService 的 Activity</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#发起直接分享-Intent"><span class="nav-number">2.4.2.4.</span> <span class="nav-text">发起直接分享 Intent</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#示例-Demo"><span class="nav-number">3.</span> <span class="nav-text">示例 Demo</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#附件"><span class="nav-number">4.</span> <span class="nav-text">附件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考"><span class="nav-number">5.</span> <span class="nav-text">参考</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+<div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">DIY-green</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info powered-by">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+<div class="powered-by">
+  <span id="busuanzi_container_site_pv">
+    本站总访问量<span id="busuanzi_value_site_pv"></span>次
+  </span>
+</div>
+<div style="display:inline-block;">
+  <span id="busuanzi_container_site_uv">
+    本站访客数<span id="busuanzi_value_site_uv"></span>人次
+  </span>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"DIY-green"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+      
+      <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+      <script src="/js/src/hook-duoshuo.js"></script>
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+  
+  
+  <!-- custom analytics part create by xiamo -->
+<script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+<script>AV.initialize("UnkeFG0pM1t3q8H3y7NTLUA0-gzGzoHsz", "2oBUu9nxByteYjLFtBtqOPwN");</script>
+<script>
+function showTime(Counter) {
+	var query = new AV.Query(Counter);
+	$(".leancloud_visitors").each(function() {
+		var url = $(this).attr("id").trim();
+		query.equalTo("url", url);
+		query.find({
+			success: function(results) {
+				if (results.length == 0) {
+					var content = '0 ' + $(document.getElementById(url)).text();
+					$(document.getElementById(url)).text(content);
+					return;
+				}
+				for (var i = 0; i < results.length; i++) {
+					var object = results[i];
+					var content = object.get('time') + ' ' + $(document.getElementById(url)).text();
+					$(document.getElementById(url)).text(content);
+				}
+			},
+			error: function(object, error) {
+				console.log("Error: " + error.code + " " + error.message);
+			}
+		});
+
+	});
+}
+
+function addCount(Counter) {
+	var Counter = AV.Object.extend("Counter");
+	url = $(".leancloud_visitors").attr('id').trim();
+	title = $(".leancloud_visitors").attr('data-flag-title').trim();
+	var query = new AV.Query(Counter);
+	query.equalTo("url", url);
+	query.find({
+		success: function(results) {
+			if (results.length > 0) {
+				var counter = results[0];
+				counter.fetchWhenSave(true);
+				counter.increment("time");
+				counter.save(null, {
+					success: function(counter) {
+						var content =  counter.get('time') + ' ' + $(document.getElementById(url)).text();
+						$(document.getElementById(url)).text(content);
+					},
+					error: function(counter, error) {
+						console.log('Failed to save Visitor num, with error message: ' + error.message);
+					}
+				});
+			} else {
+				var newcounter = new Counter();
+				newcounter.set("title", title);
+				newcounter.set("url", url);
+				newcounter.set("time", 1);
+				newcounter.save(null, {
+					success: function(newcounter) {
+					    console.log("newcounter.get('time')="+newcounter.get('time'));
+						var content = newcounter.get('time') + ' ' + $(document.getElementById(url)).text();
+						$(document.getElementById(url)).text(content);
+					},
+					error: function(newcounter, error) {
+						console.log('Failed to create');
+					}
+				});
+			}
+		},
+		error: function(error) {
+			console.log('Error:' + error.code + " " + error.message);
+		}
+	});
+}
+$(function() {
+	var Counter = AV.Object.extend("Counter");
+	if ($('.leancloud_visitors').length == 1) {
+		addCount(Counter);
+	} else if ($('.post-title-link').length > 1) {
+		showTime(Counter);
+	}
+}); 
+</script>
+  
+  
+</body>
+</html>

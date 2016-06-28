@@ -1,0 +1,979 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Android,Android小技巧," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="作者：李旺成时间：2016年5月6日
+
+项目简介从学 Android 到现在，一路跌跌撞撞的，踩过不少坑，其中的酸甜苦辣就不细说了，相信很多人都经历过。所以，我想在这里将一些常用的 Android 开发小技巧收集起来，供大家参考。
+这里囊括的都是一些小技巧，这些技巧之间没有什么关联，只是做了下简单的分类。所有的示例都力求做到简单明了，示例清晰，拿去就能直接用。
+项目组织形式这里打算参考 Andr">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android开发Hacks收罗">
+<meta property="og:url" content="http://diy-green.com/2016/05/07/Android小技巧/Android开发Hacks收罗/index.html">
+<meta property="og:site_name" content="DIY-green">
+<meta property="og:description" content="作者：李旺成时间：2016年5月6日
+
+项目简介从学 Android 到现在，一路跌跌撞撞的，踩过不少坑，其中的酸甜苦辣就不细说了，相信很多人都经历过。所以，我想在这里将一些常用的 Android 开发小技巧收集起来，供大家参考。
+这里囊括的都是一些小技巧，这些技巧之间没有什么关联，只是做了下简单的分类。所有的示例都力求做到简单明了，示例清晰，拿去就能直接用。
+项目组织形式这里打算参考 Andr">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidhacks\android_hacks_1.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidhacks\android_hacks_2.png">
+<meta property="og:updated_time" content="2016-05-06T09:33:48.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android开发Hacks收罗">
+<meta name="twitter:description" content="作者：李旺成时间：2016年5月6日
+
+项目简介从学 Android 到现在，一路跌跌撞撞的，踩过不少坑，其中的酸甜苦辣就不细说了，相信很多人都经历过。所以，我想在这里将一些常用的 Android 开发小技巧收集起来，供大家参考。
+这里囊括的都是一些小技巧，这些技巧之间没有什么关联，只是做了下简单的分类。所有的示例都力求做到简单明了，示例清晰，拿去就能直接用。
+项目组织形式这里打算参考 Andr">
+<meta name="twitter:image" content="http://diy-green.com/\uploads\androidhacks\android_hacks_1.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'DIY-green'
+    }
+  };
+</script>
+
+  <title> Android开发Hacks收罗 | DIY-green </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?af1b7efbf565bc568165c5a0600a0207";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+  <div style="display: none;">
+    <script src="http://s6.cnzz.com/stat.php?id=1258791461&web_id=1258791461" type="text/javascript"></script>
+  </div>
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">DIY-green</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            全部
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-androidstudydemo">
+          <a href="/categories/AndroidStudyDemo/" rel="section">
+            
+              <i class="menu-item-icon fa fa-hand-right fa-fw"></i> <br />
+            
+            ● &nbsp; AndroidStudyDemo
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-androidganhuo">
+          <a href="/categories/Android干货/" rel="section">
+            
+              <i class="menu-item-icon fa fa-hand-right fa-fw"></i> <br />
+            
+            ● &nbsp; Android干货
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-androidhacks">
+          <a href="/categories/Android小技巧/" rel="section">
+            
+              <i class="menu-item-icon fa fa-hand-right fa-fw"></i> <br />
+            
+            ● &nbsp; Android小技巧
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-androidstudio">
+          <a href="/categories/AndroidStudio/" rel="section">
+            
+              <i class="menu-item-icon fa fa-hand-right fa-fw"></i> <br />
+            
+            ● &nbsp; AndroidStudio
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-essay">
+          <a href="/categories/随笔/" rel="section">
+            
+              <i class="menu-item-icon fa fa-hand-right fa-fw"></i> <br />
+            
+            ● &nbsp; 随笔
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Android开发Hacks收罗
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-05-07T20:39:24+08:00" content="2016-05-07">
+              2016-05-07
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Android小技巧/" itemprop="url" rel="index">
+                    <span itemprop="name">Android小技巧</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/05/07/Android小技巧/Android开发Hacks收罗/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/07/Android小技巧/Android开发Hacks收罗/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+		  &nbsp; | &nbsp;
+             <span id="/2016/05/07/Android小技巧/Android开发Hacks收罗/" class="leancloud_visitors" data-flag-title="Android开发Hacks收罗">
+               
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+		  
+		  <!--<span id="busuanzi_container_page_pv">
+		    &nbsp; | &nbsp;<span id="busuanzi_value_page_pv"></span>阅读
+		  </span>
+		  
+		  
+			&nbsp; | &nbsp;
+			<span id="/2016/05/07/Android小技巧/Android开发Hacks收罗/"class="leancloud_visitors" data-flag-title="Android开发Hacks收罗">
+					 &nbsp;阅读
+					</span>
+			-->
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="\uploads\androidhacks\android_hacks_1.png" alt="Android开发Hacks收罗" title="Android开发Hacks收罗"></p>
+<p><strong>作者：<a href="https://github.com/DIY-green/" target="_blank" rel="external">李旺成</a></strong><br><strong>时间：2016年5月6日</strong></p>
+<hr>
+<h1 id="项目简介"><a href="#项目简介" class="headerlink" title="项目简介"></a>项目简介</h1><p>从学 Android 到现在，一路跌跌撞撞的，踩过不少坑，其中的酸甜苦辣就不细说了，相信很多人都经历过。所以，我想在这里将一些常用的 Android 开发小技巧收集起来，供大家参考。</p>
+<p>这里囊括的都是一些小技巧，这些技巧之间没有什么关联，只是做了下简单的分类。所有的示例都力求做到简单明了，示例清晰，拿去就能直接用。</p>
+<h2 id="项目组织形式"><a href="#项目组织形式" class="headerlink" title="项目组织形式"></a>项目组织形式</h2><p>这里打算参考 <a href="https://github.com/DIY-green/AndroidStudyDemo" target="_blank" rel="external">AndroidStudyDemo</a>，提供一个合集的项目，项目中用 Module 组织各个分类的内容，方便集中管理。相应的还会给每个分类提供一个单独的项目，方便单独使用。</p>
+<h2 id="关于-Hacks"><a href="#关于-Hacks" class="headerlink" title="关于 Hacks"></a>关于 Hacks</h2><p>Hacks 就是”技巧“的意思，不管是我们的学习还是工作很多时候都会听到这样的劝谏 —— 不用蛮干，要讲技巧。确实很多经验表明，一个感觉很棘手的问题，可能用一个小技巧就能轻松解决。</p>
+<blockquote>
+<p><strong>说明：</strong>最开始有这个想法是来自《50 Android Hacks》一书，这里的分类也参考了该书，很多内容也是这本书的读书笔记。</p>
+</blockquote>
+<h2 id="几大版块"><a href="#几大版块" class="headerlink" title="几大版块"></a>几大版块</h2><ul>
+<li>布局相关技巧</li>
+<li>系统控件使用相关技巧</li>
+<li>动画相关技巧</li>
+<li>AndroidStudio使用相关技巧</li>
+<li>更多实用工具</li>
+<li>模式</li>
+<li>实用第三方库</li>
+<li>可复用的代码片段</li>
+<li>性能优化相关技巧</li>
+<li>数据库相关技巧</li>
+<li>构建工具</li>
+<li>……</li>
+</ul>
+<h2 id="内容来源"><a href="#内容来源" class="headerlink" title="内容来源"></a>内容来源</h2><ol>
+<li>《50 Android Hacks》</li>
+<li>平日积累</li>
+<li>专题收集</li>
+<li>提问-&gt;解决</li>
+<li>建议收集</li>
+</ol>
+<h2 id="更新计划"><a href="#更新计划" class="headerlink" title="更新计划"></a>更新计划</h2><p>该项目与  <a href="https://github.com/DIY-green/AndroidStudyDemo" target="_blank" rel="external">AndroidStudyDemo</a>  采用一样的更新形式 —— 博客 + 示例项目。</p>
+<ul>
+<li>按版块更新</li>
+<li>源自《50 Android Hacks》的案例会较稳定更新</li>
+<li>其他来源不定时更新</li>
+</ul>
+<h1 id="项目-Modules-简介"><a href="#项目-Modules-简介" class="headerlink" title="项目 Modules 简介"></a>项目 Modules 简介</h1><p><img src="\uploads\androidhacks\android_hacks_2.png" alt="AndroidHacks Modules" title="AndroidHacks Modules"></p>
+<h2 id="Animation"><a href="#Animation" class="headerlink" title="Animation"></a>Animation</h2><p>动画相关的一些 Hacks。</p>
+<h2 id="BuildTools"><a href="#BuildTools" class="headerlink" title="BuildTools"></a>BuildTools</h2><p>构建工具相关的一些 Hacks。</p>
+<h2 id="Database"><a href="#Database" class="headerlink" title="Database"></a>Database</h2><p>数据库相关的一些 Hacks。</p>
+<h2 id="Layout"><a href="#Layout" class="headerlink" title="Layout"></a>Layout</h2><p>布局相关的一些 Hacks。</p>
+<h2 id="Optimize"><a href="#Optimize" class="headerlink" title="Optimize"></a>Optimize</h2><p>布局、性能等优化相关的一些 Hacks。</p>
+<h2 id="Patterns"><a href="#Patterns" class="headerlink" title="Patterns"></a>Patterns</h2><p>设计模式的一些 Hacks。</p>
+<h2 id="ReuseableCode"><a href="#ReuseableCode" class="headerlink" title="ReuseableCode"></a>ReuseableCode</h2><p>一些可重用的代码片段。</p>
+<h2 id="Utilities"><a href="#Utilities" class="headerlink" title="Utilities"></a>Utilities</h2><p>一些实用工具推荐。</p>
+<h2 id="WidgetUse"><a href="#WidgetUse" class="headerlink" title="WidgetUse"></a>WidgetUse</h2><p>系统控件使用的一些 Hacks。</p>
+<h2 id="AndroidStudio"><a href="#AndroidStudio" class="headerlink" title="AndroidStudio"></a>AndroidStudio</h2><p>AndroidStudio 使用的一些 Hacks。</p>
+<h2 id="等等"><a href="#等等" class="headerlink" title="等等"></a>等等</h2><p>…</p>
+<h1 id="项目地址"><a href="#项目地址" class="headerlink" title="项目地址"></a>项目地址</h1><p><a href="https://github.com/DIY-green/AndroidHacks" target="_blank" rel="external">GitHub</a><br>欢迎大家 <strong>Star</strong> 和 <strong>Fork</strong><br><a href="http://diy-green.github.io" target="_blank" rel="external">个人博客</a></p>
+
+      
+    </div>
+    
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+<div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton", disable="enable", onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}", style="cursor: pointer; border: 0; outline: 0; border-radius: 100%; padding: 0; margin: 0; letter-spacing: normal; text-transform: none; text-indent: 0px; text-shadow: none">
+    <span onmouseover="this.style.color='rgb(236,96,0)';this.style.background='rgb(204,204,204)'" onMouseOut="this.style.color='#fff';this.style.background='rgb(236,96,0)'" style="display: inline-block; width: 70px; height: 70px; border-radius: 100%; line-height: 81px; color: #fff; font: 400 35px/75px 'microsofty'; background: rgb(236,96,0)">赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/uploads/images/wechat-reward-image.png" alt="DIY-green WeChat Pay" style="width: 200px; max-width: 100%; display: inline-block"/>
+        <p>微信打赏</p>
+      </div>
+    
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/uploads/images/alipay-reward-image.png" alt="DIY-green Alipay" style="width: 200px; max-width: 100%; display: inline-block"/>
+        <p>支付宝打赏</p>
+      </div>
+    
+  </div>
+</div>
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Android/" rel="tag">#Android</a>
+          
+            <a href="/tags/Android小技巧/" rel="tag">#Android小技巧</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/05/07/AndroidStudyDemo系列/AndroidStudyDemo系列/" rel="next" title="AndroidStudyDemo系列说明">
+                <i class="fa fa-chevron-left"></i> AndroidStudyDemo系列说明
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/05/07/随笔/我为什么向你推荐《奇特的一生》/" rel="prev" title="我为什么向你推荐《奇特的一生》">
+                我为什么向你推荐《奇特的一生》 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/05/07/Android小技巧/Android开发Hacks收罗/"
+           data-title="Android开发Hacks收罗" data-url="http://diy-green.com/2016/05/07/Android小技巧/Android开发Hacks收罗/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/images/avatar.jpg"
+               alt="DIY-green" />
+          <p class="site-author-name" itemprop="name">DIY-green</p>
+          <p class="site-description motion-element" itemprop="description">男子千年志，吾生未有涯。心随朗月高，志与秋霜洁。</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">52</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">27</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/DIY-green" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/users/0ad0a0afc409/latest_articles" target="_blank" title="JianShu">
+                  
+                    <i class="fa fa-globe"></i>
+                  
+                  JianShu
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element">
+            <div class="links-of-blogroll-title">
+              <i class="fa fa-globe fa-fw"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.jianshu.com/users/0ad0a0afc409/latest_articles" title="DIY-green简书" target="_blank">DIY-green简书</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.jianshu.com/users/3a482c4f0658/latest_articles" title="天接水0001" target="_blank">天接水0001</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://sunfusheng.com" title="孙福生" target="_blank">孙福生</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://kuanggang.github.io" title="匡罡" target="_blank">匡罡</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://Ivorfason.github.io" title="尹明仁" target="_blank">尹明仁</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://mengqingxiang.github.io" title="孟庆祥" target="_blank">孟庆祥</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#项目简介"><span class="nav-number">1.</span> <span class="nav-text">项目简介</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#项目组织形式"><span class="nav-number">1.1.</span> <span class="nav-text">项目组织形式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关于-Hacks"><span class="nav-number">1.2.</span> <span class="nav-text">关于 Hacks</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#几大版块"><span class="nav-number">1.3.</span> <span class="nav-text">几大版块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#内容来源"><span class="nav-number">1.4.</span> <span class="nav-text">内容来源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#更新计划"><span class="nav-number">1.5.</span> <span class="nav-text">更新计划</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#项目-Modules-简介"><span class="nav-number">2.</span> <span class="nav-text">项目 Modules 简介</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Animation"><span class="nav-number">2.1.</span> <span class="nav-text">Animation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BuildTools"><span class="nav-number">2.2.</span> <span class="nav-text">BuildTools</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Database"><span class="nav-number">2.3.</span> <span class="nav-text">Database</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Layout"><span class="nav-number">2.4.</span> <span class="nav-text">Layout</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Optimize"><span class="nav-number">2.5.</span> <span class="nav-text">Optimize</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Patterns"><span class="nav-number">2.6.</span> <span class="nav-text">Patterns</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ReuseableCode"><span class="nav-number">2.7.</span> <span class="nav-text">ReuseableCode</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Utilities"><span class="nav-number">2.8.</span> <span class="nav-text">Utilities</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#WidgetUse"><span class="nav-number">2.9.</span> <span class="nav-text">WidgetUse</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AndroidStudio"><span class="nav-number">2.10.</span> <span class="nav-text">AndroidStudio</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#等等"><span class="nav-number">2.11.</span> <span class="nav-text">等等</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#项目地址"><span class="nav-number">3.</span> <span class="nav-text">项目地址</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+<div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">DIY-green</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info powered-by">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+<div class="powered-by">
+  <span id="busuanzi_container_site_pv">
+    本站总访问量<span id="busuanzi_value_site_pv"></span>次
+  </span>
+</div>
+<div style="display:inline-block;">
+  <span id="busuanzi_container_site_uv">
+    本站访客数<span id="busuanzi_value_site_uv"></span>人次
+  </span>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"DIY-green"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+      
+      <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+      <script src="/js/src/hook-duoshuo.js"></script>
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+  
+  
+  <!-- custom analytics part create by xiamo -->
+<script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+<script>AV.initialize("UnkeFG0pM1t3q8H3y7NTLUA0-gzGzoHsz", "2oBUu9nxByteYjLFtBtqOPwN");</script>
+<script>
+function showTime(Counter) {
+	var query = new AV.Query(Counter);
+	$(".leancloud_visitors").each(function() {
+		var url = $(this).attr("id").trim();
+		query.equalTo("url", url);
+		query.find({
+			success: function(results) {
+				if (results.length == 0) {
+					var content = '0 ' + $(document.getElementById(url)).text();
+					$(document.getElementById(url)).text(content);
+					return;
+				}
+				for (var i = 0; i < results.length; i++) {
+					var object = results[i];
+					var content = object.get('time') + ' ' + $(document.getElementById(url)).text();
+					$(document.getElementById(url)).text(content);
+				}
+			},
+			error: function(object, error) {
+				console.log("Error: " + error.code + " " + error.message);
+			}
+		});
+
+	});
+}
+
+function addCount(Counter) {
+	var Counter = AV.Object.extend("Counter");
+	url = $(".leancloud_visitors").attr('id').trim();
+	title = $(".leancloud_visitors").attr('data-flag-title').trim();
+	var query = new AV.Query(Counter);
+	query.equalTo("url", url);
+	query.find({
+		success: function(results) {
+			if (results.length > 0) {
+				var counter = results[0];
+				counter.fetchWhenSave(true);
+				counter.increment("time");
+				counter.save(null, {
+					success: function(counter) {
+						var content =  counter.get('time') + ' ' + $(document.getElementById(url)).text();
+						$(document.getElementById(url)).text(content);
+					},
+					error: function(counter, error) {
+						console.log('Failed to save Visitor num, with error message: ' + error.message);
+					}
+				});
+			} else {
+				var newcounter = new Counter();
+				newcounter.set("title", title);
+				newcounter.set("url", url);
+				newcounter.set("time", 1);
+				newcounter.save(null, {
+					success: function(newcounter) {
+					    console.log("newcounter.get('time')="+newcounter.get('time'));
+						var content = newcounter.get('time') + ' ' + $(document.getElementById(url)).text();
+						$(document.getElementById(url)).text(content);
+					},
+					error: function(newcounter, error) {
+						console.log('Failed to create');
+					}
+				});
+			}
+		},
+		error: function(error) {
+			console.log('Error:' + error.code + " " + error.message);
+		}
+	});
+}
+$(function() {
+	var Counter = AV.Object.extend("Counter");
+	if ($('.leancloud_visitors').length == 1) {
+		addCount(Counter);
+	} else if ($('.post-title-link').length > 1) {
+		showTime(Counter);
+	}
+}); 
+</script>
+  
+  
+</body>
+</html>

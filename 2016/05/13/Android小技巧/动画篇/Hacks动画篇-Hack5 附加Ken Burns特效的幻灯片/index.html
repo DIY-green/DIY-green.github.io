@@ -1,0 +1,973 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Android,Android小技巧,Hacks动画篇," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="作者：李旺成时间：2016年5月12日
+
+
+在该 Hack 中将介绍如何实现 Ken Burns 特效来展示图片。
+
+Ken Burns 特效先来理解一下概念，什么是 Ken Burns 特效？
+Ken Burns 特效，是视频产品中使用的一种平移和缩放的静态图片的特效。想了解更多，Wiki 上有比较详细的介绍：Ken Burns effect。
+这不是我们的重点，重点是这到底是一种什么样的效果">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hacks动画篇-Hack5 附加Ken Burns特效的幻灯片">
+<meta property="og:url" content="http://diy-green.com/2016/05/13/Android小技巧/动画篇/Hacks动画篇-Hack5 附加Ken Burns特效的幻灯片/index.html">
+<meta property="og:site_name" content="DIY-green">
+<meta property="og:description" content="作者：李旺成时间：2016年5月12日
+
+
+在该 Hack 中将介绍如何实现 Ken Burns 特效来展示图片。
+
+Ken Burns 特效先来理解一下概念，什么是 Ken Burns 特效？
+Ken Burns 特效，是视频产品中使用的一种平移和缩放的静态图片的特效。想了解更多，Wiki 上有比较详细的介绍：Ken Burns effect。
+这不是我们的重点，重点是这到底是一种什么样的效果">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidhacks\animation\hack5\animation_hack5_1.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidhacks\animation\hack5\animation_hack5_2.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidhacks\animation\hack5\animation_hack5_3.gif">
+<meta property="og:updated_time" content="2016-05-13T10:48:35.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hacks动画篇-Hack5 附加Ken Burns特效的幻灯片">
+<meta name="twitter:description" content="作者：李旺成时间：2016年5月12日
+
+
+在该 Hack 中将介绍如何实现 Ken Burns 特效来展示图片。
+
+Ken Burns 特效先来理解一下概念，什么是 Ken Burns 特效？
+Ken Burns 特效，是视频产品中使用的一种平移和缩放的静态图片的特效。想了解更多，Wiki 上有比较详细的介绍：Ken Burns effect。
+这不是我们的重点，重点是这到底是一种什么样的效果">
+<meta name="twitter:image" content="http://diy-green.com/\uploads\androidhacks\animation\hack5\animation_hack5_1.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'DIY-green'
+    }
+  };
+</script>
+
+  <title> Hacks动画篇-Hack5 附加Ken Burns特效的幻灯片 | DIY-green </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?af1b7efbf565bc568165c5a0600a0207";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+  <div style="display: none;">
+    <script src="http://s6.cnzz.com/stat.php?id=1258791461&web_id=1258791461" type="text/javascript"></script>
+  </div>
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">DIY-green</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            全部
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-androidstudydemo">
+          <a href="/categories/AndroidStudyDemo/" rel="section">
+            
+              <i class="menu-item-icon fa fa-hand-right fa-fw"></i> <br />
+            
+            ● &nbsp; AndroidStudyDemo
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-androidganhuo">
+          <a href="/categories/Android干货/" rel="section">
+            
+              <i class="menu-item-icon fa fa-hand-right fa-fw"></i> <br />
+            
+            ● &nbsp; Android干货
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-androidhacks">
+          <a href="/categories/Android小技巧/" rel="section">
+            
+              <i class="menu-item-icon fa fa-hand-right fa-fw"></i> <br />
+            
+            ● &nbsp; Android小技巧
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-androidstudio">
+          <a href="/categories/AndroidStudio/" rel="section">
+            
+              <i class="menu-item-icon fa fa-hand-right fa-fw"></i> <br />
+            
+            ● &nbsp; AndroidStudio
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-essay">
+          <a href="/categories/随笔/" rel="section">
+            
+              <i class="menu-item-icon fa fa-hand-right fa-fw"></i> <br />
+            
+            ● &nbsp; 随笔
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Hacks动画篇-Hack5 附加Ken Burns特效的幻灯片
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-05-13T18:48:35+08:00" content="2016-05-13">
+              2016-05-13
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Android小技巧/" itemprop="url" rel="index">
+                    <span itemprop="name">Android小技巧</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/05/13/Android小技巧/动画篇/Hacks动画篇-Hack5 附加Ken Burns特效的幻灯片/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/13/Android小技巧/动画篇/Hacks动画篇-Hack5 附加Ken Burns特效的幻灯片/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+		  &nbsp; | &nbsp;
+             <span id="/2016/05/13/Android小技巧/动画篇/Hacks动画篇-Hack5 附加Ken Burns特效的幻灯片/" class="leancloud_visitors" data-flag-title="Hacks动画篇-Hack5 附加Ken Burns特效的幻灯片">
+               
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+		  
+		  <!--<span id="busuanzi_container_page_pv">
+		    &nbsp; | &nbsp;<span id="busuanzi_value_page_pv"></span>阅读
+		  </span>
+		  
+		  
+			&nbsp; | &nbsp;
+			<span id="/2016/05/13/Android小技巧/动画篇/Hacks动画篇-Hack5 附加Ken Burns特效的幻灯片/"class="leancloud_visitors" data-flag-title="Hacks动画篇-Hack5 附加Ken Burns特效的幻灯片">
+					 &nbsp;阅读
+					</span>
+			-->
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="\uploads\androidhacks\animation\hack5\animation_hack5_1.png" alt="在Canvas上显示动画" title="在Canvas上显示动画"></p>
+<p><strong>作者：<a href="https://github.com/DIY-green/" target="_blank" rel="external">李旺成</a></strong><br><strong>时间：2016年5月12日</strong></p>
+<hr>
+<blockquote>
+<p>在该 Hack 中将介绍如何实现 Ken Burns 特效来展示图片。</p>
+</blockquote>
+<h1 id="Ken-Burns-特效"><a href="#Ken-Burns-特效" class="headerlink" title="Ken Burns 特效"></a>Ken Burns 特效</h1><p>先来理解一下概念，什么是 Ken Burns 特效？</p>
+<p><strong>Ken Burns 特效</strong>，是视频产品中使用的一种平移和缩放的静态图片的特效。想了解更多，Wiki 上有比较详细的介绍：<a href="https://en.wikipedia.org/wiki/Ken_Burns_effect" target="_blank" rel="external">Ken Burns effect</a>。</p>
+<p>这不是我们的重点，重点是这到底是一种什么样的效果？Wiki 上给出下面的示意图：</p>
+<p><img src="\uploads\androidhacks\animation\hack5\animation_hack5_2.png" alt="Ken Burns 特效" title="Ken Burns 特效"></p>
+<p>还是没概念？是的，最直观的方式是看真实的效果，可以去看看这段视频：<a href="https://upload.wikimedia.org/wikipedia/commons/transcoded/a/a7/Ken_Burns_Effect_demonstration.ogg/Ken_Burns_Effect_demonstration.ogg.480p.webm" target="_blank" rel="external">Wiki Ken Burns effect 视频</a></p>
+<p><strong>简而言之</strong><br>Ken Burns 特效是一种图片在切换之前，会缓慢在页面移动或者放大缩小，然后再慢慢切换过去。这样的效果使得每一张静止图片都有动态的效果感觉。类似的效果在电子相册，或者在电影视频对静态图片的处理中经常可见。（参考自：<a href="http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2014/0920/1698.html" target="_blank" rel="external">KenBurnsView：实现Ken Burns effect图片展示效果的效果android控件</a>）</p>
+<h1 id="模拟-Ken-Burns-特效"><a href="#模拟-Ken-Burns-特效" class="headerlink" title="模拟 Ken Burns 特效"></a>模拟 Ken Burns 特效</h1><p>先看效果：</p>
+<p><img src="\uploads\androidhacks\animation\hack5\animation_hack5_3.gif" alt="Ken Burns特效" title="Ken Burns特效"></p>
+<p>要实现上面的效果，需要用到 <a href="https://github.com/JakeWharton" target="_blank" rel="external">JakeWharton</a> 大牛的 <strong><a href="https://github.com/JakeWharton/NineOldAndroids" target="_blank" rel="external">NineOldAndroids</a></strong> 库。该库的作用是可以让老版本的 Android （3.0 以下的版本）使用属性动画。当然，如果你不考虑兼容 Android 3.0 以下版本就用不到这个库了。</p>
+<h2 id="思路分析"><a href="#思路分析" class="headerlink" title="思路分析"></a>思路分析</h2><p>先分析一下 Ken Burns 特效：使用缩放动画，可能同时伴随平移动画来展示当前图片，当该图片的动画展示显示完毕之后，就开始显示下一张图片并展示动画。</p>
+<p>那么有个简单的思路：使用 ImageView 展示图片，为该 ImageView 设置一些动画，当该图片的动画结束后，切换下一张图片。</p>
+<h2 id="创建-Ken-Burns-特效"><a href="#创建-Ken-Burns-特效" class="headerlink" title="创建 Ken Burns 特效"></a>创建 Ken Burns 特效</h2><p><strong>1、创建布局</strong><br>主布局使用 FrameLayout，直接把 ImageView 添加到布局中填充整个父控件。这里采用代码的方式创建，看代码：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">	mContainer = <span class="keyword">new</span> FrameLayout(<span class="keyword">this</span>);</span><br><span class="line">	mContainer.setLayoutParams(<span class="keyword">new</span> FrameLayout.LayoutParams(</span><br><span class="line">			FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.MATCH_PARENT));</span><br><span class="line"></span><br><span class="line">	mView = createNewView();</span><br><span class="line">	mContainer.addView(mView);</span><br><span class="line"></span><br><span class="line">	setContentView(mContainer);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> ImageView <span class="title">createNewView</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	ImageView ret = <span class="keyword">new</span> ImageView(<span class="keyword">this</span>);</span><br><span class="line">	ret.setLayoutParams(<span class="keyword">new</span> FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT,</span><br><span class="line">			FrameLayout.LayoutParams.MATCH_PARENT));</span><br><span class="line">	ret.setScaleType(ImageView.ScaleType.FIT_XY);</span><br><span class="line">	ret.setImageResource(PHOTOS[mIndex]);</span><br><span class="line">	mIndex = (mIndex + <span class="number">1</span> &lt; PHOTOS.length) ? mIndex + <span class="number">1</span> : <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">return</span> ret;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>代码比较简单<br><strong>首先，</strong>创建一个 FrameLayout 布局容器<br><strong>然后，</strong>创建 ImageView，从保存图片资源 ID 的数组中根据索引取出图片，将其设置给 ImageView<br><strong>最后，</strong>将 ImageView 添加到 FrameLayout 中，将该 FrameLayout 设置为 Activity 的 ContentView。</p>
+<p><strong>2、开始播放动画</strong><br>在 Activity onResume 的时候开始播放动画：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onResume</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">super</span>.onResume();</span><br><span class="line">	nextAnimation();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>看看负责播放动画的代码：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">nextAnimation</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	AnimatorSet anim = <span class="keyword">new</span> AnimatorSet();</span><br><span class="line">	<span class="comment">// 生成随机数，实现随机播放动画</span></span><br><span class="line">	<span class="keyword">final</span> <span class="keyword">int</span> index = mRandom.nextInt(ANIM_COUNT);</span><br><span class="line">	<span class="keyword">switch</span> (index) &#123;</span><br><span class="line">		<span class="keyword">case</span> <span class="number">0</span>:</span><br><span class="line">			<span class="comment">// 缩放动画</span></span><br><span class="line">			anim.playTogether(</span><br><span class="line">					ObjectAnimator.ofFloat(mView, <span class="string">"scaleX"</span>, <span class="number">1.5f</span>, <span class="number">1f</span>),</span><br><span class="line">					ObjectAnimator.ofFloat(mView, <span class="string">"scaleY"</span>, <span class="number">1.5f</span>, <span class="number">1f</span>));</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">			<span class="comment">// 缩放动画</span></span><br><span class="line">			anim.playTogether(</span><br><span class="line">					ObjectAnimator.ofFloat(mView, <span class="string">"scaleX"</span>, <span class="number">1</span>, <span class="number">1.5f</span>),</span><br><span class="line">					ObjectAnimator.ofFloat(mView, <span class="string">"scaleY"</span>, <span class="number">1</span>, <span class="number">1.5f</span>));</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">case</span> <span class="number">2</span>:</span><br><span class="line">			AnimatorProxy.wrap(mView).setScaleX(<span class="number">1.5f</span>);</span><br><span class="line">			AnimatorProxy.wrap(mView).setScaleY(<span class="number">1.5f</span>);</span><br><span class="line">			<span class="comment">// 位移动画</span></span><br><span class="line">			anim.playTogether(ObjectAnimator.ofFloat(mView,</span><br><span class="line">					<span class="string">"translationY"</span>, <span class="number">80f</span>, <span class="number">0f</span>));</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">case</span> <span class="number">3</span>:</span><br><span class="line">		<span class="keyword">default</span>:</span><br><span class="line">			AnimatorProxy.wrap(mView).setScaleX(<span class="number">1.5f</span>);</span><br><span class="line">			AnimatorProxy.wrap(mView).setScaleY(<span class="number">1.5f</span>);</span><br><span class="line">			<span class="comment">// 位移动画</span></span><br><span class="line">			anim.playTogether(ObjectAnimator.ofFloat(mView,</span><br><span class="line">					<span class="string">"translationX"</span>, <span class="number">0f</span>, <span class="number">40f</span>));</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">// 设置动画持续时间</span></span><br><span class="line">	anim.setDuration(<span class="number">3000</span>);</span><br><span class="line">	<span class="comment">// 设置动画监听器</span></span><br><span class="line">	anim.addListener(<span class="keyword">this</span>);</span><br><span class="line">	<span class="comment">// 播放动画</span></span><br><span class="line">	anim.start();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>上面的代码就是设置一些属性动画，对这方面不是很了解的，后面我会专门写几篇关于动画方面学习的总结（<a href="http://www.jianshu.com/p/faf1ce1e232b#" target="_blank" rel="external">AndroidStudyDemo</a> 系列）。</p>
+<p>补充说明：<br>AnimatorProxy 类，是 NineOldAndroids 库中的一个工具类，用于修改 View 对象的属性。该动画框架的基础是：视图的属性随时间的推移而改变（所谓的属性动画，就是随着时间的推移改变对象的属性，而产生动画效果）。之所以使用AnimatorProxy类，是因为在 Android 3.0 以下版本，有些属性没有 setters 或 getters 方法。（参考自：《50 Android Hacks》）</p>
+<p><strong>3、切换图片播放下一张图片</strong><br>这里是这样处理的，监听动画播放，当动画结束时，删除当前的 ImageView，添加新的 ImageView，然后播放动画。代码如下：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 实现动画监听接口</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">KenBurnsActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> <span class="keyword">implements</span> <span class="title">Animator</span>.<span class="title">AnimatorListener</span></span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">// 实现接口中的方法</span><br><span class="line">@<span class="title">Override</span></span><br><span class="line"><span class="title">public</span> <span class="title">void</span> <span class="title">onAnimationCancel</span>(<span class="title">Animator</span> <span class="title">arg0</span>) </span>&#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onAnimationEnd</span><span class="params">(Animator animator)</span> </span>&#123;</span><br><span class="line">	mContainer.removeView(mView);</span><br><span class="line">	mView = createNewView();</span><br><span class="line">	mContainer.addView(mView);</span><br><span class="line">	nextAnimation();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onAnimationRepeat</span><span class="params">(Animator arg0)</span> </span>&#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onAnimationStart</span><span class="params">(Animator arg0)</span> </span>&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h1 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h1><p>这里用到了两个技术：</p>
+<ul>
+<li>属性动画，Android 3.0 开始提供，以前的版本可以使用 NineOldAndroids 兼容库</li>
+<li>动画事件监听，监听动画的一些事件，可以针对这些事件做相应处理</li>
+</ul>
+<h1 id="项目地址"><a href="#项目地址" class="headerlink" title="项目地址"></a>项目地址</h1><p><strong><a href="https://github.com/DIY-green/AndroidHacks" target="_blank" rel="external">AndroidHacks合集</a></strong><br><strong><a href="https://github.com/DIY-green/AndroidHacksAnimation" target="_blank" rel="external">动画篇</a></strong></p>
+<p>项目示例代码：<br><strong><a href="https://github.com/DIY-green/AndroidHacksAnimation/blob/master/app/src/main/java/com/diygreen/androidhacksanimation/KenBurnsActivity.java" target="_blank" rel="external">KenBurnsActivity.java</a></strong></p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://en.wikipedia.org/wiki/Ken_Burns_effect" target="_blank" rel="external">Ken Burns effect</a><br><a href="http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2014/0920/1698.html" target="_blank" rel="external">KenBurnsView：实现Ken Burns effect图片展示效果的效果android控件</a></p>
+
+      
+    </div>
+    
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+<div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton", disable="enable", onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}", style="cursor: pointer; border: 0; outline: 0; border-radius: 100%; padding: 0; margin: 0; letter-spacing: normal; text-transform: none; text-indent: 0px; text-shadow: none">
+    <span onmouseover="this.style.color='rgb(236,96,0)';this.style.background='rgb(204,204,204)'" onMouseOut="this.style.color='#fff';this.style.background='rgb(236,96,0)'" style="display: inline-block; width: 70px; height: 70px; border-radius: 100%; line-height: 81px; color: #fff; font: 400 35px/75px 'microsofty'; background: rgb(236,96,0)">赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/uploads/images/wechat-reward-image.png" alt="DIY-green WeChat Pay" style="width: 200px; max-width: 100%; display: inline-block"/>
+        <p>微信打赏</p>
+      </div>
+    
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/uploads/images/alipay-reward-image.png" alt="DIY-green Alipay" style="width: 200px; max-width: 100%; display: inline-block"/>
+        <p>支付宝打赏</p>
+      </div>
+    
+  </div>
+</div>
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Android/" rel="tag">#Android</a>
+          
+            <a href="/tags/Android小技巧/" rel="tag">#Android小技巧</a>
+          
+            <a href="/tags/Hacks动画篇/" rel="tag">#Hacks动画篇</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/05/11/Android小技巧/动画篇/Hacks动画篇-Hack3 为ViewGroup的子视图添加悦目的动画效果/" rel="next" title="Hacks动画篇-Hack3 为ViewGroup的子视图添加悦目的动画效果">
+                <i class="fa fa-chevron-left"></i> Hacks动画篇-Hack3 为ViewGroup的子视图添加悦目的动画效果
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/05/14/Android小技巧/控件使用篇/Hacks控件篇-Hack1 避免在 EditText 中验证日期/" rel="prev" title="Hacks控件篇-Hack1 避免在 EditText 中验证日期">
+                Hacks控件篇-Hack1 避免在 EditText 中验证日期 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/05/13/Android小技巧/动画篇/Hacks动画篇-Hack5 附加Ken Burns特效的幻灯片/"
+           data-title="Hacks动画篇-Hack5 附加Ken Burns特效的幻灯片" data-url="http://diy-green.com/2016/05/13/Android小技巧/动画篇/Hacks动画篇-Hack5 附加Ken Burns特效的幻灯片/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/images/avatar.jpg"
+               alt="DIY-green" />
+          <p class="site-author-name" itemprop="name">DIY-green</p>
+          <p class="site-description motion-element" itemprop="description">男子千年志，吾生未有涯。心随朗月高，志与秋霜洁。</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">52</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">27</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/DIY-green" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/users/0ad0a0afc409/latest_articles" target="_blank" title="JianShu">
+                  
+                    <i class="fa fa-globe"></i>
+                  
+                  JianShu
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element">
+            <div class="links-of-blogroll-title">
+              <i class="fa fa-globe fa-fw"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.jianshu.com/users/0ad0a0afc409/latest_articles" title="DIY-green简书" target="_blank">DIY-green简书</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.jianshu.com/users/3a482c4f0658/latest_articles" title="天接水0001" target="_blank">天接水0001</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://sunfusheng.com" title="孙福生" target="_blank">孙福生</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://kuanggang.github.io" title="匡罡" target="_blank">匡罡</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://Ivorfason.github.io" title="尹明仁" target="_blank">尹明仁</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://mengqingxiang.github.io" title="孟庆祥" target="_blank">孟庆祥</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Ken-Burns-特效"><span class="nav-number">1.</span> <span class="nav-text">Ken Burns 特效</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#模拟-Ken-Burns-特效"><span class="nav-number">2.</span> <span class="nav-text">模拟 Ken Burns 特效</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#思路分析"><span class="nav-number">2.1.</span> <span class="nav-text">思路分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建-Ken-Burns-特效"><span class="nav-number">2.2.</span> <span class="nav-text">创建 Ken Burns 特效</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#小结"><span class="nav-number">3.</span> <span class="nav-text">小结</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#项目地址"><span class="nav-number">4.</span> <span class="nav-text">项目地址</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考"><span class="nav-number">5.</span> <span class="nav-text">参考</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+<div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">DIY-green</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info powered-by">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+<div class="powered-by">
+  <span id="busuanzi_container_site_pv">
+    本站总访问量<span id="busuanzi_value_site_pv"></span>次
+  </span>
+</div>
+<div style="display:inline-block;">
+  <span id="busuanzi_container_site_uv">
+    本站访客数<span id="busuanzi_value_site_uv"></span>人次
+  </span>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"DIY-green"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+      
+      <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+      <script src="/js/src/hook-duoshuo.js"></script>
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+  
+  
+  <!-- custom analytics part create by xiamo -->
+<script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+<script>AV.initialize("UnkeFG0pM1t3q8H3y7NTLUA0-gzGzoHsz", "2oBUu9nxByteYjLFtBtqOPwN");</script>
+<script>
+function showTime(Counter) {
+	var query = new AV.Query(Counter);
+	$(".leancloud_visitors").each(function() {
+		var url = $(this).attr("id").trim();
+		query.equalTo("url", url);
+		query.find({
+			success: function(results) {
+				if (results.length == 0) {
+					var content = '0 ' + $(document.getElementById(url)).text();
+					$(document.getElementById(url)).text(content);
+					return;
+				}
+				for (var i = 0; i < results.length; i++) {
+					var object = results[i];
+					var content = object.get('time') + ' ' + $(document.getElementById(url)).text();
+					$(document.getElementById(url)).text(content);
+				}
+			},
+			error: function(object, error) {
+				console.log("Error: " + error.code + " " + error.message);
+			}
+		});
+
+	});
+}
+
+function addCount(Counter) {
+	var Counter = AV.Object.extend("Counter");
+	url = $(".leancloud_visitors").attr('id').trim();
+	title = $(".leancloud_visitors").attr('data-flag-title').trim();
+	var query = new AV.Query(Counter);
+	query.equalTo("url", url);
+	query.find({
+		success: function(results) {
+			if (results.length > 0) {
+				var counter = results[0];
+				counter.fetchWhenSave(true);
+				counter.increment("time");
+				counter.save(null, {
+					success: function(counter) {
+						var content =  counter.get('time') + ' ' + $(document.getElementById(url)).text();
+						$(document.getElementById(url)).text(content);
+					},
+					error: function(counter, error) {
+						console.log('Failed to save Visitor num, with error message: ' + error.message);
+					}
+				});
+			} else {
+				var newcounter = new Counter();
+				newcounter.set("title", title);
+				newcounter.set("url", url);
+				newcounter.set("time", 1);
+				newcounter.save(null, {
+					success: function(newcounter) {
+					    console.log("newcounter.get('time')="+newcounter.get('time'));
+						var content = newcounter.get('time') + ' ' + $(document.getElementById(url)).text();
+						$(document.getElementById(url)).text(content);
+					},
+					error: function(newcounter, error) {
+						console.log('Failed to create');
+					}
+				});
+			}
+		},
+		error: function(error) {
+			console.log('Error:' + error.code + " " + error.message);
+		}
+	});
+}
+$(function() {
+	var Counter = AV.Object.extend("Counter");
+	if ($('.leancloud_visitors').length == 1) {
+		addCount(Counter);
+	} else if ($('.post-title-link').length > 1) {
+		showTime(Counter);
+	}
+}); 
+</script>
+  
+  
+</body>
+</html>

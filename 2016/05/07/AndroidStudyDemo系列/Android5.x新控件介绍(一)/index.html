@@ -1,0 +1,1109 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="StudyDemo,Android 5," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="作者：李旺成时间：2016年4月14日
+
+
+接上篇 AndroidStudyDemo 之 Android5.x 新 API 介绍（二）
+今天主要给大家介绍下 Android 5.x 中提供的新控件（请不要纠结“控件”的定义）。
+一、 RippleDrawable简介Android 5.x 提供了视图的水波纹效果，就是使用 RippleDrawable 实现的，看看 RippleDrawable 到">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android5.x新控件介绍(一)">
+<meta property="og:url" content="http://diy-green.com/2016/05/07/AndroidStudyDemo系列/Android5.x新控件介绍(一)/index.html">
+<meta property="og:site_name" content="DIY-green">
+<meta property="og:description" content="作者：李旺成时间：2016年4月14日
+
+
+接上篇 AndroidStudyDemo 之 Android5.x 新 API 介绍（二）
+今天主要给大家介绍下 Android 5.x 中提供的新控件（请不要纠结“控件”的定义）。
+一、 RippleDrawable简介Android 5.x 提供了视图的水波纹效果，就是使用 RippleDrawable 实现的，看看 RippleDrawable 到">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android5\android5_newwidget1_1.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android5\android5_newwidget1_2.gif">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android5\android5_newwidget1_3.gif">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android5\android5_newwidget1_4.gif">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android5\android5_newwidget1_5.gif">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android5\android5_newwidget1_6.gif">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android5\android5_newwidget1_7.gif">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android5\android5_newwidget1_8.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android5\android5_newwidget1_9.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android5\android5_newwidget1_10.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android5\android5_newwidget1_11.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android5\android5_newwidget1_12.gif">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android5\android5_newwidget1_13.gif">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android5\android5_newwidget1_14.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android5\android5_newwidget1_15.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android5\android5_newwidget1_16.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android5\android5_newwidget1_17.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android5\android5_newwidget1_18.png">
+<meta property="og:updated_time" content="2016-04-26T05:30:38.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android5.x新控件介绍(一)">
+<meta name="twitter:description" content="作者：李旺成时间：2016年4月14日
+
+
+接上篇 AndroidStudyDemo 之 Android5.x 新 API 介绍（二）
+今天主要给大家介绍下 Android 5.x 中提供的新控件（请不要纠结“控件”的定义）。
+一、 RippleDrawable简介Android 5.x 提供了视图的水波纹效果，就是使用 RippleDrawable 实现的，看看 RippleDrawable 到">
+<meta name="twitter:image" content="http://diy-green.com/\uploads\androidstudydemo\android5\android5_newwidget1_1.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'DIY-green'
+    }
+  };
+</script>
+
+  <title> Android5.x新控件介绍(一) | DIY-green </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?af1b7efbf565bc568165c5a0600a0207";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+  <div style="display: none;">
+    <script src="http://s6.cnzz.com/stat.php?id=1258791461&web_id=1258791461" type="text/javascript"></script>
+  </div>
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">DIY-green</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            全部
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-androidstudydemo">
+          <a href="/categories/AndroidStudyDemo/" rel="section">
+            
+              <i class="menu-item-icon fa fa-hand-right fa-fw"></i> <br />
+            
+            ● &nbsp; AndroidStudyDemo
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-androidganhuo">
+          <a href="/categories/Android干货/" rel="section">
+            
+              <i class="menu-item-icon fa fa-hand-right fa-fw"></i> <br />
+            
+            ● &nbsp; Android干货
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-androidhacks">
+          <a href="/categories/Android小技巧/" rel="section">
+            
+              <i class="menu-item-icon fa fa-hand-right fa-fw"></i> <br />
+            
+            ● &nbsp; Android小技巧
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-androidstudio">
+          <a href="/categories/AndroidStudio/" rel="section">
+            
+              <i class="menu-item-icon fa fa-hand-right fa-fw"></i> <br />
+            
+            ● &nbsp; AndroidStudio
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-essay">
+          <a href="/categories/随笔/" rel="section">
+            
+              <i class="menu-item-icon fa fa-hand-right fa-fw"></i> <br />
+            
+            ● &nbsp; 随笔
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Android5.x新控件介绍(一)
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-05-07T20:39:24+08:00" content="2016-05-07">
+              2016-05-07
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/AndroidStudyDemo/" itemprop="url" rel="index">
+                    <span itemprop="name">AndroidStudyDemo</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/AndroidStudyDemo/Android-5/" itemprop="url" rel="index">
+                    <span itemprop="name">Android 5</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/05/07/AndroidStudyDemo系列/Android5.x新控件介绍(一)/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/07/AndroidStudyDemo系列/Android5.x新控件介绍(一)/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+		  &nbsp; | &nbsp;
+             <span id="/2016/05/07/AndroidStudyDemo系列/Android5.x新控件介绍(一)/" class="leancloud_visitors" data-flag-title="Android5.x新控件介绍(一)">
+               
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+		  
+		  <!--<span id="busuanzi_container_page_pv">
+		    &nbsp; | &nbsp;<span id="busuanzi_value_page_pv"></span>阅读
+		  </span>
+		  
+		  
+			&nbsp; | &nbsp;
+			<span id="/2016/05/07/AndroidStudyDemo系列/Android5.x新控件介绍(一)/"class="leancloud_visitors" data-flag-title="Android5.x新控件介绍(一)">
+					 &nbsp;阅读
+					</span>
+			-->
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><strong>作者：<a href="https://github.com/DIY-green/" target="_blank" rel="external">李旺成</a></strong><br><strong>时间：2016年4月14日</strong></p>
+<hr>
+<p><img src="\uploads\androidstudydemo\android5\android5_newwidget1_1.png" alt="Android 5新控件（一）" title="Android 5新控件（一）"></p>
+<p>接上篇 <a href="http://www.jianshu.com/p/c82ea2333af6" target="_blank" rel="external">AndroidStudyDemo 之 Android5.x 新 API 介绍（二）</a></p>
+<p>今天主要给大家介绍下 Android 5.x 中提供的新控件（请不要纠结“控件”的定义）。</p>
+<h1 id="一、-RippleDrawable"><a href="#一、-RippleDrawable" class="headerlink" title="一、 RippleDrawable"></a>一、 RippleDrawable</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>Android 5.x 提供了视图的水波纹效果，就是使用 RippleDrawable 实现的，看看 RippleDrawable 到底是什么。</p>
+<ul>
+<li>自定义触摸反馈动画</li>
+<li>以波纹效果来显示状态变化的 Drawable</li>
+<li><ripple> 标签即对应一个 RippleDrawable</ripple></li>
+</ul>
+<h2 id="简单使用"><a href="#简单使用" class="headerlink" title="简单使用"></a>简单使用</h2><p>RippleDrawable 其实就可以当作一个 Drawable，这里主要介绍如何使用，不谈论它的实现原理之类的。</p>
+<p>1、没有边界的 Ripple（Ripple With No Mask）<br>先看效果：</p>
+<p><img src="\uploads\androidstudydemo\android5\android5_newwidget1_2.gif" alt="Ripple With No Mask" title="Ripple With No Mask"></p>
+<p>很简单，就是在 drawable 文件夹中定义一个以 <ripple> 为根控件的 xml 文件，然后作为一个控件的背景即可。<br>定义 ripple_blue.xml ：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span><br><span class="line">&lt;ripple xmlns:android="http://schemas.android.com/apk/res/android"</span><br><span class="line">    android:color="#0000cc"&gt;</span><br><span class="line">&lt;/ripple&gt;</span><br></pre></td></tr></table></figure></ripple></p>
+<p>作为 TextView 的 background：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;TextView</span><br><span class="line">	android:layout_width=<span class="string">"match_parent"</span></span><br><span class="line">	android:layout_height=<span class="string">"match_parent"</span></span><br><span class="line">	android:background=<span class="string">"@drawable/ripple_blue"</span></span><br><span class="line">	android:clickable=<span class="string">"true"</span></span><br><span class="line">	android:gravity=<span class="string">"center"</span></span><br><span class="line">	android:text=<span class="string">"Ripple With No Mask"</span> /&gt;</span><br></pre></td></tr></table></figure></p>
+<p>2、用颜色作为 Mask 的 Ripple（Ripple With Color Mask）<br>先看效果：</p>
+<p><img src="\uploads\androidstudydemo\android5\android5_newwidget1_3.gif" alt="Ripple With White Mask" title="Ripple With White Mask"></p>
+<p><img src="\uploads\androidstudydemo\android5\android5_newwidget1_4.gif" alt="Ripple With Black Mask" title="Ripple With Black Mask"></p>
+<p>从上面的效果图可以看到，分别使用不同的颜色，但是好像没有看到效果；是的，用颜色作的 Mask，在这个 Mask 中颜色并没有起作用。但是可以看到与 1、 中的效果差别是很明显的，那就是这个 Mask 限定了边界。</p>
+<p>先看代码，<br>ripple_blue_with_white_mask.xml：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span><br><span class="line">&lt;ripple xmlns:android="http://schemas.android.com/apk/res/android"</span><br><span class="line">        android:color="#0000cc" &gt;</span><br><span class="line">    &lt;item android:id="@android:id/mask"</span><br><span class="line">         android:drawable="@android:color/white" /&gt;</span><br><span class="line">&lt;/ripple&gt;</span><br></pre></td></tr></table></figure></p>
+<p>ripple_blue_with_black_mask.xml：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span><br><span class="line">&lt;ripple xmlns:android="http://schemas.android.com/apk/res/android"</span><br><span class="line">        android:color="#0000cc"&gt;</span><br><span class="line">    &lt;item android:id="@android:id/mask"</span><br><span class="line">         android:drawable="@android:color/black" /&gt;</span><br><span class="line">&lt;/ripple&gt;</span><br></pre></td></tr></table></figure></p>
+<p>这里解释一下：如果在一个 ripple 标签中，添加一个 item，其 id 为@android:id/mask，drawable 属性为引用的颜色(color) ，则水波效果会<strong>限定在</strong> drawable 对应的 RippleDrawable 本身<strong>矩形区域内部</strong>。</p>
+<p>3、用图片作为 Mask 的 Ripple（Ripple With Picture Mask）<br>先看效果：</p>
+<p><img src="\uploads\androidstudydemo\android5\android5_newwidget1_5.gif" alt="Ripple With Picture Mask" title="Ripple With Picture Mask"></p>
+<p>看代码，<br>ripple_blue_with_pic_mask.xml：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span><br><span class="line">&lt;ripple xmlns:android="http://schemas.android.com/apk/res/android"</span><br><span class="line">        android:color="#0000cc" &gt;</span><br><span class="line">    &lt;item android:id="@android:id/mask"</span><br><span class="line">         android:drawable="@mipmap/icon_folder_r" /&gt;</span><br><span class="line">&lt;/ripple&gt;</span><br></pre></td></tr></table></figure></p>
+<p>这里解释一下：如果在一个 ripple 标签中，添加一个 item，其id为@android:id/mask，drawable 属性为引用的图片(png,jpg)，则水波效果会<strong>限定</strong>在图片 drawable 中<strong>非透明部分对应的区域</strong>内部。</p>
+<p>4、用设定形状作为 Mask 的 Ripple（Ripple With Shape Mask）<br>先看效果：</p>
+<p><img src="\uploads\androidstudydemo\android5\android5_newwidget1_6.gif" alt="Ripple With Shape Mask" title="Ripple With Shape Mask"></p>
+<p>上代码<br>首先，要定义一个形状（shape），shape.xml：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span><br><span class="line">&lt;shape xmlns:android="http://schemas.android.com/apk/res/android" </span><br><span class="line">    android:shape="rectangle"&gt;</span><br><span class="line">	&lt;solid android:color="#6666ff"/&gt;</span><br><span class="line">    &lt;corners </span><br><span class="line">        android:bottomRightRadius="100dp"/&gt;</span><br><span class="line">&lt;/shape&gt;</span><br></pre></td></tr></table></figure></p>
+<p>然后，在 ripple 中使用形状，ripple_blue_with_shape_mask.xml：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span><br><span class="line">&lt;ripple xmlns:android="http://schemas.android.com/apk/res/android"</span><br><span class="line">    android:color="#0000cc" &gt;</span><br><span class="line">    &lt;item </span><br><span class="line">        android:id="@android:id/mask"</span><br><span class="line">        android:drawable="@drawable/shape"/&gt;</span><br><span class="line">&lt;/ripple&gt;</span><br></pre></td></tr></table></figure></p>
+<p>这里解释一下：如果在一个ripple标签中，添加一个 item，其id为@android:id/mask，drawable 属性为引用的形状(shape) ，则水波效果会<strong>限定</strong>在 <strong>shape 对应的区域</strong>内部。</p>
+<p>5、搭配selector作为Ripple（Ripple With Selector）<br>先看效果：</p>
+<p><img src="\uploads\androidstudydemo\android5\android5_newwidget1_7.gif" alt="Ripple With Selector" title="Ripple With Selector"></p>
+<p>上代码，ripple_blue_with_selector.xml：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span><br><span class="line">&lt;ripple xmlns:android="http://schemas.android.com/apk/res/android"</span><br><span class="line">    android:color="#0000cc" &gt;</span><br><span class="line">    &lt;item&gt;</span><br><span class="line">        &lt;selector&gt;</span><br><span class="line">            &lt;item</span><br><span class="line">                android:drawable="@mipmap/icon_folder_i"</span><br><span class="line">                android:state_pressed="true"&gt;</span><br><span class="line">            &lt;/item&gt;</span><br><span class="line">            &lt;item</span><br><span class="line">                android:drawable="@mipmap/icon_folder_r"</span><br><span class="line">                android:state_pressed="false"&gt;</span><br><span class="line">            &lt;/item&gt;</span><br><span class="line">        &lt;/selector&gt;</span><br><span class="line">    &lt;/item&gt;</span><br><span class="line">&lt;/ripple&gt;</span><br></pre></td></tr></table></figure></p>
+<p>解释一下：如果在一个 ripple 标签中，添加一个 item，在 item 的内部写上 <selector> 标签，那么这个 RippleDrawable 在按下的时候，同时具有水波效果和 selector 指定的图层。</selector></p>
+<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><p>为了<strong>兼容</strong>可以将 <ripple> 元素定义在 <strong>drawable-v21</strong> 目录下。关于兼容，不是本文重点，以后专门讨论下。</ripple></p>
+<blockquote>
+<p><strong>说明：</strong>上面的示例 Demo 和描述参考自 <a href="http://www.cnblogs.com/carlo/p/4795424.html" target="_blank" rel="external">Android L Ripple 的使用</a></p>
+</blockquote>
+<p>这个 Demo 已经将简单的使用场景覆盖，当然可以组合出各种更丰富的效果，发挥你的想象力去试试吧。</p>
+<h1 id="二、-Toolbar"><a href="#二、-Toolbar" class="headerlink" title="二、 Toolbar"></a>二、 Toolbar</h1><h2 id="Toolbar-简介"><a href="#Toolbar-简介" class="headerlink" title="Toolbar 简介"></a>Toolbar 简介</h2><p><img src="\uploads\androidstudydemo\android5\android5_newwidget1_8.png" alt="Toolbar 示意图" title="Toolbar 示意图"></p>
+<p>Toolbar 是应用程序内容中使用的<strong>标准工具栏</strong>，可以说是<strong> ActionBar 的升级版</strong>。</p>
+<p>Toolbar 与 ActionBar 并不是相互独立的，要使用 Toolbar 还是得跟 ActionBar 扯上关系的。相比 Actionbar，Toolbar 最明显的一点就是变得很自由，可随处放置。因为它是作为一个 ViewGroup 来定义使用的，所以单纯使用 ActionBar 已经稍显过时了，它的一些方法已被标注过时。</p>
+<p>看一下官方文档上对 Toolbar 的介绍：</p>
+<p><img src="\uploads\androidstudydemo\android5\android5_newwidget1_9.png" alt="Toolbar 简介" title="Toolbar 简介"></p>
+<p>如上图所示，Toolbar 继承自 ViewGroup，这个熟悉。再来看看 ActionBar：</p>
+<p><img src="\uploads\androidstudydemo\android5\android5_newwidget1_10.png" alt="ActionBar 简介" title="ActionBar 简介"></p>
+<p>ActionBar 继承的是 Object，就只从继承结构来看，我都会觉得 Toolbar 会更灵活（或者说强大），确实如此。来，瞄一眼 Toolbar 提供的一些方法：</p>
+<p><img src="\uploads\androidstudydemo\android5\android5_newwidget1_11.png" alt="Toolbar 类的主要方法" title="Toolbar 类的主要方法"></p>
+<h2 id="Toolbar-的简单使用"><a href="#Toolbar-的简单使用" class="headerlink" title="Toolbar 的简单使用"></a>Toolbar 的简单使用</h2><p>先看看 Toolbar 的使用效果：</p>
+<p><img src="\uploads\androidstudydemo\android5\android5_newwidget1_12.gif" alt="Toolbar 演示" title="Toolbar 演示"></p>
+<p>Toolbar 的使用很简单，我没用过 ActionBar，很多人都说用过 ActionBar 再来使用 Toolbar 就很容易了。哈哈，我想告诉你，如果没用过 ActionBar 就不用去看 ActionBar 了，直接使用 Toolbar 即可，这个使用也很简单。</p>
+<p>Toolbar 的使用可以采用如下步骤：<br><strong>1、定义使用 Toolbar 的主题（Theme）</strong><br>将 res/values/styles.xml 中原来新建项目时所生成的默认主题，修改为继承自 Theme.AppCompat（可以直接继承 Theme.AppCompat.Light.NoActionBar，这样就需要再去除 ActionBar 了，当然也可以手动去除），然后，设置相关属性。</p>
+<p>这里只是为了演示如何使用 Toolbar，所以先把原本的 ActionBar 隐藏起来。</p>
+<p>看代码：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 去掉 ActionBar，使用 Toolbar 的主题 --&gt;</span><br><span class="line">&lt;style name="AppTheme.DIYToolbar" parent="Theme.AppCompat"&gt;</span><br><span class="line">	&lt;!-- toolbar（actionbar）颜色 --&gt;</span><br><span class="line">	&lt;item name="colorPrimary"&gt;@color/colorPrimary&lt;/item&gt;</span><br><span class="line">	&lt;!-- 状态栏颜色 --&gt;</span><br><span class="line">	&lt;item name="colorPrimaryDark"&gt;@color/colorPrimaryDark&lt;/item&gt;</span><br><span class="line">	&lt;item name="windowActionBar"&gt;false&lt;/item&gt;</span><br><span class="line">	&lt;item name="windowNoTitle"&gt;true&lt;/item&gt;</span><br><span class="line">	&lt;!-- 各控制元件(如：check box、switch 或是 radoi) 被勾选 (checked) 或是选定 (selected) 的颜色 --&gt;</span><br><span class="line">	&lt;item name="colorAccent"&gt;#003300&lt;/item&gt;</span><br><span class="line">	&lt;!-- 各控制元件的预设颜色 --&gt;</span><br><span class="line">	&lt;item name="colorControlNormal"&gt;#6600ff&lt;/item&gt;</span><br><span class="line">	&lt;!-- 导航栏的背景色 --&gt;</span><br><span class="line">	&lt;item name="android:navigationBarColor"&gt;#330099&lt;/item&gt;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure></p>
+<p>调整 Menu 位置<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- Toolbar 定制菜单的样式 --&gt;</span><br><span class="line">&lt;style name="AppTheme.DIYToolbar2" parent="Theme.AppCompat.Light.NoActionBar"&gt;</span><br><span class="line">	&lt;!-- toolbar（actionbar）颜色 --&gt;</span><br><span class="line">	&lt;!-- App bar 上的标题与更多菜单中的文字颜色 --&gt;</span><br><span class="line">	&lt;item name="colorPrimary"&gt;#ff6600&lt;/item&gt;</span><br><span class="line">	&lt;!-- 状态栏颜色 --&gt;</span><br><span class="line">	&lt;item name="colorPrimaryDark"&gt;#ff9900&lt;/item&gt;</span><br><span class="line">	&lt;!-- 窗口的背景颜色 --&gt;</span><br><span class="line">	&lt;item name="android:windowBackground"&gt;@android:color/white&lt;/item&gt;</span><br><span class="line">	&lt;!-- 溢出菜单 --&gt;</span><br><span class="line">	&lt;!-- Required for Lollipop. --&gt;</span><br><span class="line">	&lt;item name="android:actionOverflowMenuStyle"&gt;@style/DIYMenuStyle&lt;/item&gt;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- 溢出菜单样式 --&gt;</span><br><span class="line">&lt;style name="DIYMenuStyle" parent="@style/Widget.AppCompat.Light.PopupMenu.Overflow"&gt;</span><br><span class="line">	&lt;!-- Required for Lollipop. --&gt;</span><br><span class="line">	&lt;item name="android:overlapAnchor"&gt;false&lt;/item&gt;</span><br><span class="line">	&lt;item name="android:dropDownVerticalOffset"&gt;10dp&lt;/item&gt;</span><br><span class="line">	&lt;item name="android:popupBackground"&gt;#ff6600&lt;/item&gt;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p><strong>注意：</strong>在设置 style 时使用兼容库中的 Toolbar 与使用 Android 5.x 中提供的 Toolbar还是稍有区别的，我这里演示的是 Android 5.x 中的 Toolbar。如果你自己尝试的时候和我演示的效果不一致时，请确认你使用的是哪个 Toolbar，以及自定义 Theme 下的 item 的 name 与我演示使用的是否是一致的。</p>
+</blockquote>
+<p><strong>2、使用主题</strong><br>关于 Theme 的作用范围，这里不做赘述。我的 Demo 项目中为了演示不同主题的效果，以及不破坏其他的页面，是直接为单个 Activity 应用该主题，当然在实际项目中一般都是直接应用在 app 上。</p>
+<p>看代码：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;activity</span><br><span class="line">	android:name=<span class="string">".newwidget1.ToolbarActivity"</span></span><br><span class="line">	android:theme=<span class="string">"@style/AppTheme.DIYToolbar"</span> /&gt;</span><br><span class="line">&lt;activity android:name=<span class="string">".newwidget1.Toolbar2Activity"</span></span><br><span class="line">	android:theme=<span class="string">"@style/AppTheme.DIYToolbar2"</span>/&gt;</span><br></pre></td></tr></table></figure></p>
+<p><strong>3、在布局中加入 Toolbar</strong><br>直接把 Toolbar 当成一个普通的 <strong>ViewGroup</strong>，它的使用很灵活，没有太多限制。这里做个简单的演示：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;Toolbar</span><br><span class="line">	android:id=<span class="string">"@+id/tb_title"</span></span><br><span class="line">	android:layout_width=<span class="string">"match_parent"</span></span><br><span class="line">	android:layout_height=<span class="string">"wrap_content"</span></span><br><span class="line">	android:minHeight=<span class="string">"?attr/actionBarSize"</span></span><br><span class="line">	android:background=<span class="string">"?attr/colorPrimary"</span></span><br><span class="line">	android:navigationIcon=<span class="string">"@mipmap/btn_back"</span></span><br><span class="line">	android:logo=<span class="string">"@mipmap/ic_logo"</span></span><br><span class="line">	android:title=<span class="string">"@string/title_toolbar"</span></span><br><span class="line">	android:subtitle=<span class="string">"@string/subtitle_toolbat"</span>/&gt;</span><br></pre></td></tr></table></figure></p>
+<p>上面用到的属性基本上可以见名知义，这里不打算细说，去试一下即可看到效果，稍后会小结一下常用属性的设置。</p>
+<p><strong>4、添加 Menu</strong><br>Android 上的 Menu 生命力还是很顽强的，Toolbar 上的 Menu 个人感觉效果还可以，而且不少的 App 都有使用（当然大多都是 Meterial Design 风格的 App 在用）。来看看 Toolbar 中 Menu 的基本用法。</p>
+<p>首先，使用 xml 定义 Menu：toolbar_menu.xml<br>（在代码中如何定义 Menu 可以参考 <a href="http://www.jianshu.com/p/7ca6525fddcb" target="_blank" rel="external">AndroidStudyDemo之Android4.x介绍</a>中 PopupMenu 的使用）<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span><br><span class="line">&lt;menu xmlns:android="http://schemas.android.com/apk/res/android" &gt;</span><br><span class="line">    &lt;item</span><br><span class="line">        android:id="@+id/menuitem0"</span><br><span class="line">        android:title="唐三藏"/&gt;</span><br><span class="line">    &lt;item</span><br><span class="line">        android:id="@+id/menuitem1"</span><br><span class="line">        android:title="孙悟空"/&gt;</span><br><span class="line">    &lt;item</span><br><span class="line">        android:id="@+id/menuitem2"</span><br><span class="line">        android:title="猪八戒"/&gt;</span><br><span class="line">    &lt;item</span><br><span class="line">        android:id="@+id/menuitem3"</span><br><span class="line">        android:title="沙和尚"/&gt;</span><br><span class="line">&lt;/menu&gt;</span><br></pre></td></tr></table></figure></p>
+<p>这里为了演示动态改变 Toolbar 还定义了一个 toolbar_menu2.xml，如下：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span><br><span class="line">&lt;menu xmlns:android="http://schemas.android.com/apk/res/android" &gt;</span><br><span class="line">    &lt;item</span><br><span class="line">        android:id="@+id/menuitem_new"</span><br><span class="line">        android:title="New"/&gt;</span><br><span class="line">    &lt;item</span><br><span class="line">        android:id="@+id/menuitem_open"</span><br><span class="line">        android:title="open"/&gt;</span><br><span class="line">&lt;/menu&gt;</span><br></pre></td></tr></table></figure></p>
+<p>然后，在 Activity 中填充 Menu：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onCreateOptionsMenu</span><span class="params">(Menu menu)</span> </span>&#123;</span><br><span class="line">	<span class="comment">// 使用 xml 定义的 Menu 文件，填充 Menu</span></span><br><span class="line">	getMenuInflater().inflate(R.menu.toolbar_menu, menu);</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>最后，为 Toolbar 的 Menu 按钮设置监听：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">this</span>.mTitleTB.setOnMenuItemClickListener(<span class="keyword">new</span> Toolbar.OnMenuItemClickListener() &#123;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onMenuItemClick</span><span class="params">(MenuItem item)</span> </span>&#123;</span><br><span class="line">		Toast.makeText(getApplicationContext(), item.getTitle(), Toast.LENGTH_SHORT).show();</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p><strong>5、代码中使用 Toolbar</strong><br>首先，初始化 Toolbar，并将 ActionBar 替换为 Toolbar：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">this</span>.mTitleTB = (Toolbar) findViewById(R.id.tb_title);</span><br><span class="line"><span class="comment">// 使用 setActionBar() 方法，取代原来的 ActionBar</span></span><br><span class="line">setActionBar(mTitleTB);</span><br></pre></td></tr></table></figure></p>
+<p>然后，设置 Toolbar：<br>（这不是必要的，你完全可以在布局文件中定义这些属性，这里仅仅是为了演示如何在代码中设置 Toolbar）<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">changeToolbar</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.mTitleTB.setTitle(<span class="string">"ChangeToolbar"</span>);</span><br><span class="line">	<span class="keyword">this</span>.mTitleTB.setSubtitle(<span class="string">"ToolbarSubtitle"</span>);</span><br><span class="line">	<span class="keyword">this</span>.mTitleTB.setNavigationIcon(R.mipmap.btn_back_lightblue);</span><br><span class="line">	<span class="keyword">this</span>.mTitleTB.setLogo(R.mipmap.ic_launcher);</span><br><span class="line">	<span class="comment">// Menu 也可以替换</span></span><br><span class="line">	mToolbarMenu.clear();</span><br><span class="line">	getMenuInflater().inflate(R.menu.toolbar_menu2, mToolbarMenu);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="综合使用"><a href="#综合使用" class="headerlink" title="综合使用"></a>综合使用</h2><p>这里以 Toolbar+DrawerLayout 实现<strong>抽屉菜单</strong>为例，演示这两个控件的搭配，先看效果：</p>
+<p><img src="\uploads\androidstudydemo\android5\android5_newwidget1_13.gif" alt="Toolbar 和 DrawerLayout 配合使用" title="Toolbar 和 DrawerLayout 配合使用"></p>
+<p>在效果图中可以看到，左侧菜单滑出和收起的时候，Toolbar 左边的菜单图标带有一个挺好看的动画。这是 Toolbar 和 DrawerLayout搭配的效果，实现很简单。<br><strong>实现步骤：</strong><br><strong>1、定义 Toolbar 布局：include_toolbar.xml</strong><br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span><br><span class="line">&lt;!-- 为了和 DrawerLayout 搭配，这里使用了兼容包中的 Toolbar --&gt;</span><br><span class="line">&lt;android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"</span><br><span class="line">    android:id="@+id/toolbar"</span><br><span class="line">    android:layout_height="wrap_content"</span><br><span class="line">    android:layout_width="match_parent"</span><br><span class="line">    android:minHeight="?attr/actionBarSize"</span><br><span class="line">    android:background="?attr/colorPrimary"</span><br><span class="line">    android:logo="@mipmap/ic_logo"</span><br><span class="line">    android:title="@string/title_toolbar"</span><br><span class="line">    android:subtitle="@string/subtitle_toolbat"&gt;</span><br><span class="line">&lt;/android.support.v7.widget.Toolbar&gt;</span><br></pre></td></tr></table></figure></p>
+<p><strong>2、添加动作菜单：toolbar_menu.xml</strong><br>这个，上面已经说过了，不再赘述。</p>
+<p><strong>3、在布局中添加 Toolbar 和 DrawerLayout：activity_toolbardrawerlayout.xml</strong><br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span><br><span class="line">&lt;LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"</span><br><span class="line">    android:layout_width="match_parent"</span><br><span class="line">    android:layout_height="match_parent"</span><br><span class="line">    android:orientation="vertical"&gt;</span><br><span class="line"></span><br><span class="line">    &lt;include layout="@layout/include_toolbar"&gt;&lt;/include&gt;</span><br><span class="line"></span><br><span class="line">    &lt;android.support.v4.widget.DrawerLayout</span><br><span class="line">        android:id="@+id/dl_left"</span><br><span class="line">        android:layout_width="match_parent"</span><br><span class="line">        android:layout_height="0dp"</span><br><span class="line">        android:layout_weight="1"&gt;</span><br><span class="line">        &lt;!-- 内容界面 --&gt;</span><br><span class="line">        &lt;FrameLayout</span><br><span class="line">            android:id="@+id/fl_containor"</span><br><span class="line">            android:layout_width="match_parent"</span><br><span class="line">            android:layout_height="match_parent" /&gt;</span><br><span class="line"></span><br><span class="line">        &lt;!-- 菜单界面 --&gt;</span><br><span class="line">        &lt;LinearLayout</span><br><span class="line">            android:layout_width="270dp"</span><br><span class="line">            android:layout_height="match_parent"</span><br><span class="line">            android:layout_gravity="start"</span><br><span class="line">            android:background="#66ccff"</span><br><span class="line">            android:orientation="vertical"&gt;</span><br><span class="line">            &lt;ListView</span><br><span class="line">                android:id="@+id/lv_menu"</span><br><span class="line">                android:layout_width="match_parent"</span><br><span class="line">                android:layout_height="wrap_content"</span><br><span class="line">                android:layout_margin="10dp" /&gt;</span><br><span class="line">        &lt;/LinearLayout&gt;</span><br><span class="line">    &lt;/android.support.v4.widget.DrawerLayout&gt;</span><br><span class="line"></span><br><span class="line">&lt;/LinearLayout&gt;</span><br></pre></td></tr></table></figure></p>
+<p><strong>4、设置 NoActionBar 主题，初始化 Toolbar</strong><br>这个也说过了，注意一点，这里的 Toolbar 为 Support V7 中提供的，所以，要调用 setSupportActionBar() 让 Toolbar 替代 ActionBar。</p>
+<p><strong>5、绑定 Toolbar 与 DrawerLayout 状态</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">ActionBarDrawerToggle drawerToggle = <span class="keyword">new</span> ActionBarDrawerToggle(</span><br><span class="line">	<span class="keyword">this</span>, </span><br><span class="line">	mDrawerLayout, </span><br><span class="line">	mToolbar, </span><br><span class="line">	R.string.open, </span><br><span class="line">	R.string.close);</span><br><span class="line">drawerToggle.syncState();</span><br><span class="line">mDrawerLayout.addDrawerListener(drawerToggle);</span><br></pre></td></tr></table></figure></p>
+<p><strong>6、初始化抽屉菜单</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">initLeftMenu</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	ListView menuList = (ListView) findViewById(R.id.lv_menu);</span><br><span class="line">	menuList.setAdapter(<span class="keyword">new</span> ArrayAdapter&lt;String&gt;(<span class="keyword">this</span>, android.R.layout.simple_list_item_1</span><br><span class="line">			, <span class="keyword">new</span> String[]&#123;<span class="string">"Menu Item 1"</span>,<span class="string">"Menu Item 2"</span>,<span class="string">"Menu Item 3"</span>&#125;));</span><br><span class="line">	menuList.setOnItemClickListener(<span class="keyword">new</span> AdapterView.OnItemClickListener() &#123;</span><br><span class="line">		<span class="meta">@Override</span></span><br><span class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onItemClick</span><span class="params">(AdapterView&lt;?&gt; parent, View view, <span class="keyword">int</span> position, <span class="keyword">long</span> id)</span> </span>&#123;</span><br><span class="line">			Fragment fragment = <span class="keyword">new</span> ContentFragment();</span><br><span class="line">			Bundle bundle = <span class="keyword">new</span> Bundle();</span><br><span class="line">			bundle.putString(<span class="string">"title"</span>, ((TextView) view).getText().toString());</span><br><span class="line">			fragment.setArguments(bundle);</span><br><span class="line">			mFm.beginTransaction().replace(R.id.fl_containor, fragment).commit();</span><br><span class="line">			mDrawerLayout.closeDrawer(Gravity.LEFT);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>7、初始化内容视图</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">initContentView</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	Fragment fragment = <span class="keyword">new</span> ContentFragment();</span><br><span class="line">	Bundle bundle = <span class="keyword">new</span> Bundle();</span><br><span class="line">	bundle.putString(<span class="string">"title"</span>,<span class="string">"Menu Item 1"</span>);</span><br><span class="line">	fragment.setArguments(bundle);</span><br><span class="line">	mFm.beginTransaction().replace(R.id.fl_containor,fragment).commit();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>代码很简单，其他的就不在此罗列了，具体请参考源码。（该示例参考自：<a href="http://www.w2bc.com/article/109774" target="_blank" rel="external">android 5.X Toolbar+DrawerLayout实现抽屉菜单</a>）</p>
+<h2 id="注意事项-1"><a href="#注意事项-1" class="headerlink" title="注意事项"></a>注意事项</h2><p>我在使用 Toolbar 的过程中遇到过一些问题，在这里列一下，希望你不要再踩同样的坑。<br>1、不同 Toolbar 的区别<br>如果你是用的是兼容包中的 Toolbar，上面的演示代码有几处需要修改。<br><strong>第一，是 Theme 的修改（这里只列举一个示例，其他属性类似）：</strong><br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- Required for pre-Lollipop. --&gt;</span><br><span class="line">&lt;item name="overlapAnchor"&gt;false&lt;/item&gt;</span><br><span class="line">&lt;!-- Required for Lollipop. --&gt;</span><br><span class="line">&lt;item name="android:overlapAnchor"&gt;false&lt;/item&gt;</span><br></pre></td></tr></table></figure></p>
+<p><strong>注意：</strong>这里如果设置的不对，会发现 Menu 的显示位置死活改不过来。<br><strong>第二，在 /res/values-v21/styles.xml 中定义同样的 Theme</strong><br><strong>第三，在 Activity 中替换 ActionBar（当然这个写错了，编译通不过）</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 使用 support v7 里的 Toolbar 替换 ActionBar</span></span><br><span class="line">setSupportActionBar(toolbar);</span><br><span class="line"><span class="comment">// 使用 Android 5.x 的 Toolbar 替换 ActionBar</span></span><br><span class="line">setActionBar(toolbar);</span><br></pre></td></tr></table></figure></p>
+<p><strong>2、不同的手机（ROM）对 Toolbar 的支持稍有区别</strong><br>Toolbar 的属性全部在布局中设置，在不同的手机的显示效果，如下图：</p>
+<p><img src="\uploads\androidstudydemo\android5\android5_newwidget1_14.png" alt="不同 ROM 对 Toolbar 的支持" title="不同 ROM 对 Toolbar 的支持"></p>
+<p><img src="\uploads\androidstudydemo\android5\android5_newwidget1_15.png" alt="Toolbar 在布局中的设置" title="Toolbar 在布局中的设置"></p>
+<p>在 MIUI 上，布局中设置的 logo 准确的展示出来了，在中兴的手机上，却没有展示出来。当然在代码中设置的话，效果都是一致的。</p>
+<blockquote>
+<p>这里我没有去深究原因了，姑且认为是不同 ROM 对 Toolbar 的支持不同吧！</p>
+</blockquote>
+<h2 id="Toolbar-使用属性小结"><a href="#Toolbar-使用属性小结" class="headerlink" title="Toolbar 使用属性小结"></a>Toolbar 使用属性小结</h2><p>下图总结了使用 Toolbar 中涉及到的常用属性：</p>
+<p><img src="\uploads\androidstudydemo\android5\android5_newwidget1_16.png" alt="Toolbar 使用属性说明" title="Toolbar 使用属性说明"></p>
+<p>下面就上图所标示出来的做个简要说明：<br><strong>在布局中设置：</strong></p>
+<ul>
+<li>navigationIcon<br>导航图标</li>
+<li>logo<br>Logo图标</li>
+<li>title<br>标题</li>
+<li>subtitle<br>副标题</li>
+<li>setOnMenuItemClickListener<br>设置 Menu 条目点击监听</li>
+</ul>
+<p><strong>在 style 的属性中设置：</strong></p>
+<ul>
+<li>colorPrimaryDark<br>状态栏背景色</li>
+<li>colorPrimary<br><strong>textColorPrimary</strong><br>App bar 上的标题与更多菜单中的文字颜色<br><strong>App bar 的背景色</strong><br>在 style 中的 colorPrimary 设定<br><strong>Toolbar 的背景色</strong><br>在layout文件中设置 background 属性</li>
+<li>colorAccent<br>各控制元件(如：check box、switch 或是 radoi) 被勾选 (checked) 或是选定 (selected) 的颜色</li>
+<li>colorControlNormal<br>各控制元件的预设颜色</li>
+<li>windowBackground<br>App 的背景色</li>
+<li>navigationBarColor<br>导航栏的背景色，但只能用在 API Level 21 (Android 5) 以上的版本</li>
+</ul>
+<h2 id="进阶"><a href="#进阶" class="headerlink" title="进阶"></a>进阶</h2><p>也不是什么真的进阶，上面演示了 Toolbar 的基本使用，这样使用，在页面少的时候没什么问题；但是如果页面一多，就得为每个页面都拷贝一份同样的 Toolbar 设置，当然你可以使用 <include>，但总归不方便。</include></p>
+<p>考虑到上述原因，就有人想到对 Toolbar 进行封装，使用模版模式把这些重复代码都封装起来。</p>
+<p>具体实现这里就不讨论了，你要是感兴趣可以参考 <a href="http://www.w2bc.com/Article/45123" target="_blank" rel="external">Android ToolBar 的简单封装</a>。原理和实现都比较简单，有兴趣可以自己试试。</p>
+<h1 id="三、Material-Theme"><a href="#三、Material-Theme" class="headerlink" title="三、Material Theme"></a>三、Material Theme</h1><h2 id="简介-1"><a href="#简介-1" class="headerlink" title="简介"></a>简介</h2><p>关于 Android 上的 Theme  本来是不想现在就讨论的，但是考虑到 Android 5.x 出现了个 <strong>Material 主题</strong>，所以在这里简单说一下。先看下效果：</p>
+<p><img src="\uploads\androidstudydemo\android5\android5_newwidget1_17.png" alt="Material Theme 示意图" title="Material Theme 示意图"></p>
+<h2 id="官方提供的-Materal-Theme"><a href="#官方提供的-Materal-Theme" class="headerlink" title="官方提供的 Materal Theme"></a>官方提供的 Materal Theme</h2><p>我们自定义的 Materal Theme 都需要（直接或者间接）继承自官方提供的 Materal Theme，Google 提供了如下三种：</p>
+<ul>
+<li><strong>@android:style/Theme.Material</strong></li>
+<li><strong>@android:style/Theme.Material.Light</strong></li>
+<li><strong>@android:style/Theme.Material.Light.DarkActionBar</strong></li>
+</ul>
+<p>与之对应的 <strong>Compat Theme</strong>（兼容包中提供）：</p>
+<ul>
+<li>Theme.AppCompat</li>
+<li>Theme.AppCompat.Light</li>
+<li>Theme.AppCompat.Light.DarkActionBar</li>
+</ul>
+<p>分别对应上图所示的三种效果。</p>
+<h2 id="Material-Theme-简单使用"><a href="#Material-Theme-简单使用" class="headerlink" title="Material Theme 简单使用"></a>Material Theme 简单使用</h2><p>其实上面讲 Toolbar 的时候就已经在使用。<br><strong>1、将自定义主题继承自 android:Theme.Material/Material.Light/Material.Light.DarkActionBar</strong></p>
+<p><strong>说明：</strong>也可以用兼容包中提供的主题，上面介绍了 Android 5.x 与兼容包中 Materal Theme 的对应关系。<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;style name="DIYMaterialTheme" parent="android:Theme.Material"&gt;</span><br><span class="line">	&lt;!-- 自定义设置 --&gt;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure></p>
+<p><strong>2、个性化颜色基调</strong><br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;style name="DIYMaterialTheme" parent="android:Theme.Material"&gt;</span><br><span class="line">	&lt;!-- 个性化颜色基调 --&gt;</span><br><span class="line">	&lt;item name="colorPrimary"&gt;#336600&lt;/item&gt;</span><br><span class="line">	&lt;item name="colorPrimaryDark"&gt;#339900&lt;/item&gt;</span><br><span class="line">	&lt;item name="colorAccent"&gt;#993300&lt;/item&gt;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure></p>
+<p><strong>说明：</strong></p>
+<ul>
+<li>colorPrimary：指定 ActionBar/Toolbar 的颜色</li>
+<li>colorPrimaryDark：指定状态栏的颜色</li>
+<li>colorAccent：指定 EditText 编辑时、RadioButton选中、CheckBox等选中时的颜色</li>
+</ul>
+<p><strong>3、使用自定义主题</strong><br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 为 App 指定主题 ---&gt;</span><br><span class="line">&lt;application</span><br><span class="line">	android:name=".DIYApp"</span><br><span class="line">	android:allowBackup="true"</span><br><span class="line">	android:icon="@mipmap/ic_launcher"</span><br><span class="line">	android:label="@string/app_name"</span><br><span class="line">	android:supportsRtl="true"</span><br><span class="line">	android:theme="@style/DIYMaterialTheme"/&gt;</span><br><span class="line">	...</span><br><span class="line">&lt;/application&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- 为 Activity 指定主题 --&gt;</span><br><span class="line">&lt;activity android:name=".newwidget1.MaterialThemeActivity"</span><br><span class="line">            android:theme="@style/DIYMaterialTheme"/&gt;</span><br></pre></td></tr></table></figure></p>
+<p>看图吧：</p>
+<p><img src="\uploads\androidstudydemo\android5\android5_newwidget1_18.png" alt="Material Theme 说明示意" title="Material Theme 说明示意"><br>与 Toolbar 的属性介绍部分重合，不要介意…</p>
+<h2 id="注意事项-2"><a href="#注意事项-2" class="headerlink" title="注意事项"></a>注意事项</h2><p><strong>1、不要把兼容包中的 Material Theme 使用到 Activity 上</strong><br>兼容包中的 Material Theme 是提供给 AppCompatActivity 使用的</p>
+<p><strong>2、兼容包中与 Android 5.x 中的 Material Theme 在 style 中设置有区别</strong><br>如：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;style name="DIYAppTheme" parent="Theme.AppCompat.Light.NoActionBar"&gt;</span><br><span class="line">	&lt;!-- 使用兼容包中的 Material Theme --&gt;</span><br><span class="line">	&lt;item name="colorPrimary"&gt;@color/colorPrimary&lt;/item&gt;</span><br><span class="line">	&lt;item name="colorPrimaryDark"&gt;@color/colorPrimaryDark&lt;/item&gt;</span><br><span class="line">	&lt;item name="colorAccent"&gt;@color/colorAccent&lt;/item&gt;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line"></span><br><span class="line">&lt;style name="DIYMaterialTheme.Base" parent="android:Theme.Material.Light"/&gt;</span><br><span class="line">&lt;style name="DIYMaterialTheme" parent="DIYMaterialTheme.Base"&gt;</span><br><span class="line">	&lt;!-- 使用 Android 5.x 的 Material Theme --&gt;</span><br><span class="line">	&lt;item name="android:colorPrimary"&gt;#336600&lt;/item&gt;</span><br><span class="line">	&lt;item name="android:colorPrimaryDark"&gt;#339900&lt;/item&gt;</span><br><span class="line">	&lt;item name="android:colorAccent"&gt;#993300&lt;/item&gt;</span><br><span class="line">	&lt;item name="android:statusBarColor"&gt;#ccffff&lt;/item&gt;</span><br><span class="line">	&lt;item name="android:navigationBarColor"&gt;#330099&lt;/item&gt;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure></p>
+<p><strong>提示：</strong>用错了轻则没有效果，重则程序崩溃。</p>
+<p><strong>3、不同的 ROM 对 Material Theme 的支持不同</strong><br>主要表现在有些 ROM 去除了虚拟 navigationBar，使用实体按键，效果如上图：左侧为 小米 Note，右侧为 中兴。</p>
+<h1 id="项目地址"><a href="#项目地址" class="headerlink" title="项目地址"></a>项目地址</h1><p><a href="https://github.com/DIY-green/ASD-Android5Study" target="_blank" rel="external">GitHub</a></p>
+<blockquote>
+<p>有同学建议思维导图的暗黑风格与 AndroidStudio 严重重合，审美疲劳了；所以，思维导图换了个风格，喜欢大家喜欢，有任何建议或意见都欢迎给我留言。<br>如果对你有用，那帮忙点个喜欢吧！</p>
+</blockquote>
+<p><a href="">未完待续</a>，下一篇将继续介绍 Android 5.x 的新控件，考虑到 RecyclerView 内容较多，会单独做一篇，所以计划中关于 Android 5.x 的新控件还有两篇。</p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="http://www.cnblogs.com/carlo/p/4795424.html" target="_blank" rel="external">Android L Ripple的使用</a><br><a href="http://blog.csdn.net/antimage08/article/details/50390546" target="_blank" rel="external">RippleDrawable 的简单使用</a><br><a href="http://www.jianshu.com/p/e0474982d5e1" target="_blank" rel="external">RippleDrawable</a><br><a href="http://blog.csdn.net/davyjoneswang/article/details/47085031" target="_blank" rel="external">Android-Toolbar 使用</a><br><a href="http://blog.csdn.net/a379992210/article/details/47073497" target="_blank" rel="external">利用Toolbar替换ActionBar</a><br><a href="http://www.myexception.cn/android/2053784.html" target="_blank" rel="external">深入辨析Android四大组件(九)——Activity之AppCompatActivity与toolbar的结合</a><br><a href="http://www.cnblogs.com/wuya/p/android-actionbar-toolbar-overflow-menu-style.html" target="_blank" rel="external">android acitonbar(toolbar)自定义溢出菜单样式</a><br><a href="http://www.w2bc.com/article/109774" target="_blank" rel="external">android 5.X Toolbar+DrawerLayout实现抽屉菜单</a><br><a href="http://www.w2bc.com/Article/45123" target="_blank" rel="external">Android ToolBar 的简单封装</a><br><a href="https://developer.android.com/training/material/theme.html" target="_blank" rel="external">Using the Material Theme</a><br><a href="http://android-developers.blogspot.ca/2015/04/android-support-library-221.html" target="_blank" rel="external">Android Support Library 22.1</a><br><a href="http://www.google.com/design/spec/layout/metrics-keylines.html#" target="_blank" rel="external">Material design</a><br><a href="http://blog.csdn.net/lmj623565791/article/details/45303349" target="_blank" rel="external">Android 5.x Theme 与 ToolBar 实战</a><br><a href="http://www.open-open.com/lib/view/open1416664325648.html" target="_blank" rel="external">ANDROID L - Material Design详解（主题和布局）</a><br><a href="http://blog.csdn.net/xyz_lmn/article/details/35569793" target="_blank" rel="external">Material Theme</a><br><a href="http://blog.csdn.net/bbld_/article/details/40400519" target="_blank" rel="external">Android Material Design-Using the Material Theme(使用Material主题)-(二)</a></p>
+
+      
+    </div>
+    
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+<div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton", disable="enable", onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}", style="cursor: pointer; border: 0; outline: 0; border-radius: 100%; padding: 0; margin: 0; letter-spacing: normal; text-transform: none; text-indent: 0px; text-shadow: none">
+    <span onmouseover="this.style.color='rgb(236,96,0)';this.style.background='rgb(204,204,204)'" onMouseOut="this.style.color='#fff';this.style.background='rgb(236,96,0)'" style="display: inline-block; width: 70px; height: 70px; border-radius: 100%; line-height: 81px; color: #fff; font: 400 35px/75px 'microsofty'; background: rgb(236,96,0)">赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/uploads/images/wechat-reward-image.png" alt="DIY-green WeChat Pay" style="width: 200px; max-width: 100%; display: inline-block"/>
+        <p>微信打赏</p>
+      </div>
+    
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/uploads/images/alipay-reward-image.png" alt="DIY-green Alipay" style="width: 200px; max-width: 100%; display: inline-block"/>
+        <p>支付宝打赏</p>
+      </div>
+    
+  </div>
+</div>
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/StudyDemo/" rel="tag">#StudyDemo</a>
+          
+            <a href="/tags/Android-5/" rel="tag">#Android 5</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/05/07/AndroidStudyDemo系列/Android5.x新控件介绍(三)/" rel="next" title="Android5.x新控件介绍(三)">
+                <i class="fa fa-chevron-left"></i> Android5.x新控件介绍(三)
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/05/07/Android小技巧/布局篇/Hacks布局篇-Hack5 创建定制的ViewGroup/" rel="prev" title="Hacks布局篇-Hack5 创建定制的ViewGroup">
+                Hacks布局篇-Hack5 创建定制的ViewGroup <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/05/07/AndroidStudyDemo系列/Android5.x新控件介绍(一)/"
+           data-title="Android5.x新控件介绍(一)" data-url="http://diy-green.com/2016/05/07/AndroidStudyDemo系列/Android5.x新控件介绍(一)/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/images/avatar.jpg"
+               alt="DIY-green" />
+          <p class="site-author-name" itemprop="name">DIY-green</p>
+          <p class="site-description motion-element" itemprop="description">男子千年志，吾生未有涯。心随朗月高，志与秋霜洁。</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">52</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">27</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/DIY-green" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/users/0ad0a0afc409/latest_articles" target="_blank" title="JianShu">
+                  
+                    <i class="fa fa-globe"></i>
+                  
+                  JianShu
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element">
+            <div class="links-of-blogroll-title">
+              <i class="fa fa-globe fa-fw"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.jianshu.com/users/0ad0a0afc409/latest_articles" title="DIY-green简书" target="_blank">DIY-green简书</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.jianshu.com/users/3a482c4f0658/latest_articles" title="天接水0001" target="_blank">天接水0001</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://sunfusheng.com" title="孙福生" target="_blank">孙福生</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://kuanggang.github.io" title="匡罡" target="_blank">匡罡</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://Ivorfason.github.io" title="尹明仁" target="_blank">尹明仁</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://mengqingxiang.github.io" title="孟庆祥" target="_blank">孟庆祥</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、-RippleDrawable"><span class="nav-number">1.</span> <span class="nav-text">一、 RippleDrawable</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介"><span class="nav-number">1.1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#简单使用"><span class="nav-number">1.2.</span> <span class="nav-text">简单使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注意事项"><span class="nav-number">1.3.</span> <span class="nav-text">注意事项</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、-Toolbar"><span class="nav-number">2.</span> <span class="nav-text">二、 Toolbar</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Toolbar-简介"><span class="nav-number">2.1.</span> <span class="nav-text">Toolbar 简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Toolbar-的简单使用"><span class="nav-number">2.2.</span> <span class="nav-text">Toolbar 的简单使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#综合使用"><span class="nav-number">2.3.</span> <span class="nav-text">综合使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注意事项-1"><span class="nav-number">2.4.</span> <span class="nav-text">注意事项</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Toolbar-使用属性小结"><span class="nav-number">2.5.</span> <span class="nav-text">Toolbar 使用属性小结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#进阶"><span class="nav-number">2.6.</span> <span class="nav-text">进阶</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三、Material-Theme"><span class="nav-number">3.</span> <span class="nav-text">三、Material Theme</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介-1"><span class="nav-number">3.1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#官方提供的-Materal-Theme"><span class="nav-number">3.2.</span> <span class="nav-text">官方提供的 Materal Theme</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Material-Theme-简单使用"><span class="nav-number">3.3.</span> <span class="nav-text">Material Theme 简单使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注意事项-2"><span class="nav-number">3.4.</span> <span class="nav-text">注意事项</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#项目地址"><span class="nav-number">4.</span> <span class="nav-text">项目地址</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考"><span class="nav-number">5.</span> <span class="nav-text">参考</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+<div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">DIY-green</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info powered-by">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+<div class="powered-by">
+  <span id="busuanzi_container_site_pv">
+    本站总访问量<span id="busuanzi_value_site_pv"></span>次
+  </span>
+</div>
+<div style="display:inline-block;">
+  <span id="busuanzi_container_site_uv">
+    本站访客数<span id="busuanzi_value_site_uv"></span>人次
+  </span>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"DIY-green"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+      
+      <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+      <script src="/js/src/hook-duoshuo.js"></script>
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+  
+  
+  <!-- custom analytics part create by xiamo -->
+<script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+<script>AV.initialize("UnkeFG0pM1t3q8H3y7NTLUA0-gzGzoHsz", "2oBUu9nxByteYjLFtBtqOPwN");</script>
+<script>
+function showTime(Counter) {
+	var query = new AV.Query(Counter);
+	$(".leancloud_visitors").each(function() {
+		var url = $(this).attr("id").trim();
+		query.equalTo("url", url);
+		query.find({
+			success: function(results) {
+				if (results.length == 0) {
+					var content = '0 ' + $(document.getElementById(url)).text();
+					$(document.getElementById(url)).text(content);
+					return;
+				}
+				for (var i = 0; i < results.length; i++) {
+					var object = results[i];
+					var content = object.get('time') + ' ' + $(document.getElementById(url)).text();
+					$(document.getElementById(url)).text(content);
+				}
+			},
+			error: function(object, error) {
+				console.log("Error: " + error.code + " " + error.message);
+			}
+		});
+
+	});
+}
+
+function addCount(Counter) {
+	var Counter = AV.Object.extend("Counter");
+	url = $(".leancloud_visitors").attr('id').trim();
+	title = $(".leancloud_visitors").attr('data-flag-title').trim();
+	var query = new AV.Query(Counter);
+	query.equalTo("url", url);
+	query.find({
+		success: function(results) {
+			if (results.length > 0) {
+				var counter = results[0];
+				counter.fetchWhenSave(true);
+				counter.increment("time");
+				counter.save(null, {
+					success: function(counter) {
+						var content =  counter.get('time') + ' ' + $(document.getElementById(url)).text();
+						$(document.getElementById(url)).text(content);
+					},
+					error: function(counter, error) {
+						console.log('Failed to save Visitor num, with error message: ' + error.message);
+					}
+				});
+			} else {
+				var newcounter = new Counter();
+				newcounter.set("title", title);
+				newcounter.set("url", url);
+				newcounter.set("time", 1);
+				newcounter.save(null, {
+					success: function(newcounter) {
+					    console.log("newcounter.get('time')="+newcounter.get('time'));
+						var content = newcounter.get('time') + ' ' + $(document.getElementById(url)).text();
+						$(document.getElementById(url)).text(content);
+					},
+					error: function(newcounter, error) {
+						console.log('Failed to create');
+					}
+				});
+			}
+		},
+		error: function(error) {
+			console.log('Error:' + error.code + " " + error.message);
+		}
+	});
+}
+$(function() {
+	var Counter = AV.Object.extend("Counter");
+	if ($('.leancloud_visitors').length == 1) {
+		addCount(Counter);
+	} else if ($('.post-title-link').length > 1) {
+		showTime(Counter);
+	}
+}); 
+</script>
+  
+  
+</body>
+</html>

@@ -1,0 +1,1067 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Android,干货,ViewPager," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="作者：李旺成时间：2016年5月3日
+
+一、PagerAdapter介绍先看效果图
+
+PagerAdapter简介ListView 大家应该都很熟悉吧！ListView 一般都需要一个 Adapter 来填充数据，如 ArrayAdapter、SimpleAdapter。PagerAdapter 就是 ViewPager 的 Adapter，与 ListView 的 Adapter 作用一样。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ViewPager刷新问题详解">
+<meta property="og:url" content="http://diy-green.com/2016/05/07/Android干货[原创]/ViewPager刷新问题详解/index.html">
+<meta property="og:site_name" content="DIY-green">
+<meta property="og:description" content="作者：李旺成时间：2016年5月3日
+
+一、PagerAdapter介绍先看效果图
+
+PagerAdapter简介ListView 大家应该都很熟悉吧！ListView 一般都需要一个 Adapter 来填充数据，如 ArrayAdapter、SimpleAdapter。PagerAdapter 就是 ViewPager 的 Adapter，与 ListView 的 Adapter 作用一样。">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidganhuo\yuanchuang\viewpager_refresh_detail\vp_refresh_detail_1.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidganhuo\yuanchuang\viewpager_refresh_detail\vp_refresh_detail_2.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidganhuo\yuanchuang\viewpager_refresh_detail\vp_refresh_detail_3.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidganhuo\yuanchuang\viewpager_refresh_detail\vp_refresh_detail_4.gif">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidganhuo\yuanchuang\viewpager_refresh_detail\vp_refresh_detail_5.gif">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidganhuo\yuanchuang\viewpager_refresh_detail\vp_refresh_detail_6.gif">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidganhuo\yuanchuang\viewpager_refresh_detail\vp_refresh_detail_7.gif">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidganhuo\yuanchuang\viewpager_refresh_detail\vp_refresh_detail_8.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidganhuo\yuanchuang\viewpager_refresh_detail\vp_refresh_detail_9.gif">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidganhuo\yuanchuang\viewpager_refresh_detail\vp_refresh_detail_10.gif">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidganhuo\yuanchuang\viewpager_refresh_detail\vp_refresh_detail_11.gif">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidganhuo\yuanchuang\viewpager_refresh_detail\vp_refresh_detail_12.gif">
+<meta property="og:updated_time" content="2016-05-05T23:10:14.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ViewPager刷新问题详解">
+<meta name="twitter:description" content="作者：李旺成时间：2016年5月3日
+
+一、PagerAdapter介绍先看效果图
+
+PagerAdapter简介ListView 大家应该都很熟悉吧！ListView 一般都需要一个 Adapter 来填充数据，如 ArrayAdapter、SimpleAdapter。PagerAdapter 就是 ViewPager 的 Adapter，与 ListView 的 Adapter 作用一样。">
+<meta name="twitter:image" content="http://diy-green.com/\uploads\androidganhuo\yuanchuang\viewpager_refresh_detail\vp_refresh_detail_1.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'DIY-green'
+    }
+  };
+</script>
+
+  <title> ViewPager刷新问题详解 | DIY-green </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?af1b7efbf565bc568165c5a0600a0207";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+  <div style="display: none;">
+    <script src="http://s6.cnzz.com/stat.php?id=1258791461&web_id=1258791461" type="text/javascript"></script>
+  </div>
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">DIY-green</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            全部
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-androidstudydemo">
+          <a href="/categories/AndroidStudyDemo/" rel="section">
+            
+              <i class="menu-item-icon fa fa-hand-right fa-fw"></i> <br />
+            
+            ● &nbsp; AndroidStudyDemo
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-androidganhuo">
+          <a href="/categories/Android干货/" rel="section">
+            
+              <i class="menu-item-icon fa fa-hand-right fa-fw"></i> <br />
+            
+            ● &nbsp; Android干货
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-androidhacks">
+          <a href="/categories/Android小技巧/" rel="section">
+            
+              <i class="menu-item-icon fa fa-hand-right fa-fw"></i> <br />
+            
+            ● &nbsp; Android小技巧
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-androidstudio">
+          <a href="/categories/AndroidStudio/" rel="section">
+            
+              <i class="menu-item-icon fa fa-hand-right fa-fw"></i> <br />
+            
+            ● &nbsp; AndroidStudio
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-essay">
+          <a href="/categories/随笔/" rel="section">
+            
+              <i class="menu-item-icon fa fa-hand-right fa-fw"></i> <br />
+            
+            ● &nbsp; 随笔
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                ViewPager刷新问题详解
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-05-07T20:39:24+08:00" content="2016-05-07">
+              2016-05-07
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Android干货/" itemprop="url" rel="index">
+                    <span itemprop="name">Android干货</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Android干货/原创/" itemprop="url" rel="index">
+                    <span itemprop="name">原创</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/05/07/Android干货[原创]/ViewPager刷新问题详解/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/07/Android干货[原创]/ViewPager刷新问题详解/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+		  &nbsp; | &nbsp;
+             <span id="/2016/05/07/Android干货[原创]/ViewPager刷新问题详解/" class="leancloud_visitors" data-flag-title="ViewPager刷新问题详解">
+               
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+		  
+		  <!--<span id="busuanzi_container_page_pv">
+		    &nbsp; | &nbsp;<span id="busuanzi_value_page_pv"></span>阅读
+		  </span>
+		  
+		  
+			&nbsp; | &nbsp;
+			<span id="/2016/05/07/Android干货[原创]/ViewPager刷新问题详解/"class="leancloud_visitors" data-flag-title="ViewPager刷新问题详解">
+					 &nbsp;阅读
+					</span>
+			-->
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="\uploads\androidganhuo\yuanchuang\viewpager_refresh_detail\vp_refresh_detail_1.png" alt="ViewPager刷新问题详解" title="ViewPager刷新问题详解"></p>
+<p><strong>作者：<a href="https://github.com/DIY-green/" target="_blank" rel="external">李旺成</a></strong><br><strong>时间：2016年5月3日</strong></p>
+<hr>
+<h1 id="一、PagerAdapter介绍"><a href="#一、PagerAdapter介绍" class="headerlink" title="一、PagerAdapter介绍"></a>一、PagerAdapter介绍</h1><p>先看效果图</p>
+<p><img src="\uploads\androidganhuo\yuanchuang\viewpager_refresh_detail\vp_refresh_detail_2.png" alt="PageAdapter 使用示例" title="PageAdapter 使用示例"></p>
+<h2 id="PagerAdapter简介"><a href="#PagerAdapter简介" class="headerlink" title="PagerAdapter简介"></a>PagerAdapter简介</h2><p>ListView 大家应该都很熟悉吧！ListView 一般都需要一个 Adapter 来填充数据，如 ArrayAdapter、SimpleAdapter。PagerAdapter 就是 ViewPager 的 Adapter，与 ListView 的 Adapter 作用一样。</p>
+<p><strong>ViewPager-&gt;PageAdapter == ListView-&gt;BaseAdapter</strong></p>
+<p>先看下<strong>官方介绍</strong></p>
+<h3 id="官方介绍"><a href="#官方介绍" class="headerlink" title="官方介绍"></a>官方介绍</h3><p><img src="\uploads\androidganhuo\yuanchuang\viewpager_refresh_detail\vp_refresh_detail_3.png" alt="PageAdapter 类" title="PageAdapter 类"></p>
+<p>PageAdapter 继承自 Object，继承结构参考意义不大，那老实看文档。文档上没有提供示例代码，只是说了下要自定义 PageAdapter 需要实现下面四个方法：</p>
+<ul>
+<li><strong>instantiateItem(ViewGroup container, int position)：</strong>该方法的功能是创建指定位置的页面视图。适配器有责任增加即将创建的 View 视图到这里给定的 container 中，这是为了确保在 finishUpdate(viewGroup) 返回时 this is be done!<br>返回值：返回一个代表新增视图页面的 Object（Key），这里没必要非要返回视图本身，也可以这个页面的其它容器。其实我的理解是可以代表当前页面的任意值，只要你可以与你增加的 View 一一对应即可，比如 position 变量也可以做为 Key</li>
+<li><strong>destroyItem(ViewGroup container, int position, Object object)：</strong>该方法的功能是移除一个给定位置的页面。适配器有责任从容器中删除这个视图，这是为了确保在 finishUpdate(viewGroup) 返回时视图能够被移除</li>
+<li><strong>getCount()：</strong>返回当前有效视图的数量</li>
+<li><strong>isViewFromObject(View view, Object object)：</strong>该函数用来判断 instantiateItem() 函数所返回来的 Key 与一个页面视图是否是代表的同一个视图(即它俩是否是对应的，对应的表示同一个 View)<br>返回值：如果对应的是同一个View，返回 true，否则返回 false</li>
+</ul>
+<p>上面对 PageAdapter 的四个抽象方法做了简要说明，下面看看如何使用</p>
+<h3 id="简单使用"><a href="#简单使用" class="headerlink" title="简单使用"></a>简单使用</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">mContentVP.setAdapter(<span class="keyword">new</span> PagerAdapter() &#123;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getCount</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> dataList.size();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isViewFromObject</span><span class="params">(View view, Object object)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> view == object;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> Object <span class="title">instantiateItem</span><span class="params">(ViewGroup container, <span class="keyword">int</span> position)</span> </span>&#123;</span><br><span class="line">		View view = View.inflate(SimpleDemoActivity.<span class="keyword">this</span>, R.layout.item_vp_demopageradapter, <span class="keyword">null</span>);</span><br><span class="line">		TextView pageNumTV = (TextView) view.findViewById(R.id.tv_pagenum);</span><br><span class="line">		pageNumTV.setText(<span class="string">"DIY-PageNum-"</span> + dataList.get(position));</span><br><span class="line">		container.addView(view);</span><br><span class="line">		<span class="keyword">return</span> view;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">destroyItem</span><span class="params">(ViewGroup container, <span class="keyword">int</span> position, Object object)</span> </span>&#123;</span><br><span class="line">		container.removeView((View) object);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>可以看到实现 PagerAdapter 与 BaseAdapter 很类似，只是 PagerAdapter 的 isViewFromObject() 与 instantiateItem() 方法需要好好理解下。这里为了简化 PagerAdapter 的使用，我做了个简单的封装：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">APagerAdapter</span>&lt;<span class="title">T</span>&gt; <span class="keyword">extends</span> <span class="title">PagerAdapter</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">protected</span> LayoutInflater mInflater;</span><br><span class="line">    <span class="keyword">protected</span> List&lt;T&gt; mDataList;</span><br><span class="line">    <span class="keyword">private</span> SparseArray&lt;View&gt; mViewSparseArray;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">APagerAdapter</span><span class="params">(Context context, List&lt;T&gt; dataList)</span> </span>&#123;</span><br><span class="line">        mInflater = LayoutInflater.from(context);</span><br><span class="line">        mDataList = dataList;</span><br><span class="line">        mViewSparseArray = <span class="keyword">new</span> SparseArray&lt;View&gt;(dataList.size());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getCount</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (mDataList == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">return</span> mDataList.size();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isViewFromObject</span><span class="params">(View view, Object object)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> view == object;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">instantiateItem</span><span class="params">(ViewGroup container, <span class="keyword">int</span> position)</span> </span>&#123;</span><br><span class="line">        View view = mViewSparseArray.get(position);</span><br><span class="line">        <span class="keyword">if</span> (view == <span class="keyword">null</span>) &#123;</span><br><span class="line">            view = getView(position);</span><br><span class="line">            mViewSparseArray.put(position, view);</span><br><span class="line">        &#125;</span><br><span class="line">        container.addView(view);</span><br><span class="line">        <span class="keyword">return</span> view;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">destroyItem</span><span class="params">(ViewGroup container, <span class="keyword">int</span> position, Object object)</span> </span>&#123;</span><br><span class="line">        container.removeView(mViewSparseArray.get(position));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> View <span class="title">getView</span><span class="params">(<span class="keyword">int</span> position)</span></span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>APagerAdapter 类模仿 ListView 的 BaseAdapter，抽象出一个 getView() 方法，在内部使用 SparesArray 缓存所有显示过的 View。这样使用就很简单了，继承 APagerAdapter，实现 getView() 方法即可（可以参考：DemoPagerAdapter.java）。</p>
+<h2 id="PagerAdapter-刷新的问题"><a href="#PagerAdapter-刷新的问题" class="headerlink" title="PagerAdapter 刷新的问题"></a>PagerAdapter 刷新的问题</h2><h3 id="提出问题"><a href="#提出问题" class="headerlink" title="提出问题"></a>提出问题</h3><p>在使用 ListView 的时候，我们往往习惯了更新 Adapter 的数据源，然后调用 Adapter 的 notifyDataSetChanged() 方法来刷新列表（有没有点 MVC 的感觉）。</p>
+<p>PagerAdapter 也有 notifyDataSetChanged() 方法，那我们按照这个流程来试试，看有没有什么问题。（ListView 的示例就不在这里演示了，感兴趣的可以自己去试试，非常简单）</p>
+<p>那么我的问题是：“<strong>ViewPager 的 PagerAdapter 在数据源更新后，能否自动刷新视图？</strong>”</p>
+<p>带着问题，我们做一些实验，下面实验的思路是：修改数据源，然后通知 PagerAdapter 更新，查看视图的变化。</p>
+<h3 id="实验环境准备"><a href="#实验环境准备" class="headerlink" title="实验环境准备"></a>实验环境准备</h3><p>看看实验环境，上代码：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">initData</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="comment">// 数据源</span></span><br><span class="line">	mDataList = <span class="keyword">new</span> ArrayList&lt;&gt;(<span class="number">5</span>);</span><br><span class="line">	mDataList.add(<span class="string">"Java"</span>);</span><br><span class="line">	mDataList.add(<span class="string">"Android"</span>);</span><br><span class="line">	mDataList.add(<span class="string">"C&amp;C++"</span>);</span><br><span class="line">	mDataList.add(<span class="string">"OC"</span>);</span><br><span class="line">	mDataList.add(<span class="string">"Swift"</span>);</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 很简单的一个 PagerAdapter</span></span><br><span class="line">	<span class="keyword">this</span>.mContentVP.setAdapter(mPagerAdapter = <span class="keyword">new</span> PagerAdapter() &#123;</span><br><span class="line">		<span class="meta">@Override</span></span><br><span class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getCount</span><span class="params">()</span> </span>&#123;</span><br><span class="line">			<span class="keyword">return</span> mDataList.size();</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="meta">@Override</span></span><br><span class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isViewFromObject</span><span class="params">(View view, Object object)</span> </span>&#123;</span><br><span class="line">			<span class="keyword">return</span> view == object;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="meta">@Override</span></span><br><span class="line">		<span class="function"><span class="keyword">public</span> Object <span class="title">instantiateItem</span><span class="params">(ViewGroup container, <span class="keyword">int</span> position)</span> </span>&#123;</span><br><span class="line">			View view = View.inflate(SimpleDemoActivity.<span class="keyword">this</span>, R.layout.item_vp_demopageradapter, <span class="keyword">null</span>);</span><br><span class="line">			TextView pageNumTV = (TextView) view.findViewById(R.id.tv_pagenum);</span><br><span class="line">			pageNumTV.setText(<span class="string">"DIY-PageNum-"</span> + mDataList.get(position));</span><br><span class="line">			container.addView(view);</span><br><span class="line">			<span class="keyword">return</span> view;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="meta">@Override</span></span><br><span class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">destroyItem</span><span class="params">(ViewGroup container, <span class="keyword">int</span> position, Object object)</span> </span>&#123;</span><br><span class="line">			container.removeView((View) object);</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">	&#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>ViewPager 的 Item：item_vp_demopageradapter.xml<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span><br><span class="line">&lt;LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"</span><br><span class="line">    android:layout_width="match_parent"</span><br><span class="line">    android:layout_height="match_parent"</span><br><span class="line">    android:orientation="vertical"</span><br><span class="line">    android:gravity="center"&gt;</span><br><span class="line">    &lt;ImageView</span><br><span class="line">        android:id="@+id/iv_img"</span><br><span class="line">        android:layout_width="wrap_content"</span><br><span class="line">        android:layout_height="wrap_content"</span><br><span class="line">        android:layout_margin="@dimen/activity_horizontal_margin"</span><br><span class="line">        android:src="@mipmap/ic_launcher" /&gt;</span><br><span class="line">	&lt;!-- 用于显示文本，数据更新体现在这里 --&gt;</span><br><span class="line">    &lt;TextView</span><br><span class="line">        android:id="@+id/tv_pagenum"</span><br><span class="line">        android:layout_width="wrap_content"</span><br><span class="line">        android:layout_height="wrap_content"</span><br><span class="line">        android:layout_margin="@dimen/activity_horizontal_margin"</span><br><span class="line">        android:textAppearance="?android:attr/textAppearanceLarge"</span><br><span class="line">        android:text="DIY-Page-" /&gt;</span><br><span class="line">&lt;/LinearLayout&gt;</span><br></pre></td></tr></table></figure></p>
+<p>很简单的代码，并且加了注释，直接往下看实验。</p>
+<h3 id="PagerAdapter-刷新实验"><a href="#PagerAdapter-刷新实验" class="headerlink" title="PagerAdapter 刷新实验"></a>PagerAdapter 刷新实验</h3><p><strong>1、更新数据源中的某项</strong></p>
+<p><img src="\uploads\androidganhuo\yuanchuang\viewpager_refresh_detail\vp_refresh_detail_4.gif" alt="更新数据测试" title="更新数据测试"></p>
+<p>对应代码：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">refresh</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	mDataList.set(<span class="number">0</span>, <span class="string">"更新数据源测试"</span>);</span><br><span class="line">	mPagerAdapter.notifyDataSetChanged();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>问题描述：</strong>在演示动画中可以看到，更新数据源之后视图并没有立即刷新，多滑动几次再次回到更新的 Item 时才更新（这里先看问题，下面会细说）。</p>
+<p><strong>2、往数据源中添加数据</strong></p>
+<p><img src="\uploads\androidganhuo\yuanchuang\viewpager_refresh_detail\vp_refresh_detail_5.gif" alt="添加数据测试" title="添加数据测试"></p>
+<p>对应代码：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">add</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	mDataList.add(<span class="string">"这是新添加的Item"</span>);</span><br><span class="line">	mPagerAdapter.notifyDataSetChanged();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>问题描述：</strong>没什么问题，数据源添加数据后通知 PagerAdapter 刷新，ViewPager 中就多了一个 Item。</p>
+<p><strong>3、从数据源中删除数据</strong></p>
+<p><img src="\uploads\androidganhuo\yuanchuang\viewpager_refresh_detail\vp_refresh_detail_6.gif" alt="删除数据测试" title="删除数据测试"><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">delete</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	mDataList.remove(<span class="number">0</span>);</span><br><span class="line">	mPagerAdapter.notifyDataSetChanged();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>问题描述：</strong>这个问题就较多了，<strong>首先，</strong>如果是删除当前 Item，那么会看到没有任何反应；<strong>其次，</strong>如果删除的不是当前 Item，会发现出现了数据错乱，并且后面有 Item 滑不过去，但是按住往后滑的时候可以看到后面的 Item。</p>
+<p><strong>4、将数据源清空</strong></p>
+<p><img src="\uploads\androidganhuo\yuanchuang\viewpager_refresh_detail\vp_refresh_detail_7.gif" alt="清空数据" title="清空数据"><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">clean</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	mDataList.clear();</span><br><span class="line">	mPagerAdapter.notifyDataSetChanged();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>问题描述：</strong>从上面的动图可以看到，清空数据源之后，会残留一个 Item。</p>
+<p><strong>说明：</strong>先不要计较上面所写的 PagerAdapter 是否有问题，这里只是想引出问题来，下面会针对 PagerAdapter、FragmentPagerAdapter 以及 FragmentStatePagerAdapter 来分析问题原因和给出解决方案。</p>
+<h1 id="二、PagerAdapter"><a href="#二、PagerAdapter" class="headerlink" title="二、PagerAdapter"></a>二、PagerAdapter</h1><p>从上面的实验可以看出 ViewPager 不同于 ListView，如果单纯的调用 ViewPager.getAdapter().notifyDataSetChanged() 方法（即 PagerAdapter 的 notifyDataSetChanged()方法）页面并没有刷新。</p>
+<p>PagerAdapter 用于 ViewPager 的 Item 为普通 View的情况，这个相对简单，所以最先介绍。 </p>
+<p>相信很多同学都搜过类似的问题 —— “PagerAdapter 的 notifyDataSetChanged() 不刷新？”。有的说这是 bug，有的则认为 Google 是特意这样设计的，个人倾向后一种观点（我觉得这是 Google 为了 ViewPager 性能考虑而设计的，毕竟 ViewPager 需要显示“很多<strong>大</strong>的”视图，而且要防止用户滑动时觉得卡顿）。</p>
+<h2 id="ViewPager-刷新分析"><a href="#ViewPager-刷新分析" class="headerlink" title="ViewPager 刷新分析"></a>ViewPager 刷新分析</h2><p>先来了解下 ViewPager 的刷新过程：<br><strong>1、刷新的起始</strong><br>ViewPager 的刷新是从调用其 PagerAdapter 的 notifyDataSetChanged() 方法开始的，那先看看该方法的源码（在源码面前一切无所遁形…）：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * This method should be called by the application if the data backing this adapter has changed</span><br><span class="line"> * and associated views should update.</span><br><span class="line"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">notifyDataSetChanged</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">synchronized</span> (<span class="keyword">this</span>) &#123;</span><br><span class="line">		<span class="keyword">if</span> (mViewPagerObserver != <span class="keyword">null</span>) &#123;</span><br><span class="line">			mViewPagerObserver.onChanged();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	mObservable.notifyChanged();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>2、DataSetObservable 的 notifyChanged()</strong><br>上面的方法中出现了两个关键的成员变量：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">final</span> DataSetObservable mObservable = <span class="keyword">new</span> DataSetObservable();</span><br><span class="line"><span class="keyword">private</span> DataSetObserver mViewPagerObserver;</span><br></pre></td></tr></table></figure></p>
+<p>观察者模式，有没有？先不着急分析这个是不是观察者模式，来看看 mObservable.notifyChanged() 做了些什么工作：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * Invokes &#123;<span class="doctag">@link</span> DataSetObserver#onChanged&#125; on each observer.</span><br><span class="line"> * Called when the contents of the data set have changed.  The recipient</span><br><span class="line"> * will obtain the new contents the next time it queries the data set.</span><br><span class="line"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">notifyChanged</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">synchronized</span>(mObservers) &#123;</span><br><span class="line">		<span class="comment">// since onChanged() is implemented by the app, it could do anything, including</span></span><br><span class="line">		<span class="comment">// removing itself from &#123;@link mObservers&#125; - and that could cause problems if</span></span><br><span class="line">		<span class="comment">// an iterator is used on the ArrayList &#123;@link mObservers&#125;.</span></span><br><span class="line">		<span class="comment">// to avoid such problems, just march thru the list in the reverse order.</span></span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = mObservers.size() - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">			mObservers.get(i).onChanged(); </span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>notifyChanged() 方法中是很典型的观察者模式中遍历所有的 Observer，通知 变化发生了的代码。代码很简单，那关键是这个 mObservers 包含哪些 Observer 呢？</p>
+<p><strong>3、DataSetObserver</strong><br>直接从 mObservers 点进去你会发现这个：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">protected</span> <span class="keyword">final</span> ArrayList&lt;T&gt; mObservers = <span class="keyword">new</span> ArrayList&lt;T&gt;();</span><br></pre></td></tr></table></figure></p>
+<p>-_-‘，这是个泛型，坑了！还好 DataSetObservable 的 notifyChanged() 的注释中写了这些 Observer 是 DataSetObserver。那去看看 DataSetObserver：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">DataSetObserver</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * This method is called when the entire data set has changed,</span><br><span class="line">     * most likely through a call to &#123;<span class="doctag">@link</span> Cursor#requery()&#125; on a &#123;<span class="doctag">@link</span> Cursor&#125;.</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onChanged</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// Do nothing</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * This method is called when the entire data becomes invalid,</span><br><span class="line">     * most likely through a call to &#123;<span class="doctag">@link</span> Cursor#deactivate()&#125; or &#123;<span class="doctag">@link</span> Cursor#close()&#125; on a</span><br><span class="line">     * &#123;<span class="doctag">@link</span> Cursor&#125;.</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onInvalidated</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// Do nothing</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>一个抽象类，里面两个空方法，这个好办，找他的子类（AndroidStudio 中 将光标放到类名上，按 F4）：</p>
+<p><img src="\uploads\androidganhuo\yuanchuang\viewpager_refresh_detail\vp_refresh_detail_8.png" alt="DataSetObserver继承结构" title="DataSetObserver继承结构"></p>
+<p>总算找到你了，就是用红线框出来的那条，双击，定位过去。</p>
+<p><strong>4、PagerObserver 内部类</strong><br>PagerObserver 是 ViewPager 中的一个内部类，实现也很简单，就是调用了 ViewPager 中的 dataSetChanged() 方法，真正的关键来了。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="class"><span class="keyword">class</span> <span class="title">PagerObserver</span> <span class="keyword">extends</span> <span class="title">DataSetObserver</span> </span>&#123;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onChanged</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		dataSetChanged();</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onInvalidated</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		dataSetChanged();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>5、ViewPager 的 dataSetChanged()</strong><br>这个方法的实现较长，里面的逻辑看上去挺复杂的，这里就不展示全部的源码了，列下关键点：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; mItems.size(); i++) &#123;</span><br><span class="line">	<span class="keyword">final</span> ItemInfo ii = mItems.get(i);</span><br><span class="line">	<span class="keyword">final</span> <span class="keyword">int</span> newPos = mAdapter.getItemPosition(ii.object);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> (newPos == PagerAdapter.POSITION_UNCHANGED) &#123;</span><br><span class="line">		<span class="keyword">continue</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> (newPos == PagerAdapter.POSITION_NONE) &#123;</span><br><span class="line">		...</span><br><span class="line">		<span class="keyword">continue</span>;</span><br><span class="line">	&#125;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line">...</span><br></pre></td></tr></table></figure></p>
+<p>上面截取的代码中 for 循环里面有两个 continue 语句，这可能是比较关键的代码，幸好不用我们继续深入了，官方给出了解释：</p>
+<p>Called when the host view is attempting to determine if an item’s position has changed. Returns POSITION_UNCHANGED if the position of the given item has not changed or POSITION_NONE if the item is no longer present in the adapter.The default implementation assumes that items will never change position and always returns POSITION_UNCHANGED.</p>
+<p><strong>大致的意思是：</strong><br>如果 Item 的位置如果没有发生变化，则返回 POSITION_UNCHANGED。如果返回了 POSITION_NONE，表示该位置的 Item 已经不存在了。默认的实现是假设 Item 的位置永远不会发生变化，而返回 POSITION_UNCHANGED。（参考自：<a href="http://www.educity.cn/wenda/179816.html" target="_blank" rel="external">追溯源码解决android疑难有关问题1-Viewpager之notifyDataSetChanged无刷新</a>）</p>
+<p>上面在源码里面跟了一大圈是不是还是感觉没有明朗，因为还有一个很关键的类 —— PagerAdapter 没有介绍，再给点耐心，继续。</p>
+<p><strong>6、PagerAdapter 的工作流程</strong><br>其实就是 PagerAdapter 中方法的执行顺序，来看看 <a href="http://my.csdn.net/leo8573" target="_blank" rel="external">Leo8573</a> 的分析（个人感觉基本说到位了，所以直接拷过来了）：</p>
+<p>PagerAdapter 作为 ViewPager 的适配器，无论 ViewPager 有多少页，PagerAdapter 在初始化时也只初始化开始的2个 View，即调用2次instantiateItem 方法。而接下来每当 ViewPager 滑动时，PagerAdapter 都会调用 destroyItem 方法将距离该页2个步幅以上的那个 View 销毁，以此保证 PagerAdapter 最多只管辖3个 View，且当前 View 是3个中的中间一个，如果当前 View 缺少两边的 View，那么就 instantiateItem，如里有超过2个步幅的就 destroyItem。</p>
+<p>简易图示：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">         *</span><br><span class="line"> ------+---+---+---+------</span><br><span class="line">... <span class="number">0</span> | <span class="number">1</span> | <span class="number">2</span> | <span class="number">3</span> | <span class="number">4</span> ...</span><br><span class="line"> ------+---+---+---+------</span><br></pre></td></tr></table></figure></p>
+<p>当前 View 为2号 View，所以 PagerAdapter 管辖1、2、3三个 View，接下来向左滑动–&gt;<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">	     *</span><br><span class="line"> ------+---+---+---+------</span><br><span class="line">... <span class="number">1</span> | <span class="number">2</span> | <span class="number">3</span> | <span class="number">4</span> | <span class="number">5</span> ...</span><br><span class="line"> ------+---+---+---+------</span><br></pre></td></tr></table></figure></p>
+<p>滑动后，当前 View 变为3号 View，PagerAdapter 会 destroyItem 0号View，instantiateItem 5号 View，所以 PagerAdapter 管辖2、3、4三个 View。（参考自：<a href="http://blog.csdn.net/leo8573/article/details/7893841" target="_blank" rel="external">关于ViewPager的数据更新问题小结</a>）</p>
+<p><strong>总结一下：</strong> Viewpager 的刷新过程是这样的，在每次调用 PagerAdapter 的 notifyDataSetChanged() 方法时，都会激活 getItemPosition(Object object) 方法，该方法会遍历 ViewPager 的所有 Item（由缓存的 Item 数量决定，默认为当前页和其左右加起来共3页，这个可以自行设定，但是至少会缓存2页），为每个 Item 返回一个状态值（POSITION_NONE/POSITION_UNCHANGED），如果是 POSITION_NONE，那么该 Item 会被 destroyItem(ViewGroup container, int position, Object object) 方法 remove 掉，然后重新加载，如果是 POSITION_UNCHANGED，就不会重新加载，默认是 POSITION_UNCHANGED，所以如果不重写 getItemPosition(Object object)，修改返回值，就无法看到 notifyDataSetChanged() 的刷新效果。</p>
+<h2 id="最简单的解决方案"><a href="#最简单的解决方案" class="headerlink" title="最简单的解决方案"></a>最简单的解决方案</h2><p>那就是直接一刀切：重写 PagerAdapter 的 getItemPosition(Object object) 方法，将返回值固定为 POSITION_NONE。</p>
+<p>先看看效果：</p>
+<p><img src="\uploads\androidganhuo\yuanchuang\viewpager_refresh_detail\vp_refresh_detail_9.gif" alt="最简单解决方案示例" title="最简单解决方案示例"></p>
+<p>上代码（PagerAdapterActivity.java）：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getItemPosition</span><span class="params">(Object object)</span> </span>&#123;</span><br><span class="line">	<span class="comment">// 最简单解决 notifyDataSetChanged() 页面不刷新问题的方法</span></span><br><span class="line">	<span class="keyword">return</span> POSITION_NONE;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>该方案的缺点：</strong>有个很明显的缺陷，那就是会刷新所有的 Item，这将导致系统资源的浪费，所以这种方式不适合数据量较大的场景。</p>
+<p><strong>注意：</strong><br>这种方式还有一个需要注意的地方，就是重写 destoryItem() 方法：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">destroyItem</span><span class="params">(ViewGroup container, <span class="keyword">int</span> position, Object object)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 把 Object 强转为 View，然后将 view 从 ViewGroup 中清除</span></span><br><span class="line">	container.removeView((View) object);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="最简方案的优化"><a href="#最简方案的优化" class="headerlink" title="最简方案的优化"></a>最简方案的优化</h2><p>这里提供一个思路，毕竟场景太多，相信大家理解了思路要实现就很简单了，闲话不多说。</p>
+<p><strong>思路：</strong>在 instantiateItem() 方法中给每个 View 添加 tag（使用 setTag() 方法），然后在 getItemPosition() 方法中通过 View.getTag() 来判断是否是需要刷新的页面，是就返回 POSITION_NONE，否就返回 POSITION_UNCHANGED。 （参考自：<a href="http://lovelease.iteye.com/blog/2107296" target="_blank" rel="external">ViewPager刷新单个页面的方法</a>）</p>
+<p><strong>注意：</strong>这里有一点要注意的是，当清空数据源的时候需要返回 POSITION_NONE，可用如下代码：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (mDataList != <span class="keyword">null</span> &amp;&amp; mDataList.size()==<span class="number">0</span>) &#123;</span><br><span class="line">	<span class="keyword">return</span> POSITION_NONE;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>关于 PagerAdapter 的介绍就到这里了，虽然 FragmentPagerAdapter 与 FragmentStatePagerAdapter 都是继承自 PagerAdapter。但是，这两个是专门为以 Fragment 为 Item 的 ViewPager 所准备的，所以有其特殊性。且看下面的介绍。</p>
+<h1 id="三、FragmentPagerAdapter"><a href="#三、FragmentPagerAdapter" class="headerlink" title="三、FragmentPagerAdapter"></a>三、FragmentPagerAdapter</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>上面通过使 getItemPosition() 方法返回 POSITION_NONE 到达数据源变化（也就是调用  notifyDataSetChanged()）时，刷新视图的目的。但是当我们使用 Fragment 作为 ViewPager 的 Item 时，就需要多考虑一些了，而且一般是使用  FragmentPagerAdapter 或者 FragmentStatePagerAdapter。</p>
+<p>这里不展开讨论 FragmentPagerAdapter 与 FragmentStatePagerAdapter 的异同和使用场景了，感兴趣的可以看看这篇文章：<a href="http://www.cnblogs.com/lianghui66/p/3607091.html" target="_blank" rel="external">FragmentPagerAdapter与FragmentStatePagerAdapter区别</a>。</p>
+<p>下面先来看看使用 FragmentPagerAdapter 时，如何在数据源发生变化时，刷新 Fragment 或者动态改变 Items 的数量。</p>
+<h2 id="方案：清除-FragmentManager-中缓存的-Fragment"><a href="#方案：清除-FragmentManager-中缓存的-Fragment" class="headerlink" title="方案：清除 FragmentManager 中缓存的 Fragment"></a>方案：清除 FragmentManager 中缓存的 Fragment</h2><p>先看效果：</p>
+<p><img src="\uploads\androidganhuo\yuanchuang\viewpager_refresh_detail\vp_refresh_detail_10.gif" alt="FragmentPagerAdapter数据源刷新演示1" title="FragmentPagerAdapter数据源刷新演示1"></p>
+<p>实现上图效果的关键代码：<br><strong>1、FPagerAdapter1Activity.java</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">refresh</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (checkData()) <span class="keyword">return</span>;</span><br><span class="line">	mDataList.set(<span class="number">0</span>, <span class="number">7</span>); <span class="comment">// 修改数据源</span></span><br><span class="line">	mPagerAdapter.updateData(mDataList); <span class="comment">// 通知 Adapter 更新</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">add</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	mDataList.add(<span class="number">7</span>);</span><br><span class="line">	mPagerAdapter.updateData(mDataList);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">delete</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (checkData()) <span class="keyword">return</span>;</span><br><span class="line">	mDataList.remove(<span class="number">0</span>);</span><br><span class="line">	mPagerAdapter.updateData(mDataList);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">clear</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (checkData()) <span class="keyword">return</span>;</span><br><span class="line">	mDataList.clear();</span><br><span class="line">	mPagerAdapter.updateData(mDataList);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>2、FPagerAdapter1.java</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FPagerAdapter1</span> <span class="keyword">extends</span> <span class="title">FragmentPagerAdapter</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">private</span> ArrayList&lt;Fragment&gt; mFragmentList;</span><br><span class="line">	<span class="keyword">private</span> FragmentManager mFragmentManager;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">FPagerAdapter1</span><span class="params">(FragmentManager fm, List&lt;Integer&gt; types)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">super</span>(fm);</span><br><span class="line">		<span class="keyword">this</span>.mFragmentManager = fm;</span><br><span class="line">		mFragmentList = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>, size = types.size(); i &lt; size; i++) &#123;</span><br><span class="line">			mFragmentList.add(FragmentTest.instance(i));</span><br><span class="line">		&#125;</span><br><span class="line">		setFragments(mFragmentList);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">updateData</span><span class="params">(List&lt;Integer&gt; dataList)</span> </span>&#123;</span><br><span class="line">		ArrayList&lt;Fragment&gt; fragments = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>, size = dataList.size(); i &lt; size; i++) &#123;</span><br><span class="line">			Log.e(<span class="string">"FPagerAdapter1"</span>, dataList.get(i).toString());</span><br><span class="line">			fragments.add(FragmentTest.instance(dataList.get(i)));</span><br><span class="line">		&#125;</span><br><span class="line">		setFragments(fragments);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">setFragments</span><span class="params">(ArrayList&lt;Fragment&gt; mFragmentList)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">if</span>(<span class="keyword">this</span>.mFragmentList != <span class="keyword">null</span>)&#123;</span><br><span class="line">			FragmentTransaction fragmentTransaction = mFragmentManager.beginTransaction();</span><br><span class="line">			<span class="keyword">for</span>(Fragment f:<span class="keyword">this</span>.mFragmentList)&#123;</span><br><span class="line">				fragmentTransaction.remove(f);</span><br><span class="line">			&#125;</span><br><span class="line">			fragmentTransaction.commit();</span><br><span class="line">			mFragmentManager.executePendingTransactions();</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">this</span>.mFragmentList = mFragmentList;</span><br><span class="line">		notifyDataSetChanged();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getCount</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">this</span>.mFragmentList.size();</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getItemPosition</span><span class="params">(Object object)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> POSITION_NONE;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Fragment <span class="title">getItem</span><span class="params">(<span class="keyword">int</span> position)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> mFragmentList.get(position);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>3、思路分析</strong><br>上面的代码思路很简单，就是当数据源发生变化时，先将 FragmentManger 里面所有缓存的 Fragment 全部清除，然后重新创建，这样达到刷新视图的目的。</p>
+<p>但是，这样做有一个缺点，那就是会造成不必要的浪费，会影响性能。还有就是必须使用一个 List 缓存所有的 Fragment，这也得占用不少内存…</p>
+<p>思路挺简单，这里不再赘述，那看看有没有什么可以优化的。</p>
+<h2 id="优化：通过-Tag-获取缓存的-Fragment"><a href="#优化：通过-Tag-获取缓存的-Fragment" class="headerlink" title="优化：通过 Tag 获取缓存的 Fragment"></a>优化：通过 Tag 获取缓存的 Fragment</h2><p>先看效果：</p>
+<p><img src="\uploads\androidganhuo\yuanchuang\viewpager_refresh_detail\vp_refresh_detail_11.gif" alt="FragmentPagerAdapter数据源刷新演示2" title="FragmentPagerAdapter数据源刷新演示2"></p>
+<p>从上面的动图上可以看到，更新某一个 Fragment 没有问题，清空数据源的时候也没有，添加当然也没什么问题；请注意删除的效果，虽然，目的 Fragment 确实从 ViewPager 中移除了，但是滑动后面的页面会发现出现了数据错乱。</p>
+<p>分析一下<strong>优化的思路</strong>：</p>
+<p>先来了解 FragmentPagerAdapter 中是如何管理 Fragment 的，这里涉及到 FragmentPagerAdapter 中的 instantiateItem() 方法：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> Object <span class="title">instantiateItem</span><span class="params">(ViewGroup container, <span class="keyword">int</span> position)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (mCurTransaction == <span class="keyword">null</span>) &#123;</span><br><span class="line">		mCurTransaction = mFragmentManager.beginTransaction();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">final</span> <span class="keyword">long</span> itemId = getItemId(position);</span><br><span class="line"></span><br><span class="line">	<span class="comment">// Do we already have this fragment?</span></span><br><span class="line">	String name = makeFragmentName(container.getId(), itemId);</span><br><span class="line">	Fragment fragment = mFragmentManager.findFragmentByTag(name);</span><br><span class="line">	<span class="keyword">if</span> (fragment != <span class="keyword">null</span>) &#123;</span><br><span class="line">		<span class="keyword">if</span> (DEBUG) Log.v(TAG, <span class="string">"Attaching item #"</span> + itemId + <span class="string">": f="</span> + fragment);</span><br><span class="line">		mCurTransaction.attach(fragment);</span><br><span class="line">	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">		fragment = getItem(position);</span><br><span class="line">		<span class="keyword">if</span> (DEBUG) Log.v(TAG, <span class="string">"Adding item #"</span> + itemId + <span class="string">": f="</span> + fragment);</span><br><span class="line">		mCurTransaction.add(container.getId(), fragment,</span><br><span class="line">				makeFragmentName(container.getId(), itemId));</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span> (fragment != mCurrentPrimaryItem) &#123;</span><br><span class="line">		fragment.setMenuVisibility(<span class="keyword">false</span>);</span><br><span class="line">		fragment.setUserVisibleHint(<span class="keyword">false</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> fragment;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>从源码中可以看到在从 FragmentManager 中取出 Fragment 时调用了 findFragmentByTag() 方法，而这个 Tag 是由 makeFragmentName() 方法生成的。继续往下可以看到每一个 Fragment 都打上了一个标签（在 mCurTransaction.add() 方法中）。</p>
+<p>也就是说是 FragmentManager 通过 Tag 找相应的 Fragment，从而达到缓存 Fragment 的目的。如果可以找到，就不会创建新的 Fragment，Fragment 的 onCreate()、onCreateView() 等方法都不会再次调用。</p>
+<p>那<strong>优化的思路</strong>就有了：<br><strong>首先，</strong>需要缓存所有 Fragment 的 Tag，代码如下：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> List&lt;String&gt; mTagList; <span class="comment">// 用来存放所有的 Tag</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 生成 Tag</span></span><br><span class="line"><span class="comment">// 直接从 FragmentPageAdapter 源码里拷贝 Fragment 生成 Tag 的方法</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> String <span class="title">makeFragmentName</span><span class="params">(<span class="keyword">int</span> viewId, <span class="keyword">int</span> index)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="string">"android:switcher:"</span> + viewId + <span class="string">":"</span> + index;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 将 Tag 缓存到 List 中</span></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> Object <span class="title">instantiateItem</span><span class="params">(ViewGroup container, <span class="keyword">int</span> position)</span> </span>&#123;</span><br><span class="line">	mTagList.add(position, makeFragmentName(container.getId(),</span><br><span class="line">			(<span class="keyword">int</span>) getItemId(position)));</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">super</span>.instantiateItem(container, position);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>其次，</strong>在更新 Fragment 时，使用相应的 Tag 去 FragmentManamager 中找相应的 Fragment，如果存在，就直接更新，代码如下：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">update</span><span class="params">(<span class="keyword">int</span> position, String str)</span> </span>&#123;</span><br><span class="line">	Fragment fragment = mFragmentManager.findFragmentByTag(mTagList.get(position));</span><br><span class="line">	<span class="keyword">if</span> (fragment == <span class="keyword">null</span>) <span class="keyword">return</span>;</span><br><span class="line">	<span class="keyword">if</span> (fragment <span class="keyword">instanceof</span> FragmentTest) &#123;</span><br><span class="line">		((FragmentTest)fragment).update(str);</span><br><span class="line">	&#125;</span><br><span class="line">	notifyDataSetChanged();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>该方法需要自行在 Fragment 中提供。</p>
+<p><strong>最后，</strong>对于动态改变 ViewPager 中 Fragment 的数量，如果是添加，那没什么要注意的；但是删除有点棘手。</p>
+<p>在上面的动态上看到，删除一个 Fragment 后会出现混乱，这里没有进一步去研究了，这里仅提供一个示例供参考（这个示例代码有问题，仅供参考）<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">remove</span><span class="params">(<span class="keyword">int</span> position)</span> </span>&#123;</span><br><span class="line">	mDataList.remove(position);</span><br><span class="line">	isDataSetChange = <span class="keyword">true</span>;</span><br><span class="line">	Fragment fragment = mFragmentManager.findFragmentByTag(mTagList.get(position));</span><br><span class="line">	mTagList.remove(position);</span><br><span class="line">	<span class="keyword">if</span> (fragment == <span class="keyword">null</span>) &#123;</span><br><span class="line">		notifyDataSetChanged();</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	FragmentTransaction fragmentTransaction = mFragmentManager.beginTransaction();</span><br><span class="line">	fragmentTransaction.remove(fragment);</span><br><span class="line">	fragmentTransaction.commit();</span><br><span class="line">	mFragmentManager.executePendingTransactions();</span><br><span class="line">	notifyDataSetChanged();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>注意：</strong><br>这个”优化“示例，仅仅适用于在只需要更新某个 Fragment 的场景，关于动态删除 Fragment，该”优化“方案并不适用，也不推荐使用。</p>
+<h1 id="四、FragmentStatePagerAdapter"><a href="#四、FragmentStatePagerAdapter" class="headerlink" title="四、FragmentStatePagerAdapter"></a>四、FragmentStatePagerAdapter</h1><p>先看效果：</p>
+<p><img src="\uploads\androidganhuo\yuanchuang\viewpager_refresh_detail\vp_refresh_detail_12.gif" alt="FragmentStatePagerAdapter数据源刷新演示" title="FragmentStatePagerAdapter数据源刷新演示"></p>
+<h2 id="简介-1"><a href="#简介-1" class="headerlink" title="简介"></a>简介</h2><p><a href="http://developer.android.com/reference/android/support/v4/app/FragmentStatePagerAdapter.html" target="_blank" rel="external">FragmentStatePagerAdapter</a>  与  FragmentPagerAdapter 类似，这两个类都继承自 PagerAdapter。但是，和 FragmentPagerAdapter 不一样的是，FragmentStatePagerAdapter 只保留当前页面，当页面离开视线后，就会被消除，释放其资源；而在页面需要显示时，生成新的页面(这和 ListView 的实现一样)。这种方式的好处就是当拥有大量的页面时，不必在内存中占用大量的内存。（参考自：<a href="http://www.cnblogs.com/lianghui66/p/3607091.html" target="_blank" rel="external">FragmentPagerAdapter与FragmentStatePagerAdapter区别</a>）</p>
+<p>FragmentStatePagerAdapter 的实现与 FragmentPagerAdapter 有很大区别，如果照搬上述 FragmentPagerAdapter 刷新数据的方式，你会发现没有什么问题（可以使用 FPagerAdapter11.java 测试）。</p>
+<h2 id="另一种思路"><a href="#另一种思路" class="headerlink" title="另一种思路"></a>另一种思路</h2><p>但是，我在项目中实际应用的时候（Fragment 比较复杂，里面有网络任务等）出现了 IllegalStateException，发生在 ”fragmentTransaction.remove(f);“ 时。当时找了一些文章没有解决该问题，考虑到项目中的 Fragment 里面逻辑过多，就换思路，没有在这个上面继续深究了。</p>
+<p>如果，你也是这样使用 FragmentStatePagerAdapter 来动态改变 ViewPager 中 Fragment，并且在 remove Fragment 时遇到了 IllegalStateException。那么，你可以考虑使用下面的方式，先看代码（FSPagerAdapter .java）：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FSPagerAdapter</span> <span class="keyword">extends</span> <span class="title">FragmentStatePagerAdapter</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">private</span> ArrayList&lt;Fragment&gt; mFragmentList;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">FSPagerAdapter</span><span class="params">(FragmentManager fm, List&lt;Integer&gt; types)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">super</span>(fm);</span><br><span class="line">		updateData(types);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">updateData</span><span class="params">(List&lt;Integer&gt; dataList)</span> </span>&#123;</span><br><span class="line">		ArrayList&lt;Fragment&gt; fragments = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>, size = dataList.size(); i &lt; size; i++) &#123;</span><br><span class="line">			Log.e(<span class="string">"FPagerAdapter1"</span>, dataList.get(i).toString());</span><br><span class="line">			fragments.add(FragmentTest.instance(dataList.get(i)));</span><br><span class="line">		&#125;</span><br><span class="line">		setFragmentList(fragments);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">setFragmentList</span><span class="params">(ArrayList&lt;Fragment&gt; fragmentList)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">if</span>(<span class="keyword">this</span>.mFragmentList != <span class="keyword">null</span>)&#123;</span><br><span class="line">			mFragmentList.clear();</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">this</span>.mFragmentList = fragmentList;</span><br><span class="line">		notifyDataSetChanged();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getCount</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">this</span>.mFragmentList.size();</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getItemPosition</span><span class="params">(Object object)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> POSITION_NONE;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Fragment <span class="title">getItem</span><span class="params">(<span class="keyword">int</span> position)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> mFragmentList.get(position);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>对应的测试 Activity 见 <strong>FSPagerAdapterActivity.java</strong>。</p>
+<p>上面的代码挺简单，稍微解释一下实现思路：<br><strong>1、缓存所有的 Fragment</strong><br>使用一个 List 将数据源对应的 Fragment 都缓存起来</p>
+<p><strong>2、更新数据源，刷新 Fragment</strong><br>当有数据源更新的时候，从 List 中取出相应的 Fragment，然后刷新 Adapter</p>
+<p><strong>3、删除数据时，删除 List 中对应的 Fragment</strong><br>当数据源中删除某项时，将 List 中对应的 Fragment 也删除，然后刷新 Adapter</p>
+<h1 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h1><p>关于 ViewPager 数据源刷新比较麻烦的地方是从数据源中删除数据的情况，这和 ViewPager 的实现方式有关，我们在解决该问题的时候要分具体情况来采取不同的方案。</p>
+<p>上面提供的方案也不是完美的，还有很多不足，如果你在应用的过程中遇到了问题，那么请反馈给我，大家一起完善。</p>
+<p>这里主要是探讨关于 ViewPager 数据源刷新的问题，关于 ViewPager 的详细使用不是本文重点，这里就不涉及了。</p>
+<h1 id="项目地址"><a href="#项目地址" class="headerlink" title="项目地址"></a>项目地址</h1><p><a href="https://github.com/DIY-green/PagerAdapterRefresh" target="_blank" rel="external">GitHub</a><br><a href="http://diy-green.github.io" target="_blank" rel="external">个人博客</a></p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="http://blog.csdn.net/harvic880925/article/details/38487149" target="_blank" rel="external">ViewPager 详解（二）—详解四大函数</a><br><a href="http://www.360doc.com/content/14/0506/09/7559693_375104104.shtml" target="_blank" rel="external">pagerAdapter arrayList 数据清空,Item 不销毁的bug解决</a><br><a href="http://lovelease.iteye.com/blog/2107296" target="_blank" rel="external">ViewPager刷新单个页面的方法</a><br><a href="http://blog.sina.com.cn/s/blog_9ac333de0102uzbi.html" target="_blank" rel="external">ViewPager动态加载、删除页面</a><br><a href="http://blog.csdn.net/q445697127/article/details/18352033" target="_blank" rel="external">ViewPager+Fragment滑动界面，并做延迟加载【新版】</a><br><a href="http://blog.csdn.net/leo8573/article/details/7893841" target="_blank" rel="external">关于ViewPager的数据更新问题小结</a><br><a href="http://www.tuicool.com/articles/eua2mm" target="_blank" rel="external">Viewpager+fragment数据更新问题解析</a><br><a href="http://www.educity.cn/wenda/179816.html" target="_blank" rel="external">追溯源码解决android疑难有关问题1-Viewpager之notifyDataSetChanged无刷新</a><br><a href="http://blog.csdn.net/henry121212/article/details/23496913" target="_blank" rel="external">解决fragment+viewpager第二次进入的时候没有数据的问题</a><br> <a href="http://blog.csdn.net/z13759561330/article/details/40737381" target="_blank" rel="external">FragmentPagerAdapter刷新fragment最完美解决方案</a><br><a href="http://www.tuicool.com/articles/eua2mm" target="_blank" rel="external">Viewpager+fragment数据更新问题解析</a><br><a href="http://www.cnblogs.com/lianghui66/p/3607091.html" target="_blank" rel="external">FragmentPagerAdapter与FragmentStatePagerAdapter区别</a></p>
+
+      
+    </div>
+    
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+<div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton", disable="enable", onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}", style="cursor: pointer; border: 0; outline: 0; border-radius: 100%; padding: 0; margin: 0; letter-spacing: normal; text-transform: none; text-indent: 0px; text-shadow: none">
+    <span onmouseover="this.style.color='rgb(236,96,0)';this.style.background='rgb(204,204,204)'" onMouseOut="this.style.color='#fff';this.style.background='rgb(236,96,0)'" style="display: inline-block; width: 70px; height: 70px; border-radius: 100%; line-height: 81px; color: #fff; font: 400 35px/75px 'microsofty'; background: rgb(236,96,0)">赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/uploads/images/wechat-reward-image.png" alt="DIY-green WeChat Pay" style="width: 200px; max-width: 100%; display: inline-block"/>
+        <p>微信打赏</p>
+      </div>
+    
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/uploads/images/alipay-reward-image.png" alt="DIY-green Alipay" style="width: 200px; max-width: 100%; display: inline-block"/>
+        <p>支付宝打赏</p>
+      </div>
+    
+  </div>
+</div>
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Android/" rel="tag">#Android</a>
+          
+            <a href="/tags/干货/" rel="tag">#干货</a>
+          
+            <a href="/tags/ViewPager/" rel="tag">#ViewPager</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/05/07/实用技术/Video转Gif实战/" rel="next" title="Video 转 Gif 实战">
+                <i class="fa fa-chevron-left"></i> Video 转 Gif 实战
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/05/07/AndroidStudyDemo系列/Android5.x新API介绍(二)/" rel="prev" title="Android5.x新API介绍(二)">
+                Android5.x新API介绍(二) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/05/07/Android干货[原创]/ViewPager刷新问题详解/"
+           data-title="ViewPager刷新问题详解" data-url="http://diy-green.com/2016/05/07/Android干货[原创]/ViewPager刷新问题详解/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/images/avatar.jpg"
+               alt="DIY-green" />
+          <p class="site-author-name" itemprop="name">DIY-green</p>
+          <p class="site-description motion-element" itemprop="description">男子千年志，吾生未有涯。心随朗月高，志与秋霜洁。</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">52</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">27</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/DIY-green" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/users/0ad0a0afc409/latest_articles" target="_blank" title="JianShu">
+                  
+                    <i class="fa fa-globe"></i>
+                  
+                  JianShu
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element">
+            <div class="links-of-blogroll-title">
+              <i class="fa fa-globe fa-fw"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.jianshu.com/users/0ad0a0afc409/latest_articles" title="DIY-green简书" target="_blank">DIY-green简书</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.jianshu.com/users/3a482c4f0658/latest_articles" title="天接水0001" target="_blank">天接水0001</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://sunfusheng.com" title="孙福生" target="_blank">孙福生</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://kuanggang.github.io" title="匡罡" target="_blank">匡罡</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://Ivorfason.github.io" title="尹明仁" target="_blank">尹明仁</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://mengqingxiang.github.io" title="孟庆祥" target="_blank">孟庆祥</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、PagerAdapter介绍"><span class="nav-number">1.</span> <span class="nav-text">一、PagerAdapter介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#PagerAdapter简介"><span class="nav-number">1.1.</span> <span class="nav-text">PagerAdapter简介</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#官方介绍"><span class="nav-number">1.1.1.</span> <span class="nav-text">官方介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#简单使用"><span class="nav-number">1.1.2.</span> <span class="nav-text">简单使用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PagerAdapter-刷新的问题"><span class="nav-number">1.2.</span> <span class="nav-text">PagerAdapter 刷新的问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#提出问题"><span class="nav-number">1.2.1.</span> <span class="nav-text">提出问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实验环境准备"><span class="nav-number">1.2.2.</span> <span class="nav-text">实验环境准备</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PagerAdapter-刷新实验"><span class="nav-number">1.2.3.</span> <span class="nav-text">PagerAdapter 刷新实验</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、PagerAdapter"><span class="nav-number">2.</span> <span class="nav-text">二、PagerAdapter</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#ViewPager-刷新分析"><span class="nav-number">2.1.</span> <span class="nav-text">ViewPager 刷新分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#最简单的解决方案"><span class="nav-number">2.2.</span> <span class="nav-text">最简单的解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#最简方案的优化"><span class="nav-number">2.3.</span> <span class="nav-text">最简方案的优化</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三、FragmentPagerAdapter"><span class="nav-number">3.</span> <span class="nav-text">三、FragmentPagerAdapter</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介"><span class="nav-number">3.1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方案：清除-FragmentManager-中缓存的-Fragment"><span class="nav-number">3.2.</span> <span class="nav-text">方案：清除 FragmentManager 中缓存的 Fragment</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优化：通过-Tag-获取缓存的-Fragment"><span class="nav-number">3.3.</span> <span class="nav-text">优化：通过 Tag 获取缓存的 Fragment</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#四、FragmentStatePagerAdapter"><span class="nav-number">4.</span> <span class="nav-text">四、FragmentStatePagerAdapter</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介-1"><span class="nav-number">4.1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#另一种思路"><span class="nav-number">4.2.</span> <span class="nav-text">另一种思路</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#小结"><span class="nav-number">5.</span> <span class="nav-text">小结</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#项目地址"><span class="nav-number">6.</span> <span class="nav-text">项目地址</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考"><span class="nav-number">7.</span> <span class="nav-text">参考</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+<div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">DIY-green</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info powered-by">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+<div class="powered-by">
+  <span id="busuanzi_container_site_pv">
+    本站总访问量<span id="busuanzi_value_site_pv"></span>次
+  </span>
+</div>
+<div style="display:inline-block;">
+  <span id="busuanzi_container_site_uv">
+    本站访客数<span id="busuanzi_value_site_uv"></span>人次
+  </span>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"DIY-green"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+      
+      <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+      <script src="/js/src/hook-duoshuo.js"></script>
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+  
+  
+  <!-- custom analytics part create by xiamo -->
+<script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+<script>AV.initialize("UnkeFG0pM1t3q8H3y7NTLUA0-gzGzoHsz", "2oBUu9nxByteYjLFtBtqOPwN");</script>
+<script>
+function showTime(Counter) {
+	var query = new AV.Query(Counter);
+	$(".leancloud_visitors").each(function() {
+		var url = $(this).attr("id").trim();
+		query.equalTo("url", url);
+		query.find({
+			success: function(results) {
+				if (results.length == 0) {
+					var content = '0 ' + $(document.getElementById(url)).text();
+					$(document.getElementById(url)).text(content);
+					return;
+				}
+				for (var i = 0; i < results.length; i++) {
+					var object = results[i];
+					var content = object.get('time') + ' ' + $(document.getElementById(url)).text();
+					$(document.getElementById(url)).text(content);
+				}
+			},
+			error: function(object, error) {
+				console.log("Error: " + error.code + " " + error.message);
+			}
+		});
+
+	});
+}
+
+function addCount(Counter) {
+	var Counter = AV.Object.extend("Counter");
+	url = $(".leancloud_visitors").attr('id').trim();
+	title = $(".leancloud_visitors").attr('data-flag-title').trim();
+	var query = new AV.Query(Counter);
+	query.equalTo("url", url);
+	query.find({
+		success: function(results) {
+			if (results.length > 0) {
+				var counter = results[0];
+				counter.fetchWhenSave(true);
+				counter.increment("time");
+				counter.save(null, {
+					success: function(counter) {
+						var content =  counter.get('time') + ' ' + $(document.getElementById(url)).text();
+						$(document.getElementById(url)).text(content);
+					},
+					error: function(counter, error) {
+						console.log('Failed to save Visitor num, with error message: ' + error.message);
+					}
+				});
+			} else {
+				var newcounter = new Counter();
+				newcounter.set("title", title);
+				newcounter.set("url", url);
+				newcounter.set("time", 1);
+				newcounter.save(null, {
+					success: function(newcounter) {
+					    console.log("newcounter.get('time')="+newcounter.get('time'));
+						var content = newcounter.get('time') + ' ' + $(document.getElementById(url)).text();
+						$(document.getElementById(url)).text(content);
+					},
+					error: function(newcounter, error) {
+						console.log('Failed to create');
+					}
+				});
+			}
+		},
+		error: function(error) {
+			console.log('Error:' + error.code + " " + error.message);
+		}
+	});
+}
+$(function() {
+	var Counter = AV.Object.extend("Counter");
+	if ($('.leancloud_visitors').length == 1) {
+		addCount(Counter);
+	} else if ($('.post-title-link').length > 1) {
+		showTime(Counter);
+	}
+}); 
+</script>
+  
+  
+</body>
+</html>

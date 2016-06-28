@@ -1,0 +1,960 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Android,Android小技巧,Hacks实用工具篇," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="作者：李旺成
+时间：2016年5月26日
+这个 Hack 将介绍一个移除日志语句的使用技巧。
+
+常见 Log 管理方法谁的项目里面不写几条日志，不打几条 Log？好吧！至少我见过的项目里面或多或少都会出现 Log 语句，这可以说是开发之必备工具。那么，问题来了，你打 Log 倒是方便，一行代码即可，但是应用正式发布的时候可不希望有 Log 存在，很可能从 Log 中泄漏敏感信息。
+对于这个问题，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hacks实用工具篇-Hack1 在发布正式版前移除日志语句">
+<meta property="og:url" content="http://diy-green.com/2016/05/26/Android小技巧/实用工具篇/Hacks实用工具篇-Hack1 在发布正式版前移除日志语句/index.html">
+<meta property="og:site_name" content="DIY-green">
+<meta property="og:description" content="作者：李旺成
+时间：2016年5月26日
+这个 Hack 将介绍一个移除日志语句的使用技巧。
+
+常见 Log 管理方法谁的项目里面不写几条日志，不打几条 Log？好吧！至少我见过的项目里面或多或少都会出现 Log 语句，这可以说是开发之必备工具。那么，问题来了，你打 Log 倒是方便，一行代码即可，但是应用正式发布的时候可不希望有 Log 存在，很可能从 Log 中泄漏敏感信息。
+对于这个问题，">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidhacks\utilities\hack1\utilities_hack1_1.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidhacks\utilities\hack1\utilities_hack1_2.png">
+<meta property="og:updated_time" content="2016-05-26T05:01:10.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hacks实用工具篇-Hack1 在发布正式版前移除日志语句">
+<meta name="twitter:description" content="作者：李旺成
+时间：2016年5月26日
+这个 Hack 将介绍一个移除日志语句的使用技巧。
+
+常见 Log 管理方法谁的项目里面不写几条日志，不打几条 Log？好吧！至少我见过的项目里面或多或少都会出现 Log 语句，这可以说是开发之必备工具。那么，问题来了，你打 Log 倒是方便，一行代码即可，但是应用正式发布的时候可不希望有 Log 存在，很可能从 Log 中泄漏敏感信息。
+对于这个问题，">
+<meta name="twitter:image" content="http://diy-green.com/\uploads\androidhacks\utilities\hack1\utilities_hack1_1.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'DIY-green'
+    }
+  };
+</script>
+
+  <title> Hacks实用工具篇-Hack1 在发布正式版前移除日志语句 | DIY-green </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?af1b7efbf565bc568165c5a0600a0207";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+  <div style="display: none;">
+    <script src="http://s6.cnzz.com/stat.php?id=1258791461&web_id=1258791461" type="text/javascript"></script>
+  </div>
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">DIY-green</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            全部
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-androidstudydemo">
+          <a href="/categories/AndroidStudyDemo/" rel="section">
+            
+              <i class="menu-item-icon fa fa-hand-right fa-fw"></i> <br />
+            
+            ● &nbsp; AndroidStudyDemo
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-androidganhuo">
+          <a href="/categories/Android干货/" rel="section">
+            
+              <i class="menu-item-icon fa fa-hand-right fa-fw"></i> <br />
+            
+            ● &nbsp; Android干货
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-androidhacks">
+          <a href="/categories/Android小技巧/" rel="section">
+            
+              <i class="menu-item-icon fa fa-hand-right fa-fw"></i> <br />
+            
+            ● &nbsp; Android小技巧
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-androidstudio">
+          <a href="/categories/AndroidStudio/" rel="section">
+            
+              <i class="menu-item-icon fa fa-hand-right fa-fw"></i> <br />
+            
+            ● &nbsp; AndroidStudio
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-essay">
+          <a href="/categories/随笔/" rel="section">
+            
+              <i class="menu-item-icon fa fa-hand-right fa-fw"></i> <br />
+            
+            ● &nbsp; 随笔
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Hacks实用工具篇-Hack1 在发布正式版前移除日志语句
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-05-26T13:01:10+08:00" content="2016-05-26">
+              2016-05-26
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Android小技巧/" itemprop="url" rel="index">
+                    <span itemprop="name">Android小技巧</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/05/26/Android小技巧/实用工具篇/Hacks实用工具篇-Hack1 在发布正式版前移除日志语句/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/26/Android小技巧/实用工具篇/Hacks实用工具篇-Hack1 在发布正式版前移除日志语句/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+		  &nbsp; | &nbsp;
+             <span id="/2016/05/26/Android小技巧/实用工具篇/Hacks实用工具篇-Hack1 在发布正式版前移除日志语句/" class="leancloud_visitors" data-flag-title="Hacks实用工具篇-Hack1 在发布正式版前移除日志语句">
+               
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+		  
+		  <!--<span id="busuanzi_container_page_pv">
+		    &nbsp; | &nbsp;<span id="busuanzi_value_page_pv"></span>阅读
+		  </span>
+		  
+		  
+			&nbsp; | &nbsp;
+			<span id="/2016/05/26/Android小技巧/实用工具篇/Hacks实用工具篇-Hack1 在发布正式版前移除日志语句/"class="leancloud_visitors" data-flag-title="Hacks实用工具篇-Hack1 在发布正式版前移除日志语句">
+					 &nbsp;阅读
+					</span>
+			-->
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="\uploads\androidhacks\utilities\hack1\utilities_hack1_1.png" alt="使用ProGuard移除日志" title="使用ProGuard移除日志"></p>
+<p><strong>作者：<a href="https://github.com/DIY-green/" target="_blank" rel="external">李旺成</a></strong></p>
+<h2 id="时间：2016年5月26日"><a href="#时间：2016年5月26日" class="headerlink" title="时间：2016年5月26日"></a><strong>时间：2016年5月26日</strong></h2><blockquote>
+<p>这个 Hack 将介绍一个移除日志语句的使用技巧。</p>
+</blockquote>
+<h1 id="常见-Log-管理方法"><a href="#常见-Log-管理方法" class="headerlink" title="常见 Log 管理方法"></a>常见 Log 管理方法</h1><p>谁的项目里面不写几条日志，不打几条 Log？<br>好吧！至少我见过的项目里面或多或少都会出现 Log 语句，这可以说是开发之必备工具。那么，问题来了，你打 Log 倒是方便，一行代码即可，但是应用正式发布的时候可不希望有 Log 存在，很可能从 Log 中泄漏敏感信息。</p>
+<p>对于这个问题，我见过的最常用的解决方案是，使用“<strong>DEBUG</strong>”标记，如果是开发环境就可以执行 Log 语句，如果不是则不会执行。</p>
+<h2 id="自定义-Logger-工具类"><a href="#自定义-Logger-工具类" class="headerlink" title="自定义 Logger 工具类"></a>自定义 Logger 工具类</h2><p>这里拿我以前用过的一个工具类来举例：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * Description: 企业中通用的Log管理</span><br><span class="line"> * 开发阶段LOGLEVEL = 6</span><br><span class="line"> * 发布阶段LOGLEVEL = -1</span><br><span class="line"> * <span class="doctag">@version</span>  1.0</span><br><span class="line"> */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Logger</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> LOGLEVEL = <span class="number">6</span>;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> VERBOSE = <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> DEBUG = <span class="number">2</span>;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> INFO = <span class="number">3</span>;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> WARN = <span class="number">4</span>;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> ERROR = <span class="number">5</span>;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">setDevelopMode</span><span class="params">(<span class="keyword">boolean</span> flag)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">if</span>(flag) &#123;</span><br><span class="line">			LOGLEVEL = <span class="number">6</span>;</span><br><span class="line">		&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">			LOGLEVEL = -<span class="number">1</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">v</span><span class="params">(String tag, String msg)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">if</span>(LOGLEVEL &gt; VERBOSE &amp;&amp; !TextUtils.isEmpty(msg)) &#123;</span><br><span class="line">			Log.v(tag, msg);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">d</span><span class="params">(String tag, String msg)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">if</span>(LOGLEVEL &gt; DEBUG &amp;&amp; !TextUtils.isEmpty(msg)) &#123;</span><br><span class="line">			Log.d(tag, msg);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">i</span><span class="params">(String tag, String msg)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">if</span>(LOGLEVEL &gt; INFO &amp;&amp; !TextUtils.isEmpty(msg)) &#123;</span><br><span class="line">			Log.i(tag, msg);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">w</span><span class="params">(String tag, String msg)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">if</span>(LOGLEVEL &gt; WARN &amp;&amp; !TextUtils.isEmpty(msg)) &#123;</span><br><span class="line">			Log.w(tag, msg);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">e</span><span class="params">(String tag, String msg)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">if</span>(LOGLEVEL &gt; ERROR &amp;&amp; !TextUtils.isEmpty(msg)) &#123;</span><br><span class="line">			Log.e(tag, msg);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>对系统提供的 Log 类做了一个很简单的封装，基本可以满足项目开发的需要。当然你可以使用 BuildConfig.DEBUG 来实现自动配置的功能。</p>
+<h2 id="强大的日志-logger"><a href="#强大的日志-logger" class="headerlink" title="强大的日志 logger"></a>强大的日志 logger</h2><p>可能有不少开发者会使用 <strong><a href="https://github.com/orhanobut/logger" target="_blank" rel="external">logger</a></strong> 来代替系统的日志工具，这个工具输出的日志确实很漂亮，功能也很强大，值得称赞，那我们来看看它是怎么控制日志输出开关的：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">enum</span> LogLevel &#123;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/**</span><br><span class="line">   * Prints all logs</span><br><span class="line">   */</span></span><br><span class="line">  FULL,</span><br><span class="line"></span><br><span class="line">  <span class="comment">/**</span><br><span class="line">   * No log will be printed</span><br><span class="line">   */</span></span><br><span class="line">  NONE</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>对， <strong><a href="https://github.com/orhanobut/logger" target="_blank" rel="external">logger</a></strong> 提供了两个日志级别，当日志级别设置为 NONE 的时候，所有的日志都不会输出。</p>
+<h1 id="使用-ProGuard-移除日志"><a href="#使用-ProGuard-移除日志" class="headerlink" title="使用 ProGuard 移除日志"></a>使用 ProGuard 移除日志</h1><p>上面举例的两种管理日志的方法，本质是相同的，它们确实都可以很简单的实现正式版本禁止输出日志的功能。但是，不知道有没有发现这些方法的缺陷。</p>
+<h2 id="常规方法的缺陷"><a href="#常规方法的缺陷" class="headerlink" title="常规方法的缺陷"></a>常规方法的缺陷</h2><p>这里列举一下我认为上述方式的缺陷，欢迎补充：</p>
+<ol>
+<li>不管什么版本，日志输出语句依然存在</li>
+<li>运行时需要做多余的判断，效率降低</li>
+</ol>
+<h2 id="更优的方案"><a href="#更优的方案" class="headerlink" title="更优的方案"></a>更优的方案</h2><p>我认为，最佳的效果是，开发的时候日志正常输入，发布的时候日志语句完全从编译出来的文件中移除。</p>
+<p>当然，这里不能考虑手动删除或者注释，这对程序员来说简直是不能忍受的…很幸运我们有 ProGuard 可以完成这个功能。</p>
+<p>这里不打算对 ProGuard 展开做介绍，我们就看看如何使用 ProGuard 实现在正式版本中移除 Log 语句。</p>
+<p><strong>注意：</strong>下面的操作基于 AndroidStudio 1.5。</p>
+<p><strong>1、开启 ProGuard 功能</strong><br>打开 Module 的 build.gradle 文件，将 minifyEnabled 的值修改为 true：</p>
+<p><img src="\uploads\androidhacks\utilities\hack1\utilities_hack1_2.png" alt="开启ProGuard" title="开启ProGuard"></p>
+<p><strong>2、移除日志</strong><br>在 proguard-rules.pro 文件中添加如下代码：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">-assumenosideeffects <span class="class"><span class="keyword">class</span> <span class="title">android</span>.<span class="title">util</span>.<span class="title">Log</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> *** v(...);</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> *** d(...);</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> *** i(...);</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> *** w(...);</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> *** e(...);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>上述代码表示：移除所有使用 android.util.Log 类中 *() 方法的地方，不管这个方法的参数和返回类型是什么。</p>
+<h1 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h1><p>ProGuard 很强大，这里提供的移除日志功能，仅仅是抛砖引玉，还有很多技巧可以探索。</p>
+
+      
+    </div>
+    
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+<div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton", disable="enable", onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}", style="cursor: pointer; border: 0; outline: 0; border-radius: 100%; padding: 0; margin: 0; letter-spacing: normal; text-transform: none; text-indent: 0px; text-shadow: none">
+    <span onmouseover="this.style.color='rgb(236,96,0)';this.style.background='rgb(204,204,204)'" onMouseOut="this.style.color='#fff';this.style.background='rgb(236,96,0)'" style="display: inline-block; width: 70px; height: 70px; border-radius: 100%; line-height: 81px; color: #fff; font: 400 35px/75px 'microsofty'; background: rgb(236,96,0)">赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/uploads/images/wechat-reward-image.png" alt="DIY-green WeChat Pay" style="width: 200px; max-width: 100%; display: inline-block"/>
+        <p>微信打赏</p>
+      </div>
+    
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/uploads/images/alipay-reward-image.png" alt="DIY-green Alipay" style="width: 200px; max-width: 100%; display: inline-block"/>
+        <p>支付宝打赏</p>
+      </div>
+    
+  </div>
+</div>
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Android/" rel="tag">#Android</a>
+          
+            <a href="/tags/Android小技巧/" rel="tag">#Android小技巧</a>
+          
+            <a href="/tags/Hacks实用工具篇/" rel="tag">#Hacks实用工具篇</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/05/21/Android小技巧/控件使用篇/Hacks控件篇-Hack7 移除背景以提升Activity启动速度/" rel="next" title="Hacks控件篇-Hack7 移除背景以提升Activity启动速度">
+                <i class="fa fa-chevron-left"></i> Hacks控件篇-Hack7 移除背景以提升Activity启动速度
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/05/26/Android干货[原创]/SlidingPaneLayout详解/" rel="prev" title="SlidingPaneLayout详解">
+                SlidingPaneLayout详解 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/05/26/Android小技巧/实用工具篇/Hacks实用工具篇-Hack1 在发布正式版前移除日志语句/"
+           data-title="Hacks实用工具篇-Hack1 在发布正式版前移除日志语句" data-url="http://diy-green.com/2016/05/26/Android小技巧/实用工具篇/Hacks实用工具篇-Hack1 在发布正式版前移除日志语句/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/images/avatar.jpg"
+               alt="DIY-green" />
+          <p class="site-author-name" itemprop="name">DIY-green</p>
+          <p class="site-description motion-element" itemprop="description">男子千年志，吾生未有涯。心随朗月高，志与秋霜洁。</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">52</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">27</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/DIY-green" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/users/0ad0a0afc409/latest_articles" target="_blank" title="JianShu">
+                  
+                    <i class="fa fa-globe"></i>
+                  
+                  JianShu
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element">
+            <div class="links-of-blogroll-title">
+              <i class="fa fa-globe fa-fw"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.jianshu.com/users/0ad0a0afc409/latest_articles" title="DIY-green简书" target="_blank">DIY-green简书</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.jianshu.com/users/3a482c4f0658/latest_articles" title="天接水0001" target="_blank">天接水0001</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://sunfusheng.com" title="孙福生" target="_blank">孙福生</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://kuanggang.github.io" title="匡罡" target="_blank">匡罡</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://Ivorfason.github.io" title="尹明仁" target="_blank">尹明仁</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://mengqingxiang.github.io" title="孟庆祥" target="_blank">孟庆祥</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#时间：2016年5月26日"><span class="nav-number">1.</span> <span class="nav-text">时间：2016年5月26日</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#常见-Log-管理方法"><span class="nav-number"></span> <span class="nav-text">常见 Log 管理方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#自定义-Logger-工具类"><span class="nav-number">1.</span> <span class="nav-text">自定义 Logger 工具类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#强大的日志-logger"><span class="nav-number">2.</span> <span class="nav-text">强大的日志 logger</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用-ProGuard-移除日志"><span class="nav-number"></span> <span class="nav-text">使用 ProGuard 移除日志</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#常规方法的缺陷"><span class="nav-number">1.</span> <span class="nav-text">常规方法的缺陷</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#更优的方案"><span class="nav-number">2.</span> <span class="nav-text">更优的方案</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#小结"><span class="nav-number"></span> <span class="nav-text">小结</span></a></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+<div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">DIY-green</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info powered-by">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+<div class="powered-by">
+  <span id="busuanzi_container_site_pv">
+    本站总访问量<span id="busuanzi_value_site_pv"></span>次
+  </span>
+</div>
+<div style="display:inline-block;">
+  <span id="busuanzi_container_site_uv">
+    本站访客数<span id="busuanzi_value_site_uv"></span>人次
+  </span>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"DIY-green"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+      
+      <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+      <script src="/js/src/hook-duoshuo.js"></script>
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+  
+  
+  <!-- custom analytics part create by xiamo -->
+<script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+<script>AV.initialize("UnkeFG0pM1t3q8H3y7NTLUA0-gzGzoHsz", "2oBUu9nxByteYjLFtBtqOPwN");</script>
+<script>
+function showTime(Counter) {
+	var query = new AV.Query(Counter);
+	$(".leancloud_visitors").each(function() {
+		var url = $(this).attr("id").trim();
+		query.equalTo("url", url);
+		query.find({
+			success: function(results) {
+				if (results.length == 0) {
+					var content = '0 ' + $(document.getElementById(url)).text();
+					$(document.getElementById(url)).text(content);
+					return;
+				}
+				for (var i = 0; i < results.length; i++) {
+					var object = results[i];
+					var content = object.get('time') + ' ' + $(document.getElementById(url)).text();
+					$(document.getElementById(url)).text(content);
+				}
+			},
+			error: function(object, error) {
+				console.log("Error: " + error.code + " " + error.message);
+			}
+		});
+
+	});
+}
+
+function addCount(Counter) {
+	var Counter = AV.Object.extend("Counter");
+	url = $(".leancloud_visitors").attr('id').trim();
+	title = $(".leancloud_visitors").attr('data-flag-title').trim();
+	var query = new AV.Query(Counter);
+	query.equalTo("url", url);
+	query.find({
+		success: function(results) {
+			if (results.length > 0) {
+				var counter = results[0];
+				counter.fetchWhenSave(true);
+				counter.increment("time");
+				counter.save(null, {
+					success: function(counter) {
+						var content =  counter.get('time') + ' ' + $(document.getElementById(url)).text();
+						$(document.getElementById(url)).text(content);
+					},
+					error: function(counter, error) {
+						console.log('Failed to save Visitor num, with error message: ' + error.message);
+					}
+				});
+			} else {
+				var newcounter = new Counter();
+				newcounter.set("title", title);
+				newcounter.set("url", url);
+				newcounter.set("time", 1);
+				newcounter.save(null, {
+					success: function(newcounter) {
+					    console.log("newcounter.get('time')="+newcounter.get('time'));
+						var content = newcounter.get('time') + ' ' + $(document.getElementById(url)).text();
+						$(document.getElementById(url)).text(content);
+					},
+					error: function(newcounter, error) {
+						console.log('Failed to create');
+					}
+				});
+			}
+		},
+		error: function(error) {
+			console.log('Error:' + error.code + " " + error.message);
+		}
+	});
+}
+$(function() {
+	var Counter = AV.Object.extend("Counter");
+	if ($('.leancloud_visitors').length == 1) {
+		addCount(Counter);
+	} else if ($('.post-title-link').length > 1) {
+		showTime(Counter);
+	}
+}); 
+</script>
+  
+  
+</body>
+</html>

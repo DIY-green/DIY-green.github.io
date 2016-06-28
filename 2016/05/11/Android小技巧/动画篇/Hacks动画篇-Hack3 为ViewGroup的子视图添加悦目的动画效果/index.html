@@ -1,0 +1,983 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Android,Android小技巧,Hacks动画篇," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="作者：李旺成时间：2016年5月11日
+
+
+这个 Hack 将介绍如何为 ViewGroup 的子视图添加动画效果。
+
+默认情况下，添加到 ViewGroup 中的子视图是直接显示出来的。有一个简单的方法可以为这个过程增加动画效果。
+LayoutAnimationController 类简介LayoutAnimationController 可以为 ViewGroup 的子视图添加动画效果。需要">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hacks动画篇-Hack3 为ViewGroup的子视图添加悦目的动画效果">
+<meta property="og:url" content="http://diy-green.com/2016/05/11/Android小技巧/动画篇/Hacks动画篇-Hack3 为ViewGroup的子视图添加悦目的动画效果/index.html">
+<meta property="og:site_name" content="DIY-green">
+<meta property="og:description" content="作者：李旺成时间：2016年5月11日
+
+
+这个 Hack 将介绍如何为 ViewGroup 的子视图添加动画效果。
+
+默认情况下，添加到 ViewGroup 中的子视图是直接显示出来的。有一个简单的方法可以为这个过程增加动画效果。
+LayoutAnimationController 类简介LayoutAnimationController 可以为 ViewGroup 的子视图添加动画效果。需要">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidhacks\animation\hack3\animation_hack3_1.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidhacks\animation\hack3\animation_hack3_2.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidhacks\animation\hack3\animation_hack3_3.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidhacks\animation\hack3\animation_hack3_4.gif">
+<meta property="og:updated_time" content="2016-05-11T07:32:09.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hacks动画篇-Hack3 为ViewGroup的子视图添加悦目的动画效果">
+<meta name="twitter:description" content="作者：李旺成时间：2016年5月11日
+
+
+这个 Hack 将介绍如何为 ViewGroup 的子视图添加动画效果。
+
+默认情况下，添加到 ViewGroup 中的子视图是直接显示出来的。有一个简单的方法可以为这个过程增加动画效果。
+LayoutAnimationController 类简介LayoutAnimationController 可以为 ViewGroup 的子视图添加动画效果。需要">
+<meta name="twitter:image" content="http://diy-green.com/\uploads\androidhacks\animation\hack3\animation_hack3_1.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'DIY-green'
+    }
+  };
+</script>
+
+  <title> Hacks动画篇-Hack3 为ViewGroup的子视图添加悦目的动画效果 | DIY-green </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?af1b7efbf565bc568165c5a0600a0207";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+  <div style="display: none;">
+    <script src="http://s6.cnzz.com/stat.php?id=1258791461&web_id=1258791461" type="text/javascript"></script>
+  </div>
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">DIY-green</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            全部
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-androidstudydemo">
+          <a href="/categories/AndroidStudyDemo/" rel="section">
+            
+              <i class="menu-item-icon fa fa-hand-right fa-fw"></i> <br />
+            
+            ● &nbsp; AndroidStudyDemo
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-androidganhuo">
+          <a href="/categories/Android干货/" rel="section">
+            
+              <i class="menu-item-icon fa fa-hand-right fa-fw"></i> <br />
+            
+            ● &nbsp; Android干货
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-androidhacks">
+          <a href="/categories/Android小技巧/" rel="section">
+            
+              <i class="menu-item-icon fa fa-hand-right fa-fw"></i> <br />
+            
+            ● &nbsp; Android小技巧
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-androidstudio">
+          <a href="/categories/AndroidStudio/" rel="section">
+            
+              <i class="menu-item-icon fa fa-hand-right fa-fw"></i> <br />
+            
+            ● &nbsp; AndroidStudio
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-essay">
+          <a href="/categories/随笔/" rel="section">
+            
+              <i class="menu-item-icon fa fa-hand-right fa-fw"></i> <br />
+            
+            ● &nbsp; 随笔
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Hacks动画篇-Hack3 为ViewGroup的子视图添加悦目的动画效果
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-05-11T15:32:09+08:00" content="2016-05-11">
+              2016-05-11
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Android小技巧/" itemprop="url" rel="index">
+                    <span itemprop="name">Android小技巧</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/05/11/Android小技巧/动画篇/Hacks动画篇-Hack3 为ViewGroup的子视图添加悦目的动画效果/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/11/Android小技巧/动画篇/Hacks动画篇-Hack3 为ViewGroup的子视图添加悦目的动画效果/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+		  &nbsp; | &nbsp;
+             <span id="/2016/05/11/Android小技巧/动画篇/Hacks动画篇-Hack3 为ViewGroup的子视图添加悦目的动画效果/" class="leancloud_visitors" data-flag-title="Hacks动画篇-Hack3 为ViewGroup的子视图添加悦目的动画效果">
+               
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+		  
+		  <!--<span id="busuanzi_container_page_pv">
+		    &nbsp; | &nbsp;<span id="busuanzi_value_page_pv"></span>阅读
+		  </span>
+		  
+		  
+			&nbsp; | &nbsp;
+			<span id="/2016/05/11/Android小技巧/动画篇/Hacks动画篇-Hack3 为ViewGroup的子视图添加悦目的动画效果/"class="leancloud_visitors" data-flag-title="Hacks动画篇-Hack3 为ViewGroup的子视图添加悦目的动画效果">
+					 &nbsp;阅读
+					</span>
+			-->
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="\uploads\androidhacks\animation\hack3\animation_hack3_1.png" alt="为ViewGroup的子视图添加悦目的动画效果" title="为ViewGroup的子视图添加悦目的动画效果"></p>
+<p><strong>作者：<a href="https://github.com/DIY-green/" target="_blank" rel="external">李旺成</a></strong><br><strong>时间：2016年5月11日</strong></p>
+<hr>
+<blockquote>
+<p>这个 Hack 将介绍如何为 ViewGroup 的子视图添加动画效果。</p>
+</blockquote>
+<p>默认情况下，添加到 ViewGroup 中的子视图是直接显示出来的。有一个简单的方法可以为这个过程增加动画效果。</p>
+<h1 id="LayoutAnimationController-类简介"><a href="#LayoutAnimationController-类简介" class="headerlink" title="LayoutAnimationController 类简介"></a>LayoutAnimationController 类简介</h1><p>LayoutAnimationController 可以为 ViewGroup 的子视图添加动画效果。需要注意的是，并不能为每个子视图分别指定不同的动画效果（也就是说每个子视图都会有相同的动画效果），但是 LayoutAnimationController 可以决定各个子视图显示动画效果的时间。</p>
+<p>先看下官方的介绍：</p>
+<p><img src="\uploads\androidhacks\animation\hack3\animation_hack3_2.png" alt="LayoutAnimationController类" title="LayoutAnimationController类"></p>
+<p>文档上介绍了 ”XML Attributes“，那说明可以在 xml 中使用，也就是说有两种使用方式：直接在 Java 代码中用和在 xml 中定义。在稍微看一下提供了哪些方法：</p>
+<p><img src="\uploads\androidhacks\animation\hack3\animation_hack3_3.png" alt="LayoutAnimationController方法" title="LayoutAnimationController方法"></p>
+<p>有几个方法简单解释下：</p>
+<ul>
+<li><a href="http://www.android-doc.com/reference/android/view/animation/LayoutAnimationController.html#setInterpolator(android.view.animation.Interpolator" target="_blank" rel="external">setInterpolator</a>)(<a href="http://www.android-doc.com/reference/android/view/animation/Interpolator.html" target="_blank" rel="external">Interpolator</a> interpolator)：设置两个子视图之间延迟时间的插值器，注意添加的动画也是可以设置单独设置插值器的</li>
+<li><a href="http://www.android-doc.com/reference/android/view/animation/LayoutAnimationController.html#setOrder(int" target="_blank" rel="external">setOrder</a>)(int order)：设置控件显示的顺序</li>
+<li><a href="http://www.android-doc.com/reference/android/view/animation/LayoutAnimationController.html#willOverlap(" target="_blank" rel="external">willOverlap</a>)()：返回两个子视图的动画是否会出现重叠</li>
+</ul>
+<h1 id="LayoutAnimationController-简单使用"><a href="#LayoutAnimationController-简单使用" class="headerlink" title="LayoutAnimationController 简单使用"></a>LayoutAnimationController 简单使用</h1><p>上面介绍 LayoutAnimationController 的时候提过，该类应该有两种使用方式，下面将分别介绍这两种方式。</p>
+<p>先看下效果：<br><img src="\uploads\androidhacks\animation\hack3\animation_hack3_4.gif" alt="LayoutAnimationController使用演示" title="LayoutAnimationController使用演示"></p>
+<h2 id="直接在-Java-代码中使用"><a href="#直接在-Java-代码中使用" class="headerlink" title="直接在 Java 代码中使用"></a>直接在 Java 代码中使用</h2><p><strong>1、创建动画</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">AnimationSet set = <span class="keyword">new</span> AnimationSet(<span class="keyword">false</span>); <span class="comment">// 传入 false 表示组成动画集中的动画使用不同的 Interpolator</span></span><br><span class="line">Animation alphaAnimation = <span class="keyword">new</span> AlphaAnimation(<span class="number">0.0f</span>, <span class="number">1.0f</span>);</span><br><span class="line">alphaAnimation.setDuration(<span class="number">700</span>);</span><br><span class="line">alphaAnimation.setInterpolator(<span class="keyword">new</span> FastOutSlowInInterpolator());</span><br><span class="line">set.addAnimation(alphaAnimation);</span><br><span class="line"></span><br><span class="line">Animation translateAnimation = <span class="keyword">new</span> TranslateAnimation(</span><br><span class="line">		Animation.RELATIVE_TO_SELF,</span><br><span class="line">		<span class="number">0.0f</span>,</span><br><span class="line">		Animation.RELATIVE_TO_SELF,</span><br><span class="line">		<span class="number">0.0f</span>,</span><br><span class="line">		Animation.RELATIVE_TO_SELF,</span><br><span class="line">		-<span class="number">1.0f</span>,</span><br><span class="line">		Animation.RELATIVE_TO_SELF,</span><br><span class="line">		<span class="number">0.0f</span>);</span><br><span class="line">translateAnimation.setDuration(<span class="number">1000</span>);</span><br><span class="line">translateAnimation.setInterpolator(<span class="keyword">new</span> LinearOutSlowInInterpolator());</span><br><span class="line">set.addAnimation(translateAnimation);</span><br></pre></td></tr></table></figure></p>
+<p>这里使用透明度动画和位移动画组合创建一个动画集，并且分别为这两个动画设置了不同的 Interpolator 以及 持续时间。</p>
+<p><strong>注意：</strong>直接使用某一种动画是完全一样的，这里使用动画集仅仅是为了演示。</p>
+<p><strong>2、代码创建 LayoutAnimationController</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">LayoutAnimationController lac = <span class="keyword">new</span> LayoutAnimationController(</span><br><span class="line">                set,</span><br><span class="line">                <span class="number">1f</span>);</span><br></pre></td></tr></table></figure></p>
+<p><strong>3、设置子视图显示的顺序</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lac.setOrder(LayoutAnimationController.ORDER_NORMAL);</span><br></pre></td></tr></table></figure></p>
+<p>order 可有如下取值：</p>
+<ul>
+<li>ORDER_NORMAL：顺序</li>
+<li>ORDER_REVERSE：相反</li>
+<li>ORDER_RANDOM：随机</li>
+</ul>
+<p><strong>4、为 ViewGroup 设置 LayoutAnimationController</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mContentLV.setLayoutAnimation(lac);</span><br></pre></td></tr></table></figure></p>
+<p><strong>5、为 ViewGroup 添加子视图</strong><br>这里的 ViewGroup 是 ListView，所以要为其设置 Adapter：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mContentLV.setAdapter(<span class="keyword">new</span> ArrayAdapter&lt;String&gt;(</span><br><span class="line">                <span class="keyword">this</span>,</span><br><span class="line">                android.R.layout.simple_list_item_1,</span><br><span class="line">                Countries.COUNTRIES));</span><br></pre></td></tr></table></figure></p>
+<p>使用很简单，就这么几步即可。</p>
+<h2 id="在-xml-中定义-LayoutAnimationController"><a href="#在-xml-中定义-LayoutAnimationController" class="headerlink" title="在 xml 中定义 LayoutAnimationController"></a>在 xml 中定义 LayoutAnimationController</h2><p>其实与在 Java 代码中使用是一样的，只是定义方式的区别。</p>
+<p><strong>1、创建 layoutAnimation 的 xml 文件</strong><br>在 res/anim 文件夹下面创建名为 list_item_anim_layout.xml 的文件，内容如下：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=<span class="string">"1.0"</span> encoding=<span class="string">"utf-8"</span>?&gt;</span><br><span class="line">&lt;layoutAnimation xmlns:android=<span class="string">"http://schemas.android.com/apk/res/android"</span></span><br><span class="line">    android:delay=<span class="string">"1"</span></span><br><span class="line">    android:animationOrder=<span class="string">"reverse"</span></span><br><span class="line">    android:animation=<span class="string">"@anim/list_animation"</span>/&gt;</span><br></pre></td></tr></table></figure></p>
+<p>在这里可以直接设置子视图的顺序，延迟时间（<strong>注意：</strong>单位是”秒“），以及要显示的动画。</p>
+<p><strong>2、在布局中为 ViewGroup 设置 layoutAnimation 属性</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;ListView</span><br><span class="line">	android:id=<span class="string">"@+id/lv_content"</span></span><br><span class="line">	android:layout_width=<span class="string">"match_parent"</span></span><br><span class="line">	android:layout_height=<span class="string">"match_parent"</span></span><br><span class="line">	android:layoutAnimation=<span class="string">"@anim/list_item_anim_layout"</span>/&gt;</span><br></pre></td></tr></table></figure></p>
+<p><strong>3、为 ListView 设置 Adapter</strong><br>为 ListView 设置好 Adapter 应该就可以看到效果了。这里就不演示了，代码在演示项目中都有，感兴趣的可以自己下去尝试。</p>
+<h1 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h1><p><strong>只在第一次设置时有效？</strong><br>示例中使用了 LinearLayout，通过点击按钮往 LinearLayout 中添加和删除子视图。你会发现在给 LinearLayout 设置好 LayoutAnimationController 后调用添加方法（也就是在 oncreate() 方法中执行的那段代码），会有动画效果。但是，当你再次点击”添加“或”删除“按钮，并没有出现动画效果。</p>
+<p>这里没有深入研究了，只是在添加和删除子视图之前又调用了一下 ViewGroup 的 setLayoutAnimation() 方法，但是效果很诡异，所有的子视图都会执行动画。</p>
+<h1 id="项目地址"><a href="#项目地址" class="headerlink" title="项目地址"></a>项目地址</h1><p><strong><a href="https://github.com/DIY-green/AndroidHacks" target="_blank" rel="external">AndroidHacks合集</a></strong><br><strong><a href="https://github.com/DIY-green/AndroidHacksAnimation" target="_blank" rel="external">动画篇</a></strong></p>
+<p>项目示例代码：<br><strong><a href="https://github.com/DIY-green/AndroidHacksAnimation/blob/master/app/src/main/java/com/diygreen/androidhacksanimation/VGChildrenAnimActivity.java" target="_blank" rel="external">VGChildrenAnimActivity.java</a></strong><br><strong><a href="https://github.com/DIY-green/AndroidHacksAnimation/blob/master/app/src/main/java/com/diygreen/androidhacksanimation/Countries.java" target="_blank" rel="external">Countries.java</a></strong><br><strong><a href="https://github.com/DIY-green/AndroidHacksAnimation/blob/master/app/src/main/res/layout/activity_vgchildrenanim.xml" target="_blank" rel="external">activity_vgchildrenanim.xml</a></strong><br><strong><a href="https://github.com/DIY-green/AndroidHacksAnimation/blob/master/app/src/main/res/anim/list_item_anim_layout.xml" target="_blank" rel="external">list_item_anim_layout.xml</a></strong></p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="http://blog.csdn.net/simplehedy/article/details/7188308" target="_blank" rel="external">LayoutAnimationController</a></p>
+
+      
+    </div>
+    
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+<div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton", disable="enable", onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}", style="cursor: pointer; border: 0; outline: 0; border-radius: 100%; padding: 0; margin: 0; letter-spacing: normal; text-transform: none; text-indent: 0px; text-shadow: none">
+    <span onmouseover="this.style.color='rgb(236,96,0)';this.style.background='rgb(204,204,204)'" onMouseOut="this.style.color='#fff';this.style.background='rgb(236,96,0)'" style="display: inline-block; width: 70px; height: 70px; border-radius: 100%; line-height: 81px; color: #fff; font: 400 35px/75px 'microsofty'; background: rgb(236,96,0)">赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/uploads/images/wechat-reward-image.png" alt="DIY-green WeChat Pay" style="width: 200px; max-width: 100%; display: inline-block"/>
+        <p>微信打赏</p>
+      </div>
+    
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/uploads/images/alipay-reward-image.png" alt="DIY-green Alipay" style="width: 200px; max-width: 100%; display: inline-block"/>
+        <p>支付宝打赏</p>
+      </div>
+    
+  </div>
+</div>
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Android/" rel="tag">#Android</a>
+          
+            <a href="/tags/Android小技巧/" rel="tag">#Android小技巧</a>
+          
+            <a href="/tags/Hacks动画篇/" rel="tag">#Hacks动画篇</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/05/11/Android小技巧/动画篇/Hacks动画篇-Hack4 在Canvas上显示动画/" rel="next" title="Hacks动画篇-Hack4 在Canvas上显示动画">
+                <i class="fa fa-chevron-left"></i> Hacks动画篇-Hack4 在Canvas上显示动画
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/05/13/Android小技巧/动画篇/Hacks动画篇-Hack5 附加Ken Burns特效的幻灯片/" rel="prev" title="Hacks动画篇-Hack5 附加Ken Burns特效的幻灯片">
+                Hacks动画篇-Hack5 附加Ken Burns特效的幻灯片 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/05/11/Android小技巧/动画篇/Hacks动画篇-Hack3 为ViewGroup的子视图添加悦目的动画效果/"
+           data-title="Hacks动画篇-Hack3 为ViewGroup的子视图添加悦目的动画效果" data-url="http://diy-green.com/2016/05/11/Android小技巧/动画篇/Hacks动画篇-Hack3 为ViewGroup的子视图添加悦目的动画效果/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/images/avatar.jpg"
+               alt="DIY-green" />
+          <p class="site-author-name" itemprop="name">DIY-green</p>
+          <p class="site-description motion-element" itemprop="description">男子千年志，吾生未有涯。心随朗月高，志与秋霜洁。</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">52</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">27</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/DIY-green" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/users/0ad0a0afc409/latest_articles" target="_blank" title="JianShu">
+                  
+                    <i class="fa fa-globe"></i>
+                  
+                  JianShu
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element">
+            <div class="links-of-blogroll-title">
+              <i class="fa fa-globe fa-fw"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.jianshu.com/users/0ad0a0afc409/latest_articles" title="DIY-green简书" target="_blank">DIY-green简书</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.jianshu.com/users/3a482c4f0658/latest_articles" title="天接水0001" target="_blank">天接水0001</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://sunfusheng.com" title="孙福生" target="_blank">孙福生</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://kuanggang.github.io" title="匡罡" target="_blank">匡罡</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://Ivorfason.github.io" title="尹明仁" target="_blank">尹明仁</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://mengqingxiang.github.io" title="孟庆祥" target="_blank">孟庆祥</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#LayoutAnimationController-类简介"><span class="nav-number">1.</span> <span class="nav-text">LayoutAnimationController 类简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#LayoutAnimationController-简单使用"><span class="nav-number">2.</span> <span class="nav-text">LayoutAnimationController 简单使用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#直接在-Java-代码中使用"><span class="nav-number">2.1.</span> <span class="nav-text">直接在 Java 代码中使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在-xml-中定义-LayoutAnimationController"><span class="nav-number">2.2.</span> <span class="nav-text">在 xml 中定义 LayoutAnimationController</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#注意事项"><span class="nav-number">3.</span> <span class="nav-text">注意事项</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#项目地址"><span class="nav-number">4.</span> <span class="nav-text">项目地址</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考"><span class="nav-number">5.</span> <span class="nav-text">参考</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+<div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">DIY-green</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info powered-by">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+<div class="powered-by">
+  <span id="busuanzi_container_site_pv">
+    本站总访问量<span id="busuanzi_value_site_pv"></span>次
+  </span>
+</div>
+<div style="display:inline-block;">
+  <span id="busuanzi_container_site_uv">
+    本站访客数<span id="busuanzi_value_site_uv"></span>人次
+  </span>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"DIY-green"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+      
+      <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+      <script src="/js/src/hook-duoshuo.js"></script>
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+  
+  
+  <!-- custom analytics part create by xiamo -->
+<script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+<script>AV.initialize("UnkeFG0pM1t3q8H3y7NTLUA0-gzGzoHsz", "2oBUu9nxByteYjLFtBtqOPwN");</script>
+<script>
+function showTime(Counter) {
+	var query = new AV.Query(Counter);
+	$(".leancloud_visitors").each(function() {
+		var url = $(this).attr("id").trim();
+		query.equalTo("url", url);
+		query.find({
+			success: function(results) {
+				if (results.length == 0) {
+					var content = '0 ' + $(document.getElementById(url)).text();
+					$(document.getElementById(url)).text(content);
+					return;
+				}
+				for (var i = 0; i < results.length; i++) {
+					var object = results[i];
+					var content = object.get('time') + ' ' + $(document.getElementById(url)).text();
+					$(document.getElementById(url)).text(content);
+				}
+			},
+			error: function(object, error) {
+				console.log("Error: " + error.code + " " + error.message);
+			}
+		});
+
+	});
+}
+
+function addCount(Counter) {
+	var Counter = AV.Object.extend("Counter");
+	url = $(".leancloud_visitors").attr('id').trim();
+	title = $(".leancloud_visitors").attr('data-flag-title').trim();
+	var query = new AV.Query(Counter);
+	query.equalTo("url", url);
+	query.find({
+		success: function(results) {
+			if (results.length > 0) {
+				var counter = results[0];
+				counter.fetchWhenSave(true);
+				counter.increment("time");
+				counter.save(null, {
+					success: function(counter) {
+						var content =  counter.get('time') + ' ' + $(document.getElementById(url)).text();
+						$(document.getElementById(url)).text(content);
+					},
+					error: function(counter, error) {
+						console.log('Failed to save Visitor num, with error message: ' + error.message);
+					}
+				});
+			} else {
+				var newcounter = new Counter();
+				newcounter.set("title", title);
+				newcounter.set("url", url);
+				newcounter.set("time", 1);
+				newcounter.save(null, {
+					success: function(newcounter) {
+					    console.log("newcounter.get('time')="+newcounter.get('time'));
+						var content = newcounter.get('time') + ' ' + $(document.getElementById(url)).text();
+						$(document.getElementById(url)).text(content);
+					},
+					error: function(newcounter, error) {
+						console.log('Failed to create');
+					}
+				});
+			}
+		},
+		error: function(error) {
+			console.log('Error:' + error.code + " " + error.message);
+		}
+	});
+}
+$(function() {
+	var Counter = AV.Object.extend("Counter");
+	if ($('.leancloud_visitors').length == 1) {
+		addCount(Counter);
+	} else if ($('.post-title-link').length > 1) {
+		showTime(Counter);
+	}
+}); 
+</script>
+  
+  
+</body>
+</html>

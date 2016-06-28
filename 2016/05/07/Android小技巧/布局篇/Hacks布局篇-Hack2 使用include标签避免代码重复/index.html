@@ -1,0 +1,984 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Android,Android小技巧,Hacks布局篇," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="作者：李旺成时间：2016年5月6日
+
+
+在这个 Hack 中将详细介绍  标签的使用，以及一些注意事项。
+
+一、每个页面添加页脚
+假设：现在有这样一个需求，为应用中的每个页面都添加一个页脚。这里简单处理，要添加的页脚就是一个显示应用名称的文本（使用 TextView 来显示），如上图所示。大多数的应用都是由多个 Activity 组成的，多个 Activity 一般对应多个布局文件。那是不是要">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hacks布局篇-Hack2 使用include标签避免代码重复">
+<meta property="og:url" content="http://diy-green.com/2016/05/07/Android小技巧/布局篇/Hacks布局篇-Hack2 使用include标签避免代码重复/index.html">
+<meta property="og:site_name" content="DIY-green">
+<meta property="og:description" content="作者：李旺成时间：2016年5月6日
+
+
+在这个 Hack 中将详细介绍  标签的使用，以及一些注意事项。
+
+一、每个页面添加页脚
+假设：现在有这样一个需求，为应用中的每个页面都添加一个页脚。这里简单处理，要添加的页脚就是一个显示应用名称的文本（使用 TextView 来显示），如上图所示。大多数的应用都是由多个 Activity 组成的，多个 Activity 一般对应多个布局文件。那是不是要">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidhacks\layout\hack2\layout_hack2_1.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidhacks\layout\hack2\layout_hack2_2.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidhacks\layout\hack2\layout_hack2_3.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidhacks\layout\hack2\layout_hack2_4.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidhacks\layout\hack2\layout_hack2_5png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidhacks\layout\hack2\layout_hack2_6.png">
+<meta property="og:updated_time" content="2016-05-07T12:03:24.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hacks布局篇-Hack2 使用include标签避免代码重复">
+<meta name="twitter:description" content="作者：李旺成时间：2016年5月6日
+
+
+在这个 Hack 中将详细介绍  标签的使用，以及一些注意事项。
+
+一、每个页面添加页脚
+假设：现在有这样一个需求，为应用中的每个页面都添加一个页脚。这里简单处理，要添加的页脚就是一个显示应用名称的文本（使用 TextView 来显示），如上图所示。大多数的应用都是由多个 Activity 组成的，多个 Activity 一般对应多个布局文件。那是不是要">
+<meta name="twitter:image" content="http://diy-green.com/\uploads\androidhacks\layout\hack2\layout_hack2_1.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'DIY-green'
+    }
+  };
+</script>
+
+  <title> Hacks布局篇-Hack2 使用include标签避免代码重复 | DIY-green </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?af1b7efbf565bc568165c5a0600a0207";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+  <div style="display: none;">
+    <script src="http://s6.cnzz.com/stat.php?id=1258791461&web_id=1258791461" type="text/javascript"></script>
+  </div>
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">DIY-green</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            全部
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-androidstudydemo">
+          <a href="/categories/AndroidStudyDemo/" rel="section">
+            
+              <i class="menu-item-icon fa fa-hand-right fa-fw"></i> <br />
+            
+            ● &nbsp; AndroidStudyDemo
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-androidganhuo">
+          <a href="/categories/Android干货/" rel="section">
+            
+              <i class="menu-item-icon fa fa-hand-right fa-fw"></i> <br />
+            
+            ● &nbsp; Android干货
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-androidhacks">
+          <a href="/categories/Android小技巧/" rel="section">
+            
+              <i class="menu-item-icon fa fa-hand-right fa-fw"></i> <br />
+            
+            ● &nbsp; Android小技巧
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-androidstudio">
+          <a href="/categories/AndroidStudio/" rel="section">
+            
+              <i class="menu-item-icon fa fa-hand-right fa-fw"></i> <br />
+            
+            ● &nbsp; AndroidStudio
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-essay">
+          <a href="/categories/随笔/" rel="section">
+            
+              <i class="menu-item-icon fa fa-hand-right fa-fw"></i> <br />
+            
+            ● &nbsp; 随笔
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Hacks布局篇-Hack2 使用include标签避免代码重复
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-05-07T20:39:24+08:00" content="2016-05-07">
+              2016-05-07
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Android小技巧/" itemprop="url" rel="index">
+                    <span itemprop="name">Android小技巧</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/05/07/Android小技巧/布局篇/Hacks布局篇-Hack2 使用include标签避免代码重复/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/07/Android小技巧/布局篇/Hacks布局篇-Hack2 使用include标签避免代码重复/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+		  &nbsp; | &nbsp;
+             <span id="/2016/05/07/Android小技巧/布局篇/Hacks布局篇-Hack2 使用include标签避免代码重复/" class="leancloud_visitors" data-flag-title="Hacks布局篇-Hack2 使用include标签避免代码重复">
+               
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+		  
+		  <!--<span id="busuanzi_container_page_pv">
+		    &nbsp; | &nbsp;<span id="busuanzi_value_page_pv"></span>阅读
+		  </span>
+		  
+		  
+			&nbsp; | &nbsp;
+			<span id="/2016/05/07/Android小技巧/布局篇/Hacks布局篇-Hack2 使用include标签避免代码重复/"class="leancloud_visitors" data-flag-title="Hacks布局篇-Hack2 使用include标签避免代码重复">
+					 &nbsp;阅读
+					</span>
+			-->
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="\uploads\androidhacks\layout\hack2\layout_hack2_1.png" alt="&lt;include /&gt;" title="include"></p>
+<p><strong>作者：<a href="https://github.com/DIY-green/" target="_blank" rel="external">李旺成</a></strong><br><strong>时间：2016年5月6日</strong></p>
+<hr>
+<blockquote>
+<p>在这个 Hack 中将详细介绍 <include> 标签的使用，以及一些注意事项。</include></p>
+</blockquote>
+<h1 id="一、每个页面添加页脚"><a href="#一、每个页面添加页脚" class="headerlink" title="一、每个页面添加页脚"></a>一、每个页面添加页脚</h1><p><img src="\uploads\androidhacks\layout\hack2\layout_hack2_2.png" alt="添加页脚示意图" title="添加页脚示意图"></p>
+<p>假设：现在有这样一个需求，为应用中的每个页面都添加一个页脚。这里简单处理，要添加的页脚就是一个显示应用名称的文本（使用 TextView 来显示），如上图所示。大多数的应用都是由多个 Activity 组成的，多个 Activity 一般对应多个布局文件。那是不是要把这个页脚 TextView 一个个拷贝到每个布局文件中？</p>
+<p><strong>听过这么一句话：当你的程序中出现大量的重复代码时你得小心了。</strong>（不是我杜撰的，大致是这个意思，没有找到出处…）</p>
+<p>确实是这样，不要把一段相同的代码到处“复制/粘贴”，有一个很明显的弊端摆在眼前，如果以后需要修改这段代码就悲剧了。</p>
+<p>所以，要实现上述需求“复制/粘贴”不是我们要的解决方案。解决该问题最简单的方法是使用 <include> 标签。当然，使用 style 来保证这些页脚都使用同一个样式也是可以的，但没有 <include> 标签简便，再说 style 的主要功能可不是用来解决重复代码问题的。</include></include></p>
+<p>好了需求明确的，看看怎么实现。</p>
+<h1 id="使用-标签为页面添加页脚"><a href="#使用-标签为页面添加页脚" class="headerlink" title="使用  标签为页面添加页脚"></a>使用 <include> 标签为页面添加页脚</include></h1><p><strong>首先，</strong>创建一个页脚布局 footer_app_name.xml：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=<span class="string">"1.0"</span> encoding=<span class="string">"utf-8"</span>?&gt;</span><br><span class="line">&lt;TextView xmlns:android=<span class="string">"http://schemas.android.com/apk/res/android"</span></span><br><span class="line">    android:layout_width=<span class="string">"match_parent"</span></span><br><span class="line">    android:layout_height=<span class="string">"wrap_content"</span></span><br><span class="line">    android:layout_alignParentBottom=<span class="string">"true"</span></span><br><span class="line">    android:layout_marginBottom=<span class="string">"20dp"</span></span><br><span class="line">    android:gravity=<span class="string">"center"</span></span><br><span class="line">    android:text=<span class="string">"AndroidHacksLayout"</span></span><br><span class="line">    android:textColor=<span class="string">"@android:color/holo_red_dark"</span>/&gt;</span><br></pre></td></tr></table></figure></p>
+<p><strong>然后，</strong>使用 <include> 为布局添加页脚 activity_hack2_1.xml：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span><br><span class="line">&lt;RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"</span><br><span class="line">    xmlns:tools="http://schemas.android.com/tools"</span><br><span class="line">    android:layout_width="match_parent"</span><br><span class="line">    android:layout_height="match_parent"</span><br><span class="line">    android:paddingBottom="@dimen/activity_vertical_margin"</span><br><span class="line">    android:paddingLeft="@dimen/activity_horizontal_margin"</span><br><span class="line">    android:paddingRight="@dimen/activity_horizontal_margin"</span><br><span class="line">    android:paddingTop="@dimen/activity_vertical_margin"</span><br><span class="line">    tools:context="com.diygreen.androidhackslayout.Hack2Activity"&gt;</span><br><span class="line">    &lt;TextView</span><br><span class="line">        android:layout_width="match_parent"</span><br><span class="line">        android:layout_height="wrap_content"</span><br><span class="line">        android:text="演示使用 &lt;include /&gt; 标签避免代码重复"/&gt;</span><br><span class="line">	&lt;!-- 插入页脚 --&gt;</span><br><span class="line">    &lt;include</span><br><span class="line">        layout="@layout/footer_app_name"/&gt;</span><br><span class="line">&lt;/RelativeLayout&gt;</span><br></pre></td></tr></table></figure></include></p>
+<p>上面的示例代码很简单，为 <include> 标签的 layout 属性指定一个表示页脚的布局即可。仔细一点的同学可能看到了：页脚布局中设置了 android:layout_alignParentBottom=”true” 属性，那么问题来了，这个属性是 RelativeLayout 中子控件才有用，如果把 activity_hack2_1.xml 的根布局修改为 FrameLayout 那不就不行了吗？</include></p>
+<p><img src="\uploads\androidhacks\layout\hack2\layout_hack2_3.png" alt="根布局修改为 FrameLayout" title="根布局修改为 FrameLayout"></p>
+<p>上图中可以看到，将根布局修改为 FrameLayout 之后，“页脚”就不是在该页面的底部了，那要怎么做了？不急，下面会给出解决方案，且继续往下阅读。</p>
+<h1 id="二、-标签使用详解"><a href="#二、-标签使用详解" class="headerlink" title="二、 标签使用详解"></a>二、<include> 标签使用详解</include></h1><p><strong><include> 标签</include></strong>使用虽然挺简单的，但也有一些细节要注意，这里做个简单的总结供大家参考。</p>
+<h2 id="include-属性有两种设置方式"><a href="#include-属性有两种设置方式" class="headerlink" title="include 属性有两种设置方式"></a>include 属性有两种设置方式</h2><p><strong>1、在子布局中设置</strong><br>就是上面的示例代码中使用的方式，直接在子布局中设置好所有的属性，使用的时候只需要在主布局中为 include 设置 layout 属性即可。</p>
+<p>这样用很方便，但是 Android 中提供了很多布局技术，你在子布局中设置的属性可能只适用与某一个/某一类布局。上面的示例中就是这样，只有主布局为 RelativeLayout 的时候页面才能在指定位置显示，如果替换为 FrameLayout 就显示不正确了。这就反映了一个问题 —— 不灵活。那怎么解决呢？include 属性还有另外一种设置方式。</p>
+<p><strong>2、在 <include> 标签里设置</include></strong><br>说到这里，那先把示例中遗留的问题解决了，就是将 RelativeLayout 替换为 FrameLayout 之后页面位置的问题。</p>
+<p>先看解决后的效果：</p>
+<p><img src="\uploads\androidhacks\layout\hack2\layout_hack2_4.png" alt="在 &lt;include /&gt; 标签里设置属性" title="在 &lt;include /&gt; 标签里设置属性"></p>
+<p>解决方案代码：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span><br><span class="line">&lt;FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"</span><br><span class="line">    ...</span><br><span class="line">    &gt;</span><br><span class="line">    ...</span><br><span class="line">    &lt;include</span><br><span class="line">        android:layout_width="match_parent"</span><br><span class="line">        android:layout_height="wrap_content"</span><br><span class="line">        android:layout_gravity="bottom"</span><br><span class="line">        layout="@layout/footer_app_name"/&gt;</span><br><span class="line">&lt;/FrameLayout&gt;</span><br></pre></td></tr></table></figure></p>
+<p>上面的示例代码中与根布局为 RelativeLayout 对比的主要修改处是在 <include> 标签中添加了 android:layout_gravity 属性，并将其属性值设置为了 “bottom” ，这就可以保证页脚会在页面的底部显示了。</include></p>
+<p><strong>说明：</strong>其实和 style 的使用非常类似，你可以直接使用 style，也可以覆盖 style 中的一些属性。</p>
+<p><strong>在 <include> 标签里设置属性</include></strong>一般是这样用的，下面使用添加一个页眉作为示例：</p>
+<ol>
+<li>创建页面 header_app_name.xml：<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=<span class="string">"1.0"</span> encoding=<span class="string">"utf-8"</span>?&gt;</span><br><span class="line">&lt;TextView xmlns:android=<span class="string">"http://schemas.android.com/apk/res/android"</span></span><br><span class="line">    android:layout_width=<span class="string">"0dp"</span></span><br><span class="line">    android:layout_height=<span class="string">"0dp"</span></span><br><span class="line">    android:gravity=<span class="string">"center"</span></span><br><span class="line">    android:text=<span class="string">"我是-页眉-"</span></span><br><span class="line">    android:textColor=<span class="string">"@android:color/holo_blue_dark"</span>/&gt;</span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line"><span class="number">2</span>. 使用 &lt;include /&gt; 标签添加页眉</span><br><span class="line">```java</span><br><span class="line">&lt;include</span><br><span class="line">	android:layout_width=<span class="string">"match_parent"</span></span><br><span class="line">	android:layout_height=<span class="string">"wrap_content"</span></span><br><span class="line">	android:layout_marginTop=<span class="string">"20dp"</span></span><br><span class="line">	layout=<span class="string">"@layout/header_app_name"</span>/&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>效果如下：</p>
+<p><img src="\uploads\androidhacks\layout\hack2\layout_hack2_5png" alt="添加页眉" title="添加页眉"></p>
+<p><strong>注意：</strong>在示例中页面布局的宽度高度都设置为 0dp 了，这么做的目的就是由 header_app_name.xml 文件的使用者在 <include> 标签中指定 layout_width 和 layout_height 属性。如果使用者不指定这两个属性，它们的默认值都是 0dp，那便看不到页眉。</include></p>
+<h1 id="三、-标签注意事项"><a href="#三、-标签注意事项" class="headerlink" title="三、 标签注意事项"></a>三、<include> 标签注意事项</include></h1><p>这里罗列了一些我在使用 <include> 标签的时候踩过的一些坑，希望大家以后可以绕过去。</include></p>
+<h2 id="findViewById-出现-NullPointerException"><a href="#findViewById-出现-NullPointerException" class="headerlink" title="findViewById 出现 NullPointerException"></a>findViewById 出现 NullPointerException</h2><p>具体情况是这样的，如果 include 一个布局时，并没有给 <include> 标签设置 id 属性，那么你直接使用 findViewById 来找 include 指定布局中控件是没有问题的。</include></p>
+<p>但是，一旦你为 <include> 标签设置了 id ，就不能直接把它里面的控件当成主布局文件中的控件来直接获取了，必须先获得这个 <include> 标签指定的布局文件，再通过该布局文件 findViewById 来获得其子控件。 </include></include></p>
+<h2 id="标签失效了"><a href="#标签失效了" class="headerlink" title=" 标签失效了"></a><include> 标签失效了</include></h2><p>Android 的缺陷（<a href="http://code.google.com/p/andorid/issue/" target="_blank" rel="external">Issue</a>）跟踪系统中报告过一个<a href="http://code.google.com/p/andorid/issue/detail?id=2863" target="_blank" rel="external">缺陷</a>，缺陷的标题是：“<include> 标签失效了，如果想通过 <include> 标签的属性覆盖被包含的布局所指定的属性是行不通的。”。</include></include></p>
+<p>这个 issue 描述的问题在一定程度上是正确的，问题出在如果想在 <include> 标签中覆盖被包含布局所指定的任何 android:layout_* 属性，必须在 <include> 标签中同时指定 android:layout_width 和 android:layout_height 这两个属性。（参考自：《50 Android Hacks》）</include></include></p>
+<p><strong>PS：</strong>话说如果你是用 AndroidStudio 的话，可能根本就不会遇到这个问题，因为，如果你在指定其他的 android:layout_* 属性时，如果没有同时指定 android:layout_width 和 android:layout_height 这两个属性，AndroidStudio 是会报错的：</p>
+<p><img src="\uploads\androidhacks\layout\hack2\layout_hack2_6.png" alt="提示添加 layout_width 和 layout_height" title="提示添加 layout_width 和 layout_height"></p>
+<h2 id="自定义控件与"><a href="#自定义控件与" class="headerlink" title="自定义控件与 "></a>自定义控件与 <include></include></h2><p>如果是一些比较简单，include 进来之后不需要有过多操作的，使用 <include> 完全可以胜任了。对于一些比较复杂，而且要添加很多响应事件等的使用场景，建议使用自定义控件。如果还是使用 <include> 标签，那么不可避免在 Java 代码中又得写一堆类似的代码来添加相应逻辑。</include></include></p>
+<h1 id="项目地址"><a href="#项目地址" class="headerlink" title="项目地址"></a>项目地址</h1><p><strong><a href="https://github.com/DIY-green/AndroidHacks" target="_blank" rel="external">AndroidHacks合集</a></strong><br><strong><a href="https://github.com/DIY-green/AndroidHacksLayout" target="_blank" rel="external">布局篇</a></strong><br><a href="http://diy-green.github.io/" target="_blank" rel="external">个人博客</a><br>示例用到代码见：<br><strong><a href="https://github.com/DIY-green/AndroidHacksLayout/blob/master/app/src/main/java/com/diygreen/androidhackslayout/Hack2Activity.java" target="_blank" rel="external">Hack2Activity.java</a></strong><br><strong><a href="https://github.com/DIY-green/AndroidHacksLayout/blob/master/app/src/main/res/layout/activity_hack2_1.xml" target="_blank" rel="external">activity_hack2_1.xml</a></strong><br><strong><a href="https://github.com/DIY-green/AndroidHacksLayout/blob/master/app/src/main/res/layout/activity_hack2_2.xml" target="_blank" rel="external">activity_hack2_2.xml</a></strong><br><strong><a href="https://github.com/DIY-green/AndroidHacksLayout/blob/master/app/src/main/res/layout/header_app_name.xml" target="_blank" rel="external">header_app_name.xml</a></strong><br><strong><a href="https://github.com/DIY-green/AndroidHacksLayout/blob/master/app/src/main/res/layout/footer_app_name.xml" target="_blank" rel="external">footer_app_name.xml</a></strong></p>
+
+      
+    </div>
+    
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+<div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton", disable="enable", onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}", style="cursor: pointer; border: 0; outline: 0; border-radius: 100%; padding: 0; margin: 0; letter-spacing: normal; text-transform: none; text-indent: 0px; text-shadow: none">
+    <span onmouseover="this.style.color='rgb(236,96,0)';this.style.background='rgb(204,204,204)'" onMouseOut="this.style.color='#fff';this.style.background='rgb(236,96,0)'" style="display: inline-block; width: 70px; height: 70px; border-radius: 100%; line-height: 81px; color: #fff; font: 400 35px/75px 'microsofty'; background: rgb(236,96,0)">赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/uploads/images/wechat-reward-image.png" alt="DIY-green WeChat Pay" style="width: 200px; max-width: 100%; display: inline-block"/>
+        <p>微信打赏</p>
+      </div>
+    
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/uploads/images/alipay-reward-image.png" alt="DIY-green Alipay" style="width: 200px; max-width: 100%; display: inline-block"/>
+        <p>支付宝打赏</p>
+      </div>
+    
+  </div>
+</div>
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Android/" rel="tag">#Android</a>
+          
+            <a href="/tags/Android小技巧/" rel="tag">#Android小技巧</a>
+          
+            <a href="/tags/Hacks布局篇/" rel="tag">#Hacks布局篇</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/05/07/Android小技巧/布局篇/Hacks布局篇-Hack3 使用merge标签减少布局层级/" rel="next" title="Hacks布局篇-Hack3 使用merge标签减少布局层级">
+                <i class="fa fa-chevron-left"></i> Hacks布局篇-Hack3 使用merge标签减少布局层级
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/05/07/AndroidStudyDemo系列/Android6.x新API介绍(二)/" rel="prev" title="Android6.x新API介绍(二)">
+                Android6.x新API介绍(二) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/05/07/Android小技巧/布局篇/Hacks布局篇-Hack2 使用include标签避免代码重复/"
+           data-title="Hacks布局篇-Hack2 使用include标签避免代码重复" data-url="http://diy-green.com/2016/05/07/Android小技巧/布局篇/Hacks布局篇-Hack2 使用include标签避免代码重复/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/images/avatar.jpg"
+               alt="DIY-green" />
+          <p class="site-author-name" itemprop="name">DIY-green</p>
+          <p class="site-description motion-element" itemprop="description">男子千年志，吾生未有涯。心随朗月高，志与秋霜洁。</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">52</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">27</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/DIY-green" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/users/0ad0a0afc409/latest_articles" target="_blank" title="JianShu">
+                  
+                    <i class="fa fa-globe"></i>
+                  
+                  JianShu
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element">
+            <div class="links-of-blogroll-title">
+              <i class="fa fa-globe fa-fw"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.jianshu.com/users/0ad0a0afc409/latest_articles" title="DIY-green简书" target="_blank">DIY-green简书</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.jianshu.com/users/3a482c4f0658/latest_articles" title="天接水0001" target="_blank">天接水0001</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://sunfusheng.com" title="孙福生" target="_blank">孙福生</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://kuanggang.github.io" title="匡罡" target="_blank">匡罡</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://Ivorfason.github.io" title="尹明仁" target="_blank">尹明仁</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://mengqingxiang.github.io" title="孟庆祥" target="_blank">孟庆祥</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、每个页面添加页脚"><span class="nav-number">1.</span> <span class="nav-text">一、每个页面添加页脚</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用-标签为页面添加页脚"><span class="nav-number">2.</span> <span class="nav-text">使用  标签为页面添加页脚</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、-标签使用详解"><span class="nav-number">3.</span> <span class="nav-text">二、 标签使用详解</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#include-属性有两种设置方式"><span class="nav-number">3.1.</span> <span class="nav-text">include 属性有两种设置方式</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三、-标签注意事项"><span class="nav-number">4.</span> <span class="nav-text">三、 标签注意事项</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#findViewById-出现-NullPointerException"><span class="nav-number">4.1.</span> <span class="nav-text">findViewById 出现 NullPointerException</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#标签失效了"><span class="nav-number">4.2.</span> <span class="nav-text"> 标签失效了</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自定义控件与"><span class="nav-number">4.3.</span> <span class="nav-text">自定义控件与 </span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#项目地址"><span class="nav-number">5.</span> <span class="nav-text">项目地址</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+<div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">DIY-green</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info powered-by">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+<div class="powered-by">
+  <span id="busuanzi_container_site_pv">
+    本站总访问量<span id="busuanzi_value_site_pv"></span>次
+  </span>
+</div>
+<div style="display:inline-block;">
+  <span id="busuanzi_container_site_uv">
+    本站访客数<span id="busuanzi_value_site_uv"></span>人次
+  </span>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"DIY-green"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+      
+      <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+      <script src="/js/src/hook-duoshuo.js"></script>
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+  
+  
+  <!-- custom analytics part create by xiamo -->
+<script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+<script>AV.initialize("UnkeFG0pM1t3q8H3y7NTLUA0-gzGzoHsz", "2oBUu9nxByteYjLFtBtqOPwN");</script>
+<script>
+function showTime(Counter) {
+	var query = new AV.Query(Counter);
+	$(".leancloud_visitors").each(function() {
+		var url = $(this).attr("id").trim();
+		query.equalTo("url", url);
+		query.find({
+			success: function(results) {
+				if (results.length == 0) {
+					var content = '0 ' + $(document.getElementById(url)).text();
+					$(document.getElementById(url)).text(content);
+					return;
+				}
+				for (var i = 0; i < results.length; i++) {
+					var object = results[i];
+					var content = object.get('time') + ' ' + $(document.getElementById(url)).text();
+					$(document.getElementById(url)).text(content);
+				}
+			},
+			error: function(object, error) {
+				console.log("Error: " + error.code + " " + error.message);
+			}
+		});
+
+	});
+}
+
+function addCount(Counter) {
+	var Counter = AV.Object.extend("Counter");
+	url = $(".leancloud_visitors").attr('id').trim();
+	title = $(".leancloud_visitors").attr('data-flag-title').trim();
+	var query = new AV.Query(Counter);
+	query.equalTo("url", url);
+	query.find({
+		success: function(results) {
+			if (results.length > 0) {
+				var counter = results[0];
+				counter.fetchWhenSave(true);
+				counter.increment("time");
+				counter.save(null, {
+					success: function(counter) {
+						var content =  counter.get('time') + ' ' + $(document.getElementById(url)).text();
+						$(document.getElementById(url)).text(content);
+					},
+					error: function(counter, error) {
+						console.log('Failed to save Visitor num, with error message: ' + error.message);
+					}
+				});
+			} else {
+				var newcounter = new Counter();
+				newcounter.set("title", title);
+				newcounter.set("url", url);
+				newcounter.set("time", 1);
+				newcounter.save(null, {
+					success: function(newcounter) {
+					    console.log("newcounter.get('time')="+newcounter.get('time'));
+						var content = newcounter.get('time') + ' ' + $(document.getElementById(url)).text();
+						$(document.getElementById(url)).text(content);
+					},
+					error: function(newcounter, error) {
+						console.log('Failed to create');
+					}
+				});
+			}
+		},
+		error: function(error) {
+			console.log('Error:' + error.code + " " + error.message);
+		}
+	});
+}
+$(function() {
+	var Counter = AV.Object.extend("Counter");
+	if ($('.leancloud_visitors').length == 1) {
+		addCount(Counter);
+	} else if ($('.post-title-link').length > 1) {
+		showTime(Counter);
+	}
+}); 
+</script>
+  
+  
+</body>
+</html>

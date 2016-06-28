@@ -1,0 +1,1095 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Android 4,StudyDemo," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="作者：李旺成时间：2016年4月9日
+
+接上篇 Android5.x新API介绍(一)
+八、MediaProjection在 Android 5.0 之前做屏幕截图，首先需要获取 root 权限（当然说的截取包括状态栏在内，任意界面的屏幕，就如同按下截图快捷键那种）。现在不用那么辛苦了，在 Android 5.0 中提供了新的接口 android.media.projection，使用该包下的一">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android5.x新API介绍(二)">
+<meta property="og:url" content="http://diy-green.com/2016/05/07/AndroidStudyDemo系列/Android5.x新API介绍(二)/index.html">
+<meta property="og:site_name" content="DIY-green">
+<meta property="og:description" content="作者：李旺成时间：2016年4月9日
+
+接上篇 Android5.x新API介绍(一)
+八、MediaProjection在 Android 5.0 之前做屏幕截图，首先需要获取 root 权限（当然说的截取包括状态栏在内，任意界面的屏幕，就如同按下截图快捷键那种）。现在不用那么辛苦了，在 Android 5.0 中提供了新的接口 android.media.projection，使用该包下的一">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android5\android5_newapi2_1.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android5\android5_newapi2_2.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android5\android5_newapi2_3.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android5\android5_newapi2_4.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android5\android5_newapi2_5.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android5\android5_newapi2_6.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android5\android5_newapi2_7.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android5\android5_newapi2_8.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android5\android5_newapi2_9.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android5\android5_newapi2_10.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android5\android5_newapi2_11.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android5\android5_newapi2_12.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android5\android5_newapi2_13.gif">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android5\android5_newapi2_14.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android5\android5_newapi2_15.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android5\android5_newapi2_16.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android5\android5_newapi2_17.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android5\android5_newapi2_18.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android5\android5_newapi2_19.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android5\android5_newapi2_20.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android5\android5_newapi2_21.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android5\android5_newapi2_22.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android5\android5_newapi2_23.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android5\android5_newapi2_24.png">
+<meta property="og:updated_time" content="2016-04-26T02:51:50.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android5.x新API介绍(二)">
+<meta name="twitter:description" content="作者：李旺成时间：2016年4月9日
+
+接上篇 Android5.x新API介绍(一)
+八、MediaProjection在 Android 5.0 之前做屏幕截图，首先需要获取 root 权限（当然说的截取包括状态栏在内，任意界面的屏幕，就如同按下截图快捷键那种）。现在不用那么辛苦了，在 Android 5.0 中提供了新的接口 android.media.projection，使用该包下的一">
+<meta name="twitter:image" content="http://diy-green.com/\uploads\androidstudydemo\android5\android5_newapi2_1.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'DIY-green'
+    }
+  };
+</script>
+
+  <title> Android5.x新API介绍(二) | DIY-green </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?af1b7efbf565bc568165c5a0600a0207";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+  <div style="display: none;">
+    <script src="http://s6.cnzz.com/stat.php?id=1258791461&web_id=1258791461" type="text/javascript"></script>
+  </div>
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">DIY-green</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            全部
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-androidstudydemo">
+          <a href="/categories/AndroidStudyDemo/" rel="section">
+            
+              <i class="menu-item-icon fa fa-hand-right fa-fw"></i> <br />
+            
+            ● &nbsp; AndroidStudyDemo
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-androidganhuo">
+          <a href="/categories/Android干货/" rel="section">
+            
+              <i class="menu-item-icon fa fa-hand-right fa-fw"></i> <br />
+            
+            ● &nbsp; Android干货
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-androidhacks">
+          <a href="/categories/Android小技巧/" rel="section">
+            
+              <i class="menu-item-icon fa fa-hand-right fa-fw"></i> <br />
+            
+            ● &nbsp; Android小技巧
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-androidstudio">
+          <a href="/categories/AndroidStudio/" rel="section">
+            
+              <i class="menu-item-icon fa fa-hand-right fa-fw"></i> <br />
+            
+            ● &nbsp; AndroidStudio
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-essay">
+          <a href="/categories/随笔/" rel="section">
+            
+              <i class="menu-item-icon fa fa-hand-right fa-fw"></i> <br />
+            
+            ● &nbsp; 随笔
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Android5.x新API介绍(二)
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-05-07T20:39:24+08:00" content="2016-05-07">
+              2016-05-07
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/AndroidStudyDemo/" itemprop="url" rel="index">
+                    <span itemprop="name">AndroidStudyDemo</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/AndroidStudyDemo/Android-5/" itemprop="url" rel="index">
+                    <span itemprop="name">Android 5</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/05/07/AndroidStudyDemo系列/Android5.x新API介绍(二)/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/07/AndroidStudyDemo系列/Android5.x新API介绍(二)/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+		  &nbsp; | &nbsp;
+             <span id="/2016/05/07/AndroidStudyDemo系列/Android5.x新API介绍(二)/" class="leancloud_visitors" data-flag-title="Android5.x新API介绍(二)">
+               
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+		  
+		  <!--<span id="busuanzi_container_page_pv">
+		    &nbsp; | &nbsp;<span id="busuanzi_value_page_pv"></span>阅读
+		  </span>
+		  
+		  
+			&nbsp; | &nbsp;
+			<span id="/2016/05/07/AndroidStudyDemo系列/Android5.x新API介绍(二)/"class="leancloud_visitors" data-flag-title="Android5.x新API介绍(二)">
+					 &nbsp;阅读
+					</span>
+			-->
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="\uploads\androidstudydemo\android5\android5_newapi2_1.png" alt="Android5.x新API介绍(二)" title="Android5.x新API介绍(二)思维导图"></p>
+<p><strong>作者：<a href="https://github.com/DIY-green/" target="_blank" rel="external">李旺成</a></strong><br><strong>时间：2016年4月9日</strong></p>
+<hr>
+<p>接上篇 <a href="http://www.jianshu.com/p/ba72bb5d181d" target="_blank" rel="external">Android5.x新API介绍(一)</a></p>
+<h1 id="八、MediaProjection"><a href="#八、MediaProjection" class="headerlink" title="八、MediaProjection"></a>八、MediaProjection</h1><p>在 Android 5.0 之前做屏幕截图，首先需要获取 root 权限（当然说的截取包括状态栏在内，任意界面的屏幕，就如同按下截图快捷键那种）。现在不用那么辛苦了，在 Android 5.0 中提供了新的接口 android.media.projection，使用该包下的一些接口，无需 root 即可截屏。看类图：</p>
+<p><img src="\uploads\androidstudydemo\android5\android5_newapi2_2.png" alt="android.media.projection 包" title="android.media.projection 包"></p>
+<p><img src="\uploads\androidstudydemo\android5\android5_newapi2_3.png" alt="MediaProjectionManager 类" title="MediaProjectionManager 类"></p>
+<p>查询官方文档可以发现，这个接口主要用来“屏幕截图”操作和“音频录制”操作。由于这里使用的是媒体映射技术手段，所以截取的屏幕不是真正的设备屏幕，而是截取通过映射出来的“虚拟屏幕”。当然，这不影响效果啦！我们截图不就是要得到一张完整的屏幕图片，而这个“映射”出来的图片与系统屏幕完全一致，所以，对于普通截屏，用这个完全可以胜任了。 </p>
+<p>看效果图：</p>
+<p><img src="\uploads\androidstudydemo\android5\android5_newapi2_4.png" alt="截屏功能开启" title="截屏功能开启"></p>
+<p><img src="\uploads\androidstudydemo\android5\android5_newapi2_5.png" alt="截屏效果图" title="截屏效果图"></p>
+<h2 id="MediaProjection-使用步骤"><a href="#MediaProjection-使用步骤" class="headerlink" title="MediaProjection  使用步骤"></a>MediaProjection  使用步骤</h2><ol>
+<li><p>获取 MediaProjectionManager 类实例*</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mMediaProjectionManager = (MediaProjectionManager)getApplication()</span><br><span class="line">		.getSystemService(Context.MEDIA_PROJECTION_SERVICE);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>发出截屏意图</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">startActivityForResult(</span><br><span class="line">		mMediaProjectionManager.createScreenCaptureIntent(), </span><br><span class="line">		REQUEST_MEDIA_PROJECTION);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>得到返回结果后获取 MediaProjection</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mMediaProjection = mMediaProjectionManager</span><br><span class="line">		.getMediaProjection(resultCode, resultData);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>创建虚拟屏幕</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">createVirtualDisplay</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	    mVirtualDisplay = mMediaProjection.createVirtualDisplay(</span><br><span class="line">			<span class="string">"screen-mirror"</span>,</span><br><span class="line">			mWindowWidth, </span><br><span class="line">			mWindowHeight, </span><br><span class="line">			mScreenDensity, </span><br><span class="line">			DisplayManager.VIRTUAL_DISPLAY_FLAG_AUTO_MIRROR,</span><br><span class="line">			mImageReader.getSurface(), </span><br><span class="line">			<span class="keyword">null</span>, </span><br><span class="line">			<span class="keyword">null</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>获取屏幕图片</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Image image = mImageReader.acquireLatestImage();</span><br><span class="line"><span class="comment">// 处理成 Bitmap，存到 SD 卡中</span></span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="具体实例"><a href="#具体实例" class="headerlink" title="具体实例"></a>具体实例</h2><p>这里参考了<a href="http://home.cnblogs.com/u/tgyf/" target="_blank" rel="external">路上的脚印</a>的一个 Demo —— <a href="http://www.cnblogs.com/tgyf/p/4851092.html" target="_blank" rel="external">分享一种截屏方法</a>。在我的 Demo 中直接使用该示例的代码，只是修改了一下命名，在这先表示下感谢。下面大致分析下，该截屏 Demo 的思路，首先看下整体流程：</p>
+<p><img src="\uploads\androidstudydemo\android5\android5_newapi2_6.png" alt="截屏流程示意图" title="截屏流程示意图"></p>
+<p><strong>截屏 Demo 解析</strong><br>这里面有个思路值得赞赏：通过共享类给 Service 提供实现截屏所需要的，截屏请求所返回的数据（我这里说的有点抽象，有点拗口，其实就上面流程图所示，具体可参考源码或者查看 <a href="http://www.cnblogs.com/tgyf/p/4851092.html" target="_blank" rel="external">分享一种截屏方法</a> 一文）<br><em>1. 创建一个 Application —— DIYApp.java 用来共享数据</em><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DIYApp</span> <span class="keyword">extends</span> <span class="title">Application</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> mResult;</span><br><span class="line">    <span class="keyword">private</span> Intent mIntent;</span><br><span class="line">    <span class="keyword">private</span> MediaProjectionManager mMediaProjectionManager;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getmResult</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> mResult;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Intent <span class="title">getmIntent</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> mIntent;</span><br><span class="line">    &#125;</span><br><span class="line">	<span class="comment">// 就是一些 Getter / Setter 方法</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>不要忘记了，得在 Manifest.xml 文件中注册啊！<br><em>2. 创建一个 Activity —— MediaProjectionActivity.java 用来发起请求</em></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// onCreate() 方法</span></span><br><span class="line"><span class="comment">// 获取 MediaProjectionManager 实例</span></span><br><span class="line"> mMediaProjectionManager = (MediaProjectionManager) getApplication()</span><br><span class="line">		.getSystemService(Context.MEDIA_PROJECTION_SERVICE);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 利用MediaProjectionManager 的 createScreenCaptureIntent() 方法生成intent，发起截屏请求</span></span><br><span class="line">startActivityForResult(</span><br><span class="line">	mMediaProjectionManager.createScreenCaptureIntent(), </span><br><span class="line">	REQUEST_MEDIA_PROJECTION);</span><br><span class="line">((DIYApp) getApplication()).setMediaProjectionManager(mMediaProjectionManager);</span><br></pre></td></tr></table></figure>
+<p><em>3. 创建一个 Service —— CaptureScreenService.java</em><br>先创建出来，其作用就是完成真正的截屏功能，稍后讲解。<br>不要忘记了，得在 Manifest.xml 文件中注册啊！<br><em>4. 在 onActivityResult() 中 获取并处理返回结果</em><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 缓存返回结果</span></span><br><span class="line">result = resultCode;</span><br><span class="line">intent = data;</span><br><span class="line">((DIYApp) getApplication()).setmResult(resultCode);</span><br><span class="line">((DIYApp) getApplication()).setmIntent(data);</span><br><span class="line"><span class="comment">// 启动截图使用的 Service</span></span><br><span class="line">Intent intent = <span class="keyword">new</span> Intent(</span><br><span class="line">	getApplicationContext(), </span><br><span class="line">	CaptureScreenService.class);</span><br><span class="line">startService(intent);</span><br></pre></td></tr></table></figure></p>
+<p><em>5. 在 Service 中创建虚拟环境</em><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">createVirtualEnvironment</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	mDateFormat = <span class="keyword">new</span> SimpleDateFormat(<span class="string">"yyyy_MM_dd_hh_mm_ss"</span>);</span><br><span class="line">	mDateStr = mDateFormat.format(<span class="keyword">new</span> java.util.Date());</span><br><span class="line">	mImagePath = Environment.getExternalStorageDirectory().getPath() + <span class="string">"/Pictures/"</span>;</span><br><span class="line">	mImageName = mImagePath + mDateStr + <span class="string">".png"</span>;</span><br><span class="line">	sMediaProjectionManager = (MediaProjectionManager) getApplication().getSystemService(Context.MEDIA_PROJECTION_SERVICE);</span><br><span class="line">	WindowManager windowManager = (WindowManager) getApplication().getSystemService(Context.WINDOW_SERVICE);</span><br><span class="line">	mWindowWidth = windowManager.getDefaultDisplay().getWidth();</span><br><span class="line">	mWindowHeight = windowManager.getDefaultDisplay().getHeight();</span><br><span class="line">	DisplayMetrics metrics = <span class="keyword">new</span> DisplayMetrics();</span><br><span class="line">	windowManager.getDefaultDisplay().getMetrics(metrics);</span><br><span class="line">	mScreenDensity = metrics.densityDpi;</span><br><span class="line">	mImageReader = ImageReader.newInstance(mWindowWidth, mWindowHeight, <span class="number">0x1</span>, <span class="number">2</span>); <span class="comment">//ImageFormat.RGB_565</span></span><br><span class="line">	Log.i(TAG, <span class="string">"prepared the virtual environment"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><em>6. 在 Service 中获取虚拟屏幕</em><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">createVirtualDisplay</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	mVirtualDisplay = mMediaProjection.createVirtualDisplay(</span><br><span class="line">			<span class="string">"screen-mirror"</span>,</span><br><span class="line">			mWindowWidth, </span><br><span class="line">			mWindowHeight, </span><br><span class="line">			mScreenDensity, </span><br><span class="line">			DisplayManager.VIRTUAL_DISPLAY_FLAG_AUTO_MIRROR,</span><br><span class="line">			mImageReader.getSurface(), <span class="keyword">null</span>, <span class="keyword">null</span>);</span><br><span class="line">	Log.i(TAG, <span class="string">"virtual displayed"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><em>7. 获取截图，转化后保存截取的屏幕数据到文件</em><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">startCapture</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	mDateStr = mDateFormat.format(<span class="keyword">new</span> java.util.Date());</span><br><span class="line">	mImageName = mImagePath + mDateStr + <span class="string">".png"</span>;</span><br><span class="line"></span><br><span class="line">	Image image = mImageReader.acquireLatestImage();</span><br><span class="line">	<span class="keyword">int</span> width = image.getWidth();</span><br><span class="line">	<span class="keyword">int</span> height = image.getHeight();</span><br><span class="line">	<span class="keyword">final</span> Image.Plane[] planes = image.getPlanes();</span><br><span class="line">	<span class="keyword">final</span> ByteBuffer buffer = planes[<span class="number">0</span>].getBuffer();</span><br><span class="line">	<span class="keyword">int</span> pixelStride = planes[<span class="number">0</span>].getPixelStride();</span><br><span class="line">	<span class="keyword">int</span> rowStride = planes[<span class="number">0</span>].getRowStride();</span><br><span class="line">	<span class="keyword">int</span> rowPadding = rowStride - pixelStride * width;</span><br><span class="line">	Bitmap bitmap = Bitmap.createBitmap(width + rowPadding / pixelStride, height, Bitmap.Config.ARGB_8888);</span><br><span class="line">	bitmap.copyPixelsFromBuffer(buffer);</span><br><span class="line">	bitmap = Bitmap.createBitmap(bitmap, <span class="number">0</span>, <span class="number">0</span>, width, height);</span><br><span class="line">	image.close();</span><br><span class="line">	Log.i(TAG, <span class="string">"image data captured"</span>);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> (bitmap != <span class="keyword">null</span>) &#123;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			File fileImage = <span class="keyword">new</span> File(mImageName);</span><br><span class="line">			<span class="keyword">if</span> (!fileImage.exists()) &#123;</span><br><span class="line">				fileImage.createNewFile();</span><br><span class="line">				Log.i(TAG, <span class="string">"image file created"</span>);</span><br><span class="line">			&#125;</span><br><span class="line">			FileOutputStream out = <span class="keyword">new</span> FileOutputStream(fileImage);</span><br><span class="line">			<span class="keyword">if</span> (out != <span class="keyword">null</span>) &#123;</span><br><span class="line">				bitmap.compress(Bitmap.CompressFormat.PNG, <span class="number">100</span>, out);</span><br><span class="line">				out.flush();</span><br><span class="line">				out.close();</span><br><span class="line">				Intent media = <span class="keyword">new</span> Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);</span><br><span class="line">				Uri contentUri = Uri.fromFile(fileImage);</span><br><span class="line">				media.setData(contentUri);</span><br><span class="line">				<span class="keyword">this</span>.sendBroadcast(media);</span><br><span class="line">				Log.i(TAG, <span class="string">"screen image saved"</span>);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125; <span class="keyword">catch</span> (FileNotFoundException e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><em>8. 使用说明</em><br>启动后会生成 一个浮动小图标，该图标为截屏按键。在任意界面点击该图标，即可以截取当前屏幕。<br><strong>注意：</strong>截屏图像保存为 PNG 格式，存储路径为手机 sdcard 的 Pictures 文件夹。<br><a href="http://files.cnblogs.com/files/tgyf/CaptureScreen.rar" target="_blank" rel="external">点击下载原始 Demo</a></p>
+<p>好了，关于截屏到这里了。</p>
+<h1 id="九、JobScheduler"><a href="#九、JobScheduler" class="headerlink" title="九、JobScheduler"></a>九、JobScheduler</h1><p>Android 5.0 提供了一个新的 <a href="https://developer.android.com/reference/android/app/job/JobScheduler.html" target="_blank" rel="external">JobScheduler</a> API，它允许你通过为系统定义要在以后的某个时间或在指定的条件下（例如，当设备在充电时）异步运行的作业来优化电池寿命。</p>
+<h2 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h2><p>作业调度在下列情况下非常有用：</p>
+<ul>
+<li>应用具有您可以推迟的非面向用户的工作。</li>
+<li>应用具有当插入设备时您希望优先执行的工作。</li>
+<li>应用具有需要访问网络或 Wi-Fi 连接的任务。</li>
+<li>应用具有您希望作为一个批次定期运行的许多任务。</li>
+</ul>
+<blockquote>
+<p>当一系列预置的条件被满足时，JobScheduler API 为你的应用执行一个操作。JobScheduler 与 AlarmManager 不同的是这个执行时间是不确定的。除此之外，JobScheduler API 允许同时执行多个任务。这允许你的应用执行某些指定的任务时不需要考虑时机控制引起的电池消耗。（引自：<a href="http://www.68idc.cn/help/buildlang/ask/20150405311188.html" target="_blank" rel="external">在Android 5.0中使用 JobScheduler</a>）</p>
+</blockquote>
+<h2 id="JobScheduler-简介"><a href="#JobScheduler-简介" class="headerlink" title="JobScheduler 简介"></a>JobScheduler 简介</h2><p>先来看一下 JobScheduler 所在的包，以及几个关键的类：</p>
+<p><img src="\uploads\androidstudydemo\android5\android5_newapi2_7.png" alt="Job 包" title="Job 包"></p>
+<p><img src="\uploads\androidstudydemo\android5\android5_newapi2_8.png" alt="JobService 类" title="JobService 类"></p>
+<p><img src="\uploads\androidstudydemo\android5\android5_newapi2_9.png" alt="JobInfo 类" title="JobInfo 类"></p>
+<p><img src="\uploads\androidstudydemo\android5\android5_newapi2_10.png" alt="JobInfo.Builder 类" title="JobInfo.Builder 类"></p>
+<p>Android 文档上介绍的比较详细，这里就不翻译文档了，以介绍如何使用为主。</p>
+<h2 id="简单使用"><a href="#简单使用" class="headerlink" title="简单使用"></a>简单使用</h2><p>先看一个简单的演示，效果如下图：<br><img src="\uploads\androidstudydemo\android5\android5_newapi2_11.png" alt="简单演示" title="简单演示"></p>
+<h3 id="1-在-AndroidStudio-中创建-API-最低为21-的项目"><a href="#1-在-AndroidStudio-中创建-API-最低为21-的项目" class="headerlink" title="1. 在 AndroidStudio 中创建 API 最低为21 的项目"></a>1. 在 AndroidStudio 中创建 API 最低为21 的项目</h3><p><img src="\uploads\androidstudydemo\android5\android5_newapi2_12.png" alt="创建项目" title="创建项目"></p>
+<h3 id="2-创建-JobService"><a href="#2-创建-JobService" class="headerlink" title="2. 创建 JobService"></a>2. 创建 JobService</h3><p>这里仅为了演示，所以一切以最简单的方式。新建一个继承自 JobService 的 Service。代码如下：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JobSchedulerSimpleService</span> <span class="keyword">extends</span> <span class="title">JobService</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String TAG = <span class="string">"JobSchedulerService"</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> Handler mJobHandler = <span class="keyword">new</span> Handler(<span class="keyword">new</span> Handler.Callback() &#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">handleMessage</span><span class="params">(Message msg)</span> </span>&#123;</span><br><span class="line">            <span class="comment">// 模拟用 Handlder 来执行在 JobSchedulerService 中定义的任务（耗时操作）</span></span><br><span class="line">            Toast.makeText(getApplicationContext(), <span class="string">"JobSchedulerService task running"</span>, Toast.LENGTH_SHORT).show();</span><br><span class="line">            jobFinished((JobParameters) msg.obj, <span class="keyword">false</span>);</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 需要注意的是这个job service运行在主线程</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">JobSchedulerSimpleService</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate();</span><br><span class="line">        Log.i(TAG, <span class="string">"JobSchedulerService created"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 当任务开始时会执行onStartJob(JobParameters params)方法</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onStartJob</span><span class="params">(JobParameters params)</span> </span>&#123;</span><br><span class="line">        mJobHandler.sendMessage(Message.obtain(mJobHandler, <span class="number">1</span>, params));</span><br><span class="line">        <span class="comment">// 返回true，表示让系统知道你会手动地调用jobFinished</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/*</span><br><span class="line">    当系统接收到一个取消请求时，</span><br><span class="line">    系统会调用onStopJob(JobParameters params)方法取消正在等待执行的任务</span><br><span class="line">     */</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onStopJob</span><span class="params">(JobParameters params)</span> </span>&#123;</span><br><span class="line">        mJobHandler.removeMessages(<span class="number">1</span>);</span><br><span class="line">        <span class="comment">// 可以试一下这里分别返回 true 与 false 的区别</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onDestroy</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onDestroy();</span><br><span class="line">        Log.i(TAG, <span class="string">"JobSchedulerService destroyed"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>说明：</strong>在示例 Demo 中的代码有比较详细的注释，这里为减少篇幅，进行了删减。（示例参考自：<a href="http://code.tutsplus.com/tutorials/using-the-jobscheduler-api-on-android-lollipop--cms-23562?utm_source=tuicool&amp;utm_medium=referral" target="_blank" rel="external">Using the JobScheduler API on Android Lollipop</a>）</p>
+<h3 id="3-在-Manifest-中注册-JobService"><a href="#3-在-Manifest-中注册-JobService" class="headerlink" title="3. 在 Manifest 中注册 JobService"></a>3. 在 Manifest 中注册 JobService</h3><p>这里有个比较关键的地方，那就是必须添加权限，否则报错。代码如下：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;service</span><br><span class="line">	android:name=<span class="string">".newapi2.JobSchedulerSimpleService"</span></span><br><span class="line">	android:enabled=<span class="string">"true"</span></span><br><span class="line">	android:permission=<span class="string">"android.permission.BIND_JOB_SERVICE"</span> /&gt;</span><br><span class="line">&lt;!-- 一定不要忘记添加权限 --&gt;</span><br></pre></td></tr></table></figure></p>
+<h3 id="4-创建-JobScheduler"><a href="#4-创建-JobScheduler" class="headerlink" title="4. 创建 JobScheduler"></a>4. 创建 JobScheduler</h3><p>JobService 已准备妥当，剩下的就是和 JobScheduler API 交互了。这里我们需要创建一个 JobScheduler 对象，直接看代码：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 获取 JobScheduler 对象mJobScheduler = (JobScheduler) getSystemService(Context.JOB_SCHEDULER_SERVICE);</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="5-封装任务并执行"><a href="#5-封装任务并执行" class="headerlink" title="5. 封装任务并执行"></a>5. 封装任务并执行</h3><p>JobScheduler 的定时任务都是使用 JobInfo 对象封装的，而 JobInfo 是通过 JobInfo.Builder 来构建的（以后会看到越来越多的<strong> Builder </strong>的）。该 JobInfo 创建好之后就可以交给 Service 去执行了。看代码：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// JobInfo.Builder接收两个参数，</span></span><br><span class="line"><span class="comment">//      第一个参数是你要运行的任务的标识符，</span></span><br><span class="line"><span class="comment">//      第二个是这个Service组件的类名。</span></span><br><span class="line">JobInfo.Builder builder = <span class="keyword">new</span> JobInfo.Builder(</span><br><span class="line">		<span class="number">1</span>,</span><br><span class="line">		<span class="keyword">new</span> ComponentName(</span><br><span class="line">				getPackageName(),</span><br><span class="line">				JobSchedulerSimpleService.class.getName()));</span><br><span class="line"><span class="comment">// builder允许你设置很多不同的选项来控制任务的执行</span></span><br><span class="line"><span class="comment">// 这里设置的是让任务每隔三秒运行一次</span></span><br><span class="line">builder.setPeriodic(<span class="number">3000</span>);</span><br><span class="line">mJobScheduler.schedule(builder.build());</span><br></pre></td></tr></table></figure></p>
+<p>上面的代码很简单，只是演示怎么实现一个使用 Handler 对象来运行后台任务的JobService 子类，以及如何使用 JobInfo.Builder 来设置 JobService。尝试使用一下，你可以在减少资源消耗的同时提升应用的效率。当然还有很多地方没有涉及到，好在 Google 给了一个 Simple Demo，已经集成在示例代码里面的，用到的时候大家可以参考下，运行效果如下图：</p>
+<p><img src="\uploads\androidstudydemo\android5\android5_newapi2_13.gif" alt="Google Simple JobScheduler 演示" title="Google Simple JobScheduler 演示"></p>
+<p>JobScheduler 就介绍到这里了，这里稍微提一下，老版本上可以试试  <a href="https://github.com/airk000/Trigger" target="_blank" rel="external">Trigger</a>。</p>
+<h1 id="十、Heads-Up-风格通知"><a href="#十、Heads-Up-风格通知" class="headerlink" title="十、Heads-Up 风格通知"></a>十、Heads-Up 风格通知</h1><p>Android 5.0 中提供了个通知新样式 Heads-Up，现在Android 也有推送卡片了。可以去看看 <a href="http://developer.android.com/guide/topics/ui/notifiers/notifications.html" target="_blank" rel="external">Google 的介绍</a>，低版本的手机可以使用 <a href="http://www.wandoujia.com/apps/com.achep.headsup" target="_blank" rel="external">HeadsUp提醒 APP</a> 来尝试下。</p>
+<p>Android 5.0 对通知的改动还是挺大的，主要有如下两个方面。</p>
+<h2 id="锁定屏幕通知"><a href="#锁定屏幕通知" class="headerlink" title="锁定屏幕通知"></a>锁定屏幕通知</h2><p>Android 5.0 中的锁定屏幕能够呈现通知。用户可以通过“<strong>设置</strong>”来选择是否允许在安全的锁定屏幕上显示敏感的通知内容。</p>
+<p>应用可以控制通知在安全的锁定屏幕上显示时的具体公开程度。要控制公开程度的级别，可以调用 <a href="https://developer.android.com/reference/android/app/Notification.Builder.html#setVisibility(int" target="_blank" rel="external"><strong>setVisibility()</strong></a>)<br> 并指定下列值之一：<br><a href="https://developer.android.com/reference/android/app/Notification.html#VISIBILITY_PRIVATE" target="_blank" rel="external"><strong>VISIBILITY_PRIVATE</strong></a><br>：显示基本信息（例如通知图标），但隐藏通知的全部内容。<br><a href="https://developer.android.com/reference/android/app/Notification.html#VISIBILITY_PUBLIC" target="_blank" rel="external"><strong>VISIBILITY_PUBLIC</strong></a><br>：显示通知的全部内容。<br><a href="https://developer.android.com/reference/android/app/Notification.html#VISIBILITY_SECRET" target="_blank" rel="external"><strong>VISIBILITY_SECRET</strong></a><br>：不显示任何内容，甚至连通知图标也不显示。</p>
+<p>如果公开程度级别为 <a href="https://developer.android.com/reference/android/app/Notification.html#VISIBILITY_PRIVATE" target="_blank" rel="external"><strong>VISIBILITY_PRIVATE</strong></a><br>，还可以提供隐藏了个人详细信息的通知内容修改版本。例如，短信应用的通知可能会显示“您有 3 条新短信”，但隐藏短信内容和发送者。要提供此备用通知，请先使用 <a href="https://developer.android.com/reference/android/app/Notification.Builder.html" target="_blank" rel="external">Notification.Builder</a><br> 创建替代通知。当创建不公开的通知对象时，可以通过 <a href="https://developer.android.com/reference/android/app/Notification.Builder.html#setPublicVersion(android.app.Notification" target="_blank" rel="external"><strong>setPublicVersion()</strong></a>)<br> 方法为其附加替代通知。</p>
+<h2 id="通知元数据"><a href="#通知元数据" class="headerlink" title="通知元数据"></a>通知元数据</h2><p>Android 5.0 使用与应用通知关联的元数据更智能地对通知进行排序。要设置元数据，需要在构建通知时调用 <a href="https://developer.android.com/reference/android/app/Notification.Builder.html" target="_blank" rel="external"><strong>Notification.Builder</strong></a> 中的以下方法：</p>
+<p><a href="https://developer.android.com/reference/android/app/Notification.Builder.html#setCategory(java.lang.String" target="_blank" rel="external"><strong>setCategory()</strong></a>)：告诉系统当设备处于“优先”**模式时如何处理您的应用通知（例如，当通知表示来电、即时消息或警报时）。</p>
+<p><a href="https://developer.android.com/reference/android/app/Notification.Builder.html#setPriority(int" target="_blank" rel="external"><strong>setPriority()</strong></a>)：将通知标记为重要性高于或低于普通通知。如果还带有声音或振动，则优先级字段设置为 <a href="https://developer.android.com/reference/android/app/Notification.html#PRIORITY_MAX" target="_blank" rel="external"><strong>PRIORITY_MAX</strong></a> 或 <a href="https://developer.android.com/reference/android/app/Notification.html#PRIORITY_HIGH" target="_blank" rel="external"><strong>PRIORITY_HIGH</strong></a> 的通知将出现在一个小的浮动窗口中。</p>
+<p><a href="https://developer.android.com/reference/android/app/Notification.Builder.html#addPerson(java.lang.String" target="_blank" rel="external"><strong>addPerson()</strong></a>)：允许向通知添加一个或多个相关的人员。利用此方法，应用可指示系统将来自指定人员的通知归成一组，或者将来自这些人员的通知归类为重要性高于普通通知。</p>
+<h2 id="简单使用-1"><a href="#简单使用-1" class="headerlink" title="简单使用"></a>简单使用</h2><p>先看下效果：</p>
+<p><img src="\uploads\androidstudydemo\android5\android5_newapi2_14.png" alt="各手机上的新通知" title="各手机上的新通知"></p>
+<p>上图所用的手机都是 Android 6.0 的系统（基本上都是在 Andoird 6.0 上定制的），可以看到很多定制过的 ROM 对 Heads-Up 的支持有很大差别。</p>
+<p>在 Support V4 包和 V7 包中都提供了 NotificationCompat，这里就不探讨这些，直接看看怎么使用，看代码：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Notification notification = <span class="keyword">new</span> NotificationCompat.Builder(<span class="keyword">this</span>)</span><br><span class="line">		.setVisibility(Notification.VISIBILITY_PUBLIC)</span><br><span class="line">		.setSmallIcon(R.mipmap.ic_logo)</span><br><span class="line">		.setFullScreenIntent(pendingIntent, <span class="keyword">false</span>)</span><br><span class="line">		.setContentTitle(<span class="string">"这是标题"</span>)</span><br><span class="line">		.setContentText(<span class="string">"这是内容"</span>)</span><br><span class="line">		.addAction(R.mipmap.ic_logo, <span class="string">"菜单1"</span>, pendingIntent1)</span><br><span class="line">		.build();</span><br><span class="line">notificationManager.notify(<span class="number">1</span>, notification);</span><br></pre></td></tr></table></figure></p>
+<p>关于通知就介绍到这里。</p>
+<h1 id="十一、PdfRenderer"><a href="#十一、PdfRenderer" class="headerlink" title="十一、PdfRenderer"></a>十一、PdfRenderer</h1><p>PdfRenderer —— 使用位图来呈现 PDF 文件。</p>
+<h2 id="PdfRenderer-简介"><a href="#PdfRenderer-简介" class="headerlink" title="PdfRenderer 简介"></a>PdfRenderer 简介</h2><p>Andorid 5.0 中可以使用新的 <a href="https://developer.android.com/reference/android/graphics/pdf/PdfRenderer.html" target="_blank" rel="external">PdfRenderer</a> 类将 PDF 文档页呈现为位图图片以便展示或打印。必须指定系统将可打印内容写入其中的一个可查找的（也就是说，可以随机访问内容）<a href="https://developer.android.com/reference/android/os/ParcelFileDescriptor.html" target="_blank" rel="external">ParcelFileDescriptor</a>。</p>
+<p>应用可以通过 <a href="https://developer.android.com/reference/android/graphics/pdf/PdfRenderer.html#openPage(int" target="_blank" rel="external">openPage()</a>) 获取页面进行呈现，然后调用 <a href="https://developer.android.com/reference/android/graphics/pdf/PdfRenderer.Page.html#render(android.graphics.Bitmap, android.graphics.Rect, android.graphics.Matrix, int" target="_blank" rel="external">render()</a>) 将已打开的 <a href="https://developer.android.com/reference/android/graphics/pdf/PdfRenderer.Page.html" target="_blank" rel="external">PdfRenderer.Page</a> 转变为位图。如果只希望将文档的一部分转变为位图图片（例如，要实施<a href="http://en.wikipedia.org/wiki/Tiled_rendering" target="_blank" rel="external">平铺渲染</a>以放大文档），则还可以设置其他参数。</p>
+<p>看一下 Andorid 5 添加的 pdf 相关 API：</p>
+<p><img src="\uploads\androidstudydemo\android5\android5_newapi2_15.png" alt="Pdf 包" title="Pdf 包"></p>
+<p><img src="\uploads\androidstudydemo\android5\android5_newapi2_16.png" alt="PdfRenderer 类文档" title="PdfRenderer 类文档"></p>
+<p><img src="\uploads\androidstudydemo\android5\android5_newapi2_17.png" alt="PdfRenderer 类" title="PdfRenderer 类"></p>
+<h2 id="PdfRenderer-简单使用"><a href="#PdfRenderer-简单使用" class="headerlink" title="PdfRenderer 简单使用"></a>PdfRenderer 简单使用</h2><p>先看效果图：</p>
+<p><img src="\uploads\androidstudydemo\android5\android5_newapi2_18.png" alt="PdfRenderer 演示" title="PdfRenderer 演示"></p>
+<ol>
+<li><p>打开 PDF 文件，获取 PdfRenderer 实例，看代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">openRenderer</span><span class="params">(Context context)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">	<span class="comment">// In this sample, we read a PDF from the assets directory.</span></span><br><span class="line">	mFileDescriptor = context.getAssets().openFd(<span class="string">"sample.pdf"</span>).getParcelFileDescriptor();</span><br><span class="line">	<span class="comment">// This is the PdfRenderer we use to render the PDF.</span></span><br><span class="line">	mPdfRenderer = <span class="keyword">new</span> PdfRenderer(mFileDescriptor);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>确定显示第几页</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">showPage</span><span class="params">(<span class="keyword">int</span> index)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (mPdfRenderer == <span class="keyword">null</span>) <span class="keyword">return</span>;</span><br><span class="line">	<span class="keyword">if</span> (mPdfRenderer.getPageCount() &lt;= index) &#123;</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">// Make sure to close the current page before opening another one.</span></span><br><span class="line">	<span class="keyword">if</span> (<span class="keyword">null</span> != mCurrentPage) &#123;</span><br><span class="line">		mCurrentPage.close();</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">// Use `openPage` to open a specific page in PDF.</span></span><br><span class="line">	mCurrentPage = mPdfRenderer.openPage(index);</span><br><span class="line">	<span class="comment">// Important: the destination bitmap must be ARGB (not RGB).</span></span><br><span class="line">	Bitmap bitmap = Bitmap.createBitmap(mCurrentPage.getWidth(), mCurrentPage.getHeight(),</span><br><span class="line">			Bitmap.Config.ARGB_8888);</span><br><span class="line">	<span class="comment">// Here, we render the page onto the Bitmap.</span></span><br><span class="line">	<span class="comment">// To render a portion of the page, use the second and third parameter. Pass nulls to get</span></span><br><span class="line">	<span class="comment">// the default result.</span></span><br><span class="line">	<span class="comment">// Pass either RENDER_MODE_FOR_DISPLAY or RENDER_MODE_FOR_PRINT for the last parameter.</span></span><br><span class="line">	mCurrentPage.render(bitmap, <span class="keyword">null</span>, <span class="keyword">null</span>, PdfRenderer.Page.RENDER_MODE_FOR_DISPLAY);</span><br><span class="line">	<span class="comment">// We are ready to show the Bitmap to user.</span></span><br><span class="line">	mImageView.setImageBitmap(bitmap);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>退出的时候不要忘记关闭</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">closeRenderer</span><span class="params">()</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (<span class="keyword">null</span> != mCurrentPage) &#123;</span><br><span class="line">		mCurrentPage.close();</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span> (mPdfRenderer == <span class="keyword">null</span>) <span class="keyword">return</span>;</span><br><span class="line">	mPdfRenderer.close();</span><br><span class="line">	mFileDescriptor.close();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<blockquote>
+<p><strong>说明：</strong>上面的代码来自 Google Simple，直接使用 Google 提供的 Demo 运行没有问题，但是继承到现在这示例项目中的时候会出现文件读取失败的问题，目前还没有找到原因。鉴于上述原因，这里提供一下 Google 的示例程序，有需要的可以使用这个项目： <a href="https://github.com/DIY-green/PdfRendererBasic" target="_blank" rel="external">PdfRendererBasic</a>。</p>
+</blockquote>
+<p>好了，PdfRenderer 就简单的介绍到这了。</p>
+<h1 id="十二、android-app-usage-API"><a href="#十二、android-app-usage-API" class="headerlink" title="十二、android.app.usage API"></a>十二、android.app.usage API</h1><p>这是 Android 5.0 提供的获取应用使用情况统计信息的 API。在此之前 Android 本身有 PkgUsageStats 等相关类来统计应用使用情况，但这些类在 SDK 不公开，只能通过反射或者在源码环境下才能访问到。</p>
+<h2 id="android-app-usage-简介"><a href="#android-app-usage-简介" class="headerlink" title="android.app.usage 简介"></a>android.app.usage 简介</h2><p>可以通过新的 android.app.usage API 访问 Android 设备上的应用使用情况历史记录。此 API 提供了比被弃用的 getRecentTasks() 方法更详细的使用情况信息。要使用此 API，必须先在清单文件中声明 “android.permission.PACKAGE_USAGE_STATS” 权限。用户还必须通过“设置”&gt;“安全性”&gt;“应用”使用“使用情况访问”启用对此应用的访问权限。</p>
+<p>系统将以每个应用为单位收集使用情况数据，并按每天、每周、每月和每年时间间隔对数据进行汇总。系统保留此数据的最大持续时间如下所述：</p>
+<p>每天数据：7 天每周数据：4 周每月数据：6 个月每年数据：2 年</p>
+<p>对于每个应用，系统将记录以下数据：<br>上次使用应用的时间应用在该时间间隔内（按天、周、月或年）处于前台的总时间长度组件（由程序包和活动名称予以标识）在一天中移动到前台或后台时的时间戳捕获设备配置更改时（例如当设备配置因为旋转而更改时）的时间戳捕获。<br>（上述内容参考自：<a href="http://www.zhihu.com/question/33974787/answer/59443716" target="_blank" rel="external">知乎用户</a>）</p>
+<p>看一下官方文档的介绍：</p>
+<p><img src="\uploads\androidstudydemo\android5\android5_newapi2_19.png" alt="android.app.usage 包" title="android.app.usage 包"></p>
+<p><img src="\uploads\androidstudydemo\android5\android5_newapi2_20.png" alt="UsageStatsManager 类" title="UsageStatsManager 类"></p>
+<p><img src="\uploads\androidstudydemo\android5\android5_newapi2_21.png" alt="UsageStats 类" title="UsageStats 类"></p>
+<p><img src="\uploads\androidstudydemo\android5\android5_newapi2_22.png" alt="UsageEvents 类" title="UsageEvents 类"></p>
+<h2 id="android-app-usage-简单使用"><a href="#android-app-usage-简单使用" class="headerlink" title="android.app.usage 简单使用"></a>android.app.usage 简单使用</h2><p>先看一下运行效果：</p>
+<p><img src="\uploads\androidstudydemo\android5\android5_newapi2_23.png" alt="UsageStats 演示" title="UsageStats 演示"></p>
+<p><img src="\uploads\androidstudydemo\android5\android5_newapi2_24.png" alt="UsageStats Log 输出" title="UsageStats Log 输出"></p>
+<p>简单说下使用步骤：<br><em>1. 获取 UsageStatsManager 实例</em><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> UsageStatsManager <span class="title">getUsageStatsManager</span><span class="params">(Context context)</span></span>&#123;</span><br><span class="line">	UsageStatsManager usm = (UsageStatsManager) context.getSystemService(<span class="string">"usagestats"</span>);</span><br><span class="line">	<span class="keyword">return</span> usm;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><em>2. 设置查询时间获取查询结果 </em><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">Calendar calendar = Calendar.getInstance();</span><br><span class="line"><span class="keyword">long</span> endTime = calendar.getTimeInMillis();</span><br><span class="line">calendar.add(Calendar.YEAR, -<span class="number">1</span>);</span><br><span class="line"><span class="keyword">long</span> startTime = calendar.getTimeInMillis();</span><br><span class="line"></span><br><span class="line">Log.d(TAG, <span class="string">"Range start:"</span> + dateFormat.format(startTime));</span><br><span class="line">Log.d(TAG, <span class="string">"Range end:"</span> + dateFormat.format(endTime));</span><br><span class="line"></span><br><span class="line">List&lt;UsageStats&gt; usageStatsList = usm.queryUsageStats(</span><br><span class="line">	UsageStatsManager.INTERVAL_DAILY,</span><br><span class="line">	startTime,</span><br><span class="line">	endTime);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 或者</span></span><br><span class="line">UsageEvents uEvents = usm.queryEvents(startTime,endTime);</span><br><span class="line"><span class="keyword">while</span> (uEvents.hasNextEvent())&#123;</span><br><span class="line">	UsageEvents.Event e = <span class="keyword">new</span> UsageEvents.Event();</span><br><span class="line">	uEvents.getNextEvent(e);</span><br><span class="line">	<span class="keyword">if</span> (e != <span class="keyword">null</span>)&#123;</span><br><span class="line">		Log.d(TAG, <span class="string">"Event: "</span> + e.getPackageName() + <span class="string">"\t"</span> + e.getTimeStamp());</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><em>3. 展示查询结果</em><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">printUsageStats</span><span class="params">(List&lt;UsageStats&gt; usageStatsList)</span> </span>&#123;</span><br><span class="line">	StringBuilder sb = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">	<span class="keyword">for</span> (UsageStats u : usageStatsList)&#123;</span><br><span class="line">		sb.append(<span class="string">"Pkg: "</span> + u.getPackageName() + <span class="string">"\t"</span> + <span class="string">"ForegroundTime: "</span></span><br><span class="line">				+ u.getTotalTimeInForeground());</span><br><span class="line">		Log.d(TAG, <span class="string">"Pkg: "</span> + u.getPackageName() + <span class="string">"\t"</span> + <span class="string">"ForegroundTime: "</span></span><br><span class="line">				+ u.getTotalTimeInForeground()) ;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>上面的演示代码参考了一个开源项目 <strong><a href="https://github.com/ColeMurray/UsageStatsSample" target="_blank" rel="external">UsageStatsSample</a></strong>，在这里对作者 <a href="https://github.com/ColeMurray" target="_blank" rel="external">ColeMurray</a> 表示感谢了。</p>
+<p><strong>注意：</strong><br>这里有几个要注意的地方：</p>
+<ol>
+<li><p>不要忘记添加权限</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;uses-permission</span><br><span class="line">	android:name=<span class="string">"android.permission.PACKAGE_USAGE_STATS"</span></span><br><span class="line">	tools:ignore=<span class="string">"ProtectedPermissions"</span> /&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>检测是否给我们的 App 打开了权限</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (UStats.getUsageStatsList(<span class="keyword">this</span>).isEmpty())&#123;</span><br><span class="line">	Intent intent = <span class="keyword">new</span> Intent(Settings.ACTION_USAGE_ACCESS_SETTINGS);</span><br><span class="line">	startActivity(intent);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>好了，关于 usage 的介绍就到这里了。</p>
+<h1 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h1><p>历时两天，总算是勉强弄完了，前后两篇都只是简要的介绍了 Android 5 上的新 API。由于内容实在是有点多，所以只挑了几个重点的来演示。介绍的也很简略，只是简单地演示了基本使用方法，有很多不足的地方，请见谅。</p>
+<p>这一段开始很忙了，所以更新会慢下来，但是这个系列一定会坚持写完的，下一篇开始介绍 Android 5 出的新控件，这个没这么枯燥了。</p>
+<p>好了，附上 Demo 地址，该项目会集成到 <a href="http://www.jianshu.com/p/617cbc1268fc" target="_blank" rel="external">AndroidStudyDemo</a> 项目中去，你可以根据自己的需要选择。<br><a href="https://github.com/DIY-green/ASD-Android5Study" target="_blank" rel="external">GitHub</a></p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="http://blog.csdn.net/lwyygydx/article/details/41870377" target="_blank" rel="external">Android 5.0 API新增和改进</a><br><a href="http://demo.netfoucs.com/cuiran/article/details/42805057" target="_blank" rel="external">Android 5.0的调度作业JobScheduler</a><br><a href="http://www.cnblogs.com/tgyf/p/4675082.html?utm_source=tuicool&amp;utm_medium=referral" target="_blank" rel="external">Google最新截屏案例详解</a><br><a href="http://blog.csdn.net/gulinxieying/article/details/50164469" target="_blank" rel="external">关于Android5.0以上屏幕截图探索总结</a><br><a href="http://blog.csdn.net/lincyang/article/details/45951225" target="_blank" rel="external">Android实战技巧之三十三：android.hardware.camera2使用指南</a><br><a href="http://www.cnblogs.com/tgyf/p/4851092.html" target="_blank" rel="external">分享一种截屏方法</a><br><a href="http://www.68idc.cn/help/buildlang/ask/20150405311188.html" target="_blank" rel="external">在Android 5.0中使用JobScheduler</a><br><a href="http://code.tutsplus.com/tutorials/using-the-jobscheduler-api-on-android-lollipop--cms-23562?utm_source=tuicool&amp;utm_medium=referral" target="_blank" rel="external">Using the JobScheduler API on Android Lollipop</a><br><a href="http://www.open-open.com/lib/view/open1431410859794.html" target="_blank" rel="external">Android Job框架–Trigger</a><br><a href="http://www.cnblogs.com/onlyinweb/archive/2012/09/03/2668381.html" target="_blank" rel="external">Android 状态栏通知Notification、NotificationManager详解</a><br><a href="http://www.jianshu.com/p/4d76b2bc8784" target="_blank" rel="external">android Heads-Up风格通知</a></p>
+
+      
+    </div>
+    
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+<div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton", disable="enable", onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}", style="cursor: pointer; border: 0; outline: 0; border-radius: 100%; padding: 0; margin: 0; letter-spacing: normal; text-transform: none; text-indent: 0px; text-shadow: none">
+    <span onmouseover="this.style.color='rgb(236,96,0)';this.style.background='rgb(204,204,204)'" onMouseOut="this.style.color='#fff';this.style.background='rgb(236,96,0)'" style="display: inline-block; width: 70px; height: 70px; border-radius: 100%; line-height: 81px; color: #fff; font: 400 35px/75px 'microsofty'; background: rgb(236,96,0)">赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/uploads/images/wechat-reward-image.png" alt="DIY-green WeChat Pay" style="width: 200px; max-width: 100%; display: inline-block"/>
+        <p>微信打赏</p>
+      </div>
+    
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/uploads/images/alipay-reward-image.png" alt="DIY-green Alipay" style="width: 200px; max-width: 100%; display: inline-block"/>
+        <p>支付宝打赏</p>
+      </div>
+    
+  </div>
+</div>
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Android-4/" rel="tag">#Android 4</a>
+          
+            <a href="/tags/StudyDemo/" rel="tag">#StudyDemo</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/05/07/Android干货[原创]/ViewPager刷新问题详解/" rel="next" title="ViewPager刷新问题详解">
+                <i class="fa fa-chevron-left"></i> ViewPager刷新问题详解
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/05/07/Android干货[转载]/Android干货[转载]说明/" rel="prev" title="Android干货[转]说明">
+                Android干货[转]说明 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/05/07/AndroidStudyDemo系列/Android5.x新API介绍(二)/"
+           data-title="Android5.x新API介绍(二)" data-url="http://diy-green.com/2016/05/07/AndroidStudyDemo系列/Android5.x新API介绍(二)/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/images/avatar.jpg"
+               alt="DIY-green" />
+          <p class="site-author-name" itemprop="name">DIY-green</p>
+          <p class="site-description motion-element" itemprop="description">男子千年志，吾生未有涯。心随朗月高，志与秋霜洁。</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">52</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">27</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/DIY-green" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/users/0ad0a0afc409/latest_articles" target="_blank" title="JianShu">
+                  
+                    <i class="fa fa-globe"></i>
+                  
+                  JianShu
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element">
+            <div class="links-of-blogroll-title">
+              <i class="fa fa-globe fa-fw"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.jianshu.com/users/0ad0a0afc409/latest_articles" title="DIY-green简书" target="_blank">DIY-green简书</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.jianshu.com/users/3a482c4f0658/latest_articles" title="天接水0001" target="_blank">天接水0001</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://sunfusheng.com" title="孙福生" target="_blank">孙福生</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://kuanggang.github.io" title="匡罡" target="_blank">匡罡</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://Ivorfason.github.io" title="尹明仁" target="_blank">尹明仁</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://mengqingxiang.github.io" title="孟庆祥" target="_blank">孟庆祥</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#八、MediaProjection"><span class="nav-number">1.</span> <span class="nav-text">八、MediaProjection</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#MediaProjection-使用步骤"><span class="nav-number">1.1.</span> <span class="nav-text">MediaProjection  使用步骤</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#具体实例"><span class="nav-number">1.2.</span> <span class="nav-text">具体实例</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#九、JobScheduler"><span class="nav-number">2.</span> <span class="nav-text">九、JobScheduler</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#使用场景"><span class="nav-number">2.1.</span> <span class="nav-text">使用场景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JobScheduler-简介"><span class="nav-number">2.2.</span> <span class="nav-text">JobScheduler 简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#简单使用"><span class="nav-number">2.3.</span> <span class="nav-text">简单使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-在-AndroidStudio-中创建-API-最低为21-的项目"><span class="nav-number">2.3.1.</span> <span class="nav-text">1. 在 AndroidStudio 中创建 API 最低为21 的项目</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-创建-JobService"><span class="nav-number">2.3.2.</span> <span class="nav-text">2. 创建 JobService</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-在-Manifest-中注册-JobService"><span class="nav-number">2.3.3.</span> <span class="nav-text">3. 在 Manifest 中注册 JobService</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-创建-JobScheduler"><span class="nav-number">2.3.4.</span> <span class="nav-text">4. 创建 JobScheduler</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-封装任务并执行"><span class="nav-number">2.3.5.</span> <span class="nav-text">5. 封装任务并执行</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#十、Heads-Up-风格通知"><span class="nav-number">3.</span> <span class="nav-text">十、Heads-Up 风格通知</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#锁定屏幕通知"><span class="nav-number">3.1.</span> <span class="nav-text">锁定屏幕通知</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#通知元数据"><span class="nav-number">3.2.</span> <span class="nav-text">通知元数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#简单使用-1"><span class="nav-number">3.3.</span> <span class="nav-text">简单使用</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#十一、PdfRenderer"><span class="nav-number">4.</span> <span class="nav-text">十一、PdfRenderer</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#PdfRenderer-简介"><span class="nav-number">4.1.</span> <span class="nav-text">PdfRenderer 简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PdfRenderer-简单使用"><span class="nav-number">4.2.</span> <span class="nav-text">PdfRenderer 简单使用</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#十二、android-app-usage-API"><span class="nav-number">5.</span> <span class="nav-text">十二、android.app.usage API</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#android-app-usage-简介"><span class="nav-number">5.1.</span> <span class="nav-text">android.app.usage 简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#android-app-usage-简单使用"><span class="nav-number">5.2.</span> <span class="nav-text">android.app.usage 简单使用</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#小结"><span class="nav-number">6.</span> <span class="nav-text">小结</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考"><span class="nav-number">7.</span> <span class="nav-text">参考</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+<div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">DIY-green</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info powered-by">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+<div class="powered-by">
+  <span id="busuanzi_container_site_pv">
+    本站总访问量<span id="busuanzi_value_site_pv"></span>次
+  </span>
+</div>
+<div style="display:inline-block;">
+  <span id="busuanzi_container_site_uv">
+    本站访客数<span id="busuanzi_value_site_uv"></span>人次
+  </span>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"DIY-green"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+      
+      <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+      <script src="/js/src/hook-duoshuo.js"></script>
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+  
+  
+  <!-- custom analytics part create by xiamo -->
+<script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+<script>AV.initialize("UnkeFG0pM1t3q8H3y7NTLUA0-gzGzoHsz", "2oBUu9nxByteYjLFtBtqOPwN");</script>
+<script>
+function showTime(Counter) {
+	var query = new AV.Query(Counter);
+	$(".leancloud_visitors").each(function() {
+		var url = $(this).attr("id").trim();
+		query.equalTo("url", url);
+		query.find({
+			success: function(results) {
+				if (results.length == 0) {
+					var content = '0 ' + $(document.getElementById(url)).text();
+					$(document.getElementById(url)).text(content);
+					return;
+				}
+				for (var i = 0; i < results.length; i++) {
+					var object = results[i];
+					var content = object.get('time') + ' ' + $(document.getElementById(url)).text();
+					$(document.getElementById(url)).text(content);
+				}
+			},
+			error: function(object, error) {
+				console.log("Error: " + error.code + " " + error.message);
+			}
+		});
+
+	});
+}
+
+function addCount(Counter) {
+	var Counter = AV.Object.extend("Counter");
+	url = $(".leancloud_visitors").attr('id').trim();
+	title = $(".leancloud_visitors").attr('data-flag-title').trim();
+	var query = new AV.Query(Counter);
+	query.equalTo("url", url);
+	query.find({
+		success: function(results) {
+			if (results.length > 0) {
+				var counter = results[0];
+				counter.fetchWhenSave(true);
+				counter.increment("time");
+				counter.save(null, {
+					success: function(counter) {
+						var content =  counter.get('time') + ' ' + $(document.getElementById(url)).text();
+						$(document.getElementById(url)).text(content);
+					},
+					error: function(counter, error) {
+						console.log('Failed to save Visitor num, with error message: ' + error.message);
+					}
+				});
+			} else {
+				var newcounter = new Counter();
+				newcounter.set("title", title);
+				newcounter.set("url", url);
+				newcounter.set("time", 1);
+				newcounter.save(null, {
+					success: function(newcounter) {
+					    console.log("newcounter.get('time')="+newcounter.get('time'));
+						var content = newcounter.get('time') + ' ' + $(document.getElementById(url)).text();
+						$(document.getElementById(url)).text(content);
+					},
+					error: function(newcounter, error) {
+						console.log('Failed to create');
+					}
+				});
+			}
+		},
+		error: function(error) {
+			console.log('Error:' + error.code + " " + error.message);
+		}
+	});
+}
+$(function() {
+	var Counter = AV.Object.extend("Counter");
+	if ($('.leancloud_visitors').length == 1) {
+		addCount(Counter);
+	} else if ($('.post-title-link').length > 1) {
+		showTime(Counter);
+	}
+}); 
+</script>
+  
+  
+</body>
+</html>

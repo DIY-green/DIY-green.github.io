@@ -1,0 +1,1087 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="StudyDemo,Android 6," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="作者：李旺成时间：2016年4月22日
+
+接上篇：Android6.x新控件介绍(一)
+四、TabLayout先看效果：
+
+简介TabLayout 就是用来做选项卡切换这一类效果的控件，在兼容包中提供。对于 Tab 的实现 Google 上提供过不少方案，先有 TabHost；然后在 Android 3.x 上又出现了 ActionBar 提供的 Tab；现在有了更好的实现，那就是使用用 Tab">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android6.x新控件介绍(二)">
+<meta property="og:url" content="http://diy-green.com/2016/05/07/AndroidStudyDemo系列/Android6.x新控件介绍(二)/index.html">
+<meta property="og:site_name" content="DIY-green">
+<meta property="og:description" content="作者：李旺成时间：2016年4月22日
+
+接上篇：Android6.x新控件介绍(一)
+四、TabLayout先看效果：
+
+简介TabLayout 就是用来做选项卡切换这一类效果的控件，在兼容包中提供。对于 Tab 的实现 Google 上提供过不少方案，先有 TabHost；然后在 Android 3.x 上又出现了 ActionBar 提供的 Tab；现在有了更好的实现，那就是使用用 Tab">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android6\android6_newwidget2_1.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android6\android6_newwidget2_2.gif">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android6\android6_newwidget2_3.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android6\android6_newwidget2_4.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android6\android6_newwidget2_5.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android6\android6_newwidget2_6.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android6\android6_newwidget2_7.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android6\android6_newwidget2_8.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android6\android6_newwidget2_9.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android6\android6_newwidget2_10.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android6\android6_newwidget2_11.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android6\android6_newwidget2_12.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android6\android6_newwidget2_13.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android6\android6_newwidget2_14.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android6\android6_newwidget2_15.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android6\android6_newwidget2_16.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android6\android6_newwidget2_17.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android6\android6_newwidget2_18.png">
+<meta property="og:updated_time" content="2016-04-26T05:27:48.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android6.x新控件介绍(二)">
+<meta name="twitter:description" content="作者：李旺成时间：2016年4月22日
+
+接上篇：Android6.x新控件介绍(一)
+四、TabLayout先看效果：
+
+简介TabLayout 就是用来做选项卡切换这一类效果的控件，在兼容包中提供。对于 Tab 的实现 Google 上提供过不少方案，先有 TabHost；然后在 Android 3.x 上又出现了 ActionBar 提供的 Tab；现在有了更好的实现，那就是使用用 Tab">
+<meta name="twitter:image" content="http://diy-green.com/\uploads\androidstudydemo\android6\android6_newwidget2_1.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'DIY-green'
+    }
+  };
+</script>
+
+  <title> Android6.x新控件介绍(二) | DIY-green </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?af1b7efbf565bc568165c5a0600a0207";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+  <div style="display: none;">
+    <script src="http://s6.cnzz.com/stat.php?id=1258791461&web_id=1258791461" type="text/javascript"></script>
+  </div>
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">DIY-green</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            全部
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-androidstudydemo">
+          <a href="/categories/AndroidStudyDemo/" rel="section">
+            
+              <i class="menu-item-icon fa fa-hand-right fa-fw"></i> <br />
+            
+            ● &nbsp; AndroidStudyDemo
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-androidganhuo">
+          <a href="/categories/Android干货/" rel="section">
+            
+              <i class="menu-item-icon fa fa-hand-right fa-fw"></i> <br />
+            
+            ● &nbsp; Android干货
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-androidhacks">
+          <a href="/categories/Android小技巧/" rel="section">
+            
+              <i class="menu-item-icon fa fa-hand-right fa-fw"></i> <br />
+            
+            ● &nbsp; Android小技巧
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-androidstudio">
+          <a href="/categories/AndroidStudio/" rel="section">
+            
+              <i class="menu-item-icon fa fa-hand-right fa-fw"></i> <br />
+            
+            ● &nbsp; AndroidStudio
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-essay">
+          <a href="/categories/随笔/" rel="section">
+            
+              <i class="menu-item-icon fa fa-hand-right fa-fw"></i> <br />
+            
+            ● &nbsp; 随笔
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Android6.x新控件介绍(二)
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-05-07T20:39:24+08:00" content="2016-05-07">
+              2016-05-07
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/AndroidStudyDemo/" itemprop="url" rel="index">
+                    <span itemprop="name">AndroidStudyDemo</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/AndroidStudyDemo/Android-6/" itemprop="url" rel="index">
+                    <span itemprop="name">Android 6</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/05/07/AndroidStudyDemo系列/Android6.x新控件介绍(二)/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/07/AndroidStudyDemo系列/Android6.x新控件介绍(二)/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+		  &nbsp; | &nbsp;
+             <span id="/2016/05/07/AndroidStudyDemo系列/Android6.x新控件介绍(二)/" class="leancloud_visitors" data-flag-title="Android6.x新控件介绍(二)">
+               
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+		  
+		  <!--<span id="busuanzi_container_page_pv">
+		    &nbsp; | &nbsp;<span id="busuanzi_value_page_pv"></span>阅读
+		  </span>
+		  
+		  
+			&nbsp; | &nbsp;
+			<span id="/2016/05/07/AndroidStudyDemo系列/Android6.x新控件介绍(二)/"class="leancloud_visitors" data-flag-title="Android6.x新控件介绍(二)">
+					 &nbsp;阅读
+					</span>
+			-->
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="\uploads\androidstudydemo\android6\android6_newwidget2_1.png" alt="Android6.x新控件介绍(二)" title="Android6.x新控件介绍(二)思维导图"></p>
+<p><strong>作者：<a href="https://github.com/DIY-green/" target="_blank" rel="external">李旺成</a></strong><br><strong>时间：2016年4月22日</strong></p>
+<hr>
+<p>接上篇：<a href="http://www.jianshu.com/p/b2f335aab961" target="_blank" rel="external">Android6.x新控件介绍(一)</a></p>
+<h1 id="四、TabLayout"><a href="#四、TabLayout" class="headerlink" title="四、TabLayout"></a>四、TabLayout</h1><p>先看效果：</p>
+<p><img src="\uploads\androidstudydemo\android6\android6_newwidget2_2.gif" alt="TabLayout 使用演示" title="TabLayout 使用演示"></p>
+<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>TabLayout 就是用来做选项卡切换这一类效果的控件，在兼容包中提供。对于 Tab 的实现 Google 上提供过不少方案，先有 TabHost；然后在 Android 3.x 上又出现了 ActionBar 提供的 Tab；现在有了更好的实现，那就是使用用 TabLayout。</p>
+<p>当然，还有非常多的各种第三方开源库来实现 Tab，例如：JakeWharton 大神开源的组件 <strong><a href="https://github.com/JakeWharton/ViewPagerIndicator" target="_blank" rel="external">ViewPagerIndicator</a></strong> 相信很多人都用过。</p>
+<ul>
+<li>Tabs 选项卡，效果类似网易新闻客户端的 Tab</li>
+<li>Google 官方实现的 TabPageIndicator</li>
+</ul>
+<p>先看看官方的介绍：</p>
+<p><img src="\uploads\androidstudydemo\android6\android6_newwidget2_3.png" alt="TabLayout 简介" title="TabLayout 简介"></p>
+<p>先看继承结构（习惯从继承结构来学习和分析如何使用新控件），和 <strong>TabPageIndicator</strong> 一样继承自 <strong>HorizontalScrollView</strong>，这个很好理解，Tab 的数量一多，那就需要横向滑动，直接继承自 <strong>HorizontalScrollView</strong> 来实现会省事很多（不会偷懒的程序员不是好程序员，呵呵，不记得谁说的了，不发表个人意见）。</p>
+<p>对于控件还需要关注的一点就是它的属性（在 Layout 中使用的），那么来看看官方对 TabLayout 的特有属性的介绍：</p>
+<p><img src="\uploads\androidstudydemo\android6\android6_newwidget2_4.png" alt="TabLayout 属性" title="TabLayout 属性"></p>
+<p><strong>坑！</strong>竟然没有对 TabLayout 特有属性的介绍，那只能先看看它提供的方法了：</p>
+<p><img src="\uploads\androidstudydemo\android6\android6_newwidget2_5.png" alt="TabLayout 方法" title="TabLayout 方法"></p>
+<p>好像也没有太多可参考的，那直接用起来。</p>
+<h2 id="简单使用"><a href="#简单使用" class="headerlink" title="简单使用"></a>简单使用</h2><p><strong>1、导入兼容包</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">compile <span class="string">'com.android.support:design:23.3.0'</span></span><br></pre></td></tr></table></figure></p>
+<p><strong>2、直接使用示例</strong></p>
+<p><img src="\uploads\androidstudydemo\android6\android6_newwidget2_6.png" alt="直接使用示例" title="直接使用示例"></p>
+<p>TabLayout 继承自 HorizontalScrollView，那先当作 HorizontalScrollView 试试：<br>在 Layout 中简单使用，没有使用 TabLayout 特有的属性：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;android.support.design.widget.TabLayout</span><br><span class="line">	android:id=<span class="string">"@+id/tl_test"</span></span><br><span class="line">	android:layout_width=<span class="string">"match_parent"</span></span><br><span class="line">	android:layout_height=<span class="string">"wrap_content"</span> /&gt;</span><br></pre></td></tr></table></figure></p>
+<p>在 Java 代码中使用：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">addTab</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	mTabsNum += <span class="number">1</span>;</span><br><span class="line">	TabLayout.Tab tab = mTestTL.newTab().setText(<span class="string">"TAB"</span> + mTabsNum);</span><br><span class="line">	mTestTL.addTab(tab);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">removeFirstTab</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> count = mTestTL.getTabCount();</span><br><span class="line">	<span class="keyword">if</span> (count &lt;= <span class="number">0</span>) <span class="keyword">return</span>;</span><br><span class="line">	mTestTL.removeTabAt(<span class="number">0</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">removeLastTab</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> count = mTestTL.getTabCount();</span><br><span class="line">	<span class="keyword">if</span> (count &lt;= <span class="number">0</span>) <span class="keyword">return</span>;</span><br><span class="line">	mTestTL.removeTabAt(count - <span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">removeAllTabs</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> count = mTestTL.getTabCount();</span><br><span class="line">	<span class="keyword">if</span> (count &lt;= <span class="number">0</span>) <span class="keyword">return</span>;</span><br><span class="line">	mTabsNum = <span class="number">0</span>;</span><br><span class="line">	mTestTL.removeAllTabs();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>上面示例代码演示了 Tab 的添加和删除，简单介绍下 Tab 类和 addTab() 方法：</p>
+<ul>
+<li>Tab 类：这是 TabLayout 中的静态内部类，看下源码，</li>
+</ul>
+<p><img src="\uploads\androidstudydemo\android6\android6_newwidget2_7.png" alt="Tab 静态内部类" title="Tab 静态内部类"><br>构造方法是 private 的，不能直接 new 对象，注释中提示可以使用 TabLayout 的 newTab() 方法来创建实例。</p>
+<ul>
+<li>addTab() 方法：addTab() 有四个重载方法，那就看参数最多的那个吧！（参数最多的都会用了，其他的就很简单了）</li>
+</ul>
+<p><img src="\uploads\androidstudydemo\android6\android6_newwidget2_8.png" alt="addTab() 方法" title="addTab() 方法"><br>第一个参数 tab，就是 Tab 类的实例；第二个参数 position，用于指定加入的 Tab 需要插入的位置，这里需注意，调用该方法之前最好通过 getTabCount() 方法获取当前 TabLayout 中所拥有的 Tab 总数，如果 position + 1 大于总 TabLayout 中的 Tab 总数会导致数组越界（这个应该不难理解）；第三个参数 setSelected，用于指定新加入的 Tab 是否为选中状态。</p>
+<p><strong>3、配合 ViewPager 使用</strong></p>
+<p><img src="\uploads\androidstudydemo\android6\android6_newwidget2_9.png" alt="配合 ViewPager 使用" title="配合 ViewPager 使用"></p>
+<p>TabLayout 是个指示器，确切的说是 <strong>ViewPager</strong> 的指示器，所以更常见的使用场景是配合 ViewPager 来使用。<br>在 Layout 中使用：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span><br><span class="line">&lt;RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"</span><br><span class="line">    xmlns:tools="http://schemas.android.com/tools"</span><br><span class="line">    android:layout_width="match_parent"</span><br><span class="line">    android:layout_height="match_parent"</span><br><span class="line">    tools:context="com.diygreen.android6new.newwidget2.TabLayoutDemo3Activity"&gt;</span><br><span class="line">    &lt;android.support.design.widget.TabLayout</span><br><span class="line">		android:id="@+id/tl_title"</span><br><span class="line">		android:layout_width="match_parent"</span><br><span class="line">		android:layout_height="wrap_content"</span><br><span class="line">		android:scrollbars="none"/&gt;</span><br><span class="line">    &lt;android.support.v4.view.ViewPager</span><br><span class="line">        android:id="@+id/vp_content"</span><br><span class="line">        android:layout_width="match_parent"</span><br><span class="line">        android:layout_height="match_parent"</span><br><span class="line">        android:layout_above="@+id/tl_bottom"</span><br><span class="line">        android:scrollbars="none" /&gt;</span><br><span class="line">&lt;/RelativeLayout&gt;</span><br></pre></td></tr></table></figure></p>
+<p>将把 TabLayout 当作普通的布局使用即可。</p>
+<p>在 Java 代码中：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">initData</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> size = mTitleArr.length;</span><br><span class="line">	mViewList = <span class="keyword">new</span> ArrayList&lt;&gt;(size);</span><br><span class="line">	<span class="comment">// 添加 Tab，初始化 View 列表</span></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; size; i++) &#123;</span><br><span class="line">		mTitleTL.addTab(mTitleTL.newTab().setText(mTitleArr[i]));</span><br><span class="line">		View view = LayoutInflater.from(<span class="keyword">this</span>).inflate(R.layout.item_tablayoutdemo2_vp, <span class="keyword">null</span>);</span><br><span class="line">		TextView tv = (TextView) view.findViewById(R.id.tv_text);</span><br><span class="line">		tv.setText(mTitleArr[i]);</span><br><span class="line">		mViewList.add(view);</span><br><span class="line">	&#125;</span><br><span class="line">	mAdapter = <span class="keyword">new</span> TabLayoutDemo2PagerAdapter(mViewList);</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 填充 ViewPager</span></span><br><span class="line">	mContentVP.setAdapter(mAdapter);</span><br><span class="line">	<span class="comment">// 给ViewPager添加监听</span></span><br><span class="line">	mContentVP.addOnPageChangeListener(<span class="keyword">new</span> TabLayout.TabLayoutOnPageChangeListener(mTitleTL));</span><br><span class="line">	<span class="comment">// 设置setOnTabSelectedListener</span></span><br><span class="line">	mTitleTL.setOnTabSelectedListener(<span class="keyword">new</span> TabLayout.OnTabSelectedListener() &#123;</span><br><span class="line">		<span class="meta">@Override</span></span><br><span class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onTabSelected</span><span class="params">(TabLayout.Tab tab)</span> </span>&#123;</span><br><span class="line">			<span class="comment">// 切换到指定的 item</span></span><br><span class="line">			mContentVP.setCurrentItem(tab.getPosition());</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="meta">@Override</span></span><br><span class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onTabUnselected</span><span class="params">(TabLayout.Tab tab)</span> </span>&#123;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="meta">@Override</span></span><br><span class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onTabReselected</span><span class="params">(TabLayout.Tab tab)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>要实现 TabLayout 与 ViewPager 的联动，有两个关键方法：<br>// 给 ViewPager 添加页面改变监听<br><strong>addOnPageChangeListener()</strong><br>// 设置 Tab 选择监听<br><strong>setOnTabSelectedListener()</strong><br>上面代码中都做了示例，使用也很简单。</p>
+<p><strong>说明：</strong>还有另一种方式来实现联动，使用的是 <strong>setupWithViewPager()</strong> 方法<br>// 设置 TabLayout 与 ViewPager 联动<br><strong>setupWithViewPager()</strong>：该方法在 TabLayoutDemo4Activity.java 中使用了，会在下面做说明。</p>
+<p><strong>4、实现底部 Tab</strong></p>
+<p><img src="\uploads\androidstudydemo\android6\android6_newwidget2_10.png" alt="底部 Tab" title="底部 Tab"></p>
+<p>这个很简单，直接看布局文件就可以了。<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span><br><span class="line">&lt;RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"</span><br><span class="line">    xmlns:tools="http://schemas.android.com/tools"</span><br><span class="line">    android:layout_width="match_parent"</span><br><span class="line">    android:layout_height="match_parent"</span><br><span class="line">    tools:context="com.diygreen.android6new.newwidget2.TabLayoutDemo3Activity"&gt;</span><br><span class="line">    &lt;android.support.design.widget.TabLayout</span><br><span class="line">        android:id="@+id/tl_bottom"</span><br><span class="line">        style="@style/DIYTabLayout"</span><br><span class="line">        android:layout_width="match_parent"</span><br><span class="line">        android:layout_height="wrap_content"</span><br><span class="line">        android:layout_alignParentBottom="true"/&gt;</span><br><span class="line">    &lt;android.support.v4.view.ViewPager</span><br><span class="line">        android:id="@+id/vp_content"</span><br><span class="line">        android:layout_width="match_parent"</span><br><span class="line">        android:layout_height="match_parent"</span><br><span class="line">        android:layout_above="@+id/tl_bottom"</span><br><span class="line">        android:scrollbars="none" /&gt;</span><br><span class="line">&lt;/RelativeLayout&gt;</span><br></pre></td></tr></table></figure></p>
+<p>汗，把 TabLayout 放到 ViewPager 下面即可…</p>
+<p><strong>5、自定义 TabLayout 样式</strong></p>
+<p><img src="\uploads\androidstudydemo\android6\android6_newwidget2_11.png" alt="自定义样式示例" title="自定义样式示例"></p>
+<p>TabLayout 的特有属性：</p>
+<p><img src="\uploads\androidstudydemo\android6\android6_newwidget2_12.png" alt="TabLayout 特有属性" title="TabLayout 特有属性"></p>
+<p>看着好像不少，但仔细看一下，其实不多，而且这些属性名称大部分应该都认识，或者说在其他控件中使用过。</p>
+<p>没有文档说明，那就看着效果来简单解释下这些属性，还是那句话先用起来。</p>
+<p>效果如图：</p>
+<p><img src="\uploads\androidstudydemo\android6\android6_newwidget2_13.png" alt="TabLayout 自定义样式" title="TabLayout 自定义样式"></p>
+<p><strong>首先，</strong>在 style 文件中定义：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 自定义 TabLayout 样式 --&gt;</span><br><span class="line">&lt;style name="DIY.TabLayout" parent="Widget.Design.TabLayout"&gt;</span><br><span class="line">	&lt;item name="paddingEnd"&gt;10dp&lt;/item&gt;</span><br><span class="line">	&lt;item name="paddingStart"&gt;10dp&lt;/item&gt;</span><br><span class="line">	&lt;item name="tabBackground"&gt;@color/colorPrimaryDark&lt;/item&gt;</span><br><span class="line">	&lt;item name="tabContentStart"&gt;10dp&lt;/item&gt;</span><br><span class="line">	&lt;item name="tabGravity"&gt;center&lt;/item&gt;</span><br><span class="line">	&lt;item name="tabIndicatorColor"&gt;#999900&lt;/item&gt;</span><br><span class="line">	&lt;item name="tabIndicatorHeight"&gt;6dp&lt;/item&gt;</span><br><span class="line">	&lt;item name="tabMaxWidth"&gt;@dimen/tab_max_width&lt;/item&gt;</span><br><span class="line">	&lt;item name="tabMinWidth"&gt;@dimen/tab_min_width&lt;/item&gt;</span><br><span class="line">	&lt;item name="tabMode"&gt;scrollable&lt;/item&gt;</span><br><span class="line">	&lt;item name="tabPaddingBottom"&gt;2dp&lt;/item&gt;</span><br><span class="line">	&lt;item name="tabPaddingEnd"&gt;10dp&lt;/item&gt;</span><br><span class="line">	&lt;item name="tabPaddingStart"&gt;10dp&lt;/item&gt;</span><br><span class="line">	&lt;item name="tabPaddingTop"&gt;15dp&lt;/item&gt;</span><br><span class="line">	&lt;item name="tabSelectedTextColor"&gt;#ffcc00&lt;/item&gt;</span><br><span class="line">	&lt;item name="tabTextAppearance"&gt;@style/DIY.TabTextAppearance&lt;/item&gt;</span><br><span class="line">	&lt;item name="tabTextColor"&gt;#000066&lt;/item&gt;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line">&lt;!-- 自定义 TabText 的外观 --&gt;</span><br><span class="line">&lt;style name="DIY.TabTextAppearance" parent="TextAppearance.Design.Tab"&gt;</span><br><span class="line">	&lt;item name="android:textSize"&gt;14sp&lt;/item&gt;</span><br><span class="line">	&lt;item name="android:textColor"&gt;#006600&lt;/item&gt;</span><br><span class="line">	&lt;item name="textAllCaps"&gt;false&lt;/item&gt;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure></p>
+<p><strong>然后，</strong>在 Layout 中使用样式<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;android.support.design.widget.TabLayout</span><br><span class="line">	android:id=<span class="string">"@+id/tl_title"</span></span><br><span class="line">	android:layout_width=<span class="string">"match_parent"</span></span><br><span class="line">	android:layout_height=<span class="string">"wrap_content"</span></span><br><span class="line">	style=<span class="string">"@style/DIY.TabLayout"</span>/&gt;</span><br></pre></td></tr></table></figure></p>
+<p>有几个属性要解释一下：</p>
+<ul>
+<li>tabGravity：用来设置 TabLayout 的布局方式，只有两个可选值fill 和 center，默认值是 fill</li>
+<li>tabIndicatorColor：用来设置底部指示器的颜色 </li>
+<li>tabIndicatorHeight：用来设置底部指示器的高度 </li>
+<li>tabMode：用来设置 TabLayout 的布局模式，有两个取值<br>fixed：固定不可滚动<br>scrollable: 可滚动的</li>
+</ul>
+<p>对应的 Java 方法：</p>
+<ul>
+<li>setTabGravity()</li>
+<li>setSelectedTabIndicatorColor()</li>
+<li>setSelectedTabIndicatorHeight()</li>
+<li>setTabMode():MODE_FIXED 或 MODE_SCROLLABLE</li>
+</ul>
+<p>其他的属性都是用于设置 Tab 中文本的属性，这基本上可以参考 TextView。</p>
+<p><strong>6、给 TabLayout 加角标</strong></p>
+<p><img src="\uploads\androidstudydemo\android6\android6_newwidget2_14.png" alt="加角标示例" title="加角标示例"></p>
+<p>其实就是利用 TabLayout.Tab 的 setCustomView() 方法，最好自己维护好为 Tab 设置的 CustomView 列表，以便更新数据。</p>
+<p>简单的示例：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">initData</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> size = mTitleArr.length;</span><br><span class="line">	mTabItemViewList = <span class="keyword">new</span> ArrayList&lt;&gt;(size);</span><br><span class="line">	mViewPagerViewList = <span class="keyword">new</span> ArrayList&lt;&gt;(size);</span><br><span class="line">	<span class="comment">// 添加 Tab，初始化 View 列表</span></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; size; i++) &#123;</span><br><span class="line">		View tabView = LayoutInflater.from(<span class="keyword">this</span>).inflate(R.layout.item_tablayout_item, <span class="keyword">null</span>);</span><br><span class="line">		TextView tabViewTV = (TextView) tabView.findViewById(R.id.tv_tab);</span><br><span class="line">		tabViewTV.setText(mTitleArr[i]);</span><br><span class="line">		mTabItemViewList.add(tabView);</span><br><span class="line"></span><br><span class="line">		View vpView = LayoutInflater.from(<span class="keyword">this</span>).inflate(R.layout.item_tablayoutdemo2_vp, <span class="keyword">null</span>);</span><br><span class="line">		TextView viViewTV = (TextView) vpView.findViewById(R.id.tv_text);</span><br><span class="line">		viViewTV.setText(mTitleArr[i] + i);</span><br><span class="line">		mViewPagerViewList.add(vpView);</span><br><span class="line">	&#125;</span><br><span class="line">	mAdapter = <span class="keyword">new</span> TabLayoutDemo2PagerAdapter(mViewPagerViewList);</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 填充 ViewPager</span></span><br><span class="line">	mContentVP.setAdapter(mAdapter);</span><br><span class="line">	mTitleTL.setupWithViewPager(mContentVP);</span><br><span class="line">	size = mTitleTL.getTabCount();</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; size; i++) &#123;</span><br><span class="line">		TabLayout.Tab tab = mTitleTL.getTabAt(i);</span><br><span class="line">		<span class="keyword">if</span> (tab != <span class="keyword">null</span>) &#123;</span><br><span class="line">			tab.setCustomView(mTabItemViewList.get(i));</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	mContentVP.setCurrentItem(<span class="number">1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><p><strong>1、关于 TabMode</strong><br>如果你发现你的 TabLayout 不能滚动，那么可能是没有设置 TabMode 为 MODE_SCROLLABLE 的缘故</p>
+<p><strong>2、关于 remove 方法</strong><br>TabLayout 的 removeXxx 方法没有什么问题，这里要说的是当 TabLayout 与 ViewPager 一起使用的时候，ViewPager 不能同步刷新的问题。设想一下你在删除 Tab 的同时希望删除该 Tab 下 ViewPager 中的相应页面，这时你修改 ViewPager 的数据源，然后调用 ViewPager Adapter 的 notifyDataSetChanged()（ListView 中是这个思路，并且没什么问题），你会发现结果并不是你料想的那般。</p>
+<p>对于该问题，不是一两句话可以说清楚的，你可以 Google 一下“<strong>ViewPager notifyDataSetChanged  无效</strong>”，有一大堆文章在讨论这个问题，但是都不能覆盖所有场景。所以，打算专门写一篇文章来讨论这个问题。</p>
+<p><strong>3、关于 setupWithViewPager 方法</strong><br>在设置 TabLayout 与 ViewPager 联动的时候，有一种方式是，分别调用 ViewPager 的 addOnPageChangeListener() 方法关联 TabLayout，和 TabLayout 的 setOnTabSelectedListener() 方法关联 ViewPager；这样才能达到联动的目的。</p>
+<p>还有一种方式是通过 TabLayout 的 setupWithViewPager() 方法，刚开始以为直接调用该方法即可完成联动（就是第一种方式的其他代码都不动，只是删除关联用到的两个方法）。试了一下，结果发现 Tab 的文本没有显示出来，下面的线条有了，而且可以联动。坑！有没有，我没打算去分析里面的原因了，直接给出正确的添加 Tab 的方式，注意是调用 setupWithViewPager() 方法的时候：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">initData</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> size = mTitleArr.length;</span><br><span class="line">	mViewList = <span class="keyword">new</span> ArrayList&lt;&gt;(size);</span><br><span class="line">	<span class="comment">// 初始化 View 列表</span></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; size; i++) &#123;</span><br><span class="line">		View view = LayoutInflater.from(<span class="keyword">this</span>).inflate(R.layout.item_tablayoutdemo2_vp, <span class="keyword">null</span>);</span><br><span class="line">		TextView tv = (TextView) view.findViewById(R.id.tv_text);</span><br><span class="line">		tv.setText(mTitleArr[i]);</span><br><span class="line">		mViewList.add(view);</span><br><span class="line">	&#125;</span><br><span class="line">	mAdapter = <span class="keyword">new</span> TabLayoutDemo2PagerAdapter(mViewList);</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 填充 ViewPager</span></span><br><span class="line">	mContentVP.setAdapter(mAdapter);</span><br><span class="line">	mTitleTL.setupWithViewPager(mContentVP);</span><br><span class="line">	size = mTitleTL.getTabCount();</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; size; i++) &#123;</span><br><span class="line">		TabLayout.Tab tab = mTitleTL.getTabAt(i);</span><br><span class="line">		<span class="keyword">if</span> (tab != <span class="keyword">null</span>) &#123;</span><br><span class="line">			tab.setText(mTitleArr[i]);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	mContentVP.setCurrentItem(<span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line">**<span class="number">4</span>、关于 setScrollPosition 方法**</span><br><span class="line">该方法是用来设置 Tab 下那条线的位置的，来看下方法签名：</span><br><span class="line">```<span class="function">java</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setScrollPosition</span><span class="params">(<span class="keyword">int</span> position, <span class="keyword">float</span> positionOffset, <span class="keyword">boolean</span> updateSelectedText)</span></span></span><br></pre></td></tr></table></figure></p>
+<p>这里想说明的问题是，该方法使用的时候容易引起<strong>误会</strong>，对第二个参数不理解。</p>
+<p>第一个参数表示当前 Tab 的位置，第二个参数是偏移值，该值的取值范围是0到1的一个半开区间，最后一个参数表示是否置移动后位置所对应的Tab为选中状态。这里要说明的是 positionOffset 这个参数是一个<strong>倍数值</strong>，这里不打算分析其实现，有兴趣的可以去看看这篇文章<a href="http://blog.csdn.net/aigestudio/article/details/47155769" target="_blank" rel="external">TabLayout：另一种Tab的实现方式</a>，里面解释得不错。</p>
+<p><strong>5、setTabGravity 方法</strong><br>上面介绍了该方法的作用，要注意的是 setTabGravity 方法只有在 Mode 为 <strong>MODE_FIXED</strong> 的情况下才有用。</p>
+<p><strong>6、setTabTextColors 方法无效？</strong><br>setTabTextColors 当然不是说真的无效，场景是这样的，如果你在 addTab 方法之后，再来调用该方法，这时会看到，该方法没有起作用（TabLayout 的 Bug 有没有？）。</p>
+<p>当然这也不是什么无解的问题，我们完全可以通过使用自定义 View 的来作为 TabLayout 的 Item，那么这个控制权就全部在我们手上了。</p>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>TabLayout 的介绍就到这里了，使用比较简单。</p>
+<h1 id="五、NavigationView"><a href="#五、NavigationView" class="headerlink" title="五、NavigationView"></a>五、NavigationView</h1><p>先看看效果：</p>
+<p><img src="\uploads\androidstudydemo\android6\android6_newwidget2_15.png" alt="NavigationView 示例" title="NavigationView 示例"></p>
+<h2 id="简介-1"><a href="#简介-1" class="headerlink" title="简介"></a>简介</h2><p>NavigationView 是兼容包中提供的用来实现导航菜单界面的新控件，看看该控件的特点：</p>
+<ul>
+<li>导航抽屉，被设计用于应用导航</li>
+<li>提供了一种通用的导航方式，体现了设计的一致性</li>
+<li>导航菜单框架，使用menu资源填充数据</li>
+<li>可以更简单高效的实现导航菜单</li>
+</ul>
+<p>来看下官方介绍：</p>
+<p><img src="\uploads\androidstudydemo\android6\android6_newwidget2_16.png" alt="NavigationView 类" title="NavigationView 示例"></p>
+<p>NavigationView 继承自 Framelayout，从继承结构来看，参考意义不大，好在官方给了示例代码，那了解下它特有的属性，然后用起来再说。</p>
+<p>NavigationView 的特有属性：<br><img src="\uploads\androidstudydemo\android6\android6_newwidget2_17.png" alt="NavigationView 特有属性" title="NavigationView 特有属性"></p>
+<h2 id="简单使用-1"><a href="#简单使用-1" class="headerlink" title="简单使用"></a>简单使用</h2><p><strong>1、导入兼容包</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">compile <span class="string">'com.android.support:design:23.3.0'</span></span><br></pre></td></tr></table></figure></p>
+<p><strong>2、在 Layout 中使用</strong><br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span><br><span class="line">&lt;android.support.v4.widget.DrawerLayout</span><br><span class="line">    xmlns:android="http://schemas.android.com/apk/res/android"</span><br><span class="line">    xmlns:app="http://schemas.android.com/apk/res-auto"</span><br><span class="line">    android:id="@+id/dl_root"</span><br><span class="line">    android:layout_width="match_parent"</span><br><span class="line">    android:layout_height="match_parent"</span><br><span class="line">    android:fitsSystemWindows="true"&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- Content --&gt;</span><br><span class="line">    &lt;FrameLayout</span><br><span class="line">        android:id="@+id/fl_content"</span><br><span class="line">        android:layout_width="match_parent"</span><br><span class="line">        android:layout_height="match_parent"&gt;</span><br><span class="line">        &lt;android.support.v7.widget.Toolbar</span><br><span class="line">            android:id="@+id/tb_title"</span><br><span class="line">            android:layout_width="match_parent"</span><br><span class="line">            android:layout_height="?attr/actionBarSize"</span><br><span class="line">            android:background="?attr/colorPrimary"</span><br><span class="line">            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"</span><br><span class="line">            app:layout_scrollFlags="scroll|enterAlways" /&gt;</span><br><span class="line">    &lt;/FrameLayout&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- Drawer --&gt;</span><br><span class="line">    &lt;android.support.design.widget.NavigationView</span><br><span class="line">        android:id="@+id/navigation_left"</span><br><span class="line">        android:layout_width="wrap_content"</span><br><span class="line">        android:layout_height="match_parent"</span><br><span class="line">        android:layout_gravity="start"</span><br><span class="line">        app:headerLayout="@layout/drawer_header"</span><br><span class="line">        app:menu="@menu/drawer_menu"/&gt;</span><br><span class="line">&lt;/android.support.v4.widget.DrawerLayout&gt;</span><br></pre></td></tr></table></figure></p>
+<p><strong>3、定义 headerLayout</strong><br>在上面的 NavigationView 中使用了 app:headerLayout，该属性不是必须的，这里是为了更完整的演示如何使用。这个 headerLayout 就是一个自定义的布局，如：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span><br><span class="line">&lt;RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"</span><br><span class="line">    android:layout_width="match_parent"</span><br><span class="line">    android:layout_height="170dp"</span><br><span class="line">    android:theme="@style/ThemeOverlay.AppCompat.Dark"</span><br><span class="line">    android:background="@mipmap/bg_drawer_header"&gt;</span><br><span class="line">    &lt;ImageView</span><br><span class="line">        android:layout_width="wrap_content"</span><br><span class="line">        android:layout_height="wrap_content"</span><br><span class="line">        android:layout_margin="@dimen/activity_horizontal_margin"</span><br><span class="line">        android:id="@+id/iv_headimg"</span><br><span class="line">        android:src="@mipmap/ic_logo"</span><br><span class="line">        android:layout_above="@+id/switch_online"</span><br><span class="line">        android:layout_alignParentStart="true" /&gt;</span><br><span class="line">    &lt;Switch</span><br><span class="line">        android:layout_width="wrap_content"</span><br><span class="line">        android:layout_height="wrap_content"</span><br><span class="line">        android:id="@+id/switch_online"</span><br><span class="line">        android:layout_alignParentBottom="true"</span><br><span class="line">        android:layout_alignParentEnd="true"</span><br><span class="line">        android:layout_margin="@dimen/activity_horizontal_margin"</span><br><span class="line">        android:checked="false" /&gt;</span><br><span class="line">    &lt;TextView</span><br><span class="line">        android:layout_width="wrap_content"</span><br><span class="line">        android:layout_height="wrap_content"</span><br><span class="line">        android:layout_margin="@dimen/activity_horizontal_margin"</span><br><span class="line">        android:textAppearance="?android:attr/textAppearanceLarge"</span><br><span class="line">        android:text="DIY-green"</span><br><span class="line">        android:id="@+id/tv_name"</span><br><span class="line">        android:layout_alignParentBottom="true"</span><br><span class="line">        android:layout_alignParentStart="true" /&gt;</span><br><span class="line">&lt;/RelativeLayout&gt;</span><br></pre></td></tr></table></figure></p>
+<p><strong>4、定义 menu</strong><br>NavigationView 的 app:menu 属性用于指定自定义的菜单布局文件，一般是必选项，当然也可以在代码中动态设置。这个 menu 也不是什么新东西，直接看代码就明白了：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span><br><span class="line">&lt;menu xmlns:android="http://schemas.android.com/apk/res/android"&gt;</span><br><span class="line">    &lt;group</span><br><span class="line">        android:checkableBehavior="single"&gt;</span><br><span class="line">        &lt;item</span><br><span class="line">            android:id="@+id/drawer_home"</span><br><span class="line">            android:checked="true"</span><br><span class="line">            android:icon="@mipmap/ic_alarm_add_black"</span><br><span class="line">            android:title="Alarm"/&gt;</span><br><span class="line">        &lt;item</span><br><span class="line">            android:id="@+id/drawer_favourite"</span><br><span class="line">            android:icon="@mipmap/ic_cast_connected_black"</span><br><span class="line">            android:title="Connected"/&gt;</span><br><span class="line">        &lt;!-- 为 Item 添加子菜单，实现分组 --&gt;</span><br><span class="line">        &lt;item</span><br><span class="line">            android:id="@+id/section"</span><br><span class="line">            android:icon="@mipmap/ic_more_horiz_grey"</span><br><span class="line">            android:title="Group"&gt;</span><br><span class="line">            &lt;menu&gt;</span><br><span class="line">                &lt;group</span><br><span class="line">                    android:checkableBehavior="single"&gt;</span><br><span class="line">                &lt;item</span><br><span class="line">                    android:id="@+id/drawer_downloaded"</span><br><span class="line">                    android:icon="@mipmap/ic_computer_grey"</span><br><span class="line">                    android:title="Computer"/&gt;</span><br><span class="line">                &lt;item</span><br><span class="line">                    android:id="@+id/drawer_more"</span><br><span class="line">                    android:icon="@mipmap/ic_border_color_grey"</span><br><span class="line">                    android:title="Border"/&gt;</span><br><span class="line">                &lt;/group&gt;</span><br><span class="line">            &lt;/menu&gt;</span><br><span class="line">        &lt;/item&gt;</span><br><span class="line">        &lt;item</span><br><span class="line">            android:id="@+id/drawer_settings"</span><br><span class="line">            android:icon="@mipmap/ic_fullscreen_black"</span><br><span class="line">            android:title="FullScreen"/&gt;</span><br><span class="line">    &lt;/group&gt;</span><br><span class="line">&lt;/menu&gt;</span><br></pre></td></tr></table></figure></p>
+<p>上面示例代码中使用了 android:checkableBehavior=”single” 属性，是为了保证该 Group 下的 Item 为单选状态，这个会在<strong>注意事项</strong>里面详细介绍。</p>
+<p>可以通过为 Item 添加子菜单来实现带有头部的分组效果，注意一下分组的效果，在该分组的最上面会添加一条分隔；还有就是虽然示例代码中给分组 Item 设置了 icon 属性，但是并不会显示。</p>
+<p><strong>5、设置 Menu Item 的点击监听</strong><br>直接使用 NavigationView 的 setNavigationItemSelectedListener() 方法即可：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">mLeftNavigation.setNavigationItemSelectedListener(<span class="keyword">new</span> NavigationView.OnNavigationItemSelectedListener() &#123;</span><br><span class="line">	<span class="meta">@Override</span> <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onNavigationItemSelected</span><span class="params">(MenuItem menuItem)</span> </span>&#123;</span><br><span class="line">		Snackbar.make(mContentView, menuItem.getTitle() + <span class="string">" pressed"</span>, Snackbar.LENGTH_LONG).show();</span><br><span class="line">		menuItem.setChecked(<span class="keyword">true</span>);</span><br><span class="line">		mRootDL.closeDrawers();</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>NavigationView 的封装性比较高，使用起来比较简单，代码不多，但是有些小细节需要注意。</p>
+<h2 id="注意事项-1"><a href="#注意事项-1" class="headerlink" title="注意事项"></a>注意事项</h2><h3 id="将-NavigationView-布局的内容延伸到状态栏实实现"><a href="#将-NavigationView-布局的内容延伸到状态栏实实现" class="headerlink" title="将 NavigationView 布局的内容延伸到状态栏实实现"></a>将 NavigationView 布局的内容延伸到状态栏实实现</h3><p>先看下效果：</p>
+<p><img src="\uploads\androidstudydemo\android6\android6_newwidget2_18.png" alt="将布局内容延伸到状态栏实" title="将布局内容延伸到状态栏实"></p>
+<p>图中使用红线条圈出来的就是将 NavigationView 布局的内容延伸到状态栏实的效果。</p>
+<p>要实现该效果，有几个要注意的地方：</p>
+<ol>
+<li>android:fitsSystemWindows 属性<br>最好将 DrawerLayout 和 NavigationView 的该属性都设置为 true</li>
+<li>values-v21 中的 style<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;style name="BaseTheme" parent="Theme.AppCompat.Light.NoActionBar"&gt;</span><br><span class="line">    &lt;!-- 该属性必须 --&gt;</span><br><span class="line">	&lt;item name="android:windowTranslucentStatus"&gt;true&lt;/item&gt;</span><br><span class="line">	&lt;item name="android:colorControlHighlight"&gt;@color/colorPrimary&lt;/item&gt;</span><br><span class="line">	&lt;item name="android:windowSharedElementsUseOverlay"&gt;false&lt;/item&gt;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>要实现上述效果，按照这两步走就 OK 了。关于该问题更进一步的讨论，可以参考知乎上的一个提问： <a href="http://www.zhihu.com/question/31468556" target="_blank" rel="external">Android 5.0 如何实现将布局的内容延伸到状态栏实?</a>，在这里就不展开讨论了。</p>
+<h3 id="有分组时-Item-单选实现"><a href="#有分组时-Item-单选实现" class="headerlink" title="有分组时 Item 单选实现"></a>有分组时 Item 单选实现</h3><p>上面说了，将 Group 中的 android:checkableBehavior 设置为 “single” 是为了实现菜单项的单选。</p>
+<p>但现在有个问题，如果在菜单项下面有子菜单，也就是有分组的情况时；如果仅在最外层使用 group 标签，如下<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;group</span><br><span class="line">	android:checkableBehavior="single"&gt;</span><br><span class="line">        ...</span><br><span class="line">&lt;/group&gt;</span><br></pre></td></tr></table></figure></p>
+<p>包裹所有的菜单项和分组的话，是达不到单选效果的。（这里就不演示了，你可以自行修改示例项目去看看效果）</p>
+<p>我的解决方案是将分组的 Item 也用 group 标签包裹，当然也得将 checkableBehavior 属性设置为 “single”，看代码：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span><br><span class="line">&lt;menu xmlns:android="http://schemas.android.com/apk/res/android"&gt;</span><br><span class="line">	&lt;!-- 最外层使用 group 标签 ---&gt;</span><br><span class="line">    &lt;group</span><br><span class="line">        android:checkableBehavior="single"&gt;</span><br><span class="line">        &lt;item</span><br><span class="line">            android:id="@+id/drawer_home"</span><br><span class="line">            android:checked="true"</span><br><span class="line">            android:icon="@mipmap/ic_alarm_add_black"</span><br><span class="line">            android:title="Alarm"/&gt;</span><br><span class="line">        ...</span><br><span class="line">        &lt;item</span><br><span class="line">            android:id="@+id/section"</span><br><span class="line">            android:icon="@mipmap/ic_more_horiz_grey"</span><br><span class="line">            android:title="Group"&gt;</span><br><span class="line">            &lt;menu&gt;</span><br><span class="line">				&lt;!-- 在分组中使用 group 标签 ---&gt;</span><br><span class="line">                &lt;group</span><br><span class="line">                    android:checkableBehavior="single"&gt;</span><br><span class="line">                &lt;item</span><br><span class="line">                    android:id="@+id/drawer_downloaded"</span><br><span class="line">                    android:icon="@mipmap/ic_computer_grey"</span><br><span class="line">                    android:title="Computer"/&gt;</span><br><span class="line">                &lt;item</span><br><span class="line">                    android:id="@+id/drawer_more"</span><br><span class="line">                    android:icon="@mipmap/ic_border_color_grey"</span><br><span class="line">                    android:title="Border"/&gt;</span><br><span class="line">                &lt;/group&gt;</span><br><span class="line">            &lt;/menu&gt;</span><br><span class="line">        &lt;/item&gt;</span><br><span class="line">        ...</span><br><span class="line">    &lt;/group&gt;</span><br><span class="line">&lt;/menu&gt;</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>NavigationView 配合 DrawerLayout 来实现侧滑菜单是不错的选择，更关键的是这些都是 Google 官方提供的控件，兼容性方面会好点。</p>
+</blockquote>
+<h1 id="小结-1"><a href="#小结-1" class="headerlink" title="小结"></a>小结</h1><p>本来打算只用两篇来介绍 Android 6.x 中的新控件的，但是考虑到有不少控件都是 MaterialDesign 中的比较重要的成员，所以，会稍微介绍详细点。</p>
+<p>Android 6.x 的新控件介绍还有一篇，这将是 Android 6.x 系列介绍的最后一篇了。<br><a href="">未完待续…</a></p>
+<h1 id="项目地址"><a href="#项目地址" class="headerlink" title="项目地址"></a>项目地址</h1><p><a href="https://github.com/DIY-green/ASD-Android6New" target="_blank" rel="external">GitHub</a></p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="http://blog.csdn.net/aigestudio/article/details/47155769" target="_blank" rel="external">TabLayout：另一种Tab的实现方式</a><br><a href="http://blog.csdn.net/wst1620125/article/details/46592265" target="_blank" rel="external">使用Desgin包组件 TabLayout助你轻松打造网易搜狐顶部导航栏</a><br><a href="http://www.mamicode.com/info-detail-912758.html" target="_blank" rel="external">Material Design之NavigationView和DrawerLayout实现侧滑菜单栏</a><br><a href="https://www.aswifter.com/2015/08/09/implements-bottom-tab-with-tablayout/" target="_blank" rel="external">使用TabLayout实现底部Tab布局</a><br><a href="http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2015/0731/3247.html" target="_blank" rel="external">android design library提供的TabLayout的用法</a><br><a href="http://www.jianshu.com/p/76e30f87a4ed" target="_blank" rel="external">Android Design Support Library初探，NavigationView实践</a><br><a href="http://www.zhihu.com/question/31468556" target="_blank" rel="external">Android 5.0 如何实现将布局的内容延伸到状态栏实?</a><br><a href="http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2015/0608/3011.html" target="_blank" rel="external">Design Support Library (I): Navigation View的使用</a></p>
+
+      
+    </div>
+    
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+<div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton", disable="enable", onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}", style="cursor: pointer; border: 0; outline: 0; border-radius: 100%; padding: 0; margin: 0; letter-spacing: normal; text-transform: none; text-indent: 0px; text-shadow: none">
+    <span onmouseover="this.style.color='rgb(236,96,0)';this.style.background='rgb(204,204,204)'" onMouseOut="this.style.color='#fff';this.style.background='rgb(236,96,0)'" style="display: inline-block; width: 70px; height: 70px; border-radius: 100%; line-height: 81px; color: #fff; font: 400 35px/75px 'microsofty'; background: rgb(236,96,0)">赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/uploads/images/wechat-reward-image.png" alt="DIY-green WeChat Pay" style="width: 200px; max-width: 100%; display: inline-block"/>
+        <p>微信打赏</p>
+      </div>
+    
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/uploads/images/alipay-reward-image.png" alt="DIY-green Alipay" style="width: 200px; max-width: 100%; display: inline-block"/>
+        <p>支付宝打赏</p>
+      </div>
+    
+  </div>
+</div>
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/StudyDemo/" rel="tag">#StudyDemo</a>
+          
+            <a href="/tags/Android-6/" rel="tag">#Android 6</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/05/07/Android小技巧/Android小技巧/" rel="next" title="Android小技巧系列说明">
+                <i class="fa fa-chevron-left"></i> Android小技巧系列说明
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/05/07/Android干货[原创]/Android干货[原创]/" rel="prev" title="Android干货[原创]说明">
+                Android干货[原创]说明 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/05/07/AndroidStudyDemo系列/Android6.x新控件介绍(二)/"
+           data-title="Android6.x新控件介绍(二)" data-url="http://diy-green.com/2016/05/07/AndroidStudyDemo系列/Android6.x新控件介绍(二)/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/images/avatar.jpg"
+               alt="DIY-green" />
+          <p class="site-author-name" itemprop="name">DIY-green</p>
+          <p class="site-description motion-element" itemprop="description">男子千年志，吾生未有涯。心随朗月高，志与秋霜洁。</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">52</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">27</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/DIY-green" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/users/0ad0a0afc409/latest_articles" target="_blank" title="JianShu">
+                  
+                    <i class="fa fa-globe"></i>
+                  
+                  JianShu
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element">
+            <div class="links-of-blogroll-title">
+              <i class="fa fa-globe fa-fw"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.jianshu.com/users/0ad0a0afc409/latest_articles" title="DIY-green简书" target="_blank">DIY-green简书</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.jianshu.com/users/3a482c4f0658/latest_articles" title="天接水0001" target="_blank">天接水0001</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://sunfusheng.com" title="孙福生" target="_blank">孙福生</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://kuanggang.github.io" title="匡罡" target="_blank">匡罡</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://Ivorfason.github.io" title="尹明仁" target="_blank">尹明仁</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://mengqingxiang.github.io" title="孟庆祥" target="_blank">孟庆祥</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#四、TabLayout"><span class="nav-number">1.</span> <span class="nav-text">四、TabLayout</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介"><span class="nav-number">1.1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#简单使用"><span class="nav-number">1.2.</span> <span class="nav-text">简单使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注意事项"><span class="nav-number">1.3.</span> <span class="nav-text">注意事项</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#小结"><span class="nav-number">1.4.</span> <span class="nav-text">小结</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#五、NavigationView"><span class="nav-number">2.</span> <span class="nav-text">五、NavigationView</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介-1"><span class="nav-number">2.1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#简单使用-1"><span class="nav-number">2.2.</span> <span class="nav-text">简单使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注意事项-1"><span class="nav-number">2.3.</span> <span class="nav-text">注意事项</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#将-NavigationView-布局的内容延伸到状态栏实实现"><span class="nav-number">2.3.1.</span> <span class="nav-text">将 NavigationView 布局的内容延伸到状态栏实实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#有分组时-Item-单选实现"><span class="nav-number">2.3.2.</span> <span class="nav-text">有分组时 Item 单选实现</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#小结-1"><span class="nav-number">3.</span> <span class="nav-text">小结</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#项目地址"><span class="nav-number">4.</span> <span class="nav-text">项目地址</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考"><span class="nav-number">5.</span> <span class="nav-text">参考</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+<div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">DIY-green</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info powered-by">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+<div class="powered-by">
+  <span id="busuanzi_container_site_pv">
+    本站总访问量<span id="busuanzi_value_site_pv"></span>次
+  </span>
+</div>
+<div style="display:inline-block;">
+  <span id="busuanzi_container_site_uv">
+    本站访客数<span id="busuanzi_value_site_uv"></span>人次
+  </span>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"DIY-green"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+      
+      <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+      <script src="/js/src/hook-duoshuo.js"></script>
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+  
+  
+  <!-- custom analytics part create by xiamo -->
+<script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+<script>AV.initialize("UnkeFG0pM1t3q8H3y7NTLUA0-gzGzoHsz", "2oBUu9nxByteYjLFtBtqOPwN");</script>
+<script>
+function showTime(Counter) {
+	var query = new AV.Query(Counter);
+	$(".leancloud_visitors").each(function() {
+		var url = $(this).attr("id").trim();
+		query.equalTo("url", url);
+		query.find({
+			success: function(results) {
+				if (results.length == 0) {
+					var content = '0 ' + $(document.getElementById(url)).text();
+					$(document.getElementById(url)).text(content);
+					return;
+				}
+				for (var i = 0; i < results.length; i++) {
+					var object = results[i];
+					var content = object.get('time') + ' ' + $(document.getElementById(url)).text();
+					$(document.getElementById(url)).text(content);
+				}
+			},
+			error: function(object, error) {
+				console.log("Error: " + error.code + " " + error.message);
+			}
+		});
+
+	});
+}
+
+function addCount(Counter) {
+	var Counter = AV.Object.extend("Counter");
+	url = $(".leancloud_visitors").attr('id').trim();
+	title = $(".leancloud_visitors").attr('data-flag-title').trim();
+	var query = new AV.Query(Counter);
+	query.equalTo("url", url);
+	query.find({
+		success: function(results) {
+			if (results.length > 0) {
+				var counter = results[0];
+				counter.fetchWhenSave(true);
+				counter.increment("time");
+				counter.save(null, {
+					success: function(counter) {
+						var content =  counter.get('time') + ' ' + $(document.getElementById(url)).text();
+						$(document.getElementById(url)).text(content);
+					},
+					error: function(counter, error) {
+						console.log('Failed to save Visitor num, with error message: ' + error.message);
+					}
+				});
+			} else {
+				var newcounter = new Counter();
+				newcounter.set("title", title);
+				newcounter.set("url", url);
+				newcounter.set("time", 1);
+				newcounter.save(null, {
+					success: function(newcounter) {
+					    console.log("newcounter.get('time')="+newcounter.get('time'));
+						var content = newcounter.get('time') + ' ' + $(document.getElementById(url)).text();
+						$(document.getElementById(url)).text(content);
+					},
+					error: function(newcounter, error) {
+						console.log('Failed to create');
+					}
+				});
+			}
+		},
+		error: function(error) {
+			console.log('Error:' + error.code + " " + error.message);
+		}
+	});
+}
+$(function() {
+	var Counter = AV.Object.extend("Counter");
+	if ($('.leancloud_visitors').length == 1) {
+		addCount(Counter);
+	} else if ($('.post-title-link').length > 1) {
+		showTime(Counter);
+	}
+}); 
+</script>
+  
+  
+</body>
+</html>

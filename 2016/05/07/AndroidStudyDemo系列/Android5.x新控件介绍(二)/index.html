@@ -1,0 +1,1155 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="StudyDemo,Android 5," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="作者：李旺成时间：2016年4月15日
+
+接上篇 Android5.x新控件介绍（一）/)这一篇继续介绍 Android 5.x 中的新控件，还是那句话不要计较“新控件”的定义；如果是以前有的控件，只是在 Android 5.x 上有比较大的效果变化，那么这里也把它当作“新控件”。
+四、Meterial Dialog
+简介Meterial Dialog，就是 MaterialDesign 风格的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android5.x新控件介绍(二)">
+<meta property="og:url" content="http://diy-green.com/2016/05/07/AndroidStudyDemo系列/Android5.x新控件介绍(二)/index.html">
+<meta property="og:site_name" content="DIY-green">
+<meta property="og:description" content="作者：李旺成时间：2016年4月15日
+
+接上篇 Android5.x新控件介绍（一）/)这一篇继续介绍 Android 5.x 中的新控件，还是那句话不要计较“新控件”的定义；如果是以前有的控件，只是在 Android 5.x 上有比较大的效果变化，那么这里也把它当作“新控件”。
+四、Meterial Dialog
+简介Meterial Dialog，就是 MaterialDesign 风格的">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android5\android5_newwidget2_1.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android5\android5_newwidget2_2.gif">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android5\android5_newwidget2_3.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android5\android5_newwidget2_4.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android5\android5_newwidget2_5.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android5\android5_newwidget2_6.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android5\android5_newwidget2_7.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android5\android5_newwidget2_8.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android5\android5_newwidget2_9.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android5\android5_newwidget2_10.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android5\android5_newwidget2_11.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android5\android5_newwidget2_12.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android5\android5_newwidget2_13.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android5\android5_newwidget2_14.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android5\android5_newwidget2_15.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android5\android5_newwidget2_16.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android5\android5_newwidget2_17.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android5\android5_newwidget2_18.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android5\android5_newwidget2_19.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android5\android5_newwidget2_20.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android5\android5_newwidget2_21.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android5\android5_newwidget2_22.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android5\android5_newwidget2_23.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android5\android5_newwidget2_24.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android5\android5_newwidget2_25.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android5\android5_newwidget2_26.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android5\android5_newwidget2_27.gif">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android5\android5_newwidget2_28.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android5\android5_newwidget2_29.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android5\android5_newwidget2_30.png">
+<meta property="og:updated_time" content="2016-04-26T05:30:44.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android5.x新控件介绍(二)">
+<meta name="twitter:description" content="作者：李旺成时间：2016年4月15日
+
+接上篇 Android5.x新控件介绍（一）/)这一篇继续介绍 Android 5.x 中的新控件，还是那句话不要计较“新控件”的定义；如果是以前有的控件，只是在 Android 5.x 上有比较大的效果变化，那么这里也把它当作“新控件”。
+四、Meterial Dialog
+简介Meterial Dialog，就是 MaterialDesign 风格的">
+<meta name="twitter:image" content="http://diy-green.com/\uploads\androidstudydemo\android5\android5_newwidget2_1.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'DIY-green'
+    }
+  };
+</script>
+
+  <title> Android5.x新控件介绍(二) | DIY-green </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?af1b7efbf565bc568165c5a0600a0207";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+  <div style="display: none;">
+    <script src="http://s6.cnzz.com/stat.php?id=1258791461&web_id=1258791461" type="text/javascript"></script>
+  </div>
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">DIY-green</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            全部
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-androidstudydemo">
+          <a href="/categories/AndroidStudyDemo/" rel="section">
+            
+              <i class="menu-item-icon fa fa-hand-right fa-fw"></i> <br />
+            
+            ● &nbsp; AndroidStudyDemo
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-androidganhuo">
+          <a href="/categories/Android干货/" rel="section">
+            
+              <i class="menu-item-icon fa fa-hand-right fa-fw"></i> <br />
+            
+            ● &nbsp; Android干货
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-androidhacks">
+          <a href="/categories/Android小技巧/" rel="section">
+            
+              <i class="menu-item-icon fa fa-hand-right fa-fw"></i> <br />
+            
+            ● &nbsp; Android小技巧
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-androidstudio">
+          <a href="/categories/AndroidStudio/" rel="section">
+            
+              <i class="menu-item-icon fa fa-hand-right fa-fw"></i> <br />
+            
+            ● &nbsp; AndroidStudio
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-essay">
+          <a href="/categories/随笔/" rel="section">
+            
+              <i class="menu-item-icon fa fa-hand-right fa-fw"></i> <br />
+            
+            ● &nbsp; 随笔
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Android5.x新控件介绍(二)
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-05-07T20:39:24+08:00" content="2016-05-07">
+              2016-05-07
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/AndroidStudyDemo/" itemprop="url" rel="index">
+                    <span itemprop="name">AndroidStudyDemo</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/AndroidStudyDemo/Android-5/" itemprop="url" rel="index">
+                    <span itemprop="name">Android 5</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/05/07/AndroidStudyDemo系列/Android5.x新控件介绍(二)/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/07/AndroidStudyDemo系列/Android5.x新控件介绍(二)/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+		  &nbsp; | &nbsp;
+             <span id="/2016/05/07/AndroidStudyDemo系列/Android5.x新控件介绍(二)/" class="leancloud_visitors" data-flag-title="Android5.x新控件介绍(二)">
+               
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+		  
+		  <!--<span id="busuanzi_container_page_pv">
+		    &nbsp; | &nbsp;<span id="busuanzi_value_page_pv"></span>阅读
+		  </span>
+		  
+		  
+			&nbsp; | &nbsp;
+			<span id="/2016/05/07/AndroidStudyDemo系列/Android5.x新控件介绍(二)/"class="leancloud_visitors" data-flag-title="Android5.x新控件介绍(二)">
+					 &nbsp;阅读
+					</span>
+			-->
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="\uploads\androidstudydemo\android5\android5_newwidget2_1.png" alt="Android5.x新控件（二）" title="Android5.x新控件(二)思维导图"></p>
+<p><strong>作者：<a href="https://github.com/DIY-green/" target="_blank" rel="external">李旺成</a></strong><br><strong>时间：2016年4月15日</strong></p>
+<hr>
+<p>接上篇 <a href="http://diy-green.github.io/2016/04/26/AndroidStudyDemo%E7%B3%BB%E5%88%97/Android5.x%E6%96%B0%E6%8E%A7%E4%BB%B6%E4%BB%8B%E7%BB%8D(%E4%B8%80" target="_blank" rel="external">Android5.x新控件介绍（一）</a>/)<br>这一篇继续介绍 Android 5.x 中的<strong>新控件</strong>，还是那句话不要计较“<strong>新控件</strong>”的定义；如果是以前有的控件，只是在 Android 5.x 上有比较大的效果变化，那么这里也把它当作“<strong>新控件</strong>”。</p>
+<h1 id="四、Meterial-Dialog"><a href="#四、Meterial-Dialog" class="headerlink" title="四、Meterial Dialog"></a>四、Meterial Dialog</h1><p><img src="\uploads\androidstudydemo\android5\android5_newwidget2_2.gif" alt="MaterialDialog 演示" title="MaterialDialog 演示"></p>
+<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>Meterial Dialog，就是 <strong>MaterialDesign 风格的 Dialog</strong>。这还真算不上什么新控件，都是在 Android SDK 中很久以前就出现了的（<strong>Added in API level 1</strong>）。闲话不多少，你要是感兴趣就权当复习了，我就是在这里做个简单的总结。</p>
+<p>先来看看官方的介绍：<br><strong>1、DatePickerDialog</strong></p>
+<p><img src="\uploads\androidstudydemo\android5\android5_newwidget2_3.png" alt="DatePickerDialog 类" title="DatePickerDialog 类"></p>
+<p><strong>2、TimePickerDialog </strong></p>
+<p><img src="\uploads\androidstudydemo\android5\android5_newwidget2_4.png" alt="TimePickerDialog 类" title="TimePickerDialog 类"></p>
+<p><strong>3、ProgressDialog</strong></p>
+<p><img src="\uploads\androidstudydemo\android5\android5_newwidget2_5.png" alt="ProgressDialog 类" title="ProgressDialog 类"></p>
+<p><img src="\uploads\androidstudydemo\android5\android5_newwidget2_6.png" alt="ProgressDialog 方法" title="ProgressDialog 方法"></p>
+<p><strong>4、AlertDialog </strong></p>
+<p><img src="\uploads\androidstudydemo\android5\android5_newwidget2_7.png" alt="AlertDialog 类" title="AlertDialog 类"></p>
+<p><img src="\uploads\androidstudydemo\android5\android5_newwidget2_8.png" alt="AlertDialog 方法" title="AlertDialog 方法"></p>
+<p><img src="\uploads\androidstudydemo\android5\android5_newwidget2_9.png" alt="AlertDialog.Builder 类" title="AlertDialog.Builder 类"></p>
+<p><img src="\uploads\androidstudydemo\android5\android5_newwidget2_10.png" alt="AlertDialog.Builder 方法（1）" title="AlertDialog.Builder 方法（1）"></p>
+<p><img src="\uploads\androidstudydemo\android5\android5_newwidget2_11.png" alt="AlertDialog.Builder 方法（2）" title="AlertDialog.Builder 方法（2）"></p>
+<p>今天只介绍上面提到的这几类 Dialog，就不讨论 <strong>android.app.Dialog</strong> 了。可以看到 <strong>AlertDialog</strong> 是前面那三个类的父类（直接或间接的），而且前面那三个类都提供了各自相关的方法，使用起来也相对简单，所以打算把 AlertDialog 放到最后介绍。</p>
+<h2 id="简单使用"><a href="#简单使用" class="headerlink" title="简单使用"></a>简单使用</h2><p>要使用 Material Dialog，那首先你的主题必须是 Material 的，这个在上一篇中已经介绍过了。</p>
+<blockquote>
+<p>这里讨论的是 Android 5.x 的新控件，所以采用的都是 Android 5.x 中提供的控件，当然你也可以使用兼容包中的对应控件。</p>
+</blockquote>
+<p><strong>1、 DatePickerDialog</strong><br>看效果图（确实比 Android 5.x 之前的要好看很多，这里就不放对比图了，相信大家都用过）：</p>
+<p><img src="\uploads\androidstudydemo\android5\android5_newwidget2_12.png" alt="日期选择" title="日期选择"></p>
+<p>代码：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">showDatePickerDialog</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	DatePickerDialog datePickerDialog = <span class="keyword">new</span> DatePickerDialog(<span class="keyword">this</span>, <span class="keyword">this</span>, <span class="number">2016</span>, <span class="number">4</span>, <span class="number">15</span>);</span><br><span class="line">	datePickerDialog.show();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 回调监听实现</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onDateSet</span><span class="params">(DatePicker view, <span class="keyword">int</span> year, <span class="keyword">int</span> monthOfYear, <span class="keyword">int</span> dayOfMonth)</span> </span>&#123;</span><br><span class="line">	String msg = year + <span class="string">"-"</span>  + monthOfYear + <span class="string">"-"</span> + dayOfMonth;</span><br><span class="line">	Toast.makeText(MaterialDialogActivity.<span class="keyword">this</span>, msg, Toast.LENGTH_LONG).show();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>2、TimePickerDialog </strong><br>看效果图：</p>
+<p><img src="\uploads\androidstudydemo\android5\android5_newwidget2_13.png" alt="时间选择" title="时间选择"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">showTimePickerDialog</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	TimePickerDialog timePickerDialog = <span class="keyword">new</span> TimePickerDialog(<span class="keyword">this</span>, R.style.DIYMaterialDialog, <span class="keyword">this</span>, <span class="number">12</span>, <span class="number">12</span>, <span class="keyword">true</span>);</span><br><span class="line">	timePickerDialog.show();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 回调监听实现</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onTimeSet</span><span class="params">(TimePicker view, <span class="keyword">int</span> hourOfDay, <span class="keyword">int</span> minute)</span> </span>&#123;</span><br><span class="line">	String msg = hourOfDay + <span class="string">":"</span> + minute;</span><br><span class="line">	Toast.makeText(MaterialDialogActivity.<span class="keyword">this</span>, msg, Toast.LENGTH_LONG).show();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>3、ProgressDialog</strong><br>看效果图：</p>
+<p><img src="\uploads\androidstudydemo\android5\android5_newwidget2_14.png" alt="ProgressDialog" title="ProgressDialog"></p>
+<p>代码：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">showProgressDialogCycle</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	ProgressDialog progressDialog = <span class="keyword">new</span> ProgressDialog(<span class="keyword">this</span>);</span><br><span class="line">	progressDialog.setTitle(MD_DIALOG_TITLE);</span><br><span class="line">	progressDialog.setMessage(MD_PROGRESSDIALOG_MESSAGE);</span><br><span class="line">	progressDialog.show();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">showProgressDialogHorizontal</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	ProgressDialog progressDialog = <span class="keyword">new</span> ProgressDialog(<span class="keyword">this</span>);</span><br><span class="line">	progressDialog.setTitle(MD_DIALOG_TITLE);</span><br><span class="line">	progressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);</span><br><span class="line">	progressDialog.show();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>4、AlertDialog </strong></p>
+<h3 id="使用示例"><a href="#使用示例" class="headerlink" title="使用示例"></a>使用示例</h3><p><strong>A. 一个按钮的 AlertDialog </strong><br>效果图：</p>
+<p><img src="\uploads\androidstudydemo\android5\android5_newwidget2_15.png" alt="一个按钮的 AlertDialog" title="一个按钮的 AlertDialog"></p>
+<p>代码：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">showAlertDialogOneButton</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	AlertDialog.Builder builder = <span class="keyword">new</span> AlertDialog.Builder(<span class="keyword">this</span>, R.style.DIYMaterialDialog);</span><br><span class="line">	builder.setTitle(MD_DIALOG_TITLE);</span><br><span class="line">	builder.setMessage(MD_DIALOG_MESSAGE);</span><br><span class="line">	builder.setPositiveButton(MD_DIALOG_POSITIVE_BUTTON_TEXT, <span class="keyword">null</span>);</span><br><span class="line">	builder.create().show();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>B. 两个按钮的 AlertDialog </strong><br>效果图：<br><img src="\uploads\androidstudydemo\android5\android5_newwidget2_16.png" alt="两个按钮的 AlertDialog" title="两个按钮的 AlertDialog"><br>代码：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">showAlertDialogTwoButton</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	AlertDialog.Builder builder = <span class="keyword">new</span> AlertDialog.Builder(<span class="keyword">this</span>, R.style.DIYMaterialDialog);</span><br><span class="line">	builder.setTitle(MD_DIALOG_TITLE);</span><br><span class="line">	builder.setMessage(MD_DIALOG_MESSAGE);</span><br><span class="line">	builder.setNegativeButton(MD_DIALOG_NEGATIVE_BUTTON_TEXT, <span class="keyword">null</span>);</span><br><span class="line">	builder.setPositiveButton(MD_DIALOG_POSITIVE_BUTTON_TEXT, <span class="keyword">null</span>);</span><br><span class="line">	builder.create().show();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong> C. 三个按钮的 AlertDialog </strong><br>效果图：</p>
+<p><img src="\uploads\androidstudydemo\android5\android5_newwidget2_17.png" alt="三个按钮的 AlertDialog" title="三个按钮的 AlertDialog"></p>
+<p>代码：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">showAlertDialogThreeButton</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	AlertDialog.Builder builder = <span class="keyword">new</span> AlertDialog.Builder(<span class="keyword">this</span>, R.style.DIYMaterialDialog);</span><br><span class="line">	builder.setTitle(MD_DIALOG_TITLE);</span><br><span class="line">	builder.setMessage(MD_DIALOG_MESSAGE);</span><br><span class="line">	builder.setNegativeButton(MD_DIALOG_NEGATIVE_BUTTON_TEXT, <span class="keyword">null</span>);</span><br><span class="line">	builder.setNeutralButton(MD_DIALOG_NEUTRAL_BUTTON_TEXT, <span class="keyword">null</span>);</span><br><span class="line">	builder.setPositiveButton(MD_DIALOG_POSITIVE_BUTTON_TEXT, <span class="keyword">null</span>);</span><br><span class="line">	builder.create().show();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>D. 带输入框的 AlertDialog</strong><br>效果图：</p>
+<p><img src="\uploads\androidstudydemo\android5\android5_newwidget2_18.png" alt="带输入框的 AlertDialog" title="带输入框的 AlertDialog"></p>
+<p>代码：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">showAlertDialogInput</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	AlertDialog.Builder builder = <span class="keyword">new</span> AlertDialog.Builder(<span class="keyword">this</span>, R.style.DIYMaterialDialog);</span><br><span class="line">	builder.setTitle(MD_DIALOG_TITLE);</span><br><span class="line">	builder.setView(<span class="keyword">new</span> EditText(<span class="keyword">this</span>));</span><br><span class="line">	builder.setNegativeButton(MD_DIALOG_NEGATIVE_BUTTON_TEXT, <span class="keyword">null</span>);</span><br><span class="line">	builder.setPositiveButton(MD_DIALOG_POSITIVE_BUTTON_TEXT, <span class="keyword">null</span>);</span><br><span class="line">	builder.create().show();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>E. 单选 AlertDialog</strong><br>效果图：</p>
+<p><img src="\uploads\androidstudydemo\android5\android5_newwidget2_19.png" alt="单选 AlertDialog" title="单选 AlertDialog"></p>
+<p>代码：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">showAlertDialogSingleChoice</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">final</span> String[] itemArr = <span class="keyword">new</span> String[]&#123;<span class="string">"唐三藏"</span>, <span class="string">"孙悟空"</span>, <span class="string">"猪八戒"</span>, <span class="string">"沙和尚"</span>&#125;;</span><br><span class="line">	AlertDialog.Builder builder = <span class="keyword">new</span> AlertDialog.Builder(<span class="keyword">this</span>, R.style.DIYMaterialDialog);</span><br><span class="line">	builder.setTitle(MD_DIALOG_TITLE);</span><br><span class="line">	builder.setSingleChoiceItems(itemArr, <span class="number">0</span>, <span class="keyword">new</span> DialogInterface.OnClickListener() &#123;</span><br><span class="line">		<span class="meta">@Override</span></span><br><span class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(DialogInterface dialog, <span class="keyword">int</span> which)</span> </span>&#123;</span><br><span class="line">			Toast.makeText(MaterialDialogActivity.<span class="keyword">this</span>, itemArr[which], Toast.LENGTH_LONG).show();</span><br><span class="line">			dialog.dismiss();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;);</span><br><span class="line">	builder.setNegativeButton(MD_DIALOG_NEGATIVE_BUTTON_TEXT, <span class="keyword">null</span>);</span><br><span class="line">	builder.setPositiveButton(MD_DIALOG_POSITIVE_BUTTON_TEXT, <span class="keyword">null</span>);</span><br><span class="line">	builder.create().show();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>F. 多选 AlertDialog</strong><br>效果图：</p>
+<p><img src="\uploads\androidstudydemo\android5\android5_newwidget2_20.png" alt="多选 AlertDialog" title="多选 AlertDialog"></p>
+<p>代码：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">showAlertDialogMultiChoice</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">final</span> String[] itemArr = <span class="keyword">new</span> String[]&#123;<span class="string">"唐三藏"</span>, <span class="string">"孙悟空"</span>, <span class="string">"猪八戒"</span>, <span class="string">"沙和尚"</span>&#125;;</span><br><span class="line">	AlertDialog.Builder builder = <span class="keyword">new</span> AlertDialog.Builder(<span class="keyword">this</span>, R.style.DIYMaterialDialog);</span><br><span class="line">	builder.setTitle(MD_DIALOG_TITLE);</span><br><span class="line">	builder.setMultiChoiceItems(itemArr, <span class="keyword">new</span> <span class="keyword">boolean</span>[]&#123;<span class="keyword">true</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>&#125;, <span class="keyword">new</span> DialogInterface.OnMultiChoiceClickListener() &#123;</span><br><span class="line">		<span class="meta">@Override</span></span><br><span class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(DialogInterface dialog, <span class="keyword">int</span> which, <span class="keyword">boolean</span> isChecked)</span> </span>&#123;</span><br><span class="line">			Toast.makeText(MaterialDialogActivity.<span class="keyword">this</span>, itemArr[which], Toast.LENGTH_LONG).show();</span><br><span class="line">			dialog.dismiss();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;);</span><br><span class="line">	builder.setNegativeButton(MD_DIALOG_NEGATIVE_BUTTON_TEXT, <span class="keyword">null</span>);</span><br><span class="line">	builder.setPositiveButton(MD_DIALOG_POSITIVE_BUTTON_TEXT, <span class="keyword">null</span>);</span><br><span class="line">	builder.create().show();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>G. 列表 AlertDialog</strong><br>效果图：</p>
+<p><img src="\uploads\androidstudydemo\android5\android5_newwidget2_21.png" alt="列表 AlertDialog" title="列表 AlertDialog"></p>
+<p>代码：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">showAlertDialogList</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">final</span> String[] itemArr = <span class="keyword">new</span> String[]&#123;<span class="string">"唐三藏"</span>, <span class="string">"孙悟空"</span>, <span class="string">"猪八戒"</span>, <span class="string">"沙和尚"</span>&#125;;</span><br><span class="line">	AlertDialog.Builder builder = <span class="keyword">new</span> AlertDialog.Builder(<span class="keyword">this</span>, R.style.DIYMaterialDialog);</span><br><span class="line">	builder.setTitle(MD_DIALOG_TITLE);</span><br><span class="line">	builder.setItems(itemArr, <span class="keyword">new</span> DialogInterface.OnClickListener() &#123;</span><br><span class="line">		<span class="meta">@Override</span></span><br><span class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(DialogInterface dialog, <span class="keyword">int</span> which)</span> </span>&#123;</span><br><span class="line">			Toast.makeText(MaterialDialogActivity.<span class="keyword">this</span>, itemArr[which], Toast.LENGTH_LONG).show();</span><br><span class="line">			dialog.dismiss();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;);</span><br><span class="line">	builder.setNegativeButton(MD_DIALOG_NEGATIVE_BUTTON_TEXT, <span class="keyword">null</span>);</span><br><span class="line">	builder.setPositiveButton(MD_DIALOG_POSITIVE_BUTTON_TEXT, <span class="keyword">null</span>);</span><br><span class="line">	builder.create().show();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>H. 自定义视图 AlertDialog</strong><br>效果图：</p>
+<p><img src="\uploads\androidstudydemo\android5\android5_newwidget2_22.png" alt="自定义视图 AlertDialog" title="自定义视图 AlertDialog"></p>
+<p>代码：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">showAlertDialogCuston</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	LayoutInflater inflater = getLayoutInflater();</span><br><span class="line">	View view = inflater.inflate(R.layout.dialog_meterialdialog, (ViewGroup) findViewById(R.id.rl_meterialdialog));</span><br><span class="line">	AlertDialog.Builder builder = <span class="keyword">new</span> AlertDialog.Builder(<span class="keyword">this</span>, R.style.DIYMaterialDialog);</span><br><span class="line">	builder.setTitle(MD_DIALOG_TITLE);</span><br><span class="line">	builder.setView(view);</span><br><span class="line">	builder.setNegativeButton(MD_DIALOG_NEGATIVE_BUTTON_TEXT, <span class="keyword">null</span>);</span><br><span class="line">	builder.setPositiveButton(MD_DIALOG_POSITIVE_BUTTON_TEXT, <span class="keyword">null</span>);</span><br><span class="line">	builder.create().show();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>用法很简单，与之前的没有什么区别，只是在 Android 5.x 以及以上的手机上，使用 Material 主题，那么就成了 Material Dialog。</p>
+<blockquote>
+<p>AlertDialog 的使用很简单，但是不知道你是否也会觉得每次这样显示一个 AlertDialog，哪里有点不对劲，如果都是普通的 AlertDialog 那是不是可以稍微<strong>复用</strong>一下。</p>
+</blockquote>
+<p>对于这个问题，我考虑过使用单例来解决，最好是能够让整个 App 全局都只有一个 AlertDialog 的实例。当我去尝试这个思路的时候，发现这并不是很好，首先有一点，那就是需要申请多余的权限；于是换了个思路 —— 不能保证在整个 App 中唯一，那好，就在当前的 Context 中唯一，这个可以了吧！</p>
+<p>上面的问题不属于这篇文章的内容，稍后单独发一篇文章，谈谈我是怎么<strong>复用 AlertDialog</strong> 的。</p>
+<h3 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h3><p>AlertDialog 中有个 AlertDialog.Builder 的静态内部类，是不是有点印象。我前面的文章中提过“<strong>以后会经常看到Builder</strong>”。Builder 就不在这里展开讨论了，以后会专门介绍这种<strong>模式</strong>；下面来看看常用的属性设置方法。<br><strong>A. setTitle()</strong><br>设置标题<br><strong>B. setIcon()</strong><br>设置图标<br><strong>C. setMessage()</strong><br>设置内容<br><strong>D. setNegativeButton()</strong><br>设置否定按钮，第一个参数为按钮文本，第二个参数为按钮被点击的监听器类。<br><strong>注意：</strong>第二个参数的监听器中如果没有什么特殊的处理，直接传 null 即可<br><strong>E. setNeutralButton()</strong><br>设置中性按钮，参数和 setNegativeButton 一样，注意该按钮的位置 —— 在 AlertDialog 的左下角<br><strong>F. setPositiveButton()</strong><br>设置肯定按钮<br><strong>G. setView()</strong><br>设置一个自定义的 View，位置在 message 下方<br><strong>注意：</strong> setView(View view, int viewSpacingLeft, int viewSpacingTop, int viewSpacingRight, int viewSpacingBottom)  方法可以设置边距</p>
+<h2 id="一些兼容库"><a href="#一些兼容库" class="headerlink" title="一些兼容库"></a>一些兼容库</h2><p>每次 Android 上有比较大的更新的时候，都会有不少热心的开发者为低版本开发兼容库，这里就不用举例了吧，相信大家都用过。</p>
+<p>这里稍微介绍一下针对 Material Dialog 的兼容库：</p>
+<ul>
+<li><strong>Android Support Library v22.1 中开始提供了 Material 风格的 Dialog 控件</strong>（官方提供的，很好，很强大）</li>
+<li><strong><a href="https://github.com/fengdai/AlertDialogPro" target="_blank" rel="external">AlertDialogPro</a></strong></li>
+<li><strong><a href="https://github.com/drakeet/MaterialDialog" target="_blank" rel="external">MaterialDialog</a></strong></li>
+</ul>
+<blockquote>
+<p>关于兼容库就不多说了，这里之所以提到这些，是希望以此自勉（也给大家提供个做开源项目的思路），早点去整个开源库/开源项目出来，造福广大程序员…</p>
+</blockquote>
+<h1 id="五、Palette"><a href="#五、Palette" class="headerlink" title="五、Palette"></a>五、Palette</h1><p>先来看看效果：</p>
+<p><img src="\uploads\androidstudydemo\android5\android5_newwidget2_23.png" alt="Palette 效果演示" title="Palette 效果演示"></p>
+<h2 id="简介-1"><a href="#简介-1" class="headerlink" title="简介"></a>简介</h2><p>Palette 调色板类，可以让你从图像中提取突出的颜色。Palette 是兼容包中提供的，但是它是和 Andoid 5.x 一起出现的，所以一般都认为它是 Android 5.x 的新控件。</p>
+<blockquote>
+<p>Palette 从图像中提取突出的颜色，这样可以把色值赋给 ActionBar、Toolbar、或者其他，可以让界面整个色调统一。</p>
+</blockquote>
+<p>看看涉及到的几个关键类的官方文档：</p>
+<p><img src="\uploads\androidstudydemo\android5\android5_newwidget2_24.png" alt="Palette 所在包" title="Palette 所在包"></p>
+<p><img src="\uploads\androidstudydemo\android5\android5_newwidget2_25.png" alt="Palette 类" title="Palette 类"></p>
+<p><img src="\uploads\androidstudydemo\android5\android5_newwidget2_26.png" alt="Palette.Builder 类" title="Palette.Builder 类"></p>
+<p>Builder 静态内部类又一次出现了，下面会详细介绍其用法。</p>
+<h2 id="简单使用-1"><a href="#简单使用-1" class="headerlink" title="简单使用"></a>简单使用</h2><p>Palette 是兼容包中提供的，所有这里首先要做的是添加 palette-v7 的依赖：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">compile <span class="string">'com.android.support:palette-v7:23.2.0'</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="创建-Palette-实例"><a href="#创建-Palette-实例" class="headerlink" title="创建 Palette 实例"></a>创建 Palette 实例</h3><h4 id="已经-Deprecated-的方法"><a href="#已经-Deprecated-的方法" class="headerlink" title="已经 Deprecated 的方法"></a>已经 Deprecated 的方法</h4><p>官方提供了四种根据 Bitmap 对象来创建 Palette 对象的方法，分别是两种同步方法和两种异步方法，但是这四种方法上都标记了 @Deprecated，现在推荐使用 Builder 来创建。</p>
+<p><strong>这里对 @Deprecated 的也简单介绍下吧：</strong><br>两种同步方法：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 最好在加载图片线程中使用</span></span><br><span class="line"><span class="comment">// 默认调色板大小(16).</span></span><br><span class="line">Palette p = Palette.generate(bitmap);</span><br><span class="line"><span class="comment">//设置调色板大小(24)</span></span><br><span class="line">Palette p = Palette.generate(bitmap, <span class="number">24</span>);</span><br></pre></td></tr></table></figure></p>
+<p>两种异步方法:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 简单快速的实现方法，内部使用AsyncTask</span></span><br><span class="line"><span class="comment">// 但是可能不是最优的方法(因为有线程的切换)</span></span><br><span class="line"><span class="comment">// 默认调色板大小(16).</span></span><br><span class="line">Palette.generateAsync(bitmap, <span class="keyword">new</span> Palette.PaletteAsyncListener() &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onGenerated</span><span class="params">(Palette palette)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// palette为生成的调色板</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// 设置调色板大小(24)</span></span><br><span class="line">Palette.generateAsync(bitmap, <span class="number">24</span>, <span class="keyword">new</span> Palette.PaletteAsyncListener() &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onGenerated</span><span class="params">(Palette palette)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// palette为生成的调色板</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p><strong> #使用 Builder 来创建 Palette： </strong><br>同步方法：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">initPaletteBySync</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.bg_palette);</span><br><span class="line">	Palette palette = <span class="keyword">new</span> Palette.Builder(bitmap).generate();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>异步方法：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">initPaletteByAsync</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.bg_palette);</span><br><span class="line">	<span class="keyword">new</span> Palette.Builder(bitmap).generate(<span class="keyword">new</span> Palette.PaletteAsyncListener() &#123;</span><br><span class="line">		<span class="meta">@Override</span></span><br><span class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onGenerated</span><span class="params">(Palette palette)</span> </span>&#123;</span><br><span class="line">			</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>可以看到使用 Builder 来创建 Palette 与使用 Palette 的静态方法基本上是类似的，只是换了种方式，当然使用 Builder 会更灵活。</p>
+</blockquote>
+<p>在 Demo 中都有演示，这里代码做了删减。</p>
+<h3 id="关于色板-样本（swatch）"><a href="#关于色板-样本（swatch）" class="headerlink" title="关于色板/样本（swatch）"></a>关于色板/样本（swatch）</h3><h4 id="色板分类"><a href="#色板分类" class="headerlink" title="色板分类"></a>色板分类</h4><p>Palette 提供了六种色板：</p>
+<ol>
+<li>Palette.Swatch s1 = Palette.getVibrantSwatch(); //充满活力的色板</li>
+<li>Palette.Swatch s2 = Palette.getDarkVibrantSwatch(); //充满活力的暗色类型色板</li>
+<li>Palette.Swatch s3 = Palette.getLightVibrantSwatch(); //充满活力的亮色类型色板</li>
+<li>Palette.Swatch s4 = Palette.getMutedSwatch(); //黯淡的色板</li>
+<li>Palette.Swatch s5 = Palette.getDarkMutedSwatch(); //黯淡的暗色类型色板</li>
+<li>Palette.Swatch s6 = Palette.getLightMutedSwatch(); //黯淡的亮色类型色板</li>
+</ol>
+<p>（参考自：<a href="http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2015/0304/2532.html" target="_blank" rel="external">使用Palette类提取图片的颜色信息</a>）</p>
+<h4 id="使用色板获取颜色"><a href="#使用色板获取颜色" class="headerlink" title="使用色板获取颜色"></a>使用色板获取颜色</h4><p>有了色板就可以根据色板来获取具体颜色信息，在 Swatch 色板中提供了五种颜色信息，分别如下：</p>
+<ol>
+<li>getPopulation(): the number of pixels represented by this swatch</li>
+<li>getRgb(): the RGB value of this color.</li>
+<li>getHsl(): the HSL value of this color.</li>
+<li>getBodyTextColor(): the RGB value of a text color which can be displayed on top of this color.</li>
+<li>getTitleTextColor(): the RGB value of a text color which can be displayed on top of this color.</li>
+</ol>
+<p>（参考自：<a href="http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2015/0304/2532.html" target="_blank" rel="external">使用Palette类提取图片的颜色信息</a>）</p>
+<h3 id="关于-size"><a href="#关于-size" class="headerlink" title="关于 size"></a>关于 size</h3><p><strong>记住一句话：</strong>关于 Palette 的 size，该 size 越大，生成的调色板的时间越长，而越小，可以选择的色彩也越少。</p>
+<p><strong>如何设置 size ？</strong><br>有一个原则，那就是根据 image 的用途来决定：</p>
+<ul>
+<li>头像之类的，size 最好在24-32之间</li>
+<li>风景大图之类的 size 差不多在8-16</li>
+<li>默认是16，适用于大多数情况</li>
+</ul>
+<h3 id="使用获取的颜色"><a href="#使用获取的颜色" class="headerlink" title="使用获取的颜色"></a>使用获取的颜色</h3><p>这个就很简单了，可以通过 Swatch 来获取颜色值，也可以通过 Palette 对象来获取颜色值，然后，直接使用这些颜色值即可。<br>代码：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">setColorByPalette</span><span class="params">(Palette palette)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (palette == <span class="keyword">null</span>) <span class="keyword">return</span>;</span><br><span class="line">	<span class="comment">//暗鲜艳色</span></span><br><span class="line">	<span class="keyword">int</span> darkVibrantColor = palette.getDarkVibrantColor(android.R.color.holo_blue_dark);</span><br><span class="line">	<span class="comment">//暗柔和的颜色</span></span><br><span class="line">	<span class="keyword">int</span> darkMutedColor = palette.getDarkMutedColor(android.R.color.holo_orange_dark);</span><br><span class="line"></span><br><span class="line">	<span class="comment">//亮鲜艳色(淡色)</span></span><br><span class="line">	<span class="keyword">int</span> lightVibrantColor = palette.getLightVibrantColor(android.R.color.holo_blue_bright);</span><br><span class="line">	<span class="comment">//亮柔和色(淡色)</span></span><br><span class="line">	<span class="keyword">int</span> lightMutedColor = palette.getLightMutedColor(android.R.color.holo_orange_light);</span><br><span class="line"></span><br><span class="line">	<span class="comment">//柔和色</span></span><br><span class="line">	<span class="keyword">int</span> mutedColor = palette.getMutedColor(android.R.color.holo_red_dark);</span><br><span class="line">	<span class="comment">//鲜艳色</span></span><br><span class="line">	<span class="keyword">int</span> vibrantColor = palette.getVibrantColor(android.R.color.holo_red_light);</span><br><span class="line"></span><br><span class="line">	mTest1View.setBackgroundColor(darkVibrantColor);</span><br><span class="line">	mTest2View.setBackgroundColor(darkMutedColor);</span><br><span class="line">	mTest3View.setBackgroundColor(lightVibrantColor);</span><br><span class="line">	mTest4View.setBackgroundColor(lightMutedColor);</span><br><span class="line">	mTest5View.setBackgroundColor(mutedColor);</span><br><span class="line">	mTest6View.setBackgroundColor(vibrantColor);</span><br><span class="line"></span><br><span class="line">	Palette.Swatch swatch1 = palette.getMutedSwatch();</span><br><span class="line">	Palette.Swatch swatch2 = palette.getVibrantSwatch();</span><br><span class="line">	Palette.Swatch swatch3 = palette.getDarkMutedSwatch();</span><br><span class="line">	Palette.Swatch swatch4 = palette.getDarkVibrantSwatch();</span><br><span class="line">	Palette.Swatch swatch5 = palette.getLightMutedSwatch();</span><br><span class="line">	Palette.Swatch swatch6 = palette.getLightVibrantSwatch();</span><br><span class="line">	<span class="keyword">if</span> (swatch1 != <span class="keyword">null</span>) &#123;</span><br><span class="line">		mTest7View.setBackgroundColor(swatch1.getPopulation());</span><br><span class="line">		mTest8View.setBackgroundColor(swatch1.getRgb());</span><br><span class="line">		mTest9View.setBackgroundColor(swatch1.getBodyTextColor());</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span> (swatch2 != <span class="keyword">null</span>) &#123;</span><br><span class="line">		mTest10View.setBackgroundColor(swatch2.getPopulation());</span><br><span class="line">		mTest11View.setBackgroundColor(swatch2.getRgb());</span><br><span class="line">		mTest12View.setBackgroundColor(swatch2.getTitleTextColor());</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="进阶"><a href="#进阶" class="headerlink" title="进阶"></a>进阶</h2><p>如果想了解更多，那不妨去“<strong>知其所以然</strong>”，可以去看看这篇文章 —— <a href="http://www.2cto.com/kf/201501/373806.html" target="_blank" rel="external">android L Palette 实现原理</a>。</p>
+<p>好了，Palette 不多说了，使用挺简单的。</p>
+<h1 id="六、CardView"><a href="#六、CardView" class="headerlink" title="六、CardView"></a>六、CardView</h1><p><img src="\uploads\androidstudydemo\android5\android5_newwidget2_27.gif" alt="CardView 演示"></p>
+<h2 id="简介-2"><a href="#简介-2" class="headerlink" title="简介"></a>简介</h2><p>CardView 就是 Material Design 设计语言中关于 Card 卡片概念的实现。</p>
+<ul>
+<li>CardView 可以在一个卡片布局中一致性的显示内容</li>
+<li>CardView 是一个 Layout，可以布局其他 View</li>
+<li>CardView 在 FrameLayout 之上添加了圆角和阴影效果</li>
+</ul>
+<p>官方文档的介绍：</p>
+<p><img src="\uploads\androidstudydemo\android5\android5_newwidget2_28.png" alt="CardView 类" title="CardView 类"></p>
+<p>从文档中可以看到，CardView 继承自 Framelayout，这个应该很熟悉了吧！那好，其实它就是一布局，只是自带特效。从这看来， CardView 的使用应该很简单，了解下它所添加的属性大致就可以用了。</p>
+<h2 id="常用属性"><a href="#常用属性" class="headerlink" title="常用属性"></a>常用属性</h2><ul>
+<li><strong>card_view:cardElevation</strong><br>阴影的大小</li>
+<li><strong>card_view:cardMaxElevation</strong><br>阴影最大高度</li>
+<li><strong>card_view:cardBackgroundColor</strong><br>卡片的背景色</li>
+<li><strong>card_view:cardCornerRadius</strong><br>卡片的圆角大小</li>
+<li><strong>card_view:contentPadding</strong><br>卡片内容于边距的间隔<br>card_view:contentPaddingBottom<br>card_view:contentPaddingTop<br>card_view:contentPaddingLeft<br>card_view:contentPaddingRight<br>card_view:contentPaddingStart<br>card_view:contentPaddingEnd<br>card_view:cardUseCompatPadding<br>设置内边距，V21+的版本和之前的版本仍旧具有一样的计算方式</li>
+<li><strong>card_view:cardPreventConrerOverlap</strong><br>在V20和之前的版本中添加内边距，这个属性为了防止内容和边角的重叠</li>
+</ul>
+<p>（参考自：<a href="http://www.68idc.cn/help/mobilesys/android/20150116173778.html" target="_blank" rel="external">CardView的使用</a>）</p>
+<p>对应的 Java 设置方法：</p>
+<p><img src="\uploads\androidstudydemo\android5\android5_newwidget2_29.png" alt="CardView 方法" title="CardView 方法"><br>那些对应的 get() 方法就不在上图中展示了。</p>
+<h2 id="简单使用-2"><a href="#简单使用-2" class="headerlink" title="简单使用"></a>简单使用</h2><h3 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h3><p>对于 CardView 的使用场景，Google 给了如下建议：</p>
+<ol>
+<li>CardView应该被使用在显示层次性的内容时</li>
+<li>在显示列表或网格时更应该被选择，因为这些边缘可以使得用户更容易去区分这些内容</li>
+<li>横向滚动列表也可以用（类似 Google Play 音乐中的带封面图片卡片 Item）</li>
+</ol>
+<p>文字介绍还是有点难以理解，或者说没什么具体印象，看示意图：<br><img src="\uploads\androidstudydemo\android5\android5_newwidget2_30.png" alt="CardView 使用示例" title="CardView 使用示例"><br><strong>说明：</strong>不知道你们有没有看出来为什么左边是正确的“<strong>打开方式</strong>“，反正我不是很理解，等好好研究过 MaterialDesign 之后应该就明白了，这是下一个专题了。</p>
+<h3 id="使用步骤"><a href="#使用步骤" class="headerlink" title="使用步骤"></a>使用步骤</h3><p><strong>1、导入支持的依赖库</strong><br>CardView 是兼容包中提供的，需要导入依赖库：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">compile <span class="string">'com.android.support:cardview-v7:23.2.0'</span></span><br></pre></td></tr></table></figure></p>
+<p><strong>2、使用 CardView 作为 Layout</strong><br>CardView 没有什么神秘的，就是一个 FrameLayout 的特效版（Framelayout 有的它都有，Framelayout 没有的它也有），直接用就好了：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line">&lt;android.support.v7.widget.CardView</span><br><span class="line">	android:id="@+id/cv_content"</span><br><span class="line">	xmlns:card_view="http://schemas.android.com/apk/res-auto"</span><br><span class="line">	android:layout_width="match_parent"</span><br><span class="line">	android:layout_height="match_parent"&gt;</span><br><span class="line">	&lt;RelativeLayout</span><br><span class="line">		android:layout_width="match_parent"</span><br><span class="line">		android:layout_height="wrap_content"</span><br><span class="line">		android:padding="6dp"&gt;</span><br><span class="line">		&lt;TextView</span><br><span class="line">			android:id="@+id/tv_title"</span><br><span class="line">			android:layout_width="match_parent"</span><br><span class="line">			android:layout_height="wrap_content"</span><br><span class="line">			android:gravity="top|center_horizontal"</span><br><span class="line">			android:text="CardView使用示例"</span><br><span class="line">			android:textColor="@android:color/black"</span><br><span class="line">			android:textSize="18sp" /&gt;</span><br><span class="line">		&lt;ImageView</span><br><span class="line">			android:id="@+id/iv_image"</span><br><span class="line">			android:layout_width="match_parent"</span><br><span class="line">			android:layout_height="wrap_content"</span><br><span class="line">			android:layout_below="@id/tv_title"</span><br><span class="line">			android:layout_centerInParent="true"</span><br><span class="line">			android:scaleType="centerCrop"</span><br><span class="line">			android:src="@mipmap/bg_palette" /&gt;</span><br><span class="line">		&lt;TextView</span><br><span class="line">			android:id="@+id/tv_desc"</span><br><span class="line">			android:layout_width="wrap_content"</span><br><span class="line">			android:layout_height="wrap_content"</span><br><span class="line">			android:layout_alignBottom="@+id/iv_image"</span><br><span class="line">			android:layout_alignRight="@+id/iv_image"</span><br><span class="line">			android:layout_marginRight="10dp"</span><br><span class="line">			android:text="呵呵呵呵呵呵"</span><br><span class="line">			android:textColor="@android:color/white"</span><br><span class="line">			android:textSize="20sp" /&gt;</span><br><span class="line">		&lt;TextView</span><br><span class="line">			android:id="@+id/tv_context"</span><br><span class="line">			android:layout_width="match_parent"</span><br><span class="line">			android:layout_height="wrap_content"</span><br><span class="line">			android:layout_below="@+id/iv_image"</span><br><span class="line">			android:text="CardView使用示例CardView使用示例 "</span><br><span class="line">			android:textColor="@android:color/black"</span><br><span class="line">			android:textSize="16sp" /&gt;</span><br><span class="line">		&lt;EditText</span><br><span class="line">			android:id="@+id/et_input"</span><br><span class="line">			android:layout_width="match_parent"</span><br><span class="line">			android:layout_height="wrap_content"</span><br><span class="line">			android:layout_below="@id/tv_context"</span><br><span class="line">			android:hint="请输入" /&gt;</span><br><span class="line">		&lt;TextView</span><br><span class="line">			android:id="@+id/tv_date"</span><br><span class="line">			android:layout_width="wrap_content"</span><br><span class="line">			android:layout_height="wrap_content"</span><br><span class="line">			android:layout_below="@id/et_input"</span><br><span class="line">			android:text="2016年4月16日 06:33:51"</span><br><span class="line">			android:textSize="20sp" /&gt;</span><br><span class="line">	&lt;/RelativeLayout&gt;</span><br><span class="line">&lt;/android.support.v7.widget.CardView&gt;</span><br></pre></td></tr></table></figure></p>
+<p><strong>3、设置 CardView 的属性</strong><br>CardView 提供了一个 cardElevation 和 cardCornerRadius 属性，这就是它给 FrameLayout 加的特效。</p>
+<p>Layout：</p>
+<ul>
+<li>cardElevation：用来设置 CardView 的Z轴阴影，Android 5 以上有效</li>
+<li>cardCornerRadius：用来设置 CardView 卡片的四角圆角矩形程度</li>
+</ul>
+<p>Java 代码：</p>
+<ul>
+<li>setCardElevation()</li>
+<li>setRadius()</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;android.support.v7.widget.CardView</span><br><span class="line">	android:id=<span class="string">"@+id/cv_content"</span></span><br><span class="line">	android:layout_width=<span class="string">"match_parent"</span></span><br><span class="line">	android:layout_height=<span class="string">"match_parent"</span></span><br><span class="line">	android:layout_above=<span class="string">"@+id/sb_value1"</span></span><br><span class="line">	android:layout_margin=<span class="string">"6dp"</span></span><br><span class="line">	android:orientation=<span class="string">"vertical"</span></span><br><span class="line">	card_view:cardElevation=<span class="string">"20dp"</span></span><br><span class="line">	card_view:cardCornerRadius=<span class="string">"5dp"</span>&gt;</span><br></pre></td></tr></table></figure>
+<p><strong>4、添加点击效果</strong><br>默认情况，CardView 是不可点击的，并且没有任何的触摸反馈效果。触摸反馈动画在用户点击 CardView 时可以给用户以视觉上的反馈。为了实现这种行为，必须提供以下属性：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;android.support.v7.widget.CardView</span><br><span class="line">  ...</span><br><span class="line">  android:clickable="true"</span><br><span class="line">  android:foreground="?android:attr/selectableItemBackground"&gt;</span><br><span class="line">  ...</span><br><span class="line">&lt;/android.support.v7.widget.CardView&gt;</span><br></pre></td></tr></table></figure></p>
+<p>使用android:foreground=”?android:attr/selectableItemBackground”可以使CardView点击产生波纹的效果，有触摸点向外扩散。<br>（参考自：<a href="http://www.w2bc.com/Article/36229" target="_blank" rel="external">Android开发–CardView使用</a>）<br>这个就没有在示例中演示了，有兴趣的自己去试试。</p>
+<h3 id="添加动画"><a href="#添加动画" class="headerlink" title="添加动画"></a>添加动画</h3><p>有一些关于 CardView 的有意思的动画，可以参考一下这个开源项目：<strong><a href="https://github.com/chiemy/CardView" target="_blank" rel="external">CardView</a></strong>。</p>
+<p>动画就不在这里展开介绍了，以后专门会有一系列文章来介绍。</p>
+<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><p>关于 CardView 使用中要注意的细节，这篇文章介绍得挺好 —— <a href="http://www.androidchina.net/3754.html" target="_blank" rel="external">关于使用 CardView 开发过程中要注意的细节</a>。我简单地罗列一下，也添加了两条，我认为要注意的地方：</p>
+<ol>
+<li>如果改变CardView的背景，需要使用新的属性：card_view:cardBackgroundColor</li>
+<li>需要给自己的内容加上padding的话，需要使用新的属性：card_view:contentPadding </li>
+<li>注意不同 SDK 版本（低于 Lollipop 21）上的边距（Margin）效果</li>
+<li>为 Card 添加点击效果</li>
+<li>让点击效果更加贴近 Material Design</li>
+<li>尽量不要用作固定高度的 List Item</li>
+<li>低版本（低于 Lollipop）的 setElevation 不是万能的</li>
+</ol>
+<blockquote>
+<p>1和2是我加的，当时刚看到 cardBackgroundColor 和 contentPadding 属性的时候就在想，为什么需要这个两个属性，Framelayout 中不是有 <strong>android:background=””</strong> 和 <strong>android:padding=””</strong>，试了下，才知道，CardView 要用它自己的。</p>
+</blockquote>
+<h1 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h1><p>前面的两篇文章都只是简单介绍了一下 Android 5.x 中的部分新控件，还有一个重量级的“选手”没有出场 —— 那就是 “<strong>RecyclerView</strong>”，这个就放到 “<strong>AndroidStudyDemo之Android5.x新控件介绍（三）</strong>”中重点介绍吧！关于 <strong>RecyclerView</strong> 打算好好整理一下，希望大家看了之后会有收获。</p>
+<p><a href="">未完待续</a>，下一篇 <strong>AndroidStudyDemo之Android5.x新控件介绍（三）</strong>。</p>
+<h1 id="项目地址"><a href="#项目地址" class="headerlink" title="项目地址"></a>项目地址</h1><p><a href="https://github.com/DIY-green/ASD-Android5Study" target="_blank" rel="external">GitHub</a></p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="http://www.jianshu.com/p/6caffdbcd5db#" target="_blank" rel="external">[Android] Material 风格的 Dialog 的使用</a><br><a href="http://blog.csdn.net/crazyman2010/article/details/46560387" target="_blank" rel="external">API21 以下使用 material design 风格的alertdialog</a><br><a href="http://www.open-open.com/lib/view/open1415171087340.html" target="_blank" rel="external">Google Material 风格Android对话框：Material Dialog</a><br><a href="http://www.cnblogs.com/Gaojiecai/archive/2011/12/10/2283156.html" target="_blank" rel="external"><a href="http://www.cnblogs.com/Gaojiecai/archive/2011/12/10/2283156.html" target="_blank" rel="external">Android详细的对话框AlertDialog.Builder使用方法</a></a><br><a href="http://www.tuicool.com/articles/IR3yMvA" target="_blank" rel="external">android 5.X之使用Palette</a><br><a href="http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2014/1111/1955.html" target="_blank" rel="external">Palette颜色提取使用详解</a><br><a href="http://blog.csdn.net/kennethyo/article/details/40786685" target="_blank" rel="external">Palette的使用</a><br><a href="https://chris.banes.me/2014/10/20/palette-v21/" target="_blank" rel="external">Chris Banes:《Palette v21》</a><br><a href="https://chris.banes.me/2014/07/04/palette-preview/" target="_blank" rel="external">Chris Banes:《Palette preview》</a><br><a href="http://developer.android.com/reference/android/support/v7/graphics/Palette.html" target="_blank" rel="external">Palette Reference</a><br><a href="http://www.68idc.cn/help/mobilesys/android/20150116173778.html" target="_blank" rel="external">CardView的使用</a><br><a href="http://blog.csdn.net/birdsaction/article/details/45197499" target="_blank" rel="external">Android 5.0 CardView 应用</a><br><a href="http://www.w2bc.com/Article/36229" target="_blank" rel="external">Android开发–CardView使用</a><br><a href="http://blog.csdn.net/airk000/article/details/39520977" target="_blank" rel="external">Android应用开发：CardView的使用及兼容</a><br><a href="http://www.androidchina.net/3754.html" target="_blank" rel="external">关于使用 CardView 开发过程中要注意的细节</a></p>
+
+      
+    </div>
+    
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+<div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton", disable="enable", onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}", style="cursor: pointer; border: 0; outline: 0; border-radius: 100%; padding: 0; margin: 0; letter-spacing: normal; text-transform: none; text-indent: 0px; text-shadow: none">
+    <span onmouseover="this.style.color='rgb(236,96,0)';this.style.background='rgb(204,204,204)'" onMouseOut="this.style.color='#fff';this.style.background='rgb(236,96,0)'" style="display: inline-block; width: 70px; height: 70px; border-radius: 100%; line-height: 81px; color: #fff; font: 400 35px/75px 'microsofty'; background: rgb(236,96,0)">赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/uploads/images/wechat-reward-image.png" alt="DIY-green WeChat Pay" style="width: 200px; max-width: 100%; display: inline-block"/>
+        <p>微信打赏</p>
+      </div>
+    
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/uploads/images/alipay-reward-image.png" alt="DIY-green Alipay" style="width: 200px; max-width: 100%; display: inline-block"/>
+        <p>支付宝打赏</p>
+      </div>
+    
+  </div>
+</div>
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/StudyDemo/" rel="tag">#StudyDemo</a>
+          
+            <a href="/tags/Android-5/" rel="tag">#Android 5</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/05/07/AndroidStudyDemo系列/Android6.x新API介绍(一)/" rel="next" title="Android6.x新API介绍(一)">
+                <i class="fa fa-chevron-left"></i> Android6.x新API介绍(一)
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/05/07/AndroidStudyDemo系列/AndroidStudyDemo你值得拥有/" rel="prev" title="AndroidStudyDemo你值得拥有">
+                AndroidStudyDemo你值得拥有 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/05/07/AndroidStudyDemo系列/Android5.x新控件介绍(二)/"
+           data-title="Android5.x新控件介绍(二)" data-url="http://diy-green.com/2016/05/07/AndroidStudyDemo系列/Android5.x新控件介绍(二)/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/images/avatar.jpg"
+               alt="DIY-green" />
+          <p class="site-author-name" itemprop="name">DIY-green</p>
+          <p class="site-description motion-element" itemprop="description">男子千年志，吾生未有涯。心随朗月高，志与秋霜洁。</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">52</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">27</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/DIY-green" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/users/0ad0a0afc409/latest_articles" target="_blank" title="JianShu">
+                  
+                    <i class="fa fa-globe"></i>
+                  
+                  JianShu
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element">
+            <div class="links-of-blogroll-title">
+              <i class="fa fa-globe fa-fw"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.jianshu.com/users/0ad0a0afc409/latest_articles" title="DIY-green简书" target="_blank">DIY-green简书</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.jianshu.com/users/3a482c4f0658/latest_articles" title="天接水0001" target="_blank">天接水0001</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://sunfusheng.com" title="孙福生" target="_blank">孙福生</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://kuanggang.github.io" title="匡罡" target="_blank">匡罡</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://Ivorfason.github.io" title="尹明仁" target="_blank">尹明仁</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://mengqingxiang.github.io" title="孟庆祥" target="_blank">孟庆祥</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#四、Meterial-Dialog"><span class="nav-number">1.</span> <span class="nav-text">四、Meterial Dialog</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介"><span class="nav-number">1.1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#简单使用"><span class="nav-number">1.2.</span> <span class="nav-text">简单使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用示例"><span class="nav-number">1.2.1.</span> <span class="nav-text">使用示例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常用方法"><span class="nav-number">1.2.2.</span> <span class="nav-text">常用方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一些兼容库"><span class="nav-number">1.3.</span> <span class="nav-text">一些兼容库</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#五、Palette"><span class="nav-number">2.</span> <span class="nav-text">五、Palette</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介-1"><span class="nav-number">2.1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#简单使用-1"><span class="nav-number">2.2.</span> <span class="nav-text">简单使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建-Palette-实例"><span class="nav-number">2.2.1.</span> <span class="nav-text">创建 Palette 实例</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#已经-Deprecated-的方法"><span class="nav-number">2.2.1.1.</span> <span class="nav-text">已经 Deprecated 的方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关于色板-样本（swatch）"><span class="nav-number">2.2.2.</span> <span class="nav-text">关于色板/样本（swatch）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#色板分类"><span class="nav-number">2.2.2.1.</span> <span class="nav-text">色板分类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用色板获取颜色"><span class="nav-number">2.2.2.2.</span> <span class="nav-text">使用色板获取颜色</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关于-size"><span class="nav-number">2.2.3.</span> <span class="nav-text">关于 size</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用获取的颜色"><span class="nav-number">2.2.4.</span> <span class="nav-text">使用获取的颜色</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#进阶"><span class="nav-number">2.3.</span> <span class="nav-text">进阶</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#六、CardView"><span class="nav-number">3.</span> <span class="nav-text">六、CardView</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介-2"><span class="nav-number">3.1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常用属性"><span class="nav-number">3.2.</span> <span class="nav-text">常用属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#简单使用-2"><span class="nav-number">3.3.</span> <span class="nav-text">简单使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用场景"><span class="nav-number">3.3.1.</span> <span class="nav-text">使用场景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用步骤"><span class="nav-number">3.3.2.</span> <span class="nav-text">使用步骤</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加动画"><span class="nav-number">3.3.3.</span> <span class="nav-text">添加动画</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注意事项"><span class="nav-number">3.4.</span> <span class="nav-text">注意事项</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#小结"><span class="nav-number">4.</span> <span class="nav-text">小结</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#项目地址"><span class="nav-number">5.</span> <span class="nav-text">项目地址</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考"><span class="nav-number">6.</span> <span class="nav-text">参考</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+<div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">DIY-green</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info powered-by">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+<div class="powered-by">
+  <span id="busuanzi_container_site_pv">
+    本站总访问量<span id="busuanzi_value_site_pv"></span>次
+  </span>
+</div>
+<div style="display:inline-block;">
+  <span id="busuanzi_container_site_uv">
+    本站访客数<span id="busuanzi_value_site_uv"></span>人次
+  </span>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"DIY-green"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+      
+      <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+      <script src="/js/src/hook-duoshuo.js"></script>
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+  
+  
+  <!-- custom analytics part create by xiamo -->
+<script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+<script>AV.initialize("UnkeFG0pM1t3q8H3y7NTLUA0-gzGzoHsz", "2oBUu9nxByteYjLFtBtqOPwN");</script>
+<script>
+function showTime(Counter) {
+	var query = new AV.Query(Counter);
+	$(".leancloud_visitors").each(function() {
+		var url = $(this).attr("id").trim();
+		query.equalTo("url", url);
+		query.find({
+			success: function(results) {
+				if (results.length == 0) {
+					var content = '0 ' + $(document.getElementById(url)).text();
+					$(document.getElementById(url)).text(content);
+					return;
+				}
+				for (var i = 0; i < results.length; i++) {
+					var object = results[i];
+					var content = object.get('time') + ' ' + $(document.getElementById(url)).text();
+					$(document.getElementById(url)).text(content);
+				}
+			},
+			error: function(object, error) {
+				console.log("Error: " + error.code + " " + error.message);
+			}
+		});
+
+	});
+}
+
+function addCount(Counter) {
+	var Counter = AV.Object.extend("Counter");
+	url = $(".leancloud_visitors").attr('id').trim();
+	title = $(".leancloud_visitors").attr('data-flag-title').trim();
+	var query = new AV.Query(Counter);
+	query.equalTo("url", url);
+	query.find({
+		success: function(results) {
+			if (results.length > 0) {
+				var counter = results[0];
+				counter.fetchWhenSave(true);
+				counter.increment("time");
+				counter.save(null, {
+					success: function(counter) {
+						var content =  counter.get('time') + ' ' + $(document.getElementById(url)).text();
+						$(document.getElementById(url)).text(content);
+					},
+					error: function(counter, error) {
+						console.log('Failed to save Visitor num, with error message: ' + error.message);
+					}
+				});
+			} else {
+				var newcounter = new Counter();
+				newcounter.set("title", title);
+				newcounter.set("url", url);
+				newcounter.set("time", 1);
+				newcounter.save(null, {
+					success: function(newcounter) {
+					    console.log("newcounter.get('time')="+newcounter.get('time'));
+						var content = newcounter.get('time') + ' ' + $(document.getElementById(url)).text();
+						$(document.getElementById(url)).text(content);
+					},
+					error: function(newcounter, error) {
+						console.log('Failed to create');
+					}
+				});
+			}
+		},
+		error: function(error) {
+			console.log('Error:' + error.code + " " + error.message);
+		}
+	});
+}
+$(function() {
+	var Counter = AV.Object.extend("Counter");
+	if ($('.leancloud_visitors').length == 1) {
+		addCount(Counter);
+	} else if ($('.post-title-link').length > 1) {
+		showTime(Counter);
+	}
+}); 
+</script>
+  
+  
+</body>
+</html>

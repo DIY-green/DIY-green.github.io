@@ -1,0 +1,1075 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="StudyDemo,Android 6," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="作者：李旺成时间：2016年4月21日
+
+接上篇：Android6.x新API介绍（二）
+前言关于 Android 6.x 新控件有哪些？
+
+Android M 是 2015 Google I/O 上出现的，这个大家没有异议吧！那看下这个 “Design Support Library” 中有哪些新控件：
+
+一、FloatingActionButton先看效果：
+
+简介FloatingActio">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android6.x新控件介绍(一)">
+<meta property="og:url" content="http://diy-green.com/2016/05/07/AndroidStudyDemo系列/Android6.x新控件介绍(一)/index.html">
+<meta property="og:site_name" content="DIY-green">
+<meta property="og:description" content="作者：李旺成时间：2016年4月21日
+
+接上篇：Android6.x新API介绍（二）
+前言关于 Android 6.x 新控件有哪些？
+
+Android M 是 2015 Google I/O 上出现的，这个大家没有异议吧！那看下这个 “Design Support Library” 中有哪些新控件：
+
+一、FloatingActionButton先看效果：
+
+简介FloatingActio">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android6\android6_newwidget1_1.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android6\android6_newwidget1_2.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android6\android6_newwidget1_3.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android6\android6_newwidget1_4.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android6\android6_newwidget1_5.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android6\android6_newwidget1_6.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android6\android6_newwidget1_7.gif">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android6\android6_newwidget1_8.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android6\android6_newwidget1_9.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android6\android6_newwidget1_10.gif">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android6\android6_newwidget1_11.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android6\android6_newwidget1_12.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android6\android6_newwidget1_13.png">
+<meta property="og:updated_time" content="2016-04-26T05:27:58.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android6.x新控件介绍(一)">
+<meta name="twitter:description" content="作者：李旺成时间：2016年4月21日
+
+接上篇：Android6.x新API介绍（二）
+前言关于 Android 6.x 新控件有哪些？
+
+Android M 是 2015 Google I/O 上出现的，这个大家没有异议吧！那看下这个 “Design Support Library” 中有哪些新控件：
+
+一、FloatingActionButton先看效果：
+
+简介FloatingActio">
+<meta name="twitter:image" content="http://diy-green.com/\uploads\androidstudydemo\android6\android6_newwidget1_1.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'DIY-green'
+    }
+  };
+</script>
+
+  <title> Android6.x新控件介绍(一) | DIY-green </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?af1b7efbf565bc568165c5a0600a0207";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+  <div style="display: none;">
+    <script src="http://s6.cnzz.com/stat.php?id=1258791461&web_id=1258791461" type="text/javascript"></script>
+  </div>
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">DIY-green</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            全部
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-androidstudydemo">
+          <a href="/categories/AndroidStudyDemo/" rel="section">
+            
+              <i class="menu-item-icon fa fa-hand-right fa-fw"></i> <br />
+            
+            ● &nbsp; AndroidStudyDemo
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-androidganhuo">
+          <a href="/categories/Android干货/" rel="section">
+            
+              <i class="menu-item-icon fa fa-hand-right fa-fw"></i> <br />
+            
+            ● &nbsp; Android干货
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-androidhacks">
+          <a href="/categories/Android小技巧/" rel="section">
+            
+              <i class="menu-item-icon fa fa-hand-right fa-fw"></i> <br />
+            
+            ● &nbsp; Android小技巧
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-androidstudio">
+          <a href="/categories/AndroidStudio/" rel="section">
+            
+              <i class="menu-item-icon fa fa-hand-right fa-fw"></i> <br />
+            
+            ● &nbsp; AndroidStudio
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-essay">
+          <a href="/categories/随笔/" rel="section">
+            
+              <i class="menu-item-icon fa fa-hand-right fa-fw"></i> <br />
+            
+            ● &nbsp; 随笔
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Android6.x新控件介绍(一)
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-05-07T20:39:24+08:00" content="2016-05-07">
+              2016-05-07
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/AndroidStudyDemo/" itemprop="url" rel="index">
+                    <span itemprop="name">AndroidStudyDemo</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/AndroidStudyDemo/Android-6/" itemprop="url" rel="index">
+                    <span itemprop="name">Android 6</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/05/07/AndroidStudyDemo系列/Android6.x新控件介绍(一)/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/07/AndroidStudyDemo系列/Android6.x新控件介绍(一)/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+		  &nbsp; | &nbsp;
+             <span id="/2016/05/07/AndroidStudyDemo系列/Android6.x新控件介绍(一)/" class="leancloud_visitors" data-flag-title="Android6.x新控件介绍(一)">
+               
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+		  
+		  <!--<span id="busuanzi_container_page_pv">
+		    &nbsp; | &nbsp;<span id="busuanzi_value_page_pv"></span>阅读
+		  </span>
+		  
+		  
+			&nbsp; | &nbsp;
+			<span id="/2016/05/07/AndroidStudyDemo系列/Android6.x新控件介绍(一)/"class="leancloud_visitors" data-flag-title="Android6.x新控件介绍(一)">
+					 &nbsp;阅读
+					</span>
+			-->
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="\uploads\androidstudydemo\android6\android6_newwidget1_1.png" alt="Android6.x新控件介绍(一)" title="Android6.x新控件介绍(一)思维导图"></p>
+<p><strong>作者：<a href="https://github.com/DIY-green/" target="_blank" rel="external">李旺成</a></strong><br><strong>时间：2016年4月21日</strong></p>
+<hr>
+<p>接上篇：<a href="http://www.jianshu.com/p/77aa0a0b90f5" target="_blank" rel="external">Android6.x新API介绍（二）</a></p>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>关于 Android 6.x 新控件有哪些？</p>
+<p><img src="\uploads\androidstudydemo\android6\android6_newwidget1_2.png" alt="2015 Google I/O 带来 Design Support Library" title="2015 Google I/O 带来 Design Support Library"></p>
+<p>Android M 是 2015 Google I/O 上出现的，这个大家没有异议吧！那看下这个 “<strong>Design Support Library</strong>” 中有哪些新控件：</p>
+<p><img src="\uploads\androidstudydemo\android6\android6_newwidget1_3.png" alt="Design Support Library 中的新控件" title="Design Support Library 中的新控件"></p>
+<h1 id="一、FloatingActionButton"><a href="#一、FloatingActionButton" class="headerlink" title="一、FloatingActionButton"></a>一、FloatingActionButton</h1><p>先看效果：</p>
+<p><img src="\uploads\androidstudydemo\android6\android6_newwidget1_4.png" alt="FloatingActionButton 效果演示" title="FloatingActionButton 效果演示"></p>
+<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>FloatingActionButton 就是浮动按钮，是兼容包中提供的一个控件，先来看看官方介绍：</p>
+<p><img src="\uploads\androidstudydemo\android6\android6_newwidget1_5.png" alt="FloatingActionButton 类" title="FloatingActionButton 类"></p>
+<p>看下继承结构，这个很熟悉吧！继承自 ImageView，那么好办 ImageView 所拥有的属性 FloatingActionButton 应该都有（是不是都可以用那就有待考验了）。</p>
+<p>FloatingActionButton 提供了几个特有的属性：</p>
+<ul>
+<li>app:fabSize：控制 FloatingActionButton 的大小（PS：可以试一下设置 layout_width 的大小是否有作用），有两个取值</li>
+</ul>
+<p><img src="\uploads\androidstudydemo\android6\android6_newwidget1_6.png" alt="fabSize 的取值" title="fabSize 的取值"></p>
+<ul>
+<li>app:backgroundTint：设置 FloatingActionButton 的背景色，默认为 Theme 主题中的 “colorAccent”（PS：可以试一下设置 background 是否有作用）</li>
+<li>app:elevation ：设置 FloatingActionButton 阴影的深度，默认有阴影</li>
+</ul>
+<p>对应的 Java 方法：</p>
+<ul>
+<li>–（fabSize 没找到）</li>
+<li>setBackgroundTintList()</li>
+<li>setElevation()</li>
+</ul>
+<h2 id="简单使用"><a href="#简单使用" class="headerlink" title="简单使用"></a>简单使用</h2><p><strong>1、导入兼容库</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">compile <span class="string">'com.android.support:design:23.3.0'</span></span><br></pre></td></tr></table></figure></p>
+<p><strong>2、在 Layout 中使用</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;android.support.design.widget.FloatingActionButton</span><br><span class="line">	android:id=<span class="string">"@+id/fabtn_test2"</span></span><br><span class="line">	android:layout_width=<span class="string">"100dp"</span></span><br><span class="line">	android:layout_height=<span class="string">"100dp"</span></span><br><span class="line">	android:layout_alignBottom=<span class="string">"@+id/fabtn_test1"</span></span><br><span class="line">	android:src=<span class="string">"@mipmap/ic_alarm_add_black"</span></span><br><span class="line">	app:fabSize=<span class="string">"normal"</span></span><br><span class="line">	app:backgroundTint=<span class="string">"@color/colorPrimary"</span></span><br><span class="line">	app:elevation=<span class="string">"4dp"</span></span><br><span class="line">	android:layout_centerHorizontal=<span class="string">"true"</span> /&gt;</span><br></pre></td></tr></table></figure></p>
+<p><strong>3、代码中使用</strong><br>除了那几个特有的属性，可以直接把 FloatingActionButton 当作 ImageView 用即可。</p>
+<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><p>主要是属性设置方法的：</p>
+<ol>
+<li>android:background 设置背景不管用，得用 app:backgroundTint</li>
+<li>大小是 app:fabSize 控制的，layout_width 和 layout_height 不起作用</li>
+</ol>
+<h1 id="TextInputLayout"><a href="#TextInputLayout" class="headerlink" title="TextInputLayout"></a>TextInputLayout</h1><p>先看看效果：</p>
+<p><img src="\uploads\androidstudydemo\android6\android6_newwidget1_7.gif" alt="TextInputLayout 演示" title="TextInputLayout 演示"></p>
+<h2 id="简介-1"><a href="#简介-1" class="headerlink" title="简介"></a>简介</h2><p>从上面的演示动画图中就可以看到，在 EditView 获取焦点的时候，EditView 上的 hint 提示文本通过一个动画显示到了 EditView 的左上角。其实该控件就是用于配合 EditView 的，主要为了解决 EditView 获得焦点后 hint 提示文本消失的问题。</p>
+<p>来看下官方的介绍：</p>
+<p><img src="\uploads\androidstudydemo\android6\android6_newwidget1_8.png" alt="TextInputLayout 类" title="TextInputLayout 类"></p>
+<p>还是先看继承结构，继承自 LinearLayout，这个很熟悉啦！如果是 LinearLayout 的升级版那也没什么好介绍的了，在官方文档上有很简洁的介绍，抓住两个关键的地方（上图使用红色框圈出来了），再就是 xml 中新增的属性，也没有几个。</p>
+<p>直接用起来，看看效果不就清楚了，来看如何使用。</p>
+<h2 id="简单使用-1"><a href="#简单使用-1" class="headerlink" title="简单使用"></a>简单使用</h2><p><strong>1、导入兼容包</strong><br>和上面的一样</p>
+<p><strong>2、在 Layout 中使用</strong><br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">&lt;android.support.design.widget.TextInputLayout</span><br><span class="line">	android:id="@+id/til_test1"</span><br><span class="line">	android:orientation="vertical"</span><br><span class="line">	android:layout_width="match_parent"</span><br><span class="line">	android:layout_height="wrap_content"</span><br><span class="line">	android:layout_below="@+id/tv_textinputlayout_tip"</span><br><span class="line">	android:layout_alignParentStart="true"&gt;</span><br><span class="line">	&lt;EditText</span><br><span class="line">		android:id="@+id/et_test1"</span><br><span class="line">		android:layout_width="match_parent"</span><br><span class="line">		android:layout_height="wrap_content" /&gt;</span><br><span class="line">&lt;/android.support.design.widget.TextInputLayout&gt;</span><br><span class="line">``` </span><br><span class="line">“**注意：**”这里没有在 Layout 中使用 TextInputLayout 中所特有的属性，是在代码中设置的。</span><br><span class="line"></span><br><span class="line">**3、在代码中使用**</span><br><span class="line">```java</span><br><span class="line">private void initData() &#123;</span><br><span class="line">        // 设置提示文本</span><br><span class="line">	mTestTIL.setHint("请输入你的邮箱：");</span><br><span class="line">	mTestET1.addTextChangedListener(new TextWatcher() &#123;</span><br><span class="line">		@Override</span><br><span class="line">		public void beforeTextChanged(CharSequence s, int start, int count, int after) &#123;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		@Override</span><br><span class="line">		public void onTextChanged(CharSequence s, int start, int before, int count) &#123;</span><br><span class="line">			if (s.length() &gt; 10)&#123;</span><br><span class="line">                                // 设置错误提示</span><br><span class="line">				mTestTIL.setErrorEnabled(true);</span><br><span class="line">				mTestTIL.setError("邮箱名过长！");</span><br><span class="line">			&#125;else&#123;</span><br><span class="line">				mTestTIL.setErrorEnabled(false);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		@Override</span><br><span class="line">		public void afterTextChanged(Editable s) &#123;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong> 4、常用属性 </strong><br>Layout 中：</p>
+<ul>
+<li>android:hint=”Hint” ：设置提示文本</li>
+<li>app:hintAnimationEnabled=”true” ：设置是否动画显示提示文本</li>
+<li>app:hintEnabled=”true” ：设置提示是否可用</li>
+<li>app:errorEnabled=”true” ：设置错误提示是否可用</li>
+</ul>
+<p>Java 代码中：</p>
+<ul>
+<li>setHint()：设置提示文本</li>
+<li>setHintAnimationEnabled()：设置是否动画显示提示文本</li>
+<li>setHintEnabled()：设置提示是否可用</li>
+<li>setErrorEnabled()：设置错误提示是否可用</li>
+<li>setError()：设置错误信息</li>
+<li>getEditText()：获取 TextInputLayout 中的 EditView</li>
+</ul>
+<h2 id="注意事项-1"><a href="#注意事项-1" class="headerlink" title="注意事项"></a>注意事项</h2><ol>
+<li>TextInputLayout 是为了配合 EditText 来使用的，也就是说单独使用是没什么意义的</li>
+<li>TextInputLayout 可以设置错误提示，EditText 也可以设置错误提示，两者并不冲突，建议只选择设置其中一种错误提示（TextInputLayout 的要漂亮，不是吗）</li>
+</ol>
+<p><img src="\uploads\androidstudydemo\android6\android6_newwidget1_9.png" alt="错误提示对比" title="错误提示对比"></p>
+<h2 id="Snackbar"><a href="#Snackbar" class="headerlink" title="Snackbar"></a>Snackbar</h2><p>先看效果：</p>
+<p><img src="\uploads\androidstudydemo\android6\android6_newwidget1_10.gif" alt="Snackbar 演示" title="Snackbar 演示"></p>
+<h2 id="简介-2"><a href="#简介-2" class="headerlink" title="简介"></a>简介</h2><p>Snackbar 是 design support library 中的一个组件，使用 Snackbar 可以在屏幕底部(大多时候)快速弹出消息，它与 Toast 非常相似，但是更灵活一些。</p>
+<ul>
+<li>介于Toast和AlertDialog之间轻量级控件</li>
+<li>可以很方便的提供消息的提示和动作反馈</li>
+<li>当它显示一段时间后或用户与屏幕交互时它会自动消失</li>
+<li>它是 context sensitive message，显示在所在屏幕最顶层</li>
+</ul>
+<p>来看下官方介绍：</p>
+<p><img src="\uploads\androidstudydemo\android6\android6_newwidget1_11.png" alt="Snackbar 类" title="Snackbar 类"></p>
+<p>继承自 Object，有点意外，继承结构的可参考性不大，那老老实实的看官方的介绍吧！</p>
+<p>看到那几个常量有没有很眼熟的感觉，下面两个的命名和 Toast 中的一模一样。</p>
+<p>来看看它提供的方法：</p>
+<p><img src="\uploads\androidstudydemo\android6\android6_newwidget1_12.png" alt="Snackbar 提供的方法" title="Snackbar 提供的方法"></p>
+<p>很眼熟，再看看这个会更眼熟：</p>
+<p><img src="\uploads\androidstudydemo\android6\android6_newwidget1_13.png" alt="Toast 常用方法" title="Toast 常用方法"></p>
+<p>看到了吧！这货就是个“盗版”的Toast（汗，应该说是“山寨版”，还不对，官方的说法是类似升级版的 Toast，性能更高）。</p>
+<p>那看看怎么用吧！</p>
+<h2 id="简单使用-2"><a href="#简单使用-2" class="headerlink" title="简单使用"></a>简单使用</h2><p><strong>1、导入兼容包</strong><br>和上面一样</p>
+<p><strong>2、显示普通的 Snackbar </strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">showCommonSB</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	Snackbar snackbar = Snackbar.make(mRootRL,</span><br><span class="line">			<span class="string">"我是普通 Snackbar"</span>, Snackbar.LENGTH_LONG);</span><br><span class="line">	snackbar.show();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>3、显示带 Action 的 Snackbar </strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">showWithActionSB</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">final</span> Snackbar snackbar = Snackbar.make(mRootRL,</span><br><span class="line">			<span class="string">"我是带 Action 的 Snackbar"</span>, Snackbar.LENGTH_LONG);</span><br><span class="line">	snackbar.setAction(<span class="string">"撤销"</span>, <span class="keyword">new</span> View.OnClickListener() &#123;</span><br><span class="line">		<span class="meta">@Override</span></span><br><span class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</span><br><span class="line">			Toast.makeText(SnackBarActivity.<span class="keyword">this</span>, <span class="string">"撤销成功"</span>, Toast.LENGTH_SHORT).show();</span><br><span class="line">			snackbar.dismiss();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;);</span><br><span class="line">	snackbar.show();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>4、使用 Snackbar 的 Callback </strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">setCallbackTest</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">final</span> Snackbar snackbar = Snackbar.make(mRootRL,</span><br><span class="line">			<span class="string">"我是带 Action 的 Snackbar"</span>, Snackbar.LENGTH_LONG);</span><br><span class="line">	snackbar.setAction(<span class="string">"撤销"</span>, <span class="keyword">new</span> View.OnClickListener() &#123;</span><br><span class="line">		<span class="meta">@Override</span></span><br><span class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</span><br><span class="line">			Toast.makeText(SnackBarActivity.<span class="keyword">this</span>, <span class="string">"撤销成功"</span>, Toast.LENGTH_SHORT).show();</span><br><span class="line">			snackbar.dismiss();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;);</span><br><span class="line">	snackbar.setCallback(<span class="keyword">new</span> Snackbar.Callback() &#123;</span><br><span class="line">		<span class="meta">@Override</span></span><br><span class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onDismissed</span><span class="params">(Snackbar snackbar, <span class="keyword">int</span> event)</span> </span>&#123;</span><br><span class="line">			<span class="keyword">super</span>.onDismissed(snackbar, event);</span><br><span class="line">			mShowResultTV.setText(<span class="string">"Snackbar - onDismissed()"</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="meta">@Override</span></span><br><span class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onShown</span><span class="params">(Snackbar snackbar)</span> </span>&#123;</span><br><span class="line">			<span class="keyword">super</span>.onShown(snackbar);</span><br><span class="line">			mShowResultTV.setText(<span class="string">"Snackbar - onShown()"</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;);</span><br><span class="line">	snackbar.show();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>5、设置背景色</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">changeBackground</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	Snackbar snackbar = Snackbar.make(mRootRL,</span><br><span class="line">			<span class="string">"我是普通 Snackbar"</span>, Snackbar.LENGTH_LONG);</span><br><span class="line">	snackbar.getView().setBackgroundColor(getResources().getColor(android.R.color.holo_blue_bright));</span><br><span class="line">	snackbar.show();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>6、添加 CoordinatiorLayout</strong><br>Layout 中：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;android.support.design.widget.CoordinatorLayout</span><br><span class="line">	android:id="@+id/cl_test"</span><br><span class="line">	android:layout_width="match_parent"</span><br><span class="line">	android:layout_height="match_parent"</span><br><span class="line">	android:layout_alignParentTop="true"</span><br><span class="line">	android:layout_alignParentStart="true"&gt;</span><br><span class="line">	&lt;android.support.design.widget.FloatingActionButton</span><br><span class="line">		android:id="@+id/fabtn_test"</span><br><span class="line">		android:layout_width="wrap_content"</span><br><span class="line">		android:layout_height="wrap_content"</span><br><span class="line">		android:layout_gravity="bottom|right"</span><br><span class="line">		android:src="@mipmap/ic_alarm_add_black"</span><br><span class="line">		app:fabSize="normal"</span><br><span class="line">		app:borderWidth="0dp"</span><br><span class="line">		android:layout_marginBottom="@dimen/activity_vertical_margin"</span><br><span class="line">		android:layout_marginRight="@dimen/activity_vertical_margin"/&gt;</span><br><span class="line">&lt;/android.support.design.widget.CoordinatorLayout&gt;</span><br></pre></td></tr></table></figure></p>
+<p>Java 代码中：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">addCoordinatiorLayout</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	mTestCL.setVisibility(View.VISIBLE);</span><br><span class="line">	Snackbar snackbar = Snackbar.make(mTestCL,</span><br><span class="line">			<span class="string">"我是普通 Snackbar"</span>, Snackbar.LENGTH_LONG);</span><br><span class="line">	snackbar.getView().setBackgroundColor(getResources().getColor(android.R.color.holo_blue_bright));</span><br><span class="line">	snackbar.show();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>使用很简单，虽然没有使用 Builder 内部类，但是和使用 Buidler 的调用方式一样，这也是一个 Builder 模式的使用。</p>
+<h2 id="常用方法简介"><a href="#常用方法简介" class="headerlink" title="常用方法简介"></a>常用方法简介</h2><ul>
+<li><a href="http://android.xsoftlab.net/reference/android/support/design/widget/Snackbar.html#make(android.view.View, int, int" target="_blank" rel="external">make()</a>) 方法：生成Snackbar消息，第一个参数是一个 View, Snackbar 会试着寻找一个父 View 来 hold 这个 View。Snackbar 将遍历整个 View tree 来寻找一个合适的父 View，它可能是一个 coordinatorLayout 也可能是 window decor’s content view，随便哪一个都行。</li>
+<li><a href="http://android.xsoftlab.net/reference/android/support/design/widget/Snackbar.html#setDuration(int" target="_blank" rel="external">setDuration()</a>) 方法：设置显示持续时间</li>
+<li><a href="http://android.xsoftlab.net/reference/android/support/design/widget/Snackbar.html#setAction(int, android.view.View.OnClickListener" target="_blank" rel="external">setAction()</a>) 方法：设置 Action，第一个参数会作为按钮（Actiong）的文本，第二个参数是按钮的点击事件</li>
+<li><a href="http://android.xsoftlab.net/reference/android/support/design/widget/Snackbar.html#setCallback(android.support.design.widget.Snackbar.Callback" target="_blank" rel="external">setCallback()</a>) 方法：Snackbar 的显示和消失会回调 <a href="http://android.xsoftlab.net/reference/android/support/design/widget/Snackbar.Callback.html" target="_blank" rel="external">Snackbar.Callback</a>的 onDismissed()和 onShown()方法</li>
+<li><a href="http://android.xsoftlab.net/reference/android/support/design/widget/Snackbar.html#getView(" target="_blank" rel="external">getView</a>)()：获取 Snackbar 的 View</li>
+</ul>
+<h2 id="注意事项-2"><a href="#注意事项-2" class="headerlink" title="注意事项"></a>注意事项</h2><ol>
+<li>利用好 <strong>getView()</strong> 方法来定制 Snackbar</li>
+<li>要支持 Snackbar 的更多特性（例如：向右滑动退出，适配 <strong>FloatingActionButton</strong>），那么需要使用 <strong>CoordinatorLayout</strong></li>
+</ol>
+<h1 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h1><p>Android 6.x 的新控件介绍还有一篇，<br><a href="">未完待续…</a></p>
+<p>接下篇：<a href="http://www.jianshu.com/p/0f3411705e99" target="_blank" rel="external">AndroidStudyDemo之Android6.x新控件介绍（二）</a></p>
+<h1 id="项目地址"><a href="#项目地址" class="headerlink" title="项目地址"></a>项目地址</h1><p><a href="https://github.com/DIY-green/ASD-Android6New" target="_blank" rel="external">GitHub</a></p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="http://blog.csdn.net/feiduclear_up/article/details/46500865" target="_blank" rel="external">Android M新控件之FloatingActionButton，TextInputLayout，Snackbar，TabLayout的使用</a><br><a href="http://www.tuicool.com/articles/BfEbMvB" target="_blank" rel="external">还在用Toast？你Out啦，试试Snackbar吧！</a><br><a href="http://blog.csdn.net/jdsjlzx/article/details/46892363" target="_blank" rel="external">Android SnackBar</a><br><a href="http://www.jcodecraeer.com/plus/view.php?aid=3187" target="_blank" rel="external">Snackbar使用及其注意事项</a><br><a href="http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2015/0714/3185.html" target="_blank" rel="external">design support library第二部分：放弃Toast吧，用Snackbar</a><br><a href="http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2015/0714/3186.html" target="_blank" rel="external">Design Support Library第三部分：Snackbar样式</a><br><a href="http://www.open-open.com/lib/view/open1433385856119.html" target="_blank" rel="external">Android应用Design Support Library完全使用实例</a><br><a href="http://www.open-open.com/lib/view/open1433496206666.html" target="_blank" rel="external">Android Design Support Library使用详解</a></p>
+
+      
+    </div>
+    
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+<div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton", disable="enable", onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}", style="cursor: pointer; border: 0; outline: 0; border-radius: 100%; padding: 0; margin: 0; letter-spacing: normal; text-transform: none; text-indent: 0px; text-shadow: none">
+    <span onmouseover="this.style.color='rgb(236,96,0)';this.style.background='rgb(204,204,204)'" onMouseOut="this.style.color='#fff';this.style.background='rgb(236,96,0)'" style="display: inline-block; width: 70px; height: 70px; border-radius: 100%; line-height: 81px; color: #fff; font: 400 35px/75px 'microsofty'; background: rgb(236,96,0)">赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/uploads/images/wechat-reward-image.png" alt="DIY-green WeChat Pay" style="width: 200px; max-width: 100%; display: inline-block"/>
+        <p>微信打赏</p>
+      </div>
+    
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/uploads/images/alipay-reward-image.png" alt="DIY-green Alipay" style="width: 200px; max-width: 100%; display: inline-block"/>
+        <p>支付宝打赏</p>
+      </div>
+    
+  </div>
+</div>
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/StudyDemo/" rel="tag">#StudyDemo</a>
+          
+            <a href="/tags/Android-6/" rel="tag">#Android 6</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/05/07/Android干货[原创]/Android干货[原创]/" rel="next" title="Android干货[原创]说明">
+                <i class="fa fa-chevron-left"></i> Android干货[原创]说明
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/05/07/实用技术/个人博客搭建详解(Windows和Mac通用版)/" rel="prev" title="个人博客搭建详解（Windows和Mac通用版）">
+                个人博客搭建详解（Windows和Mac通用版） <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/05/07/AndroidStudyDemo系列/Android6.x新控件介绍(一)/"
+           data-title="Android6.x新控件介绍(一)" data-url="http://diy-green.com/2016/05/07/AndroidStudyDemo系列/Android6.x新控件介绍(一)/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/images/avatar.jpg"
+               alt="DIY-green" />
+          <p class="site-author-name" itemprop="name">DIY-green</p>
+          <p class="site-description motion-element" itemprop="description">男子千年志，吾生未有涯。心随朗月高，志与秋霜洁。</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">52</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">27</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/DIY-green" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/users/0ad0a0afc409/latest_articles" target="_blank" title="JianShu">
+                  
+                    <i class="fa fa-globe"></i>
+                  
+                  JianShu
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element">
+            <div class="links-of-blogroll-title">
+              <i class="fa fa-globe fa-fw"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.jianshu.com/users/0ad0a0afc409/latest_articles" title="DIY-green简书" target="_blank">DIY-green简书</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.jianshu.com/users/3a482c4f0658/latest_articles" title="天接水0001" target="_blank">天接水0001</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://sunfusheng.com" title="孙福生" target="_blank">孙福生</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://kuanggang.github.io" title="匡罡" target="_blank">匡罡</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://Ivorfason.github.io" title="尹明仁" target="_blank">尹明仁</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://mengqingxiang.github.io" title="孟庆祥" target="_blank">孟庆祥</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#一、FloatingActionButton"><span class="nav-number">2.</span> <span class="nav-text">一、FloatingActionButton</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介"><span class="nav-number">2.1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#简单使用"><span class="nav-number">2.2.</span> <span class="nav-text">简单使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注意事项"><span class="nav-number">2.3.</span> <span class="nav-text">注意事项</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#TextInputLayout"><span class="nav-number">3.</span> <span class="nav-text">TextInputLayout</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介-1"><span class="nav-number">3.1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#简单使用-1"><span class="nav-number">3.2.</span> <span class="nav-text">简单使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注意事项-1"><span class="nav-number">3.3.</span> <span class="nav-text">注意事项</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Snackbar"><span class="nav-number">3.4.</span> <span class="nav-text">Snackbar</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#简介-2"><span class="nav-number">3.5.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#简单使用-2"><span class="nav-number">3.6.</span> <span class="nav-text">简单使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常用方法简介"><span class="nav-number">3.7.</span> <span class="nav-text">常用方法简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注意事项-2"><span class="nav-number">3.8.</span> <span class="nav-text">注意事项</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#小结"><span class="nav-number">4.</span> <span class="nav-text">小结</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#项目地址"><span class="nav-number">5.</span> <span class="nav-text">项目地址</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考"><span class="nav-number">6.</span> <span class="nav-text">参考</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+<div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">DIY-green</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info powered-by">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+<div class="powered-by">
+  <span id="busuanzi_container_site_pv">
+    本站总访问量<span id="busuanzi_value_site_pv"></span>次
+  </span>
+</div>
+<div style="display:inline-block;">
+  <span id="busuanzi_container_site_uv">
+    本站访客数<span id="busuanzi_value_site_uv"></span>人次
+  </span>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"DIY-green"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+      
+      <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+      <script src="/js/src/hook-duoshuo.js"></script>
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+  
+  
+  <!-- custom analytics part create by xiamo -->
+<script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+<script>AV.initialize("UnkeFG0pM1t3q8H3y7NTLUA0-gzGzoHsz", "2oBUu9nxByteYjLFtBtqOPwN");</script>
+<script>
+function showTime(Counter) {
+	var query = new AV.Query(Counter);
+	$(".leancloud_visitors").each(function() {
+		var url = $(this).attr("id").trim();
+		query.equalTo("url", url);
+		query.find({
+			success: function(results) {
+				if (results.length == 0) {
+					var content = '0 ' + $(document.getElementById(url)).text();
+					$(document.getElementById(url)).text(content);
+					return;
+				}
+				for (var i = 0; i < results.length; i++) {
+					var object = results[i];
+					var content = object.get('time') + ' ' + $(document.getElementById(url)).text();
+					$(document.getElementById(url)).text(content);
+				}
+			},
+			error: function(object, error) {
+				console.log("Error: " + error.code + " " + error.message);
+			}
+		});
+
+	});
+}
+
+function addCount(Counter) {
+	var Counter = AV.Object.extend("Counter");
+	url = $(".leancloud_visitors").attr('id').trim();
+	title = $(".leancloud_visitors").attr('data-flag-title').trim();
+	var query = new AV.Query(Counter);
+	query.equalTo("url", url);
+	query.find({
+		success: function(results) {
+			if (results.length > 0) {
+				var counter = results[0];
+				counter.fetchWhenSave(true);
+				counter.increment("time");
+				counter.save(null, {
+					success: function(counter) {
+						var content =  counter.get('time') + ' ' + $(document.getElementById(url)).text();
+						$(document.getElementById(url)).text(content);
+					},
+					error: function(counter, error) {
+						console.log('Failed to save Visitor num, with error message: ' + error.message);
+					}
+				});
+			} else {
+				var newcounter = new Counter();
+				newcounter.set("title", title);
+				newcounter.set("url", url);
+				newcounter.set("time", 1);
+				newcounter.save(null, {
+					success: function(newcounter) {
+					    console.log("newcounter.get('time')="+newcounter.get('time'));
+						var content = newcounter.get('time') + ' ' + $(document.getElementById(url)).text();
+						$(document.getElementById(url)).text(content);
+					},
+					error: function(newcounter, error) {
+						console.log('Failed to create');
+					}
+				});
+			}
+		},
+		error: function(error) {
+			console.log('Error:' + error.code + " " + error.message);
+		}
+	});
+}
+$(function() {
+	var Counter = AV.Object.extend("Counter");
+	if ($('.leancloud_visitors').length == 1) {
+		addCount(Counter);
+	} else if ($('.post-title-link').length > 1) {
+		showTime(Counter);
+	}
+}); 
+</script>
+  
+  
+</body>
+</html>

@@ -1,0 +1,1190 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Android,干货,MVP,详解," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="作者：李旺成时间：2016年4月3日
+
+“Android MVP 详解（下）”已经发布，欢迎大家提建议。
+
+MVP 在 Android 上的使用其实已经有挺长一段时间了，长到似乎有点“过时”了（目前风头正劲的是MVVM），那为什么现在还要讲 MVP。今天我想要讨论它的主要原因有如下几点：
+
+MVP 并未过时，值得我们研究
+目前关于 MVP 的资料都不算太详尽
+由于能力和时间有限，本人拖到最近才下定">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android MVP 详解（上）">
+<meta property="og:url" content="http://diy-green.com/2016/05/07/Android干货[原创]/Android MVP 详解（上）/index.html">
+<meta property="og:site_name" content="DIY-green">
+<meta property="og:description" content="作者：李旺成时间：2016年4月3日
+
+“Android MVP 详解（下）”已经发布，欢迎大家提建议。
+
+MVP 在 Android 上的使用其实已经有挺长一段时间了，长到似乎有点“过时”了（目前风头正劲的是MVVM），那为什么现在还要讲 MVP。今天我想要讨论它的主要原因有如下几点：
+
+MVP 并未过时，值得我们研究
+目前关于 MVP 的资料都不算太详尽
+由于能力和时间有限，本人拖到最近才下定">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidganhuo\yuanchuang\androidmvp_detail\shang\androidmvp_detail_shang_1.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidganhuo\yuanchuang\androidmvp_detail\shang\androidmvp_detail_shang_2.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidganhuo\yuanchuang\androidmvp_detail\shang\androidmvp_detail_shang_3.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidganhuo\yuanchuang\androidmvp_detail\shang\androidmvp_detail_shang_4.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidganhuo\yuanchuang\androidmvp_detail\shang\androidmvp_detail_shang_5.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidganhuo\yuanchuang\androidmvp_detail\shang\androidmvp_detail_shang_6.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidganhuo\yuanchuang\androidmvp_detail\shang\androidmvp_detail_shang_7.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidganhuo\yuanchuang\androidmvp_detail\shang\androidmvp_detail_shang_8.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidganhuo\yuanchuang\androidmvp_detail\shang\androidmvp_detail_shang_9.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidganhuo\yuanchuang\androidmvp_detail\shang\androidmvp_detail_shang_10.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidganhuo\yuanchuang\androidmvp_detail\shang\androidmvp_detail_shang_11.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidganhuo\yuanchuang\androidmvp_detail\shang\androidmvp_detail_shang_12.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidganhuo\yuanchuang\androidmvp_detail\shang\androidmvp_detail_shang_13.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidganhuo\yuanchuang\androidmvp_detail\shang\androidmvp_detail_shang_14.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidganhuo\yuanchuang\androidmvp_detail\shang\androidmvp_detail_shang_15.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidganhuo\yuanchuang\androidmvp_detail\shang\androidmvp_detail_shang_16.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidganhuo\yuanchuang\androidmvp_detail\shang\androidmvp_detail_shang_17.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidganhuo\yuanchuang\androidmvp_detail\shang\androidmvp_detail_shang_18.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidganhuo\yuanchuang\androidmvp_detail\shang\androidmvp_detail_shang_19.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidganhuo\yuanchuang\androidmvp_detail\shang\androidmvp_detail_shang_20.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidganhuo\yuanchuang\androidmvp_detail\shang\androidmvp_detail_shang_21.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidganhuo\yuanchuang\androidmvp_detail\shang\androidmvp_detail_shang_22.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidganhuo\yuanchuang\androidmvp_detail\shang\androidmvp_detail_shang_23.png">
+<meta property="og:updated_time" content="2016-04-26T00:25:56.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android MVP 详解（上）">
+<meta name="twitter:description" content="作者：李旺成时间：2016年4月3日
+
+“Android MVP 详解（下）”已经发布，欢迎大家提建议。
+
+MVP 在 Android 上的使用其实已经有挺长一段时间了，长到似乎有点“过时”了（目前风头正劲的是MVVM），那为什么现在还要讲 MVP。今天我想要讨论它的主要原因有如下几点：
+
+MVP 并未过时，值得我们研究
+目前关于 MVP 的资料都不算太详尽
+由于能力和时间有限，本人拖到最近才下定">
+<meta name="twitter:image" content="http://diy-green.com/\uploads\androidganhuo\yuanchuang\androidmvp_detail\shang\androidmvp_detail_shang_1.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'DIY-green'
+    }
+  };
+</script>
+
+  <title> Android MVP 详解（上） | DIY-green </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?af1b7efbf565bc568165c5a0600a0207";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+  <div style="display: none;">
+    <script src="http://s6.cnzz.com/stat.php?id=1258791461&web_id=1258791461" type="text/javascript"></script>
+  </div>
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">DIY-green</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            全部
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-androidstudydemo">
+          <a href="/categories/AndroidStudyDemo/" rel="section">
+            
+              <i class="menu-item-icon fa fa-hand-right fa-fw"></i> <br />
+            
+            ● &nbsp; AndroidStudyDemo
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-androidganhuo">
+          <a href="/categories/Android干货/" rel="section">
+            
+              <i class="menu-item-icon fa fa-hand-right fa-fw"></i> <br />
+            
+            ● &nbsp; Android干货
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-androidhacks">
+          <a href="/categories/Android小技巧/" rel="section">
+            
+              <i class="menu-item-icon fa fa-hand-right fa-fw"></i> <br />
+            
+            ● &nbsp; Android小技巧
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-androidstudio">
+          <a href="/categories/AndroidStudio/" rel="section">
+            
+              <i class="menu-item-icon fa fa-hand-right fa-fw"></i> <br />
+            
+            ● &nbsp; AndroidStudio
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-essay">
+          <a href="/categories/随笔/" rel="section">
+            
+              <i class="menu-item-icon fa fa-hand-right fa-fw"></i> <br />
+            
+            ● &nbsp; 随笔
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Android MVP 详解（上）
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-05-07T20:39:24+08:00" content="2016-05-07">
+              2016-05-07
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Android干货/" itemprop="url" rel="index">
+                    <span itemprop="name">Android干货</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Android干货/原创/" itemprop="url" rel="index">
+                    <span itemprop="name">原创</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/05/07/Android干货[原创]/Android MVP 详解（上）/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/07/Android干货[原创]/Android MVP 详解（上）/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+		  &nbsp; | &nbsp;
+             <span id="/2016/05/07/Android干货[原创]/Android MVP 详解（上）/" class="leancloud_visitors" data-flag-title="Android MVP 详解（上）">
+               
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+		  
+		  <!--<span id="busuanzi_container_page_pv">
+		    &nbsp; | &nbsp;<span id="busuanzi_value_page_pv"></span>阅读
+		  </span>
+		  
+		  
+			&nbsp; | &nbsp;
+			<span id="/2016/05/07/Android干货[原创]/Android MVP 详解（上）/"class="leancloud_visitors" data-flag-title="Android MVP 详解（上）">
+					 &nbsp;阅读
+					</span>
+			-->
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><strong>作者：<a href="https://github.com/DIY-green/" target="_blank" rel="external">李旺成</a></strong><br><strong>时间：2016年4月3日</strong></p>
+<hr>
+<p>“<a href="">Android MVP 详解（下）</a>”已经发布，欢迎大家提建议。</p>
+<blockquote>
+<p>MVP 在 Android 上的使用其实已经有挺长一段时间了，长到似乎有点“过时”了（目前风头正劲的是MVVM），那为什么现在还要讲 MVP。今天我想要讨论它的主要原因有如下几点：</p>
+<ol>
+<li>MVP 并未过时，值得我们研究</li>
+<li>目前关于 MVP 的资料都不算太详尽</li>
+<li>由于能力和时间有限，本人拖到最近才下定决心写</li>
+</ol>
+<p>说明：本文只是抛砖引玉，疏漏之处敬请谅解。</p>
+</blockquote>
+<p><img src="\uploads\androidganhuo\yuanchuang\androidmvp_detail\shang\androidmvp_detail_shang_1.png" alt="MVP 详解思维导图" title="MVP 详解思维导图"></p>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>2014年年底偶然得知在Android开发中出现了MVP这种模式，当时觉得这东西挺好，正好赶上公司要做一个新的小项目，于是尝试了一下。</p>
+<p>仿照网上的Demo分出View、Model、Presenter层，抽取View接口，看起来像那么回事的用MVP完成了整个项目。因为项目简单，期间也没有遇到什么坑，但是总觉得还有那些地方不对。</p>
+<p>当时网上一些关于Android MVP的介绍都有点浅尝辄止，一个登录或者根据地区查询天气等的小Demo，没有实际在项目中应用的示例，所以在用MVP做完一个小项目之后还是不敢在主项目中轻易尝试。</p>
+<p><strong>首先，</strong>主项目比较混乱，改动起来工作量很大，而工期经常较紧，时间不允许；<br><strong>其次，</strong>知道自身对MVP理解还不够，怕掉坑里去；<br><strong>最后，</strong>也是最重要的一点，当时的项目不是按功能模块划分的包结构，如果改为MVP那是真的就回不到过去了。</p>
+<p>好了，废话不多说，今天主要是想分享一下，本人对MVP的浅见，以及如何使用MVP模式搭建一个项目框架。纯属一家之言，不足之处，请见谅。</p>
+<h1 id="一、什么是-MVP"><a href="#一、什么是-MVP" class="headerlink" title="一、什么是 MVP"></a>一、什么是 MVP</h1><h2 id="1-1-MVP-的定义"><a href="#1-1-MVP-的定义" class="headerlink" title="1.1. MVP 的定义"></a>1.1. MVP 的定义</h2><p>MVP，全称 Model-View-Presenter</p>
+<p>要说MVP那就不得不说一说它的前辈——MVC。</p>
+<p>MVC（Model-View-Controller，模型-视图-控制器）模式是80年代Smalltalk-80出现的一种软件设计模式，后来得到了广泛的应用，其主要目的在于促进应用中模型，视图，控制器间的关注的清晰分离。</p>
+<p>MVP（Model-View-Presenter，模型-视图-表示器）模式则是由IBM开发出来的一个针对C++和Java的编程模型，大概出现于2000年，是MVC模式的一个变种，主要用来隔离UI、UI逻辑和业务逻辑、数据。</p>
+<p>也就是说，MVP 是从经典的模式MVC演变而来，它们的基本思想有相通的地方：Controller/Presenter负责逻辑的处理，Model提供数据，View负责显示。</p>
+<p>说明：按照View和Presenter之间的交互方式以及View本身的职责范围，Martin Folwer将MVP可分为PV（Passive View）和SoC（Supervising Controller）两种模式。</p>
+<p><strong>Passive View</strong></p>
+<p>顾名思义，PV（Passive View）是一个被动的View，针对包含其中的UI元素（比如控件）的操作不是由View自身来操作，而交给Presenter来操控。</p>
+<p><strong>Supervising Controller</strong></p>
+<p>在SoC（Supervising Controller）模式下，为了降低Presenter的复杂度，将诸如数据绑定和格式化这样简单的UI处理逻辑逻辑转移到View中，这些处理逻辑会体现在View实现的接口中。</p>
+<h2 id="1-2-发展历程"><a href="#1-2-发展历程" class="headerlink" title="1.2. 发展历程"></a>1.2. 发展历程</h2><p>任何一种思想的产生都有其特定的背景，在软件开发中也是如此。在软件复杂度增长，需求不断变更的客观条件下，为了更好的解决这些问题，出现了各种软件架构思想、编程思想以及设计模式。（因为人的能力并没有“跟上”机器，所以才会出现各种模式、方法、工具等等来补足人的不足，以最大地透支机器性能。–Indream Luo）</p>
+<p>相信做过客户端（PC、Android、iOS等）或者前端开发的童鞋都听过MVC、MVP、MVVM这些名词（就算不了解也大致知道有这个东西吧），这些都是为了解决拥有图像界面的程序开发复杂性而产生的模式。这里说的是模式，当然有各种各样的框架方便开发者在项目中应用这种模式，这不是本文重点。</p>
+<p>有前辈（Indream Luo）说过，架构是对客观不足的妥协，规范是对主观不足的妥协。对此我深表赞同，先不管这些，我们来看看GUI是怎么和MVX扯上关系的。</p>
+<p>先搞清楚一个顺序，是GUI应用程序的出现导致了MVC的产生。GUI应用程序提供给用户可视化的操作界面，这个界面提供给用户数据和信息。在PC上用户与界面的交互主要依赖（键盘，鼠标等。这些操作会执行一些应用逻辑，应用逻辑（application logic）可能会触发一定的业务逻辑（business logic）使应用程序数据的发生变更，数据的变更自然需要用户界面的同步变更以提供最准确的信息。</p>
+<p>在开发这类应用程序时，为更好的管理应用程序的复杂性，基于职责分离（Speration of Duties）的思想都会对应用程序进行分层。在开发GUI应用程序的时候，会把管理用户界面的层次称为View，应用程序的数据为Model（注意这里的Model指的是Domain Model，这个应用程序对需要解决的问题的数据抽象，不包含应用的状态，可以简单理解为对象）。Model提供数据操作的接口，执行相应的业务逻辑。有了View和Model的分层，那么问题就来了：View如何同步Model的变更，View和Model之间如何粘合在一起。（所谓的MVX中的X都可以归纳为对这个问题不同的处理方式）（引自：戴嘉华）。</p>
+<p><strong>MVC 的产生</strong></p>
+<p>早在上个世纪70年代，美国的施乐公司（Xerox）的工程师研发了Smalltalk编程语言，并且开始用它编写图形界面的应用程序。而在Smalltalk-80这个版本的时候，一位叫Trygve Reenskaug的工程师设计了MVC图形应用程序的架构模式，极大地降低了图形应用程序的管理难度。而在四人帮（GoF）的设计模式当中并没有把MVC当做是设计模式，而仅仅是把它看成解决问题的一些类的集合。Smalltalk-80 MVC和GoF描述的MVC是最经典的MVC模式。</p>
+<p>看到这服务端的童鞋有话要说：我们也用MVC，你看Structs、SpringMVC这些都是经典的MVC框架。那服务端的MVC和GUI开发中的MVC有何不同之处了，请看下面的分析。</p>
+<p><strong>MVC Model 2的出现</strong></p>
+<p>在Web服务端开发的时候也会接触到MVC模式，而这种MVC模式不能严格称为MVC模式。经典的MVC模式只是解决客户端图形界面应用程序的问题，而对服务端无效。服务端的MVC模式又自己特定的名字：MVC Model 2，或者叫JSP Model 2，或者直接就是Model 2 。</p>
+<p>好吧，说了等于没说，总之一句话，我们今天所说的MVX都有一个前提，那就是得有GUI，得是来解决GUI应用程序开发中遇到的问题的。所以，我们只要关心最经典的MVC就可以了，想了解更多的请自行Google。</p>
+<p><strong>MVP 的产生</strong></p>
+<p>MVP模式是MVC模式的改良。在上个世纪90年代，IBM旗下的子公司Taligent在用C/C++开发一个叫CommonPoint的图形界面应用系统的时候提出来的。</p>
+<p><strong>MVVM 的产生</strong></p>
+<p>MVVM模式最早是微软公司提出，并且了大量使用在.NET的WPF和Sliverlight中。2005年微软工程师John Gossman在自己的博客上首次公布了MVVM模式。</p>
+<h2 id="1-3-为什么需要-MVP"><a href="#1-3-为什么需要-MVP" class="headerlink" title="1.3. 为什么需要 MVP"></a>1.3. 为什么需要 MVP</h2><p>（以下内容参考自：MVP在Android平台上的应用，原文作者<a href="http://konmik.github.io/" target="_blank" rel="external">konmik</a>，译者<a href="https://github.com/MiJack" target="_blank" rel="external">MiJack</a>）</p>
+<p><strong>理由1：尽量简单</strong></p>
+<p>如果你还有读过这篇文章，请阅读它：<a href="https://people.apache.org/~fhanik/kiss.html" target="_blank" rel="external">Kiss原则</a>（Keep It Stupid Simple）</p>
+<p>大部分的安卓应用只使用View-Model结构</p>
+<p>程序员现在更多的是和复杂的View打交道而不是解决业务逻辑。</p>
+<p>当你在应用中只使用Model-View时，到最后，你会发现“所有的事物都被连接到一起”。</p>
+<p><img src="\uploads\androidganhuo\yuanchuang\androidmvp_detail\shang\androidmvp_detail_shang_2.png" alt="只使用 Model-View" title="只使用 Model-View"></p>
+<p>如果这张图看上去还不是很复杂，那么请你想象一下以下情况：每一个View在任意一个时刻都有可能出现或者消失。不要忘记View的保存和恢复，在临时的view上挂载一个后台任务。</p>
+<p>“所有的事物都被连接到一起”的替代品是一个万能对象(god object)。</p>
+<p><img src="\uploads\androidganhuo\yuanchuang\androidmvp_detail\shang\androidmvp_detail_shang_3.png" alt="god object" title="god object"></p>
+<p>god object是十分复杂的，他的每一个部分都不能重复利用，无法轻易的测试、或者调试和重构。</p>
+<p>With MVP</p>
+<p><strong>使用MVP</strong></p>
+<p><img src="\uploads\androidganhuo\yuanchuang\androidmvp_detail\shang\androidmvp_detail_shang_4.png" alt="使用 MVP" title="使用 MVP"></p>
+<p>复杂的任务被分成细小的任务，并且很容易解决。越小的东西，bug越少，越容易debug，更好测试。在MVP模式下的View层将会变得简单，所以即便是他请求数据的时候也不需要回调函数。View逻辑变成十分直接。</p>
+<p><strong>理由2：后台任务</strong></p>
+<p>当你编写一个Actviity、Fragment、自定义View的时候，你会把所有的和后台任务相关的方法写在一个静态类或者外部类中。这样，你的Task不再和Activity联系在一起，这既不会导致内存泄露，也不依赖于Activity的重建。</p>
+<p>这里有若干种方法处理后台任务，但是它们的可靠性都不及MVP。</p>
+<h2 id="1-4-为什么-MVP-是可行的？"><a href="#1-4-为什么-MVP-是可行的？" class="headerlink" title="1.4. 为什么 MVP 是可行的？"></a>1.4. 为什么 MVP 是可行的？</h2><p>（以下内容参考自：MVP在Android平台上的应用，原文作者<a href="http://konmik.github.io/" target="_blank" rel="external">konmik</a>，译者<a href="https://github.com/MiJack" target="_blank" rel="external">MiJack</a>）</p>
+<p>这里有一张表格，用于展示在configuration改变、Activity 重启、Out-Of-Memory时，不同的应用部分会发生什么？</p>
+<p><img src="\uploads\androidganhuo\yuanchuang\androidmvp_detail\shang\androidmvp_detail_shang_5.png" alt="不同应用部分对不同场景的响应" title="不同应用部分对不同场景的响应"></p>
+<p><strong>情景 1: </strong><br>当用户切换屏幕、更改语言设置或者链接外部的模拟器时，往往意味着设置改变。 相关更多请阅读<a href="http://developer.android.com/reference/android/R.attr.html#configChanges" target="_blank" rel="external">这里</a>。</p>
+<p><strong>情景 2:</strong><br>Activity的重启发生在当用户在开发者选项中选中了“Don’t keep activities”（“中文下为 不保留活动”）的复选框，然后另一个Activity在最顶上的时候。</p>
+<p><strong>情景 3:</strong><br>进程的重启发生在应用运行在后台，但是这个时候内存不够的情况下。</p>
+<p><strong>总结</strong></p>
+<p>现在你可以发现，一个调用了setRetainInstance(true)的Fragment也不奏效，我们还是需要保存/恢复fragment的状态，所以为简化问题，我们暂不考虑上述情况的Fragment。<a href="http://en.wikipedia.org/wiki/Occam&#39;s_razor" target="_blank" rel="external">Occam’s razor</a></p>
+<p><img src="\uploads\androidganhuo\yuanchuang\androidmvp_detail\shang\androidmvp_detail_shang_6.png" alt="场景简化" title="场景简化"></p>
+<p>现在，看上去更舒服了，我们只需要写两段代码为了恢复应用：</p>
+<p>· 保存/恢复 for Activity, View, Fragment, DialogFragment;<br>· 重启后台请求由于进程重启</p>
+<p>第一个部分,用Android的API可以实现。第二个部分，就是Presenter的作用了。Presenter将会记住有哪些请求需要执行，当进程在执行过程中重启时，Presenter将会出现执行它们。</p>
+<h2 id="1-5-MVP-的优缺点"><a href="#1-5-MVP-的优缺点" class="headerlink" title="1.5. MVP 的优缺点"></a>1.5. MVP 的优缺点</h2><p>任何事务都存在两面性，MVP当然也不列外，我们来看看MVP的优缺点。</p>
+<p><strong>优点：</strong></p>
+<ol>
+<li>降低耦合度，实现了Model和View真正的完全分离，可以修改View而不影响Modle</li>
+<li>模块职责划分明显，层次清晰（下面会介绍Bob大叔的Clean Architecture）</li>
+<li>隐藏数据</li>
+<li>Presenter可以复用，一个Presenter可以用于多个View，而不需要更改Presenter的逻辑（当然是在View的改动不影响业务逻辑的前提下）</li>
+<li>利于测试驱动开发。以前的Android开发是难以进行单元测试的（虽然很多Android开发者都没有写过测试用例，但是随着项目变得越来越复杂，没有测试是很难保证软件质量的；而且近几年来Android上的测试框架已经有了长足的发展——开始写测试用例吧），在使用MVP的项目中Presenter对View是通过接口进行，在对Presenter进行不依赖UI环境的单元测试的时候。可以通过Mock一个View对象，这个对象只需要实现了View的接口即可。然后依赖注入到Presenter中，单元测试的时候就可以完整的测试Presenter应用逻辑的正确性。</li>
+<li>View可以进行组件化。在MVP当中，View不依赖Model。这样就可以让View从特定的业务场景中脱离出来，可以说View可以做到对业务完全无知。它只需要提供一系列接口提供给上层操作。这样就可以做到高度可复用的View组件。</li>
+<li>代码灵活性</li>
+</ol>
+<p><strong>缺点：</strong></p>
+<ol>
+<li>Presenter中除了应用逻辑以外，还有大量的View-&gt;Model，Model-&gt;View的手动同步逻辑，造成Presenter比较笨重，维护起来会比较困难。</li>
+<li>由于对视图的渲染放在了Presenter中，所以视图和Presenter的交互会过于频繁。</li>
+<li>如果Presenter过多地渲染了视图，往往会使得它与特定的视图的联系过于紧密。一旦视图需要变更，那么Presenter也需要变更了。</li>
+<li>额外的代码复杂度及学习成本。</li>
+</ol>
+<h2 id="1-6-小结"><a href="#1-6-小结" class="headerlink" title="1.6. 小结"></a>1.6. 小结</h2><p>在MVP模式里通常包含4个要素：</p>
+<p>(1) <strong>View :</strong>负责绘制UI元素、与用户进行交互(在Android中体现为Activity);<br>(2) <strong>View interface :</strong>需要View实现的接口，View通过View interface与Presenter进行交互，降低耦合，方便进行单元测试;<br>(3) <strong>Model :</strong>负责存储、检索、操纵数据(有时也实现一个Model interface用来降低耦合);<br>(4) <strong>Presenter :</strong>作为View与Model交互的中间纽带，处理与用户交互的负责逻辑。</p>
+<p><img src="\uploads\androidganhuo\yuanchuang\androidmvp_detail\shang\androidmvp_detail_shang_7.png" alt="Microsoft对MVC和MVP的理解" title="Microsoft对MVC和MVP的理解"></p>
+<h1 id="二、MVX-剖析"><a href="#二、MVX-剖析" class="headerlink" title="二、MVX 剖析"></a>二、MVX 剖析</h1><h2 id="2-1-M（Model）"><a href="#2-1-M（Model）" class="headerlink" title="2.1. M（Model）"></a>2.1. M（Model）</h2><p>模型：表示数据模型和业务逻辑(business logic)。模型并不总是DataSet，DataTable之类的东西，它代表着一类组件(components)或类(class)，这些组件或类可以向外部提供数据，同时也能从外部获取数据并将这些数据存储在某个地方。简单的理解，可以把模型想象成“外观类(facade class)”。译注：这里的外观是指“外观模式”中所说的外观。外观的一般作用是为一个复杂的子系统提供高层次的简单易用的访问接口，可以参看下面的图来理解它的原理：</p>
+<p><strong>model层主要负责：</strong></p>
+<p>· 从网络，数据库，文件，传感器，第三方等数据源读写数据。<br>· 对外部的数据类型进行解析转换为APP内部数据交由上层处理。<br>· 对数据的临时存储,管理，协调上层数据请求。</p>
+<h2 id="2-2-V（View）"><a href="#2-2-V（View）" class="headerlink" title="2.2 V（View）"></a>2.2 V（View）</h2><p>视图：将数据层现给用户。一般的视图都只是包含用户界面(UI)，而不包含界面逻辑。比如，Asp.net中包含控件的页面(page)就是一个视图。视图可以从模型中读取数据，但是不能修改或更新模型。</p>
+<p><strong>view 层主要负责：</strong></p>
+<p>· 提供UI交互<br>· 在presenter的控制下修改UI。<br>· 将业务事件交由presenter处理。</p>
+<p><strong>注意：</strong> View层不存储数据，不与Model层交互。</p>
+<p>在Android中View层一般是Activity、Fragment、View（控件）、ViewGroup（布局等）等。</p>
+<h2 id="2-3-X（C-Controller、P-Presenter、VM-ViewModel）"><a href="#2-3-X（C-Controller、P-Presenter、VM-ViewModel）" class="headerlink" title="2.3. X（C-Controller、P-Presenter、VM-ViewModel）"></a>2.3. X（C-Controller、P-Presenter、VM-ViewModel）</h2><p><strong>控制器：</strong>View捕获到用户交互操作后会直接转发给Controller，后者完成相应的UI逻辑。如果需要涉及业务功能的调用，Controller会直接调用Model。在完成UI处理之后，Controller会根据需要控制原View或者创建新的View对用户交互操作予以响应。</p>
+<p><strong>层现器：</strong>作为View与Model交互的中间纽带，处理与用户交互的负责逻辑。Presenter包含了根据用户在视图中的行为去更新模型的逻辑。视图仅仅只是将用户的行为告知Presenter，而Presenter负责从视图中取得数据然后发送给模型。</p>
+<p><strong>视图模型：</strong>binder 所在之处，是 View 的抽象，对外暴露出公共属性和命令，它是View的抽象，负责View与Model之间信息转换，将View的Command传送到Model。ViewModel的含义就是 “Model of View”，视图的模型。它的含义包含了领域模型（Domain Model）和视图的状态（State）。可以简单把ViewModel理解为页面上所显示内容的数据抽象，和Domain Model不一样，ViewModel更适合用来描述View。</p>
+<h2 id="2-4-小结"><a href="#2-4-小结" class="headerlink" title="2.4. 小结"></a>2.4. 小结</h2><p>MVC模式、MVP模式和MVVM模式都作为用来分离UI层与业务层的一种开发模式。这些模式之间的差异可以归纳为对这个问题处理的方式的不同。</p>
+<h1 id="三、MVX-与三层架构"><a href="#三、MVX-与三层架构" class="headerlink" title="三、MVX 与三层架构"></a>三、MVX 与三层架构</h1><p>相信不少童鞋和我有过同样的疑惑：MVX分为了M-V-X三层，那这到底和软件的三层架构有何关系呢？我们带着问题继续往下阅读。</p>
+<h2 id="3-1-什么是三层架构"><a href="#3-1-什么是三层架构" class="headerlink" title="3.1. 什么是三层架构"></a>3.1. 什么是三层架构</h2><p>三层架构是一个分层式的软件体系架构设计，它可适用于任何一个项目。通常意义上的三层架构就是将整个业务应用划分为：界面层（User Interface layer）、业务逻辑层（Business Logic Layer）、数据访问层（Data access layer）。区分层次的目的即为了“<a href="http://baike.baidu.com/view/3082578.htm" target="_blank" rel="external">高内聚低耦合</a>”的思想。在软件体系架构设计中，分层式结构是最常见，也是最重要的一种结构。微软推荐的分层式结构一般分为三层，从下至上分别为：数据访问层、业务逻辑层（又或称为领域层）、表示层。（参考自：百度百科）</p>
+<p><strong>常见的架构有：</strong></p>
+<p>· 分层架构（如：三层架构）<br>· 事件驱动架构<br>· 微内核架构<br>· 微服务架构<br>· 基于空间的架构 </p>
+<p>推荐阅读《软件架构模式》</p>
+<h2 id="3-2-三层架构和-MVX-的关系"><a href="#3-2-三层架构和-MVX-的关系" class="headerlink" title="3.2. 三层架构和 MVX 的关系"></a>3.2. 三层架构和 MVX 的关系</h2><p><strong>首先，</strong>我想说三层架构（分层架构）和 MVX 没有什么关系，它们不在同一个层次上（三层是一种架构思想，更多的是和事件驱动架构、微内核架构等放在一起讨论，而我更喜欢把 MVX 做为模式来对待）。</p>
+<p>三层是从整个应用程序架构的角度来分为DAL(数据访问层)、BLL(业务逻辑层)、WEB层（界面层）各司其职，意在职责分离；三层是为了解决整个应用程序中各个业务操作过程中不同阶段的代码封装的问题，为了使程序员更加专注的处理某阶段的业务逻辑；并且三层只是多层架构中的一种情况，完全可以根据需要分为多层。</p>
+<p>MVC 主要是为了解决应用程序用户界面的样式替换问题，把展示数据的 HTML 页面尽可能的和业务代码分离。MVC把纯净的界面展示逻辑（用户界面）独立到一些文件中（Views），把一些和用户交互的程序逻辑（Controller）单独放在一些文件中，在 Views 和 Controller 中传递数据使用一些专门封装数据的实体对象，这些对象，统称为Models。而在其后出现的 MVP 以及 MVVM 与 MVC 的作用类似，MVX 主要的区别在于如何解决 M 与 V 之间的连接与更新。</p>
+<p><strong>总之一句话，</strong>MVX 是一种模式，Spring MVC 以及 ASP.NET MVC 等是一个基于MVC模式的开发框架，三层架构是一种架构。</p>
+<p><strong>其次，</strong>它们都有一个表现层，但是这两者的展现层并不是一样的。可以这样看待 MVX 与三层架构中的表现层的关系，MVX 中的 V 和 X 都属于三层架构中的表现层，可以看下图的示意。</p>
+<p><strong>最后，</strong>虽然都有提到 Model，但是在 MVX 中没有把业务的逻辑访问看成两个层，这是采用三层架构或 MVX 搭建程序最主要的区别。在三层架构中Model 的概念与 MVX 中 Model 的概念是不一样的，“三层”中典型的Model 层是以实体类构成的，而MVC里，则是由业务逻辑与访问数据组成的。</p>
+<p><strong>也就是说，</strong>MVX 与三层架构说的根本不是一回事。在所谓的“三层”中，它要求你将BLL层独立出来，它只是告诉你表示层和业务逻辑层之间的静态关系。而 MVX 则告诉你在这个具体的地方如何处理其动态驱动流程，尽管 MVC 仍然粗糙（甚至 MVP、MVVM也是粗糙的），但是已经比所谓三层更细致一些了（三层是架构好吗…）。</p>
+<p><img src="\uploads\androidganhuo\yuanchuang\androidmvp_detail\shang\androidmvp_detail_shang_8.png" alt="MVP和三层架构示意图" title="MVP和三层架构示意图"></p>
+<h1 id="四、Android-上-MVP-的几种实现"><a href="#四、Android-上-MVP-的几种实现" class="headerlink" title="四、Android 上 MVP 的几种实现"></a>四、Android 上 MVP 的几种实现</h1><p>絮絮叨叨说了一大堆，终于干货要来了。正所谓：Talk is cheap,show me the code.<br>下面会给出示例代码，请继续阅读。</p>
+<p>在 Android 开发中讨论 MVP、MVVM 最终都离不了 <a href="http://blog.8thlight.com/uncle-bob/archive.html" target="_blank" rel="external">Uncle Bob</a> 的 <a href="http://blog.8thlight.com/uncle-bob/2012/08/13/the-clean-architecture.html" target="_blank" rel="external">The Clean Architecture</a>。（请自行阅读，相信阅读原文会有更大的收获）</p>
+<p>下面，我会尝试一一细数 Android 上常见的 MVP 实现方式（说明：并没有什么排序规则，只谈大家的实现思路，展示的顺序只是为了方便大家的理解和阅读）。</p>
+<h2 id="4-1-存取用户信息的-MVP-小-Demo"><a href="#4-1-存取用户信息的-MVP-小-Demo" class="headerlink" title="4.1. 存取用户信息的 MVP 小 Demo"></a>4.1. 存取用户信息的 MVP 小 Demo</h2><p>这其实是我最先接触 MVP 时看到的示例，代码很少，但是把 MVP 的分层展示的挺清晰。</p>
+<p>原文：<a href="http://blog.csdn.net/vector_yi/article/details/24719873?utm_source=tuicool&amp;utm_medium=referral" target="_blank" rel="external">MVP模式在Android开发中的应用</a></p>
+<p>源码：<a href="https://github.com/VectorYi/MVPSample" target="_blank" rel="external">GitHub 地址</a></p>
+<p><img src="\uploads\androidganhuo\yuanchuang\androidmvp_detail\shang\androidmvp_detail_shang_9.png" alt="登录Demo 界面" title="登录Demo 界面"></p>
+<p><img src="\uploads\androidganhuo\yuanchuang\androidmvp_detail\shang\androidmvp_detail_shang_10.png" alt="项目结构示例" title="项目结构示例"></p>
+<h2 id="4-2-天气查询的-MVP-小-Demo"><a href="#4-2-天气查询的-MVP-小-Demo" class="headerlink" title="4.2. 天气查询的 MVP 小 Demo"></a>4.2. 天气查询的 MVP 小 Demo</h2><p>现在的 Andorid 开发怎么能够离开网络，来一个有网络的示例。该天气查询 Demo，是通过访问 Web 服务获取地区的天气信息（返回为JSON），然后在 Activity 中用 TextView 展示出来。</p>
+<p>原文：<a href="http://rocko.xyz/2015/02/06/Android%e4%b8%ad%e7%9a%84MVP/" target="_blank" rel="external">Android中的MVP</a></p>
+<p>源码：<a href="https://github.com/zhengxiaopeng/Rocko-Android-Demos/tree/master/architecture/android-mvp" target="_blank" rel="external">GitHub 地址</a></p>
+<p><img src="\uploads\androidganhuo\yuanchuang\androidmvp_detail\shang\androidmvp_detail_shang_11.png" alt="包结构" title="包结构"></p>
+<p><img src="\uploads\androidganhuo\yuanchuang\androidmvp_detail\shang\androidmvp_detail_shang_12.png" alt="项目效果预览" title="项目效果预览"></p>
+<h2 id="4-3-使用-Activity-Fragment-作为-Presenter-的探索"><a href="#4-3-使用-Activity-Fragment-作为-Presenter-的探索" class="headerlink" title="4.3. 使用 Activity/Fragment 作为 Presenter 的探索"></a>4.3. 使用 Activity/Fragment 作为 Presenter 的探索</h2><p>上面的示例 View 都是 Activity 来承担的，Presenter 是一个普通的类，前面讨论过 Android 在不同场景下会进入不同的生命周期，这将可能导致 Presenter 也随着其生命周期需要做出响应。从这个角度考虑，有不少开发者提出了 MVP 实现的其他思路，接下来我们要探讨的就是使用 Activity/Fragment 作为 Presenter 的一些实现方案。</p>
+<h3 id="4-3-1-一种实现MVP模式的新思路"><a href="#4-3-1-一种实现MVP模式的新思路" class="headerlink" title="4.3.1 一种实现MVP模式的新思路"></a>4.3.1 一种实现MVP模式的新思路</h3><p>其中有使用 Activity 和 Fragment 作为 Presenters 和使用 Adapter作为 Presenter的探讨，思路挺有意思，可以去看看。</p>
+<p>原文：<a href="http://blog.cainwong.com/android-mvp-an-alternate-approach/" target="_blank" rel="external">android-mvp-an-alternate-approach</a></p>
+<p>译文：<a href="https://github.com/bboyfeiyu/android-tech-frontier/tree/master/androidweekly/%E4%B8%80%E7%A7%8D%E5%9C%A8android%E4%B8%AD%E5%AE%9E%E7%8E%B0MVP%E6%A8%A1%E5%BC%8F%E7%9A%84%E6%96%B0%E6%80%9D%E8%B7%AF" target="_blank" rel="external">一种在android中实现MVP模式的新思路</a></p>
+<p>源码：<a href="https://github.com/wongcain/MVP-Simple-Demo" target="_blank" rel="external">GitHub 地址</a></p>
+<h3 id="4-3-2-TheMVP-介绍"><a href="#4-3-2-TheMVP-介绍" class="headerlink" title="4.3.2. TheMVP 介绍"></a>4.3.2. TheMVP 介绍</h3><p>TheMVP使用Activity作为Presenter层来处理代码逻辑，通过让Activity包含一个ViewDelegate对象来间接操作View层对外提供的方法，从而做到完全解耦视图层。</p>
+<p>原文：<a href="http://www.kymjs.com/code/2015/11/09/01/" target="_blank" rel="external">用MVP架构开发Android应用</a></p>
+<p>源码：<a href="https://github.com/kymjs/TheMVP" target="_blank" rel="external">GitHub 地址</a></p>
+<p><img src="\uploads\androidganhuo\yuanchuang\androidmvp_detail\shang\androidmvp_detail_shang_13.png" alt="TheMVP原理示意" title="TheMVP原理示意"></p>
+<p><img src="\uploads\androidganhuo\yuanchuang\androidmvp_detail\shang\androidmvp_detail_shang_14.png" alt="TheMVP项目结构" title="TheMVP项目结构"></p>
+<h3 id="4-3-3-MVPro-介绍"><a href="#4-3-3-MVPro-介绍" class="headerlink" title="4.3.3 MVPro 介绍"></a>4.3.3 MVPro 介绍</h3><p>MVPro的实现很简单，思想和上面两篇文章（<a href="https://github.com/bboyfeiyu/android-tech-frontier/tree/master/androidweekly/%E4%B8%80%E7%A7%8D%E5%9C%A8android%E4%B8%AD%E5%AE%9E%E7%8E%B0MVP%E6%A8%A1%E5%BC%8F%E7%9A%84%E6%96%B0%E6%80%9D%E8%B7%AF" target="_blank" rel="external">一种在android中实现MVP模式的新思路</a>和<a href="http://kymjs.com/code/2015/11/09/01/" target="_blank" rel="external">用MVP架构开发Android应用</a>）介绍的一样，都是将Activity和Fragment作为Presenter。Presenter即我们的Activity或者Fragment, View呢？说白了就是我们从Activity和Fragment中提取出来的和View操作相关的代码。</p>
+<p>原文：<a href="http://blog.csdn.net/qibin0506/article/details/49992897" target="_blank" rel="external">Android MVP框架MVPro的使用和源码分析</a></p>
+<p>源码：<a href="https://github.com/qibin0506/MVPro" target="_blank" rel="external">GitHub 地址</a></p>
+<p><img src="\uploads\androidganhuo\yuanchuang\androidmvp_detail\shang\androidmvp_detail_shang_15.png" alt="MVPro原理示意" title="MVPro原理示意"></p>
+<h2 id="4-4-Nucleus-框架"><a href="#4-4-Nucleus-框架" class="headerlink" title="4.4. Nucleus 框架"></a>4.4. Nucleus 框架</h2><p>该框架还是值得一看的，作者 Konstantin Mikheev 对于 MVP 的理解挺有见地。</p>
+<p>Nucleus is a simple Android library, which utilizes the Model-View-Presenter pattern to properly connect background tasks with visual parts of an application.</p>
+<p>原文：<a href="https://github.com/konmik/konmik.github.io/wiki/Introduction-to-Model-View-Presenter-on-Android" target="_blank" rel="external">Introduction to Model View Presenter on Android</a></p>
+<p>译文：<a href="http://www.it165.net/pro/html/201505/41758.html" target="_blank" rel="external">介绍ModelViewPresenter在Android中的应用</a></p>
+<p>源码：<a href="https://github.com/konmik/nucleus" target="_blank" rel="external">GitHub 地址</a></p>
+<h2 id="4-5-Beam-框架"><a href="#4-5-Beam-框架" class="headerlink" title="4.5. Beam 框架"></a>4.5. Beam 框架</h2><p>该框架的作者对 MVP 的理解的特点如下：</p>
+<blockquote>
+<p>Activity会在很多情况下被系统重启：</p>
+<p>当用户旋转屏幕</p>
+<p>在后台时内存不足</p>
+<p>改变语言设置</p>
+<p>attache 一个外部显示器等。</p>
+<p>正确的方式应该是：</p>
+<p><strong>Presenter与Activity的绑定关系应由静态类管理，而不是由Activity管理。</strong>当Activity意外重启时Presenter不应重启。Activity重启时，Presenter与Activity重新绑定，根据数据恢复Activity状态。</p>
+<p>而当Activity真正销毁时。对应Presenter才应该跟随销毁。</p>
+</blockquote>
+<p>这也是对 Presenter 管理的一个思路，可以参考。</p>
+<p><a href="http://www.jianshu.com/p/ed2aa9546c2c" target="_blank" rel="external">原文：Android应用中MVP最佳实践</a></p>
+<p><a href="https://github.com/Jude95/Beam" target="_blank" rel="external">源码：GitHub 地址</a></p>
+<p><img src="\uploads\androidganhuo\yuanchuang\androidmvp_detail\shang\androidmvp_detail_shang_16.png" alt="Beam MVP" title="Beam MVP"></p>
+<h2 id="4-6-Mosby-框架"><a href="#4-6-Mosby-框架" class="headerlink" title="4.6. Mosby 框架"></a>4.6. Mosby 框架</h2><blockquote>
+<p>我给这篇关于Android库的博客起的名字灵感来源于《老爸老妈浪漫史》中的建筑设计师Ted Mosby。这个Mosby库可以帮助大家在Android上通过Model-View-Presenter模式做出一个完善稳健、可重复使用的软件，还可以借助ViewState轻松实现屏幕翻转。</p>
+</blockquote>
+<p>这又是一种解决Activity/Fragment生命周期在屏幕翻转等场景下对Presenter的处理的思路。</p>
+<p><a href="http://hannesdorfmann.com/android/mosby" target="_blank" rel="external">原文：Ted Mosby – Software Architect</a></p>
+<p><a href="http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2015/0528/2945.html" target="_blank" rel="external">译文：MVP框架 – Ted Mosby的软件架构</a></p>
+<p><a href="https://github.com/sockeqwe/mosby" target="_blank" rel="external">源码：GitHub 地址</a></p>
+<p><img src="\uploads\androidganhuo\yuanchuang\androidmvp_detail\shang\androidmvp_detail_shang_17.png" alt="获得ViewState支持的Activity的生命周期图解" title="获得ViewState支持的Activity的生命周期图解"></p>
+<p><img src="\uploads\androidganhuo\yuanchuang\androidmvp_detail\shang\androidmvp_detail_shang_18.png" alt="获得ViewState支持的Fragment的生命周期图解" title="获得ViewState支持的Fragment的生命周期图解"></p>
+<h2 id="4-7-Loader-的使用"><a href="#4-7-Loader-的使用" class="headerlink" title="4.7. Loader 的使用"></a>4.7. Loader 的使用</h2><blockquote>
+<p>就像刚才说的一样，关键问题就是在哪里存储Presenter以及什么时候销毁它们。而我们刚刚就看到了Loader的强大之处：由安卓系统框架提供，有单独生命周期，会被自动回收且不必在后台运行。</p>
+<p>所以思考一下需求以及Loader的功能，我们可以让Loader作为Presenter的提供者，而不需要担心手机状态改变。</p>
+<p>将同步的Loader作为存放Presenter的缓存。</p>
+<p>这里的重点就在于<strong>同步使用Loader</strong>时，我们可以知道在生命周期的哪个阶段Presenter被创建了并且可以工作了。甚至是在Activity/Fragment可见之前。</p>
+</blockquote>
+<p>使用Loader，思路很有新意，关键确实解决了问题，更关键的是使用的是 Android Framework 提供的功能。</p>
+<p><a href="https://medium.com/@czyrux/presenter-surviving-orientation-changes-with-loaders-6da6d86ffbbf#.3t97rb4t2" target="_blank" rel="external">原文：Presenter surviving orientation changes with Loaders</a></p>
+<p><a href="http://blog.chengdazhi.com/index.php/131" target="_blank" rel="external">译文：通过Loader延长Presenter生命周期</a></p>
+<p><a href="http://blog.chengdazhi.com/index.php/131" target="_blank" rel="external">源码：GitHub 地址</a></p>
+<p><img src="\uploads\androidganhuo\yuanchuang\androidmvp_detail\shang\androidmvp_detail_shang_19.png" alt="MVP diagram" title="MVP diagram"></p>
+<h2 id="4-8-Google-官方推荐"><a href="#4-8-Google-官方推荐" class="headerlink" title="4.8. Google 官方推荐"></a>4.8. Google 官方推荐</h2><p>大 Boss 总是最后出场，对于 Android 上 MVP 的实现，Google 给也出了一些建议和实例，赶紧看看去吧。</p>
+<p>原文：<a href="https://github.com/googlesamples/android-architecture?utm_source=tuicool&amp;utm_medium=referral" target="_blank" rel="external">Android Architecture Blueprints [beta]</a></p>
+<p>源码：<a href="https://github.com/googlesamples/android-architecture?utm_source=tuicool&amp;utm_medium=referral" target="_blank" rel="external">GitHub 地址</a></p>
+<p><img src="\uploads\androidganhuo\yuanchuang\androidmvp_detail\shang\androidmvp_detail_shang_20.png" alt="Google MVP 示例" title="Google MVP 示例"></p>
+<h2 id="4-9-MVP-实现的完整开源项目"><a href="#4-9-MVP-实现的完整开源项目" class="headerlink" title="4.9. MVP 实现的完整开源项目"></a>4.9. MVP 实现的完整开源项目</h2><h3 id="4-9-1-Philm"><a href="#4-9-1-Philm" class="headerlink" title="4.9.1. Philm"></a>4.9.1. Philm</h3><p>ChrisBannes的开源项目<a href="https://github.com/chrisbanes/philm" target="_blank" rel="external">Philm</a>，其整体架构是一套MVP的实现。这里有一篇分析该项目的文章，可以直接去读源码，也可以先看看 <a href="http://www.lightskystreet.com/" target="_blank" rel="external">lightSky</a> 是怎么分析的。</p>
+<p>Philm 分析：<a href="http://www.lightskystreet.com/2015/02/10/philm_mvp/" target="_blank" rel="external">开源项目Philm的MVP架构分析</a></p>
+<p>源码：<a href="https://github.com/chrisbanes/philm" target="_blank" rel="external">GitHub 地址</a></p>
+<p><img src="\uploads\androidganhuo\yuanchuang\androidmvp_detail\shang\androidmvp_detail_shang_21.png" alt="Philm 的总体设计" title="Philm 的总体设计"></p>
+<p><img src="\uploads\androidganhuo\yuanchuang\androidmvp_detail\shang\androidmvp_detail_shang_22.png" alt="Philm 的类关系图" title="Philm 的类关系图"></p>
+<p><img src="\uploads\androidganhuo\yuanchuang\androidmvp_detail\shang\androidmvp_detail_shang_23.png" alt="Philm 的基本调用流程图" title="Philm 的基本调用流程图"></p>
+<h3 id="4-9-2-使用-Beam-开发的-APP"><a href="#4-9-2-使用-Beam-开发的-APP" class="headerlink" title="4.9.2. 使用 Beam 开发的 APP"></a>4.9.2. 使用 Beam 开发的 APP</h3><p><a href="https://github.com/wenhuaijun/SearchPictureTool" target="_blank" rel="external">SearchPictureTool</a> 搜图神器</p>
+<p><a href="https://github.com/Jude95/Fishing" target="_blank" rel="external">Fishing</a> 空钩钓鱼</p>
+<p>Beam 前面已有介绍，感兴趣的童鞋可以看看上面两个项目。</p>
+<h3 id="4-9-3-干货集中营客户端"><a href="#4-9-3-干货集中营客户端" class="headerlink" title="4.9.3. 干货集中营客户端"></a>4.9.3. 干货集中营客户端</h3><p><a href="http://gank.io/" target="_blank" rel="external">干货集中营</a>有不少的开源实现都是 MVP 模式的（下面的 App 是官网上列出来的，具体是否都采用了 MVP 本人没有一一查阅）。</p>
+<p><a href="https://github.com/drakeet/Meizhi" target="_blank" rel="external">妹纸.gank.io</a></p>
+<p><a href="https://github.com/oxoooo/mr-mantou-android" target="_blank" rel="external">馒头先生</a></p>
+<p><a href="https://github.com/oxoooo/mr-mantou-android" target="_blank" rel="external">GankApp</a></p>
+<p><a href="https://github.com/dongjunkun/GanK" target="_blank" rel="external">GanK</a></p>
+<p><a href="https://github.com/zzhoujay/Gank4Android" target="_blank" rel="external">Gank4Android</a></p>
+<p><a href="https://github.com/maoruibin/GankDaily" target="_blank" rel="external">GankDaily</a></p>
+<h2 id="4-10-小结"><a href="#4-10-小结" class="headerlink" title="4.10. 小结"></a>4.10. 小结</h2><p>上述众多解决方案都集中在 Presenter 实现的问题上，这主要是由于 Activity、Fragment 的复杂性导致的，它们有众多生命周期，它们无所不能，是否把它们仅仅视作 View 成了争论的焦点。个人认为从编码的难易程度和编码的习惯来说，我赞成把 Activity、Fragment 作为 View 即可，我们可以考虑其他方式来保证Presenter的生命周期和防止 Presenter 引起内存泄漏。其中使用 Loader 的方案就非常优雅，下面在本人的示例项目中也会采用这种方式。</p>
+<blockquote>
+<p>关于 5 和 6 将在下篇中阐述，示例代码也会在下篇中给出。正所谓：Talk is cheap show me the code.</p>
+</blockquote>
+<h1 id="项目地址"><a href="#项目地址" class="headerlink" title="项目地址"></a>项目地址</h1><p><a href="https://github.com/DIY-green" target="_blank" rel="external">GitHub</a></p>
+<h1 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h1><p><a href="http://baike.baidu.com/link?url=9haBUAKh4kSd2B_MfFdPcBpb5sdaVx87uzSX0b_Hl_nl97_MnPS4S9sVHUZX8sSKEnKcY8RWt1VYr1YcxZxsFa" target="_blank" rel="external">http://baike.baidu.com/link?url=9haBUAKh4kSd2B_MfFdPcBpb5sdaVx87uzSX0b_Hl_nl97_MnPS4S9sVHUZX8sSKEnKcY8RWt1VYr1YcxZxsFa</a><br><a href="http://zhuanlan.zhihu.com/tech-frontier/20001838" target="_blank" rel="external">http://zhuanlan.zhihu.com/tech-frontier/20001838</a><br><a href="http://www.cnblogs.com/artech/archive/2012/03/08/2385618.html" target="_blank" rel="external">http://www.cnblogs.com/artech/archive/2012/03/08/2385618.html</a><br><a href="http://www.cnblogs.com/artech/archive/2012/03/08/mvc-02.html" target="_blank" rel="external">http://www.cnblogs.com/artech/archive/2012/03/08/mvc-02.html</a><br><a href="http://android.jobbole.com/81153/" target="_blank" rel="external">http://android.jobbole.com/81153/</a><br><a href="http://blog.csdn.net/weizhiai12/article/details/47903883" target="_blank" rel="external">http://blog.csdn.net/weizhiai12/article/details/47903883</a><br><a href="http://blog.csdn.net/weizhiai12/article/details/47904073" target="_blank" rel="external">http://blog.csdn.net/weizhiai12/article/details/47904073</a><br><a href="http://android.jobbole.com/82261/" target="_blank" rel="external">http://android.jobbole.com/82261/</a><br><a href="http://android.jobbole.com/82375/" target="_blank" rel="external">http://android.jobbole.com/82375/</a><br><a href="http://blog.csdn.net/wanglei_samrtfish/article/details/7274673" target="_blank" rel="external">http://blog.csdn.net/wanglei_samrtfish/article/details/7274673</a><br><a href="http://www.cnblogs.com/ahwwmb/archive/2012/09/10/2679196.html" target="_blank" rel="external">http://www.cnblogs.com/ahwwmb/archive/2012/09/10/2679196.html</a><br><a href="http://blog.sina.com.cn/s/blog_9875559401012z7f.html" target="_blank" rel="external">http://blog.sina.com.cn/s/blog_9875559401012z7f.html</a><br><a href="http://www.oschina.net/question/565065_78760" target="_blank" rel="external">http://www.oschina.net/question/565065_78760</a><br><a href="http://www.admin10000.com/document/535.html" target="_blank" rel="external">http://www.admin10000.com/document/535.html</a><br><a href="http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2015/0313/2599.html" target="_blank" rel="external">http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2015/0313/2599.html</a><br><a href="http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2015/0528/2945.html" target="_blank" rel="external">http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2015/0528/2945.html</a><br><a href="http://www.open-open.com/lib/view/open1446377609317.html" target="_blank" rel="external">http://www.open-open.com/lib/view/open1446377609317.html</a><br><a href="https://segmentfault.com/a/1190000003871577" target="_blank" rel="external">https://segmentfault.com/a/1190000003871577</a><br><a href="http://www.360doc.com/content/14/0324/12/1355383_363264606.shtml" target="_blank" rel="external">http://www.360doc.com/content/14/0324/12/1355383_363264606.shtml</a><br><a href="http://my.oschina.net/aibenben/blog/381274" target="_blank" rel="external">http://my.oschina.net/aibenben/blog/381274</a><br><a href="https://msdn.microsoft.com/en-us/library/ff709839.aspx" target="_blank" rel="external">https://msdn.microsoft.com/en-us/library/ff709839.aspx</a><br><a href="http://www.open-open.com/lib/view/open1450008180500.html" target="_blank" rel="external">http://www.open-open.com/lib/view/open1450008180500.html</a><br><a href="http://www.tianmaying.com/tutorial/AndroidMVC" target="_blank" rel="external">http://www.tianmaying.com/tutorial/AndroidMVC</a><br><a href="http://www.infoq.com/cn/articles/clean-architecture-model-to-develop-android-application" target="_blank" rel="external">http://www.infoq.com/cn/articles/clean-architecture-model-to-develop-android-application</a><br><a href="http://blog.csdn.net/weizaishouex2010/article/details/50461534" target="_blank" rel="external">http://blog.csdn.net/weizaishouex2010/article/details/50461534</a><br><a href="https://github.com/bboyfeiyu/android-tech-frontier/blob/master/issue-12%2FAndroid%E4%B8%8AMVP%E7%9A%84%E4%BB%8B%E7%BB%8D.md#使用mvp" target="_blank" rel="external">https://github.com/bboyfeiyu/android-tech-frontier/blob/master/issue-12%2FAndroid%E4%B8%8AMVP%E7%9A%84%E4%BB%8B%E7%BB%8D.md#使用mvp</a><br><a href="http://blog.csdn.net/u012403246/article/details/45715995" target="_blank" rel="external">http://blog.csdn.net/u012403246/article/details/45715995</a><br><a href="http://blog.csdn.net/liuhongwei123888/article/details/50380368" target="_blank" rel="external">http://blog.csdn.net/liuhongwei123888/article/details/50380368</a><br><a href="http://www.codeceo.com/article/mvp-android.html" target="_blank" rel="external">http://www.codeceo.com/article/mvp-android.html</a><br><a href="http://www.codeceo.com/article/android-mvp-practice.html" target="_blank" rel="external">http://www.codeceo.com/article/android-mvp-practice.html</a><br><a href="http://www.codeceo.com/article/android-app-mvp.html" target="_blank" rel="external">http://www.codeceo.com/article/android-app-mvp.html</a><br><a href="http://www.codeceo.com/article/android-mvp-artch.html" target="_blank" rel="external">http://www.codeceo.com/article/android-mvp-artch.html</a><br><a href="http://www.jb51.net/article/78164.htm" target="_blank" rel="external">http://www.jb51.net/article/78164.htm</a><br><a href="http://blog.flyou.ren/?hmsr=toutiao.io&amp;p=179&amp;utm_medium=toutiao.io&amp;utm_source=toutiao.io" target="_blank" rel="external">http://blog.flyou.ren/?hmsr=toutiao.io&amp;p=179&amp;utm_medium=toutiao.io&amp;utm_source=toutiao.io</a><br><a href="http://www.jianshu.com/p/f6252719b3af#" target="_blank" rel="external">http://www.jianshu.com/p/f6252719b3af#</a><br><a href="http://zhuanlan.zhihu.com/tech-frontier/20001838" target="_blank" rel="external">http://zhuanlan.zhihu.com/tech-frontier/20001838</a><br><a href="http://www.wtoutiao.com/p/h01nn2.html" target="_blank" rel="external">http://www.wtoutiao.com/p/h01nn2.html</a><br><a href="http://q.maiziedu.com/article/8549/" target="_blank" rel="external">http://q.maiziedu.com/article/8549/</a><br><a href="http://www.cnblogs.com/tianzhijiexian/p/4393722.html" target="_blank" rel="external">http://www.cnblogs.com/tianzhijiexian/p/4393722.html</a><br><a href="http://www.cnblogs.com/indream/p/3602348.html" target="_blank" rel="external">http://www.cnblogs.com/indream/p/3602348.html</a><br><a href="http://www.mamicode.com/info-detail-519681.html" target="_blank" rel="external">http://www.mamicode.com/info-detail-519681.html</a><br><a href="http://kb.cnblogs.com/page/137392/" target="_blank" rel="external">http://kb.cnblogs.com/page/137392/</a><br><a href="http://blog.yongfengzhang.com/cn/blog/write-code-that-is-easy-to-delete-not-easy-to/" target="_blank" rel="external">http://blog.yongfengzhang.com/cn/blog/write-code-that-is-easy-to-delete-not-easy-to/</a><br><a href="http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2015/0214/2480.html" target="_blank" rel="external">http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2015/0214/2480.html</a><br><a href="http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2015/1125/3722.html" target="_blank" rel="external">http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2015/1125/3722.html</a><br><a href="http://android.jobbole.com/82346/" target="_blank" rel="external">http://android.jobbole.com/82346/</a><br><a href="https://drakeet.me/mvp-and-thinking-in-android" target="_blank" rel="external">https://drakeet.me/mvp-and-thinking-in-android</a><br><a href="http://kb.cnblogs.com/page/533808/" target="_blank" rel="external">http://kb.cnblogs.com/page/533808/</a><br><a href="http://my.oschina.net/kymjs/blog/530458" target="_blank" rel="external">http://my.oschina.net/kymjs/blog/530458</a></p>
+
+      
+    </div>
+    
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+<div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton", disable="enable", onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}", style="cursor: pointer; border: 0; outline: 0; border-radius: 100%; padding: 0; margin: 0; letter-spacing: normal; text-transform: none; text-indent: 0px; text-shadow: none">
+    <span onmouseover="this.style.color='rgb(236,96,0)';this.style.background='rgb(204,204,204)'" onMouseOut="this.style.color='#fff';this.style.background='rgb(236,96,0)'" style="display: inline-block; width: 70px; height: 70px; border-radius: 100%; line-height: 81px; color: #fff; font: 400 35px/75px 'microsofty'; background: rgb(236,96,0)">赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/uploads/images/wechat-reward-image.png" alt="DIY-green WeChat Pay" style="width: 200px; max-width: 100%; display: inline-block"/>
+        <p>微信打赏</p>
+      </div>
+    
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/uploads/images/alipay-reward-image.png" alt="DIY-green Alipay" style="width: 200px; max-width: 100%; display: inline-block"/>
+        <p>支付宝打赏</p>
+      </div>
+    
+  </div>
+</div>
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Android/" rel="tag">#Android</a>
+          
+            <a href="/tags/干货/" rel="tag">#干货</a>
+          
+            <a href="/tags/MVP/" rel="tag">#MVP</a>
+          
+            <a href="/tags/详解/" rel="tag">#详解</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/05/07/Android干货[原创]/为什么你需要ViewObject/" rel="next" title="为什么你需要ViewObject">
+                <i class="fa fa-chevron-left"></i> 为什么你需要ViewObject
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/05/07/Android小技巧/Android小技巧/" rel="prev" title="Android小技巧系列说明">
+                Android小技巧系列说明 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/05/07/Android干货[原创]/Android MVP 详解（上）/"
+           data-title="Android MVP 详解（上）" data-url="http://diy-green.com/2016/05/07/Android干货[原创]/Android MVP 详解（上）/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/images/avatar.jpg"
+               alt="DIY-green" />
+          <p class="site-author-name" itemprop="name">DIY-green</p>
+          <p class="site-description motion-element" itemprop="description">男子千年志，吾生未有涯。心随朗月高，志与秋霜洁。</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">52</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">27</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/DIY-green" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/users/0ad0a0afc409/latest_articles" target="_blank" title="JianShu">
+                  
+                    <i class="fa fa-globe"></i>
+                  
+                  JianShu
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element">
+            <div class="links-of-blogroll-title">
+              <i class="fa fa-globe fa-fw"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.jianshu.com/users/0ad0a0afc409/latest_articles" title="DIY-green简书" target="_blank">DIY-green简书</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.jianshu.com/users/3a482c4f0658/latest_articles" title="天接水0001" target="_blank">天接水0001</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://sunfusheng.com" title="孙福生" target="_blank">孙福生</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://kuanggang.github.io" title="匡罡" target="_blank">匡罡</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://Ivorfason.github.io" title="尹明仁" target="_blank">尹明仁</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://mengqingxiang.github.io" title="孟庆祥" target="_blank">孟庆祥</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#一、什么是-MVP"><span class="nav-number">2.</span> <span class="nav-text">一、什么是 MVP</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-MVP-的定义"><span class="nav-number">2.1.</span> <span class="nav-text">1.1. MVP 的定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-发展历程"><span class="nav-number">2.2.</span> <span class="nav-text">1.2. 发展历程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-3-为什么需要-MVP"><span class="nav-number">2.3.</span> <span class="nav-text">1.3. 为什么需要 MVP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-4-为什么-MVP-是可行的？"><span class="nav-number">2.4.</span> <span class="nav-text">1.4. 为什么 MVP 是可行的？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-5-MVP-的优缺点"><span class="nav-number">2.5.</span> <span class="nav-text">1.5. MVP 的优缺点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-6-小结"><span class="nav-number">2.6.</span> <span class="nav-text">1.6. 小结</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、MVX-剖析"><span class="nav-number">3.</span> <span class="nav-text">二、MVX 剖析</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-M（Model）"><span class="nav-number">3.1.</span> <span class="nav-text">2.1. M（Model）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-V（View）"><span class="nav-number">3.2.</span> <span class="nav-text">2.2 V（View）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-X（C-Controller、P-Presenter、VM-ViewModel）"><span class="nav-number">3.3.</span> <span class="nav-text">2.3. X（C-Controller、P-Presenter、VM-ViewModel）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-4-小结"><span class="nav-number">3.4.</span> <span class="nav-text">2.4. 小结</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三、MVX-与三层架构"><span class="nav-number">4.</span> <span class="nav-text">三、MVX 与三层架构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-什么是三层架构"><span class="nav-number">4.1.</span> <span class="nav-text">3.1. 什么是三层架构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-三层架构和-MVX-的关系"><span class="nav-number">4.2.</span> <span class="nav-text">3.2. 三层架构和 MVX 的关系</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#四、Android-上-MVP-的几种实现"><span class="nav-number">5.</span> <span class="nav-text">四、Android 上 MVP 的几种实现</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#4-1-存取用户信息的-MVP-小-Demo"><span class="nav-number">5.1.</span> <span class="nav-text">4.1. 存取用户信息的 MVP 小 Demo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-2-天气查询的-MVP-小-Demo"><span class="nav-number">5.2.</span> <span class="nav-text">4.2. 天气查询的 MVP 小 Demo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-3-使用-Activity-Fragment-作为-Presenter-的探索"><span class="nav-number">5.3.</span> <span class="nav-text">4.3. 使用 Activity/Fragment 作为 Presenter 的探索</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-3-1-一种实现MVP模式的新思路"><span class="nav-number">5.3.1.</span> <span class="nav-text">4.3.1 一种实现MVP模式的新思路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-3-2-TheMVP-介绍"><span class="nav-number">5.3.2.</span> <span class="nav-text">4.3.2. TheMVP 介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-3-3-MVPro-介绍"><span class="nav-number">5.3.3.</span> <span class="nav-text">4.3.3 MVPro 介绍</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-4-Nucleus-框架"><span class="nav-number">5.4.</span> <span class="nav-text">4.4. Nucleus 框架</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-5-Beam-框架"><span class="nav-number">5.5.</span> <span class="nav-text">4.5. Beam 框架</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-6-Mosby-框架"><span class="nav-number">5.6.</span> <span class="nav-text">4.6. Mosby 框架</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-7-Loader-的使用"><span class="nav-number">5.7.</span> <span class="nav-text">4.7. Loader 的使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-8-Google-官方推荐"><span class="nav-number">5.8.</span> <span class="nav-text">4.8. Google 官方推荐</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-9-MVP-实现的完整开源项目"><span class="nav-number">5.9.</span> <span class="nav-text">4.9. MVP 实现的完整开源项目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-9-1-Philm"><span class="nav-number">5.9.1.</span> <span class="nav-text">4.9.1. Philm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-9-2-使用-Beam-开发的-APP"><span class="nav-number">5.9.2.</span> <span class="nav-text">4.9.2. 使用 Beam 开发的 APP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-9-3-干货集中营客户端"><span class="nav-number">5.9.3.</span> <span class="nav-text">4.9.3. 干货集中营客户端</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-10-小结"><span class="nav-number">5.10.</span> <span class="nav-text">4.10. 小结</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#项目地址"><span class="nav-number">6.</span> <span class="nav-text">项目地址</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考："><span class="nav-number">7.</span> <span class="nav-text">参考：</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+<div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">DIY-green</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info powered-by">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+<div class="powered-by">
+  <span id="busuanzi_container_site_pv">
+    本站总访问量<span id="busuanzi_value_site_pv"></span>次
+  </span>
+</div>
+<div style="display:inline-block;">
+  <span id="busuanzi_container_site_uv">
+    本站访客数<span id="busuanzi_value_site_uv"></span>人次
+  </span>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"DIY-green"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+      
+      <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+      <script src="/js/src/hook-duoshuo.js"></script>
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+  
+  
+  <!-- custom analytics part create by xiamo -->
+<script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+<script>AV.initialize("UnkeFG0pM1t3q8H3y7NTLUA0-gzGzoHsz", "2oBUu9nxByteYjLFtBtqOPwN");</script>
+<script>
+function showTime(Counter) {
+	var query = new AV.Query(Counter);
+	$(".leancloud_visitors").each(function() {
+		var url = $(this).attr("id").trim();
+		query.equalTo("url", url);
+		query.find({
+			success: function(results) {
+				if (results.length == 0) {
+					var content = '0 ' + $(document.getElementById(url)).text();
+					$(document.getElementById(url)).text(content);
+					return;
+				}
+				for (var i = 0; i < results.length; i++) {
+					var object = results[i];
+					var content = object.get('time') + ' ' + $(document.getElementById(url)).text();
+					$(document.getElementById(url)).text(content);
+				}
+			},
+			error: function(object, error) {
+				console.log("Error: " + error.code + " " + error.message);
+			}
+		});
+
+	});
+}
+
+function addCount(Counter) {
+	var Counter = AV.Object.extend("Counter");
+	url = $(".leancloud_visitors").attr('id').trim();
+	title = $(".leancloud_visitors").attr('data-flag-title').trim();
+	var query = new AV.Query(Counter);
+	query.equalTo("url", url);
+	query.find({
+		success: function(results) {
+			if (results.length > 0) {
+				var counter = results[0];
+				counter.fetchWhenSave(true);
+				counter.increment("time");
+				counter.save(null, {
+					success: function(counter) {
+						var content =  counter.get('time') + ' ' + $(document.getElementById(url)).text();
+						$(document.getElementById(url)).text(content);
+					},
+					error: function(counter, error) {
+						console.log('Failed to save Visitor num, with error message: ' + error.message);
+					}
+				});
+			} else {
+				var newcounter = new Counter();
+				newcounter.set("title", title);
+				newcounter.set("url", url);
+				newcounter.set("time", 1);
+				newcounter.save(null, {
+					success: function(newcounter) {
+					    console.log("newcounter.get('time')="+newcounter.get('time'));
+						var content = newcounter.get('time') + ' ' + $(document.getElementById(url)).text();
+						$(document.getElementById(url)).text(content);
+					},
+					error: function(newcounter, error) {
+						console.log('Failed to create');
+					}
+				});
+			}
+		},
+		error: function(error) {
+			console.log('Error:' + error.code + " " + error.message);
+		}
+	});
+}
+$(function() {
+	var Counter = AV.Object.extend("Counter");
+	if ($('.leancloud_visitors').length == 1) {
+		addCount(Counter);
+	} else if ($('.post-title-link').length > 1) {
+		showTime(Counter);
+	}
+}); 
+</script>
+  
+  
+</body>
+</html>

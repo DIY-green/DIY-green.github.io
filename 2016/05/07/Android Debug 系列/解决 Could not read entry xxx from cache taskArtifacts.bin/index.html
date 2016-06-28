@@ -1,0 +1,974 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Android,Debug,Error," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="作者：李旺成时间：2016年4月12日
+
+Bug 出现事情是这样的，昨天早晨我正做着项目，坐在我旁边的小伙伴呼唤了我一下，说项目运行不起来了。
+我纳闷着，前天下班的时候还好好的，怎么过了一晚就出问题了。我问他是不是改了什么配置，或者添加了什么东西。他说，没有啊，刚打开 AndroidStudio，运行就报错，昨天晚上还是好的。
+Bug 真身好吧，我也没多想，看了下报错的 log 提示，额，没见过">
+<meta property="og:type" content="article">
+<meta property="og:title" content="解决 Could not read entry xxx from cache taskArtifacts.bin">
+<meta property="og:url" content="http://diy-green.com/2016/05/07/Android Debug 系列/解决 Could not read entry xxx from cache taskArtifacts.bin/index.html">
+<meta property="og:site_name" content="DIY-green">
+<meta property="og:description" content="作者：李旺成时间：2016年4月12日
+
+Bug 出现事情是这样的，昨天早晨我正做着项目，坐在我旁边的小伙伴呼唤了我一下，说项目运行不起来了。
+我纳闷着，前天下班的时候还好好的，怎么过了一晚就出问题了。我问他是不是改了什么配置，或者添加了什么东西。他说，没有啊，刚打开 AndroidStudio，运行就报错，昨天晚上还是好的。
+Bug 真身好吧，我也没多想，看了下报错的 log 提示，额，没见过">
+<meta property="og:image" content="http://diy-green.com/\uploads\androiddebug\taskartifacts_bin\taskartifacts_bin_1.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androiddebug\taskartifacts_bin\taskartifacts_bin_2.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androiddebug\taskartifacts_bin\taskartifacts_bin_3.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androiddebug\taskartifacts_bin\taskartifacts_bin_4.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androiddebug\taskartifacts_bin\taskartifacts_bin_5.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androiddebug\taskartifacts_bin\taskartifacts_bin_6.png">
+<meta property="og:updated_time" content="2016-04-25T23:58:58.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="解决 Could not read entry xxx from cache taskArtifacts.bin">
+<meta name="twitter:description" content="作者：李旺成时间：2016年4月12日
+
+Bug 出现事情是这样的，昨天早晨我正做着项目，坐在我旁边的小伙伴呼唤了我一下，说项目运行不起来了。
+我纳闷着，前天下班的时候还好好的，怎么过了一晚就出问题了。我问他是不是改了什么配置，或者添加了什么东西。他说，没有啊，刚打开 AndroidStudio，运行就报错，昨天晚上还是好的。
+Bug 真身好吧，我也没多想，看了下报错的 log 提示，额，没见过">
+<meta name="twitter:image" content="http://diy-green.com/\uploads\androiddebug\taskartifacts_bin\taskartifacts_bin_1.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'DIY-green'
+    }
+  };
+</script>
+
+  <title> 解决 Could not read entry xxx from cache taskArtifacts.bin | DIY-green </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?af1b7efbf565bc568165c5a0600a0207";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+  <div style="display: none;">
+    <script src="http://s6.cnzz.com/stat.php?id=1258791461&web_id=1258791461" type="text/javascript"></script>
+  </div>
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">DIY-green</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            全部
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-androidstudydemo">
+          <a href="/categories/AndroidStudyDemo/" rel="section">
+            
+              <i class="menu-item-icon fa fa-hand-right fa-fw"></i> <br />
+            
+            ● &nbsp; AndroidStudyDemo
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-androidganhuo">
+          <a href="/categories/Android干货/" rel="section">
+            
+              <i class="menu-item-icon fa fa-hand-right fa-fw"></i> <br />
+            
+            ● &nbsp; Android干货
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-androidhacks">
+          <a href="/categories/Android小技巧/" rel="section">
+            
+              <i class="menu-item-icon fa fa-hand-right fa-fw"></i> <br />
+            
+            ● &nbsp; Android小技巧
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-androidstudio">
+          <a href="/categories/AndroidStudio/" rel="section">
+            
+              <i class="menu-item-icon fa fa-hand-right fa-fw"></i> <br />
+            
+            ● &nbsp; AndroidStudio
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-essay">
+          <a href="/categories/随笔/" rel="section">
+            
+              <i class="menu-item-icon fa fa-hand-right fa-fw"></i> <br />
+            
+            ● &nbsp; 随笔
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                解决 Could not read entry xxx from cache taskArtifacts.bin
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-05-07T20:39:23+08:00" content="2016-05-07">
+              2016-05-07
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Android-Debug/" itemprop="url" rel="index">
+                    <span itemprop="name">Android Debug</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/05/07/Android Debug 系列/解决 Could not read entry xxx from cache taskArtifacts.bin/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/07/Android Debug 系列/解决 Could not read entry xxx from cache taskArtifacts.bin/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+		  &nbsp; | &nbsp;
+             <span id="/2016/05/07/Android Debug 系列/解决 Could not read entry xxx from cache taskArtifacts.bin/" class="leancloud_visitors" data-flag-title="解决 Could not read entry xxx from cache taskArtifacts.bin">
+               
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+		  
+		  <!--<span id="busuanzi_container_page_pv">
+		    &nbsp; | &nbsp;<span id="busuanzi_value_page_pv"></span>阅读
+		  </span>
+		  
+		  
+			&nbsp; | &nbsp;
+			<span id="/2016/05/07/Android Debug 系列/解决 Could not read entry xxx from cache taskArtifacts.bin/"class="leancloud_visitors" data-flag-title="解决 Could not read entry xxx from cache taskArtifacts.bin">
+					 &nbsp;阅读
+					</span>
+			-->
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="\uploads\androiddebug\taskartifacts_bin\taskartifacts_bin_1.png" alt="Bug 示意图" title="Bug 示意图"></p>
+<p><strong>作者：<a href="https://github.com/DIY-green/" target="_blank" rel="external">李旺成</a></strong><br><strong>时间：2016年4月12日</strong></p>
+<hr>
+<h1 id="Bug-出现"><a href="#Bug-出现" class="headerlink" title="Bug 出现"></a>Bug 出现</h1><p>事情是这样的，昨天早晨我正做着项目，坐在我旁边的小伙伴呼唤了我一下，说项目运行不起来了。</p>
+<p>我纳闷着，前天下班的时候还好好的，怎么过了一晚就出问题了。我问他是不是改了什么配置，或者添加了什么东西。他说，没有啊，刚打开 AndroidStudio，运行就报错，昨天晚上还是好的。</p>
+<h1 id="Bug-真身"><a href="#Bug-真身" class="headerlink" title="Bug 真身"></a>Bug 真身</h1><p>好吧，我也没多想，看了下报错的 log 提示，额，没见过。怎么办？直接百度一下吧！</p>
+<blockquote>
+<p>Error:Could not read entry ‘:xxx:packageDebug’ from cache taskArtifacts.bin (xxx.gradle\2.10\taskArtifacts\taskArtifacts.bin).<br>com.android.build.gradle.tasks.PackageApplication$DexPackagingPolicy</p>
+</blockquote>
+<h1 id="开始-Debug"><a href="#开始-Debug" class="headerlink" title="开始 Debug"></a>开始 Debug</h1><p>首先，在百度上（鄙视我吧，我就是用百度搜的…哈哈）试着搜了下“Could not read entry ‘:xxx:packageDebug’ from cache taskArtifacts.bin”，无果。<br>那好删点内容，继续搜“Could not read entry from cache taskArtifacts.bin”。还是无果，那好，来看看是不是配置改动了。</p>
+<p>对比了下两台机器上项目中所有和项目构建相关的配置文件，我这边是好的啊，那按我这边的来。改完后，重新编译，运行，依旧报错。</p>
+<p>这都折腾十几分钟了，果断不能忍了。仔细看看报错的提示信息：“Could not read entry ‘:xxx:packageDebug’ from cache taskArtifacts.bin.”。这里说的不能从什么 bin 中读取 entry。嗯，那应该可能是文件坏了，读不了；或者权限变化了，不让读了。</p>
+<p>OK，这好办，让我看看你的属性。一看，想简单了，属性中看不出什么异常。那好，用我机器上的给你替换了，这回该行了吧！于是将整个“.gradle”文件夹替换掉，我再试。额，还不行。</p>
+<h1 id="Debug-三板斧"><a href="#Debug-三板斧" class="headerlink" title="Debug 三板斧"></a>Debug 三板斧</h1><p>网上找不到解决方案（当然没有 Google 试一下），试了这么久又没见效果。咋办？好吧！逼我使出杀手锏 —— <strong>重装</strong>、<strong>重启</strong>、<strong>还原</strong>，对就是我以前修电脑的那套。</p>
+<p><strong>重装</strong>，在这里用不好，为什么？因为其他的项目是好用的，说明 AndroidStudio 应该没“坏”。<br><strong>重启</strong>，这个可以试一下。说干就干，把 AndroidStudio 关了，重新打开，一个样，还是报同样的错。<br>只剩下<strong>还原</strong>大法没用了，这个貌似也不符合目前的场景啊（不到那一步我可不想重新从仓库 down 代码来构建个新工程，这是“<strong>下策</strong>”，有木有）。</p>
+<h1 id="重整旗鼓再战"><a href="#重整旗鼓再战" class="headerlink" title="重整旗鼓再战"></a>重整旗鼓再战</h1><p>第一招杀手锏失效了，不怕，我可不是程咬金，就这三板斧。虽然，还有很多招数没有使出来，但我知道，该坐下来好好分析下问题了。下面，看看我的分析思路：</p>
+<ol>
+<li>定位报错位置，这好办，就是这个<strong>taskArtifacts.bin</strong></li>
+<li>查看报错原因，Could not read entry …</li>
+<li>综合上述现象，推测可能的原因 —— 不能从这个什么 bin 中读出东西来（这还用你说，人家就是这样提示的，呵呵）</li>
+<li>等一下，少了个关键点，这个<strong>文件是哪里来的</strong></li>
+</ol>
+<p>想到这，我有点眉目了。这个文件不是我们自己写的，是工具帮我们生成的（这个我没有深入研究是哪个工具生成的，姑且认为是 AndroidStudio 中的某个工具吧）。那问题来了，既然都不是我写的，你给我报错，那应该是你生成的时候出问题了（相信大家以前在使用 Eclipse 的时候都遇到过 R 文件不存在的问题，想想这个一般都是怎么解决的）。那好那我让你重新给我生成一下，这下该可以了吧！</p>
+<p>要怎么让 AndroidStudio 给我们重新生成这个 taskArtifacts.bin 是个问题。为什么这么说？因为很显然重新编译的时候这个文件没有更新的说，至少目前现象来看，它没有更新。这也好办，我把你全部删了，这回该给我生成新的了吧！</p>
+<h1 id="Bug-解决"><a href="#Bug-解决" class="headerlink" title="Bug 解决"></a>Bug 解决</h1><p>没错，把项目中 <strong>.gradle</strong> 文件夹下面的所有内容删除，然后 clean 一下项目，就好了。如下图：</p>
+<p><img src="\uploads\androiddebug\taskartifacts_bin\taskartifacts_bin_2.png" alt=".grdle 文件夹" title=".grdle 文件夹"></p>
+<p><img src="\uploads\androiddebug\taskartifacts_bin\taskartifacts_bin_3.png" alt="clean 项目" title="clean 项目"></p>
+<blockquote>
+<p><strong>说明：</strong>到这里，本文应该告一段落了。虽然最后解决了问题，但是却有个不爽的事 —— 自始至终没找出问题出在哪里。</p>
+</blockquote>
+<p>当时也没有截图，只是保存了当时报错的信息。我想还是应该记录一下这个问题，为减少以后再采坑里去。</p>
+<p>下面，我演示一下如何模拟复现这个问题，权当是一次记录。</p>
+<h1 id="在文件夹中定位到-taskArtifacts-bin-文件"><a href="#在文件夹中定位到-taskArtifacts-bin-文件" class="headerlink" title="在文件夹中定位到 taskArtifacts.bin 文件"></a>在文件夹中定位到 taskArtifacts.bin 文件</h1><p><img src="\uploads\androiddebug\taskartifacts_bin\taskartifacts_bin_4.png" alt="定位到 taskArtifacts.bin" title="定位到 taskArtifacts.bin"></p>
+<h1 id="修改属性"><a href="#修改属性" class="headerlink" title="修改属性"></a>修改属性</h1><p><img src="\uploads\androiddebug\taskartifacts_bin\taskartifacts_bin_5.png" alt="将其改为只读属性" title="将其改为只读属性"></p>
+<h1 id="错误复现"><a href="#错误复现" class="headerlink" title="错误复现"></a>错误复现</h1><p>这里请不要较真，当时的场景已经没有办法复现，这里仅仅是模拟…<br><img src="\uploads\androiddebug\taskartifacts_bin\taskartifacts_bin_6.png" alt="错误复现" title="错误复现"></p>
+<h1 id="解决问题"><a href="#解决问题" class="headerlink" title="解决问题"></a>解决问题</h1><p>在这里只要把只读属性去掉就好了。</p>
+<blockquote>
+<p>说明：这里想提醒自己，以后要是遇到类似的问题，首先要仔细阅读错误 log 提示，然后，冷静思考问题出现的可能原因，不要过于依赖搜索引擎，要养成勤思考的习惯。</p>
+</blockquote>
+
+      
+    </div>
+    
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+<div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton", disable="enable", onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}", style="cursor: pointer; border: 0; outline: 0; border-radius: 100%; padding: 0; margin: 0; letter-spacing: normal; text-transform: none; text-indent: 0px; text-shadow: none">
+    <span onmouseover="this.style.color='rgb(236,96,0)';this.style.background='rgb(204,204,204)'" onMouseOut="this.style.color='#fff';this.style.background='rgb(236,96,0)'" style="display: inline-block; width: 70px; height: 70px; border-radius: 100%; line-height: 81px; color: #fff; font: 400 35px/75px 'microsofty'; background: rgb(236,96,0)">赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/uploads/images/wechat-reward-image.png" alt="DIY-green WeChat Pay" style="width: 200px; max-width: 100%; display: inline-block"/>
+        <p>微信打赏</p>
+      </div>
+    
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/uploads/images/alipay-reward-image.png" alt="DIY-green Alipay" style="width: 200px; max-width: 100%; display: inline-block"/>
+        <p>支付宝打赏</p>
+      </div>
+    
+  </div>
+</div>
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Android/" rel="tag">#Android</a>
+          
+            <a href="/tags/Debug/" rel="tag">#Debug</a>
+          
+            <a href="/tags/Error/" rel="tag">#Error</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/05/07/AndroidStudyDemo系列/Android5.x新API介绍(一)/" rel="next" title="Android5.x新API介绍(一)">
+                <i class="fa fa-chevron-left"></i> Android5.x新API介绍(一)
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/05/07/AndroidStudyDemo系列/Android5.x新控件介绍(三)/" rel="prev" title="Android5.x新控件介绍(三)">
+                Android5.x新控件介绍(三) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/05/07/Android Debug 系列/解决 Could not read entry xxx from cache taskArtifacts.bin/"
+           data-title="解决 Could not read entry xxx from cache taskArtifacts.bin" data-url="http://diy-green.com/2016/05/07/Android Debug 系列/解决 Could not read entry xxx from cache taskArtifacts.bin/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/images/avatar.jpg"
+               alt="DIY-green" />
+          <p class="site-author-name" itemprop="name">DIY-green</p>
+          <p class="site-description motion-element" itemprop="description">男子千年志，吾生未有涯。心随朗月高，志与秋霜洁。</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">52</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">27</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/DIY-green" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/users/0ad0a0afc409/latest_articles" target="_blank" title="JianShu">
+                  
+                    <i class="fa fa-globe"></i>
+                  
+                  JianShu
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element">
+            <div class="links-of-blogroll-title">
+              <i class="fa fa-globe fa-fw"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.jianshu.com/users/0ad0a0afc409/latest_articles" title="DIY-green简书" target="_blank">DIY-green简书</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.jianshu.com/users/3a482c4f0658/latest_articles" title="天接水0001" target="_blank">天接水0001</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://sunfusheng.com" title="孙福生" target="_blank">孙福生</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://kuanggang.github.io" title="匡罡" target="_blank">匡罡</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://Ivorfason.github.io" title="尹明仁" target="_blank">尹明仁</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://mengqingxiang.github.io" title="孟庆祥" target="_blank">孟庆祥</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Bug-出现"><span class="nav-number">1.</span> <span class="nav-text">Bug 出现</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Bug-真身"><span class="nav-number">2.</span> <span class="nav-text">Bug 真身</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#开始-Debug"><span class="nav-number">3.</span> <span class="nav-text">开始 Debug</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Debug-三板斧"><span class="nav-number">4.</span> <span class="nav-text">Debug 三板斧</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#重整旗鼓再战"><span class="nav-number">5.</span> <span class="nav-text">重整旗鼓再战</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Bug-解决"><span class="nav-number">6.</span> <span class="nav-text">Bug 解决</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#在文件夹中定位到-taskArtifacts-bin-文件"><span class="nav-number">7.</span> <span class="nav-text">在文件夹中定位到 taskArtifacts.bin 文件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#修改属性"><span class="nav-number">8.</span> <span class="nav-text">修改属性</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#错误复现"><span class="nav-number">9.</span> <span class="nav-text">错误复现</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#解决问题"><span class="nav-number">10.</span> <span class="nav-text">解决问题</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+<div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">DIY-green</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info powered-by">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+<div class="powered-by">
+  <span id="busuanzi_container_site_pv">
+    本站总访问量<span id="busuanzi_value_site_pv"></span>次
+  </span>
+</div>
+<div style="display:inline-block;">
+  <span id="busuanzi_container_site_uv">
+    本站访客数<span id="busuanzi_value_site_uv"></span>人次
+  </span>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"DIY-green"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+      
+      <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+      <script src="/js/src/hook-duoshuo.js"></script>
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+  
+  
+  <!-- custom analytics part create by xiamo -->
+<script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+<script>AV.initialize("UnkeFG0pM1t3q8H3y7NTLUA0-gzGzoHsz", "2oBUu9nxByteYjLFtBtqOPwN");</script>
+<script>
+function showTime(Counter) {
+	var query = new AV.Query(Counter);
+	$(".leancloud_visitors").each(function() {
+		var url = $(this).attr("id").trim();
+		query.equalTo("url", url);
+		query.find({
+			success: function(results) {
+				if (results.length == 0) {
+					var content = '0 ' + $(document.getElementById(url)).text();
+					$(document.getElementById(url)).text(content);
+					return;
+				}
+				for (var i = 0; i < results.length; i++) {
+					var object = results[i];
+					var content = object.get('time') + ' ' + $(document.getElementById(url)).text();
+					$(document.getElementById(url)).text(content);
+				}
+			},
+			error: function(object, error) {
+				console.log("Error: " + error.code + " " + error.message);
+			}
+		});
+
+	});
+}
+
+function addCount(Counter) {
+	var Counter = AV.Object.extend("Counter");
+	url = $(".leancloud_visitors").attr('id').trim();
+	title = $(".leancloud_visitors").attr('data-flag-title').trim();
+	var query = new AV.Query(Counter);
+	query.equalTo("url", url);
+	query.find({
+		success: function(results) {
+			if (results.length > 0) {
+				var counter = results[0];
+				counter.fetchWhenSave(true);
+				counter.increment("time");
+				counter.save(null, {
+					success: function(counter) {
+						var content =  counter.get('time') + ' ' + $(document.getElementById(url)).text();
+						$(document.getElementById(url)).text(content);
+					},
+					error: function(counter, error) {
+						console.log('Failed to save Visitor num, with error message: ' + error.message);
+					}
+				});
+			} else {
+				var newcounter = new Counter();
+				newcounter.set("title", title);
+				newcounter.set("url", url);
+				newcounter.set("time", 1);
+				newcounter.save(null, {
+					success: function(newcounter) {
+					    console.log("newcounter.get('time')="+newcounter.get('time'));
+						var content = newcounter.get('time') + ' ' + $(document.getElementById(url)).text();
+						$(document.getElementById(url)).text(content);
+					},
+					error: function(newcounter, error) {
+						console.log('Failed to create');
+					}
+				});
+			}
+		},
+		error: function(error) {
+			console.log('Error:' + error.code + " " + error.message);
+		}
+	});
+}
+$(function() {
+	var Counter = AV.Object.extend("Counter");
+	if ($('.leancloud_visitors').length == 1) {
+		addCount(Counter);
+	} else if ($('.post-title-link').length > 1) {
+		showTime(Counter);
+	}
+}); 
+</script>
+  
+  
+</body>
+</html>

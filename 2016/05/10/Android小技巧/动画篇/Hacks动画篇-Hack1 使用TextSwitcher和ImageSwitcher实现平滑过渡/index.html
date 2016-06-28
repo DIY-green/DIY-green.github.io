@@ -1,0 +1,1000 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Android,Android小技巧,Hacks动画篇," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="作者：李旺成时间：2016年5月9日
+
+需求说明假设，现在要实现一个这样的效果，在 TextView 或者 ImageView 中循环浏览信息。有如下场景：
+
+通过向左和向右的导航按钮浏览日期列表
+在日期选择控件中改变日期
+倒计时时钟
+新闻纲要
+
+（参考自：《Android 50 Hacks》）要更改 TextView 和 ImageView 的内容非常简单，但是有个缺点，就是直接调用 Text">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hacks动画篇-Hack1 使用TextSwitcher和ImageSwitcher实现平滑过渡">
+<meta property="og:url" content="http://diy-green.com/2016/05/10/Android小技巧/动画篇/Hacks动画篇-Hack1 使用TextSwitcher和ImageSwitcher实现平滑过渡/index.html">
+<meta property="og:site_name" content="DIY-green">
+<meta property="og:description" content="作者：李旺成时间：2016年5月9日
+
+需求说明假设，现在要实现一个这样的效果，在 TextView 或者 ImageView 中循环浏览信息。有如下场景：
+
+通过向左和向右的导航按钮浏览日期列表
+在日期选择控件中改变日期
+倒计时时钟
+新闻纲要
+
+（参考自：《Android 50 Hacks》）要更改 TextView 和 ImageView 的内容非常简单，但是有个缺点，就是直接调用 Text">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidhacks\animation\hack1\animation_hack1_1.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidhacks\animation\hack1\animation_hack1_2.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidhacks\animation\hack1\animation_hack1_3.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidhacks\animation\hack1\animation_hack1_4.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidhacks\animation\hack1\animation_hack1_5.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidhacks\animation\hack1\animation_hack1_6.gif">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidhacks\animation\hack1\animation_hack1_7.gif">
+<meta property="og:updated_time" content="2016-05-10T04:15:39.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hacks动画篇-Hack1 使用TextSwitcher和ImageSwitcher实现平滑过渡">
+<meta name="twitter:description" content="作者：李旺成时间：2016年5月9日
+
+需求说明假设，现在要实现一个这样的效果，在 TextView 或者 ImageView 中循环浏览信息。有如下场景：
+
+通过向左和向右的导航按钮浏览日期列表
+在日期选择控件中改变日期
+倒计时时钟
+新闻纲要
+
+（参考自：《Android 50 Hacks》）要更改 TextView 和 ImageView 的内容非常简单，但是有个缺点，就是直接调用 Text">
+<meta name="twitter:image" content="http://diy-green.com/\uploads\androidhacks\animation\hack1\animation_hack1_1.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'DIY-green'
+    }
+  };
+</script>
+
+  <title> Hacks动画篇-Hack1 使用TextSwitcher和ImageSwitcher实现平滑过渡 | DIY-green </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?af1b7efbf565bc568165c5a0600a0207";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+  <div style="display: none;">
+    <script src="http://s6.cnzz.com/stat.php?id=1258791461&web_id=1258791461" type="text/javascript"></script>
+  </div>
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">DIY-green</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            全部
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-androidstudydemo">
+          <a href="/categories/AndroidStudyDemo/" rel="section">
+            
+              <i class="menu-item-icon fa fa-hand-right fa-fw"></i> <br />
+            
+            ● &nbsp; AndroidStudyDemo
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-androidganhuo">
+          <a href="/categories/Android干货/" rel="section">
+            
+              <i class="menu-item-icon fa fa-hand-right fa-fw"></i> <br />
+            
+            ● &nbsp; Android干货
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-androidhacks">
+          <a href="/categories/Android小技巧/" rel="section">
+            
+              <i class="menu-item-icon fa fa-hand-right fa-fw"></i> <br />
+            
+            ● &nbsp; Android小技巧
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-androidstudio">
+          <a href="/categories/AndroidStudio/" rel="section">
+            
+              <i class="menu-item-icon fa fa-hand-right fa-fw"></i> <br />
+            
+            ● &nbsp; AndroidStudio
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-essay">
+          <a href="/categories/随笔/" rel="section">
+            
+              <i class="menu-item-icon fa fa-hand-right fa-fw"></i> <br />
+            
+            ● &nbsp; 随笔
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Hacks动画篇-Hack1 使用TextSwitcher和ImageSwitcher实现平滑过渡
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-05-10T12:15:39+08:00" content="2016-05-10">
+              2016-05-10
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Android小技巧/" itemprop="url" rel="index">
+                    <span itemprop="name">Android小技巧</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/05/10/Android小技巧/动画篇/Hacks动画篇-Hack1 使用TextSwitcher和ImageSwitcher实现平滑过渡/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/10/Android小技巧/动画篇/Hacks动画篇-Hack1 使用TextSwitcher和ImageSwitcher实现平滑过渡/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+		  &nbsp; | &nbsp;
+             <span id="/2016/05/10/Android小技巧/动画篇/Hacks动画篇-Hack1 使用TextSwitcher和ImageSwitcher实现平滑过渡/" class="leancloud_visitors" data-flag-title="Hacks动画篇-Hack1 使用TextSwitcher和ImageSwitcher实现平滑过渡">
+               
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+		  
+		  <!--<span id="busuanzi_container_page_pv">
+		    &nbsp; | &nbsp;<span id="busuanzi_value_page_pv"></span>阅读
+		  </span>
+		  
+		  
+			&nbsp; | &nbsp;
+			<span id="/2016/05/10/Android小技巧/动画篇/Hacks动画篇-Hack1 使用TextSwitcher和ImageSwitcher实现平滑过渡/"class="leancloud_visitors" data-flag-title="Hacks动画篇-Hack1 使用TextSwitcher和ImageSwitcher实现平滑过渡">
+					 &nbsp;阅读
+					</span>
+			-->
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="\uploads\androidhacks\animation\hack1\animation_hack1_1.png" alt="TextSwitcher和ImageSwitcher" title="TextSwitcher和ImageSwitcher"></p>
+<p><strong>作者：<a href="https://github.com/DIY-green/" target="_blank" rel="external">李旺成</a></strong><br><strong>时间：2016年5月9日</strong></p>
+<hr>
+<h1 id="需求说明"><a href="#需求说明" class="headerlink" title="需求说明"></a>需求说明</h1><p>假设，现在要实现一个这样的效果，在 TextView 或者 ImageView 中循环浏览信息。有如下场景：</p>
+<ul>
+<li>通过向左和向右的导航按钮浏览日期列表</li>
+<li>在日期选择控件中改变日期</li>
+<li>倒计时时钟</li>
+<li>新闻纲要</li>
+</ul>
+<p>（参考自：《Android 50 Hacks》）<br>要更改 TextView 和 ImageView 的内容非常简单，但是有个缺点，就是直接调用 TextView 或者 ImageView 提供的方法替换内容的时候没有什么视觉效果，显得很单调。</p>
+<p>可以看到有不少的 App 在文本内容切换的时候添加了动画效果（如：支付宝）。Android 提供了 TextSwitcher 和 ImageSwitcher 分别替换 TextView 和 ImageView，来实现过渡过程的动画效果。</p>
+<h1 id="TextSwitcher-与-ImageSwitcher-简介"><a href="#TextSwitcher-与-ImageSwitcher-简介" class="headerlink" title="TextSwitcher 与 ImageSwitcher 简介"></a>TextSwitcher 与 ImageSwitcher 简介</h1><p>老规矩，学习一个控件先看看它的继承结构，这里之所以将 TextSwitcher 与 ImageSwitcher 放在一起介绍，是有原因的，下面会介绍。</p>
+<p><img src="\uploads\androidhacks\animation\hack1\animation_hack1_2.png" alt="继承结构" title="继承结构"></p>
+<p>都是直接继承自 ViewSwitcher（所以就把这”两兄弟“放到一块介绍了），继承结构里面有一个很熟悉的，那就是 FrameLayout（好像哪里都有你…）。看到这里至少可以确认一点，ViewSwitcher 是个容器，从名称上推测，TextSwitcher 应该是 Text（文本）的容器，ImageSwitcher 应该是 Image（图片）的容器。</p>
+<p>看看官方文档上是怎么说的</p>
+<p><img src="\uploads\androidhacks\animation\hack1\animation_hack1_3.png" alt="TextSwitcher类" title="TextSwitcher类"></p>
+<p><img src="\uploads\androidhacks\animation\hack1\animation_hack1_4.png" alt="ImageSwitcher类" title="ImageSwitcher类"></p>
+<p>不是我截错图了，ImageSwitcher 下就是没有简介，那只好看看它的父类了：</p>
+<p><img src="\uploads\androidhacks\animation\hack1\animation_hack1_5.png" alt="ViewSwitcher" title="ViewSwitcher"></p>
+<p>介绍都非常简洁（甚至说简单），这里就不纠结了，反正离不了是个容器，直接用起来。</p>
+<h1 id="TextSwitcher-简单使用"><a href="#TextSwitcher-简单使用" class="headerlink" title="TextSwitcher 简单使用"></a>TextSwitcher 简单使用</h1><p>先看效果：</p>
+<p><img src="\uploads\androidhacks\animation\hack1\animation_hack1_6.gif" alt="TextSwitcher演示" title="TextSwitcher演示"></p>
+<p><strong>1、在布局文件中使用</strong><br>上面说了，就把它当成普通容器使用即可，示例:<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span><br><span class="line">&lt;LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"</span><br><span class="line">    android:layout_width="match_parent"</span><br><span class="line">    android:layout_height="match_parent"</span><br><span class="line">    android:orientation="vertical"&gt;</span><br><span class="line">    &lt;Button</span><br><span class="line">        android:id="@+id/next"</span><br><span class="line">        android:layout_width="match_parent"</span><br><span class="line">        android:layout_height="wrap_content"</span><br><span class="line">        android:text="下一个" /&gt;</span><br><span class="line">    &lt;TextSwitcher</span><br><span class="line">        android:id="@+id/switcher"</span><br><span class="line">        android:layout_width="match_parent"</span><br><span class="line">        android:layout_height="wrap_content" /&gt;</span><br><span class="line">&lt;/LinearLayout&gt;</span><br></pre></td></tr></table></figure></p>
+<p><strong>2、认识 Factory</strong><br>文档中提到要给 ViewSwitcher 设置一个 Factory 用来创建 views。来看看这个 Factory 到底是什么：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * Creates views in a ViewSwitcher.</span><br><span class="line"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">ViewFactory</span> </span>&#123;</span><br><span class="line">	<span class="comment">/**</span><br><span class="line">	 * Creates a new &#123;<span class="doctag">@link</span> android.view.View&#125; to be added in a</span><br><span class="line">	 * &#123;<span class="doctag">@link</span> android.widget.ViewSwitcher&#125;.</span><br><span class="line">	 *</span><br><span class="line">	 * <span class="doctag">@return</span> a &#123;<span class="doctag">@link</span> android.view.View&#125;</span><br><span class="line">	 */</span></span><br><span class="line">	<span class="function">View <span class="title">makeView</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>它是 ViewSwitcher 内部的一个接口，里面只有一个方法，返回值为 View，那么很简单了，只要实现一个方法。</p>
+<p><strong>3、为 TextSwitcher 设置 Factory</strong><br>类似于这种和设置监听有点像的情况，我一般有两种实现方式，一种是让 Activity 实现接口，另一种是使用匿名内部类，具体看情况。示例：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// public class TextSwitcherActivity extends AppCompatActivity implements ViewSwitcher.ViewFactory</span></span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">setFactory</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	mSwitcher.setFactory(<span class="keyword">this</span>);</span><br><span class="line">	mTextSwitcher.setFactory(<span class="keyword">new</span> ViewSwitcher.ViewFactory() &#123;</span><br><span class="line">		<span class="meta">@Override</span></span><br><span class="line">		<span class="function"><span class="keyword">public</span> View <span class="title">makeView</span><span class="params">()</span> </span>&#123;</span><br><span class="line">			TextView t = <span class="keyword">new</span> TextView(TextSwitcherActivity.<span class="keyword">this</span>);</span><br><span class="line">			t.setGravity(Gravity.TOP | Gravity.CENTER_HORIZONTAL);</span><br><span class="line">			t.setTextSize(<span class="number">36</span>);</span><br><span class="line">			<span class="keyword">return</span> t;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 实现接口中的方法</span></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> View <span class="title">makeView</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	TextView t = <span class="keyword">new</span> TextView(<span class="keyword">this</span>);</span><br><span class="line">	t.setGravity(Gravity.TOP | Gravity.CENTER_HORIZONTAL);</span><br><span class="line">	t.setTextSize(<span class="number">36</span>);</span><br><span class="line">	<span class="keyword">return</span> t;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">...</span><br></pre></td></tr></table></figure></p>
+<p><strong>4、为 TextSwitcher 设置 动画</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Animation in = AnimationUtils.loadAnimation(<span class="keyword">this</span>,</span><br><span class="line">		android.R.anim.fade_in);</span><br><span class="line">Animation out = AnimationUtils.loadAnimation(<span class="keyword">this</span>,</span><br><span class="line">		android.R.anim.fade_out);</span><br><span class="line">mSwitcher.setInAnimation(in);</span><br><span class="line">mSwitcher.setOutAnimation(out);</span><br><span class="line"></span><br><span class="line">mTextSwitcher.setInAnimation(<span class="keyword">this</span>, android.R.anim.fade_in);</span><br><span class="line">mTextSwitcher.setOutAnimation(<span class="keyword">this</span>, android.R.anim.fade_out);</span><br></pre></td></tr></table></figure></p>
+<p>很简单，没有什么要说的。</p>
+<p><strong>5、更新 TextSwitcher 的内容</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">updateCounter</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	mSwitcher.setText(String.valueOf(mCounter));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">onSwitchText</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	mTextSwitcher.setText(TEXTS[mTextsPosition]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>对，就和 TextView 一样，调用 TextSwitcher 的 setText() 方法即可，每次调用该方法的时候都会使用你所指定的动画来切换内容。</p>
+<h1 id="ImageSwitcher-简单使用"><a href="#ImageSwitcher-简单使用" class="headerlink" title="ImageSwitcher 简单使用"></a>ImageSwitcher 简单使用</h1><p>先看效果：</p>
+<p><img src="\uploads\androidhacks\animation\hack1\animation_hack1_7.gif" alt="ImageSwitcher演示" title="ImageSwitcher演示"></p>
+<p><strong>1、在布局文件中使用</strong><br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span><br><span class="line">&lt;RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"</span><br><span class="line">    android:layout_width="match_parent"</span><br><span class="line">    android:layout_height="match_parent"&gt;</span><br><span class="line">    &lt;ImageSwitcher</span><br><span class="line">        android:id="@+id/switcher"</span><br><span class="line">        android:layout_width="match_parent"</span><br><span class="line">        android:layout_height="match_parent"</span><br><span class="line">        android:layout_alignParentLeft="true"</span><br><span class="line">        android:layout_alignParentTop="true" /&gt;</span><br><span class="line">    &lt;Gallery</span><br><span class="line">        android:id="@+id/gallery"</span><br><span class="line">        android:layout_width="match_parent"</span><br><span class="line">        android:layout_height="60dp"</span><br><span class="line">        android:layout_alignParentBottom="true"</span><br><span class="line">        android:layout_alignParentLeft="true"</span><br><span class="line">        android:background="#55000000"</span><br><span class="line">        android:gravity="center_vertical"</span><br><span class="line">        android:spacing="16dp" /&gt;</span><br><span class="line">&lt;/RelativeLayout&gt;</span><br></pre></td></tr></table></figure></p>
+<p>直接从 APIDemos 里面拷出来的代码，大家凑合着看吧。</p>
+<p><strong>2、设置 Factory</strong><br>这和 TextSwitcher 没什么不同，不过要注意的是 ImageSwitcher 是用来为 Image 切换提供视觉效果的，也就是说，它里面要放 ImageView。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">mSwitcher = (ImageSwitcher) findViewById(R.id.switcher);</span><br><span class="line">mSwitcher.setFactory(<span class="keyword">this</span>);</span><br><span class="line"></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> View <span class="title">makeView</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	ImageView i = <span class="keyword">new</span> ImageView(<span class="keyword">this</span>);</span><br><span class="line">	i.setBackgroundColor(<span class="number">0xFF000000</span>);</span><br><span class="line">	i.setScaleType(ImageView.ScaleType.FIT_CENTER);</span><br><span class="line">	i.setLayoutParams(<span class="keyword">new</span> ImageSwitcher.LayoutParams(LayoutParams.MATCH_PARENT,</span><br><span class="line">			LayoutParams.MATCH_PARENT));</span><br><span class="line">	<span class="keyword">return</span> i;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>3、设置动画</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mSwitcher.setInAnimation(AnimationUtils.loadAnimation(<span class="keyword">this</span>,</span><br><span class="line">		android.R.anim.fade_in));</span><br><span class="line">mSwitcher.setOutAnimation(AnimationUtils.loadAnimation(<span class="keyword">this</span>,</span><br><span class="line">		android.R.anim.fade_out));</span><br></pre></td></tr></table></figure></p>
+<p><strong>4、切换图片</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mSwitcher.setImageResource(mImageIds[position]);</span><br></pre></td></tr></table></figure></p>
+<p>对，ImageSwitcher 提供了和 ImageView 一样的方法，用来设置 Image。</p>
+<h1 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h1><p>TextSwitcher 与 ImageSwitcher 的使用很简单，总结一下就是下面几步：</p>
+<ol>
+<li>获取实例<br>一般是先在布局文件中写好，然后通过 findViewById() 方法获取，当然也可以直接在代码中 new</li>
+<li>为 ViewSwitcher 指定 Factory<br>通过 viewSwitcher.setFactory() 方法设置，Factory 的实现是情况而定</li>
+<li>设置切换动画<br>setInAnimation()：设置换入动画<br>setOutAnimation()：设置换出动画</li>
+<li>切换内容<br>TextSwitcher 调用 setText() 方法<br>ImageSwitcher 调用 setImageXxx() 方法</li>
+</ol>
+<p>好了关于 ViewSwitcher 的介绍到这里了，希望对你有用。</p>
+<h1 id="项目地址"><a href="#项目地址" class="headerlink" title="项目地址"></a>项目地址</h1><p><strong><a href="https://github.com/DIY-green/AndroidHacks" target="_blank" rel="external">AndroidHacks合集</a></strong><br><strong><a href="https://github.com/DIY-green/AndroidHacksAnimation" target="_blank" rel="external">动画篇</a></strong></p>
+<p>示例用到代码见：<br><strong><a href="https://github.com/DIY-green/AndroidHacksAnimation/blob/master/app/src/main/java/com/diygreen/androidhacksanimation/TextSwitcherActivity.java" target="_blank" rel="external">TextSwitcherActivity.java</a></strong><br><strong><a href="https://github.com/DIY-green/AndroidHacksAnimation/blob/master/app/src/main/java/com/diygreen/androidhacksanimation/ImageSwitcherActivity.java" target="_blank" rel="external">ImageSwitcherActivity.java</a></strong><br><strong><a href="https://github.com/DIY-green/AndroidHacksAnimation/blob/master/app/src/main/res/layout/activity_textswitcher.xml" target="_blank" rel="external">activity_textswitcher.xml</a></strong><br><strong><a href="https://github.com/DIY-green/AndroidHacksAnimation/blob/master/app/src/main/res/layout/activity_image_switcher.xml" target="_blank" rel="external">activity_image_switcher.xml</a></strong></p>
+
+      
+    </div>
+    
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+<div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton", disable="enable", onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}", style="cursor: pointer; border: 0; outline: 0; border-radius: 100%; padding: 0; margin: 0; letter-spacing: normal; text-transform: none; text-indent: 0px; text-shadow: none">
+    <span onmouseover="this.style.color='rgb(236,96,0)';this.style.background='rgb(204,204,204)'" onMouseOut="this.style.color='#fff';this.style.background='rgb(236,96,0)'" style="display: inline-block; width: 70px; height: 70px; border-radius: 100%; line-height: 81px; color: #fff; font: 400 35px/75px 'microsofty'; background: rgb(236,96,0)">赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/uploads/images/wechat-reward-image.png" alt="DIY-green WeChat Pay" style="width: 200px; max-width: 100%; display: inline-block"/>
+        <p>微信打赏</p>
+      </div>
+    
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/uploads/images/alipay-reward-image.png" alt="DIY-green Alipay" style="width: 200px; max-width: 100%; display: inline-block"/>
+        <p>支付宝打赏</p>
+      </div>
+    
+  </div>
+</div>
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Android/" rel="tag">#Android</a>
+          
+            <a href="/tags/Android小技巧/" rel="tag">#Android小技巧</a>
+          
+            <a href="/tags/Hacks动画篇/" rel="tag">#Hacks动画篇</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/05/07/随笔/随笔说明/" rel="next" title="随笔说明">
+                <i class="fa fa-chevron-left"></i> 随笔说明
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/05/10/Android小技巧/动画篇/Hacks动画篇-Hack2 使用ViewFlipper实现公告轮播/" rel="prev" title="Hacks动画篇-Hack2 使用ViewFlipper实现公告轮播">
+                Hacks动画篇-Hack2 使用ViewFlipper实现公告轮播 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/05/10/Android小技巧/动画篇/Hacks动画篇-Hack1 使用TextSwitcher和ImageSwitcher实现平滑过渡/"
+           data-title="Hacks动画篇-Hack1 使用TextSwitcher和ImageSwitcher实现平滑过渡" data-url="http://diy-green.com/2016/05/10/Android小技巧/动画篇/Hacks动画篇-Hack1 使用TextSwitcher和ImageSwitcher实现平滑过渡/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/images/avatar.jpg"
+               alt="DIY-green" />
+          <p class="site-author-name" itemprop="name">DIY-green</p>
+          <p class="site-description motion-element" itemprop="description">男子千年志，吾生未有涯。心随朗月高，志与秋霜洁。</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">52</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">27</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/DIY-green" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/users/0ad0a0afc409/latest_articles" target="_blank" title="JianShu">
+                  
+                    <i class="fa fa-globe"></i>
+                  
+                  JianShu
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element">
+            <div class="links-of-blogroll-title">
+              <i class="fa fa-globe fa-fw"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.jianshu.com/users/0ad0a0afc409/latest_articles" title="DIY-green简书" target="_blank">DIY-green简书</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.jianshu.com/users/3a482c4f0658/latest_articles" title="天接水0001" target="_blank">天接水0001</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://sunfusheng.com" title="孙福生" target="_blank">孙福生</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://kuanggang.github.io" title="匡罡" target="_blank">匡罡</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://Ivorfason.github.io" title="尹明仁" target="_blank">尹明仁</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://mengqingxiang.github.io" title="孟庆祥" target="_blank">孟庆祥</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#需求说明"><span class="nav-number">1.</span> <span class="nav-text">需求说明</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#TextSwitcher-与-ImageSwitcher-简介"><span class="nav-number">2.</span> <span class="nav-text">TextSwitcher 与 ImageSwitcher 简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#TextSwitcher-简单使用"><span class="nav-number">3.</span> <span class="nav-text">TextSwitcher 简单使用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ImageSwitcher-简单使用"><span class="nav-number">4.</span> <span class="nav-text">ImageSwitcher 简单使用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#小结"><span class="nav-number">5.</span> <span class="nav-text">小结</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#项目地址"><span class="nav-number">6.</span> <span class="nav-text">项目地址</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+<div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">DIY-green</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info powered-by">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+<div class="powered-by">
+  <span id="busuanzi_container_site_pv">
+    本站总访问量<span id="busuanzi_value_site_pv"></span>次
+  </span>
+</div>
+<div style="display:inline-block;">
+  <span id="busuanzi_container_site_uv">
+    本站访客数<span id="busuanzi_value_site_uv"></span>人次
+  </span>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"DIY-green"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+      
+      <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+      <script src="/js/src/hook-duoshuo.js"></script>
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+  
+  
+  <!-- custom analytics part create by xiamo -->
+<script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+<script>AV.initialize("UnkeFG0pM1t3q8H3y7NTLUA0-gzGzoHsz", "2oBUu9nxByteYjLFtBtqOPwN");</script>
+<script>
+function showTime(Counter) {
+	var query = new AV.Query(Counter);
+	$(".leancloud_visitors").each(function() {
+		var url = $(this).attr("id").trim();
+		query.equalTo("url", url);
+		query.find({
+			success: function(results) {
+				if (results.length == 0) {
+					var content = '0 ' + $(document.getElementById(url)).text();
+					$(document.getElementById(url)).text(content);
+					return;
+				}
+				for (var i = 0; i < results.length; i++) {
+					var object = results[i];
+					var content = object.get('time') + ' ' + $(document.getElementById(url)).text();
+					$(document.getElementById(url)).text(content);
+				}
+			},
+			error: function(object, error) {
+				console.log("Error: " + error.code + " " + error.message);
+			}
+		});
+
+	});
+}
+
+function addCount(Counter) {
+	var Counter = AV.Object.extend("Counter");
+	url = $(".leancloud_visitors").attr('id').trim();
+	title = $(".leancloud_visitors").attr('data-flag-title').trim();
+	var query = new AV.Query(Counter);
+	query.equalTo("url", url);
+	query.find({
+		success: function(results) {
+			if (results.length > 0) {
+				var counter = results[0];
+				counter.fetchWhenSave(true);
+				counter.increment("time");
+				counter.save(null, {
+					success: function(counter) {
+						var content =  counter.get('time') + ' ' + $(document.getElementById(url)).text();
+						$(document.getElementById(url)).text(content);
+					},
+					error: function(counter, error) {
+						console.log('Failed to save Visitor num, with error message: ' + error.message);
+					}
+				});
+			} else {
+				var newcounter = new Counter();
+				newcounter.set("title", title);
+				newcounter.set("url", url);
+				newcounter.set("time", 1);
+				newcounter.save(null, {
+					success: function(newcounter) {
+					    console.log("newcounter.get('time')="+newcounter.get('time'));
+						var content = newcounter.get('time') + ' ' + $(document.getElementById(url)).text();
+						$(document.getElementById(url)).text(content);
+					},
+					error: function(newcounter, error) {
+						console.log('Failed to create');
+					}
+				});
+			}
+		},
+		error: function(error) {
+			console.log('Error:' + error.code + " " + error.message);
+		}
+	});
+}
+$(function() {
+	var Counter = AV.Object.extend("Counter");
+	if ($('.leancloud_visitors').length == 1) {
+		addCount(Counter);
+	} else if ($('.post-title-link').length > 1) {
+		showTime(Counter);
+	}
+}); 
+</script>
+  
+  
+</body>
+</html>

@@ -1,0 +1,1148 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="实用,GitHub,个人博客," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="作者：李旺成时间：2016年4月27日
+
+
+一、技术选型常见个人博客搭建方案搭建个人博客通常有如下选择：
+WorkPress：
+
+GitHubPages + Jekyll：
+
+GitHubPages + Hexo：
+
+选择 GitHubPages + Hexo上面提到的三种个人博客方案，我在做了简单的了解后选择了 GitHubPages + Hexo。主要是出于如下几点考虑：
+
+WorkPres">
+<meta property="og:type" content="article">
+<meta property="og:title" content="个人博客搭建详解（Windows和Mac通用版）">
+<meta property="og:url" content="http://diy-green.com/2016/05/07/实用技术/个人博客搭建详解(Windows和Mac通用版)/index.html">
+<meta property="og:site_name" content="DIY-green">
+<meta property="og:description" content="作者：李旺成时间：2016年4月27日
+
+
+一、技术选型常见个人博客搭建方案搭建个人博客通常有如下选择：
+WorkPress：
+
+GitHubPages + Jekyll：
+
+GitHubPages + Hexo：
+
+选择 GitHubPages + Hexo上面提到的三种个人博客方案，我在做了简单的了解后选择了 GitHubPages + Hexo。主要是出于如下几点考虑：
+
+WorkPres">
+<meta property="og:image" content="http://diy-green.com/\uploads\shiyongjisshu\geren_blog\geren_blog_0.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\shiyongjisshu\geren_blog\geren_blog_1.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\shiyongjisshu\geren_blog\geren_blog_2.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\shiyongjisshu\geren_blog\geren_blog_3.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\shiyongjisshu\geren_blog\geren_blog_4.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\shiyongjisshu\geren_blog\geren_blog_5.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\shiyongjisshu\geren_blog\geren_blog_6.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\shiyongjisshu\geren_blog\geren_blog_7.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\shiyongjisshu\geren_blog\geren_blog_8.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\shiyongjisshu\geren_blog\geren_blog_9.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\shiyongjisshu\geren_blog\geren_blog_10.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\shiyongjisshu\geren_blog\geren_blog_11.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\shiyongjisshu\geren_blog\geren_blog_12.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\shiyongjisshu\geren_blog\geren_blog_13.png">
+<meta property="og:updated_time" content="2016-04-28T10:43:08.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="个人博客搭建详解（Windows和Mac通用版）">
+<meta name="twitter:description" content="作者：李旺成时间：2016年4月27日
+
+
+一、技术选型常见个人博客搭建方案搭建个人博客通常有如下选择：
+WorkPress：
+
+GitHubPages + Jekyll：
+
+GitHubPages + Hexo：
+
+选择 GitHubPages + Hexo上面提到的三种个人博客方案，我在做了简单的了解后选择了 GitHubPages + Hexo。主要是出于如下几点考虑：
+
+WorkPres">
+<meta name="twitter:image" content="http://diy-green.com/\uploads\shiyongjisshu\geren_blog\geren_blog_0.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'DIY-green'
+    }
+  };
+</script>
+
+  <title> 个人博客搭建详解（Windows和Mac通用版） | DIY-green </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?af1b7efbf565bc568165c5a0600a0207";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+  <div style="display: none;">
+    <script src="http://s6.cnzz.com/stat.php?id=1258791461&web_id=1258791461" type="text/javascript"></script>
+  </div>
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">DIY-green</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            全部
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-androidstudydemo">
+          <a href="/categories/AndroidStudyDemo/" rel="section">
+            
+              <i class="menu-item-icon fa fa-hand-right fa-fw"></i> <br />
+            
+            ● &nbsp; AndroidStudyDemo
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-androidganhuo">
+          <a href="/categories/Android干货/" rel="section">
+            
+              <i class="menu-item-icon fa fa-hand-right fa-fw"></i> <br />
+            
+            ● &nbsp; Android干货
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-androidhacks">
+          <a href="/categories/Android小技巧/" rel="section">
+            
+              <i class="menu-item-icon fa fa-hand-right fa-fw"></i> <br />
+            
+            ● &nbsp; Android小技巧
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-androidstudio">
+          <a href="/categories/AndroidStudio/" rel="section">
+            
+              <i class="menu-item-icon fa fa-hand-right fa-fw"></i> <br />
+            
+            ● &nbsp; AndroidStudio
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-essay">
+          <a href="/categories/随笔/" rel="section">
+            
+              <i class="menu-item-icon fa fa-hand-right fa-fw"></i> <br />
+            
+            ● &nbsp; 随笔
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                个人博客搭建详解（Windows和Mac通用版）
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-05-07T20:39:24+08:00" content="2016-05-07">
+              2016-05-07
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/实用技术/" itemprop="url" rel="index">
+                    <span itemprop="name">实用技术</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/05/07/实用技术/个人博客搭建详解(Windows和Mac通用版)/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/07/实用技术/个人博客搭建详解(Windows和Mac通用版)/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+		  &nbsp; | &nbsp;
+             <span id="/2016/05/07/实用技术/个人博客搭建详解(Windows和Mac通用版)/" class="leancloud_visitors" data-flag-title="个人博客搭建详解（Windows和Mac通用版）">
+               
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+		  
+		  <!--<span id="busuanzi_container_page_pv">
+		    &nbsp; | &nbsp;<span id="busuanzi_value_page_pv"></span>阅读
+		  </span>
+		  
+		  
+			&nbsp; | &nbsp;
+			<span id="/2016/05/07/实用技术/个人博客搭建详解(Windows和Mac通用版)/"class="leancloud_visitors" data-flag-title="个人博客搭建详解（Windows和Mac通用版）">
+					 &nbsp;阅读
+					</span>
+			-->
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="\uploads\shiyongjisshu\geren_blog\geren_blog_0.png" alt="免费个人博客搭建思维导图" title="免费个人博客搭建思维导图"></p>
+<p><strong>作者：<a href="https://github.com/DIY-green/" target="_blank" rel="external">李旺成</a></strong><br><strong>时间：2016年4月27日</strong></p>
+<hr>
+<p><img src="\uploads\shiyongjisshu\geren_blog\geren_blog_1.png" alt="个人博客效果图" title="个人博客最终效果图"></p>
+<h1 id="一、技术选型"><a href="#一、技术选型" class="headerlink" title="一、技术选型"></a>一、技术选型</h1><h2 id="常见个人博客搭建方案"><a href="#常见个人博客搭建方案" class="headerlink" title="常见个人博客搭建方案"></a>常见个人博客搭建方案</h2><p>搭建个人博客通常有如下选择：</p>
+<p><strong><a href="http://baike.baidu.com/view/23618.htm" target="_blank" rel="external">WorkPress：</a></strong></p>
+<p><img src="\uploads\shiyongjisshu\geren_blog\geren_blog_2.png" alt="WorkPress" title="WorkPress"></p>
+<p><strong><a href="https://pages.github.com/" target="_blank" rel="external">GitHubPages</a> + <a href="http://baike.baidu.com/view/7878719.htm" target="_blank" rel="external">Jekyll</a>：</strong></p>
+<p><img src="\uploads\shiyongjisshu\geren_blog\geren_blog_3.png" alt="GitHubPages+Jekyll" title="GitHubPages+Jekyll"></p>
+<p><strong><a href="https://pages.github.com/" target="_blank" rel="external">GitHubPages</a> + <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>：</strong></p>
+<p><img src="\uploads\shiyongjisshu\geren_blog\geren_blog_4.png" alt="GitHubPages+Hexo" title="GitHubPages+Hexo"></p>
+<h2 id="选择-GitHubPages-Hexo"><a href="#选择-GitHubPages-Hexo" class="headerlink" title="选择 GitHubPages + Hexo"></a>选择 GitHubPages + Hexo</h2><p>上面提到的三种个人博客方案，我在做了简单的了解后选择了 <a href="https://pages.github.com/" target="_blank" rel="external">GitHubPages</a> + <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>。主要是出于如下几点考虑：</p>
+<ul>
+<li>WorkPress：一般需要独立域名（收费），对 MarkDown 不友好</li>
+<li>GitHubPages + Jekell：免费，稍微有点麻烦</li>
+<li>GitHubPages + Hexo：免费，使用简单，使用者众多…</li>
+</ul>
+<h2 id="Hexo-简介"><a href="#Hexo-简介" class="headerlink" title="Hexo 简介"></a>Hexo 简介</h2><p>Hexo 是一个基于 <a href="http://nodejs.cn/" target="_blank" rel="external">Nodejs</a> 的静态博客网站生成器，作者是来自台湾的 Tommy Chen(<a href="https://zespia.tw/" target="_blank" rel="external">https://zespia.tw/</a>)</p>
+<p><strong>特点：</strong></p>
+<ul>
+<li>不可思议的快速 ─ 只要一眨眼静态文件即生成完成</li>
+<li>支持 Markdown</li>
+<li>仅需一道指令即可部署到 GitHub Pages 和 Heroku</li>
+<li>已移植 Octopress 插件</li>
+<li>高扩展性、自订性</li>
+<li>兼容于 Windows, Mac &amp; Linux</li>
+</ul>
+<h1 id="二、博客搭建"><a href="#二、博客搭建" class="headerlink" title="二、博客搭建"></a>二、博客搭建</h1><p>跟着我做，简简单单5-7分钟你即可拥有自己的个人博客。开始吧！</p>
+<h2 id="创建-GitHub-仓库"><a href="#创建-GitHub-仓库" class="headerlink" title="创建 GitHub 仓库"></a>创建 GitHub 仓库</h2><h3 id="注册-登录"><a href="#注册-登录" class="headerlink" title="注册/登录"></a>注册/登录</h3><p>如果没有帐号，前往 <a href="https://github.com/join?source=header-home" target="_blank" rel="external">GitHub</a> 页面完成<strong>注册</strong>：</p>
+<ol>
+<li>用户名</li>
+<li>邮箱地址</li>
+<li>密码</li>
+<li>Create an account</li>
+</ol>
+<p><strong>登录</strong><br>如果有账号，前往 <a href="https://github.com/login" target="_blank" rel="external">GitHub</a> 页面登录：</p>
+<ol>
+<li>用户名或邮箱地址</li>
+<li>密码</li>
+<li>Sign in</li>
+</ol>
+<h2 id="创建仓库"><a href="#创建仓库" class="headerlink" title="创建仓库"></a>创建仓库</h2><p>直接看图操作：</p>
+<p><img src="\uploads\shiyongjisshu\geren_blog\geren_blog_5.png" alt="创建仓库：步骤一" title="创建仓库：步骤一"></p>
+<p><img src="\uploads\shiyongjisshu\geren_blog\geren_blog_6.png" alt="创建仓库：步骤二" title="创建仓库：步骤二"></p>
+<p>”<strong>步骤二</strong>“中，注意 Respository name 中一定要输入：你的用户名.github.io。其他地方不用修改，然后直接点 ”Create repository“ 按钮完成创建即可。</p>
+<h2 id="本地环境准备"><a href="#本地环境准备" class="headerlink" title="本地环境准备"></a>本地环境准备</h2><h3 id="Git-安装"><a href="#Git-安装" class="headerlink" title="Git 安装"></a>Git 安装</h3><h4 id="Windows-中"><a href="#Windows-中" class="headerlink" title="Windows 中"></a>Windows 中</h4><p><strong>1、下载 Git</strong><br>打开 <a href="https://git-scm.com/download/" target="_blank" rel="external">Git</a> 官网，选择 Downloads 下面的 Windows（按照你的系统选择 32 位或者 64 位）。考虑到可能受网络环境影响，我已经把 Git 上传到网盘分享出来了，<a href="http://pan.baidu.com/s/1hrMjxHE" target="_blank" rel="external">点这里去网盘</a>。</p>
+<p><strong>2、安装 Git</strong><br>双击安装文件 -&gt; 下一步 -&gt; 下一步…<br>没有特殊要求的直接下一步即可，不用去修改默认选项。</p>
+<h4 id="Mac-OS-中"><a href="#Mac-OS-中" class="headerlink" title="Mac OS 中"></a>Mac OS 中</h4><p>话说 Mac 上的 XCode 自带了 Git。（汗！没装 XCode 怎么破）<br><strong>1、下载 Git</strong><br>打开 <a href="https://git-scm.com/download/" target="_blank" rel="external">Git</a> 官网，选择 Downloads 下面的 Mac OS X。Mac版的 Git 也上传到网盘分享出来了，<a href="http://pan.baidu.com/s/1hrMjxHE" target="_blank" rel="external">点这里去网盘</a>。<br><strong>2、安装 Git</strong><br>直接双击 dmg 文件安装即可。</p>
+<h3 id="Nodejs安装"><a href="#Nodejs安装" class="headerlink" title="Nodejs安装"></a>Nodejs安装</h3><h4 id="Windows-中-1"><a href="#Windows-中-1" class="headerlink" title="Windows 中"></a>Windows 中</h4><p><strong>1、下载 Nodejs</strong><br>打开 <a href="https://nodejs.org/en/download/" target="_blank" rel="external">Nodejs</a> 下载页面，选择合适你当前系统版本的安装包。这里建议使用 LTS 版本的，当前的是 v4.4.3。我已经把 Windows 32/64 位的安装包都提交到网盘了，你可以直接从网盘下载，<a href="http://pan.baidu.com/s/1hrMjxHE" target="_blank" rel="external">点这里去网盘</a>。</p>
+<p><strong>2、安装 Nodejs</strong><br>双击安装文件 -&gt; 下一步 -&gt; 下一步…</p>
+<h4 id="Mac-OS-中-1"><a href="#Mac-OS-中-1" class="headerlink" title="Mac OS 中"></a>Mac OS 中</h4><p><strong>1、下载 Nodejs</strong><br>打开 <a href="https://nodejs.org/en/download/" target="_blank" rel="external">Nodejs</a> 下载页面，选择 Macintosh Installer 即可开始下载。网盘里面也上传了，<a href="http://pan.baidu.com/s/1hrMjxHE" target="_blank" rel="external">点这里去网盘</a>。</p>
+<p><strong>2、安装 Nodejs</strong><br>直接双击 pkg 文件安装即可。</p>
+<p><strong>说明：</strong> Nodejs 也可以使用 nvm（Nodejs版本管理器）来安装，步骤如下：<br><strong>1、安装 nvm </strong></p>
+<ol>
+<li><p>通过 brew 安装<br>$ brew install nvm<br>$ mkdir ~/.nvm<br>$ export NVM_DIR=~/.nvm<br>$ . $(brew –prefix nvm)/nvm.sh<br>$ source ~/.nvm/nvm.sh // 使配置生效</p>
+</li>
+<li><p>使用 curl 安装<br>$ curl <a href="https://raw.github.com/creationix/nvm/master/install.sh" target="_blank" rel="external">https://raw.github.com/creationix/nvm/master/install.sh</a> | sh<br>$ source ~/.nvm/nvm.sh  // 使配置生效</p>
+</li>
+</ol>
+<p><strong>2、安装 Nodejs 4</strong><br>$ nvm install 4</p>
+<h3 id="Hexo-安装"><a href="#Hexo-安装" class="headerlink" title="Hexo 安装"></a>Hexo 安装</h3><p>Hexo 是今天的主角，先打开 <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a> 官网。</p>
+<p><img src="\uploads\shiyongjisshu\geren_blog\geren_blog_7.png" alt="Hexo官网" title="Hexo官网"></p>
+<p>对，如上图所示，就一条命令，很简单有没有。</p>
+<h3 id="Windows-中-2"><a href="#Windows-中-2" class="headerlink" title="Windows 中"></a>Windows 中</h3><p><strong>1、打开命令行</strong><br>win+R，输入 cmd，回车</p>
+<p><strong>2、输入命令</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-cli -g</span><br></pre></td></tr></table></figure></p>
+<h4 id="Mac-OS-中-2"><a href="#Mac-OS-中-2" class="headerlink" title="Mac OS 中"></a>Mac OS 中</h4><p><strong>1、打开终端</strong><br>不要问我终端在哪里…</p>
+<p><strong>2、输入命令</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-cli -g</span><br></pre></td></tr></table></figure></p>
+<h3 id="创建本地博客"><a href="#创建本地博客" class="headerlink" title="创建本地博客"></a>创建本地博客</h3><h3 id="Windows-中-3"><a href="#Windows-中-3" class="headerlink" title="Windows 中"></a>Windows 中</h3><p><strong>1、打开命令行，定位到你希望放置博客的位置</strong></p>
+<p><img src="\uploads\shiyongjisshu\geren_blog\geren_blog_8.png" alt="定位到目标目录" title="定位到目标目录"></p>
+<p><strong>2、输入命令</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init 你的用户名.github.io  <span class="comment">// 建议和创建仓库时使用同一个</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="Mac-OS-中-3"><a href="#Mac-OS-中-3" class="headerlink" title="Mac OS 中"></a>Mac OS 中</h4><p><strong>1、打开终端，定位到你希望放置博客的位置</strong></p>
+<p><img src="\uploads\shiyongjisshu\geren_blog\geren_blog_9.png" alt="Mac上定位到指定目录" title="Mac上定位到指定目录"></p>
+<p><strong>2、输入命令</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init 你的用户名.github.io</span><br></pre></td></tr></table></figure></p>
+<h3 id="Next-安装"><a href="#Next-安装" class="headerlink" title="Next 安装"></a>Next 安装</h3><p>经过上面步骤创建完本地博客之后，基本的博客系统就已经搭建好了，自带了 landscape 主题。不过该主题不是很符合我的审美，在网上搜索了一下 Hexo 主题，选择了用户量较大的 Next。</p>
+<p><a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="external">Next</a> 是 <a href="https://github.com/iissnan" target="_blank" rel="external">iissnan</a> 在 GitHub 上开源的一个 Hexo 主题，主打简洁。选择该主题有如下原因：</p>
+<ul>
+<li>简洁，美观</li>
+<li>功能齐全</li>
+<li>使用者众多</li>
+<li>文档齐全</li>
+</ul>
+<blockquote>
+<p>”说明：“在 Hexo 中有两份主要的配置文件，其名称都是 _config.yml<br>。 其中，一份位于站点根目录下（即 xxx.github.io 目录下），主要包含 Hexo 本身的配置；另一份位于主题目录下，这份配置有主题作者提供，主要用于配置主题相关的选项。为了描述方便，在以下说明中，将前者称为 “<strong>站点配置文件</strong>”， 后者称为 “<strong>主题配置文件</strong>”。</p>
+</blockquote>
+<p>看下怎么安装主题：</p>
+<p><strong>1、切换到上面生成的本地博客目录（xxx.github.io）</strong></p>
+<p><img src="\uploads\shiyongjisshu\geren_blog\geren_blog_10.png" alt="切换到本地博客目录" title="切换到本地博客目录"></p>
+<p>Mac OS 的终端上类似，把 dir 替换为 ls 即可。</p>
+<p><strong>2、安装 Next 主题</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git clone https:<span class="comment">//github.com/iissnan/hexo-theme-next themes/next</span></span><br><span class="line">或在 Mac 上</span><br><span class="line">$ git clone https:<span class="comment">//github.com/iissnan/hexo-theme-next themes/next</span></span><br></pre></td></tr></table></figure></p>
+<p><strong>3、使用 Next 主题</strong><br><strong>首先，</strong>复制一份打开本地博客目录下的 <strong>_config.yml</strong> 文件，命名为 <strong>_config_bak.yml</strong>，做为备份，以防改错<br><strong>然后，</strong>使用文本编辑器打开本地博客目录下的 <strong>_config.yml</strong> 文件，搜索，定位 theme 键值，将 theme 的值修改为 next<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">theme: next <span class="comment">//刚刚安装的主题名称</span></span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p><strong>注意：</strong>该配置文件中的键值之间一定要有<strong>空格</strong>，否则轻则没有作用，重则报错，无法启动。</p>
+</blockquote>
+<p><strong>4、站点配置文件基本项修改</strong><br>关于 Hexo 配置的详细信息请前往 <a href="https://hexo.io/zh-cn/docs/configuration.html" target="_blank" rel="external">Hexo的官方文档</a>。</p>
+<p>这里先看看最基础的配置，也就是必须要改动的：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">title: xxx  # 博客的名字，也称站点名称</span><br><span class="line"></span><br><span class="line">author: xxx # 作者名字</span><br><span class="line"></span><br><span class="line">description: xxx # 对站点的描述，搜索引擎会抓取，可以自定义（这个还是加上比较好）</span><br><span class="line"></span><br><span class="line">language: zh-Hans # 语言 简体中文</span><br><span class="line"></span><br><span class="line">theme: next  # 配置主题</span><br><span class="line"></span><br><span class="line">deploy: # 部署相关配置</span><br><span class="line">    type: git # 使用 Git 提交</span><br><span class="line">    repo: https://github.com/xxx/xxx.github.io.git # 就是存放博客的仓库地址</span><br></pre></td></tr></table></figure></p>
+<p>上述配置是必须要修改的，再次强调，键值之间一定要 ”<strong>加空格</strong>“，请在文本编辑器中搜索定位后再修改。</p>
+<p><strong>站点配置文件详细配置示例</strong><br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br></pre></td><td class="code"><pre><span class="line"># Hexo Configuration</span><br><span class="line">## Docs: https://hexo.io/docs/configuration.html</span><br><span class="line">## Source: https://github.com/hexojs/hexo/</span><br><span class="line"></span><br><span class="line"># Site 这里的配置，哪项配置反映在哪里，可以参考我的博客</span><br><span class="line">title: xxx # 博客的名字，也称站点名称</span><br><span class="line">subtitle: xxx # 副标题</span><br><span class="line">description: xxx # 对站点的描述，搜索引擎会抓取，可以自定义</span><br><span class="line">author: xxx # 作者名字</span><br><span class="line">language: zh-Hans # 语言 简体中文</span><br><span class="line">timezone:  # 用默认的即可</span><br><span class="line"></span><br><span class="line"># URL </span><br><span class="line"># 这项暂时不需要配置，绑定域名后，要创建 sitemap.xml 时再配置该项</span><br><span class="line">## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'</span><br><span class="line">url: # http://xxx.com</span><br><span class="line">root: /</span><br><span class="line">permalink: :year/:month/:day/:title/</span><br><span class="line">permalink_defaults:</span><br><span class="line"></span><br><span class="line"># Directory</span><br><span class="line"># 目录，不要修改</span><br><span class="line">source_dir: source</span><br><span class="line">public_dir: public</span><br><span class="line">tag_dir: tags</span><br><span class="line">archive_dir: archives</span><br><span class="line">category_dir: categories</span><br><span class="line">code_dir: downloads/code</span><br><span class="line">i18n_dir: :lang</span><br><span class="line">skip_render:</span><br><span class="line"></span><br><span class="line"># Writing </span><br><span class="line"># 文章布局、写作格式的定义，不修改</span><br><span class="line">new_post_name: :title.md # File name of new posts</span><br><span class="line">default_layout: post</span><br><span class="line">titlecase: false # Transform title into titlecase</span><br><span class="line">external_link: true # Open external links in new tab</span><br><span class="line">filename_case: 0</span><br><span class="line">render_drafts: false</span><br><span class="line">post_asset_folder: false</span><br><span class="line">relative_link: false</span><br><span class="line">future: true</span><br><span class="line">highlight:</span><br><span class="line">  enable: true</span><br><span class="line">  line_number: true</span><br><span class="line">  auto_detect: false</span><br><span class="line">  tab_replace:</span><br><span class="line"></span><br><span class="line"># Category &amp; Tag</span><br><span class="line">default_category: uncategorized</span><br><span class="line">category_map:</span><br><span class="line">tag_map:</span><br><span class="line"></span><br><span class="line"># Date / Time format </span><br><span class="line"># 日期 / 时间 格式，不要修改</span><br><span class="line">## Hexo uses Moment.js to parse and display date</span><br><span class="line">## You can customize the date format as defined in</span><br><span class="line">## http://momentjs.com/docs/#/displaying/format/</span><br><span class="line">date_format: MMM D YYYY</span><br><span class="line">time_format: H:mm:ss</span><br><span class="line"></span><br><span class="line"># Pagination </span><br><span class="line"># 每页显示文章数，可以自定义</span><br><span class="line">## Set per_page to 0 to disable pagination</span><br><span class="line">per_page: 10</span><br><span class="line">pagination_dir: page</span><br><span class="line"></span><br><span class="line"># Extensions </span><br><span class="line"># 配置站点所用主题和插件，这里将默认主题注释，修改为 next</span><br><span class="line">## Plugins: https://hexo.io/plugins/</span><br><span class="line">## Themes: https://hexo.io/themes/</span><br><span class="line">theme: next</span><br><span class="line">#theme: landscape</span><br><span class="line"></span><br><span class="line"># 头像</span><br><span class="line"># 注意：是 xxx.github.io/source 下的开始的相对路径，如果 source 文件夹下面没有 uploads 文件夹，那么新建一个。考虑到会博客中用很多图片，在 uploads 文件夹下请分好类，避免混乱</span><br><span class="line">avatar: /uploads/images/avatar.jpg</span><br><span class="line"></span><br><span class="line"># Deployment </span><br><span class="line"># 本地博客部署到 github 上要配置这里</span><br><span class="line">## Docs: https://hexo.io/docs/deployment.html</span><br><span class="line">deploy:</span><br><span class="line">  type: git # 使用 Git 提交</span><br><span class="line">  repository: https://github.com/xxx/xxx.github.io.git # 就是存放博客的仓库地址</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>PS：是不是有点迫不及待想看看效果了，那好，先在本地跑起来试试，步骤如下：</p>
+<ol>
+<li>打开命令行，定位到 xxx.github.io 目录</li>
+<li>输入命令：<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo s # == hexo server #启动服务预览</span><br><span class="line">$ hexo s</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</blockquote>
+<ol>
+<li>启动成功可以看到提示，按照提示用浏览器打开提示网址，即可看到你的本地博客了，里面有一篇 Hello World<br><img src="\uploads\shiyongjisshu\geren_blog\geren_blog_11.png" alt="hexo s 命令成功提示" title="hexo s 命令成功提示"></li>
+</ol>
+<p>看完效果之后继续学习下面的内容…</p>
+<h1 id="三、Next-配置"><a href="#三、Next-配置" class="headerlink" title="三、Next 配置"></a>三、Next 配置</h1><p>当然，最权威的是看<a href="http://theme-next.iissnan.com/getting-started.html#theme-settings" target="_blank" rel="external">官方的说明文档</a>，我在这里提供一个示例，供大家参考，你可以直接拷过去稍微改动一点就行。</p>
+<h2 id="Next-配置详解"><a href="#Next-配置详解" class="headerlink" title="Next 配置详解"></a>Next 配置详解</h2><p>Next 配置就是上面所说的”<strong>主题配置文件</strong>“，位于 xxx.github.io/themes/next 目录下，文件名为 <strong>_config.yml</strong>。老规矩，先备份一份 ”<strong>_config_bak.yml</strong>“，以防改错。</p>
+<p>以<a href="http://diy-green.github.io" target="_blank" rel="external">我的博客</a>为例，阐述一下需要配置的地方：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line"># Set default keywords (Use a comma to separate)</span><br><span class="line"># 设置关键字</span><br><span class="line">keywords: "Android, DIY"</span><br><span class="line"></span><br><span class="line"># Specify the date when the site was setup</span><br><span class="line"># 设置博客开始时间</span><br><span class="line">since: 2016</span><br><span class="line"></span><br><span class="line"># When running the site in a subdirectory (e.g. domain.tld/blog), remove the leading slash (/archives -&gt; archives)</span><br><span class="line"># 设置菜单，就是[我的博客](http://diy-green.github.io)左侧那一列</span><br><span class="line">menu:</span><br><span class="line">  home: / # 在菜单上显示首页</span><br><span class="line">  archives: /archives # 在菜单删显示全部</span><br><span class="line">  categories: /categories # 在菜单上显示 分类</span><br><span class="line">  tags: /tags # 在菜单上显示 标签</span><br><span class="line">  about: /about # 在菜单上显示 关于</span><br><span class="line">  #commonweal: /404.html</span><br><span class="line"></span><br><span class="line"># Schemes</span><br><span class="line"># 设置风格</span><br><span class="line">#scheme: Muse</span><br><span class="line">#scheme: Mist</span><br><span class="line">scheme: Pisces # 我的就是这个双栏风格</span><br><span class="line"></span><br><span class="line"># Automatically Excerpt. Not recommand.</span><br><span class="line"># Please use &lt;!-- more --&gt; in the post to control excerpt accurately.</span><br><span class="line">auto_excerpt:</span><br><span class="line">  enable: true # 设置是否显示阅读全文，文章较多的话，有必要设置为 true</span><br><span class="line">  length: 150</span><br><span class="line"></span><br><span class="line"># 一些第三方服务设置，这里只提一下”多说“，其他的请参考官方介绍</span><br><span class="line"># Make duoshuo show UA</span><br><span class="line"># user_id must NOT be null when admin_enable is true!</span><br><span class="line"># you can visit http://dev.duoshuo.com get duoshuo user id.</span><br><span class="line">duoshuo_info:</span><br><span class="line">  ua_enable: true</span><br><span class="line">  admin_enable: true</span><br><span class="line">  user_id: 0 # **这里不要动，千万别动**</span><br><span class="line">  admin_nickname: DIY-green</span><br><span class="line"></span><br><span class="line"># Code Highlight theme</span><br><span class="line"># Available value:</span><br><span class="line">#    normal | night | night eighties | night blue | night bright</span><br><span class="line"># https://github.com/chriskempson/tomorrow-theme</span><br><span class="line">#highlight_theme: normal</span><br><span class="line"># 代码高亮主题</span><br><span class="line">highlight_theme: night eighties</span><br><span class="line"></span><br><span class="line"># 打赏配置</span><br><span class="line"># 打赏说明文本</span><br><span class="line">reward_comment: 坚持原创技术分享，您的支持将鼓励我继续创作！</span><br><span class="line"># 微信收款二维码</span><br><span class="line">wechatpay: /uploads/images/wechat-reward-image.png</span><br><span class="line"># 支付宝收款二维码</span><br><span class="line">alipay: /uploads/images/alipay-reward-image.png</span><br><span class="line"></span><br><span class="line"># 友情链接</span><br><span class="line">links_title: Links</span><br><span class="line">links:</span><br><span class="line">  DIY-green简书: http://www.jianshu.com/users/0ad0a0afc409/latest_articles</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 订阅微信公众号</span><br><span class="line"># Wechat Subscriber</span><br><span class="line">#wechat_subscriber:</span><br><span class="line">#  enabled: true</span><br><span class="line">#  qcode: /uploads/wechat-qcode.jpg</span><br><span class="line">#  description: 欢迎您扫一扫上面的微信公众号，订阅我的博客！</span><br></pre></td></tr></table></figure></p>
+<h2 id="创建分类页面"><a href="#创建分类页面" class="headerlink" title="创建分类页面"></a>创建分类页面</h2><p>先看一下分类的效果：<br><img src="\uploads\shiyongjisshu\geren_blog\geren_blog_12.png" alt="分类页面效果" title="分类页面效果"></p>
+<p><strong>操作步骤</strong></p>
+<ol>
+<li>打开命令行，定位到 xxx.github.io 目录</li>
+<li><p>新建一个页面，命名为 categories</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo <span class="keyword">new</span> page categories</span><br><span class="line">或</span><br><span class="line">$ hexo <span class="keyword">new</span> page categories</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>根据提示找到新建的 index.md 文件，编辑</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># 这里有 "---"（这会破坏代码展示效果，所以注释了）</span><br><span class="line">title: All categories </span><br><span class="line">date: 2016-04-25 11:45:45</span><br><span class="line">type: "categories" # 将页面的类型设置为 categories</span><br><span class="line"> ，主题将自动为这个页面显示所有分类</span><br><span class="line">comments: false # 如果有启用多说 或者 Disqus 评论，默认页面也会带有评论。需要关闭的话，设置为 false</span><br><span class="line"># 这里也有 "---"</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="创建标签云页面"><a href="#创建标签云页面" class="headerlink" title="创建标签云页面"></a>创建标签云页面</h2><p>先看一下标签云的效果：<br><img src="\uploads\shiyongjisshu\geren_blog\geren_blog_13.png" alt="标签云页面效果" title="标签云页面效果"></p>
+<p><strong>操作步骤</strong></p>
+<ol>
+<li>打开命令行，定位到 xxx.github.io 目录</li>
+<li><p>新建一个页面，命名为 tags</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo <span class="keyword">new</span> page <span class="string">"tags"</span></span><br><span class="line">或</span><br><span class="line">$ hexo <span class="keyword">new</span> page <span class="string">"tags"</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>根据提示找到新建的 index.md 文件，编辑</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># 这里有 "---"</span><br><span class="line">title: All tags </span><br><span class="line">date: 2016-04-27 08:56:40</span><br><span class="line">type: "tags" # 将页面的类型设置为 tags</span><br><span class="line"> ，主题将自动为这个页面显示标签云</span><br><span class="line">comments: false # 如果有启用多说 或者 Disqus 评论，默认页面也会带有评论。需要关闭的话，设置为 false</span><br><span class="line"># 这里也有 "---"</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><ol>
+<li>格式<br>再次强调，设置项的键值之间<strong>一定要有空格</strong></li>
+<li>菜单上显示 ”分类“ 等栏目<br>如果需要在菜单上显示 ”分类“ 和 ”标签“ 等，那么记得打开注释，或者添加该条目</li>
+<li>关于第三方服务的 ”duoshuo_info“<br>在配置该项的时候，user_id 键对应的值不要修改，也就是保持为 0，具体原因我不清楚，如果修改了该值，那么你的博客会变得一片空白</li>
+<li>分类和标签云页面<br><strong>首先，</strong>要使用” hexo new page “命令生成这两个页面，否则报404。<strong>其次，</strong>这两个页面是主题自动维护的，只要我们的文章按照规矩来就行了，下面会详细说明</li>
+</ol>
+<h1 id="四、写博客与发布"><a href="#四、写博客与发布" class="headerlink" title="四、写博客与发布"></a>四、写博客与发布</h1><p>经过上述步骤，本地博客和主题设置已经完成，那么接下来就是写博客了。</p>
+<p>你的博客文件需要存放到 xxx.github.io/source/_posts 文件夹中，在该文件夹下面你可以按照你的博客分类建立一系列的文件夹来管理博客原文件。</p>
+<h2 id="操作步骤"><a href="#操作步骤" class="headerlink" title="操作步骤"></a>操作步骤</h2><p><strong>1、用 Markdown 写文章</strong><br>不管你用什么编辑 Markdown 文件，最后生成的 md 文件放到 xxx.github.io/source/_posts 文件夹或其子文件夹中即可，如：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: 个人博客搭建详解（Windows和Mac通用版） # 这是标题</span><br><span class="line">categories:  # 这里写的分类会自动汇集到 categories 页面上，分类可以多级</span><br><span class="line">- 实用技术 # 一级分类</span><br><span class="line">- 个人博客 # 二级分类 </span><br><span class="line">tags:   # 这里写的标签会自动汇集到 tags 页面上</span><br><span class="line">- 实用 # 可配置多个标签，注意格式</span><br><span class="line">- 个人博客</span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">&gt;Hexo 是一个基于nodejs 的静态博客网站生成器，作者是来自台湾的 Tommy Chen</span><br></pre></td></tr></table></figure></p>
+<p><strong>注意：</strong>分类和标签是自动维护的，关键是的文章要按照规定的格式写，如上格式，可以参考。</p>
+<blockquote>
+<p><strong>说明：</strong>Next 主题会自动生成目录，这也省了不少事。</p>
+</blockquote>
+<p><strong>2、在本地运行测试</strong><br>打开命令行定位到 xxx.github.io 目录，输入命令：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hexo s # 启动服务预览</span><br><span class="line"># 该命令这是简写形式，完整命令 hexo server </span><br><span class="line">或</span><br><span class="line">$ hexo s</span><br></pre></td></tr></table></figure></p>
+<p><strong>3、在浏览器查看效果</strong><br>在浏览器中输入 <a href="http://localhost:4000" target="_blank" rel="external">http://localhost:4000</a> 访问本地博客，看看效果吧</p>
+<p><strong>4、安装自动部署发布工具</strong><br>这里用到了 <a href="https://github.com/hexojs/hexo-deployer-git" target="_blank" rel="external">hexo-deployer-git</a>，使用如下命令安装：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br><span class="line">或</span><br><span class="line">$ npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure></p>
+<p><strong>5、发布到 GitHubPages </strong><br>确认在本地上显示无误之后，就可以将 md 转为 静态网页文件，然后发布到 GitHubPages 上去了。<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">hexo clean #清除缓存 网页正常情况下可以忽略此条命令</span><br><span class="line">hexo g #生成静态网页</span><br><span class="line">hexo d #开始部署</span><br><span class="line"></span><br><span class="line">也可以一次性执行</span><br><span class="line">hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</span><br></pre></td></tr></table></figure></p>
+<p>如果是第一次部署，终端会提示要求输入用户名和密码。等命令执行完之后，过几分钟打开 <a href="http://xxx.github.io" target="_blank" rel="external">http://xxx.github.io</a> 即可看到你的个人博客了。以后要发布新文章，执行上述命令即可。</p>
+<h2 id="注意事项-1"><a href="#注意事项-1" class="headerlink" title="注意事项"></a>注意事项</h2><ol>
+<li>Git 的 bug<br>有个老版本的 Git 有个 bug，上传的时候会提示非法域名这类的，要解决该问题，最简单的方法就是更新 Git，用最新版的 Git</li>
+<li>关于页面空白<br>主题配置文件中的 ”<strong>duoshuo_info</strong>“ 下的 ”user_id“ 如果是非 ”0“，会导致该问题</li>
+<li>特殊字符导致报错<br>如添加新博客的时候报错了，而且提示的是 js 中某些地方报错，那么很可能是 md 文件中存在<strong>特殊字符</strong>（不是正常显示的字符，不是说特殊符号，能正常显示的都不是这里说的<strong>特殊字符</strong>），把特殊字符删除即可</li>
+<li>Hexo 命令的常见报错<br>可以参考这篇文章：<a href="http://www.jianshu.com/p/465830080ea9#" target="_blank" rel="external">HEXO+Github,搭建属于自己的博客</a><br><strong>补充：</strong>关于 hexo d 失败<br>如果你的防火墙打开了，或者安装某些安全防护软件，那么建议暂时关闭，这些可能导致部署到 GitHub 失败</li>
+<li>使用hexo，如果换了电脑怎么更新博客？<br>这个问题相信大家都关心，知乎上有<a href="http://www.zhihu.com/question/21193762" target="_blank" rel="external">比较详细的解答</a>。我说一下我的解决方法吧！<br><strong>方案一：</strong><br>在新电脑上配置好本地博客环境，然后，直接拷贝原电脑上的 xxx.github.io 文件夹到新电脑上即可。<br><strong>方案二：</strong><br>将 xxx.github.io 文件夹同步到网上(如：Dropbox 等)，其他任何电脑（配置好了本地博客环境）要用的时候，从网上同步下来即可。</li>
+</ol>
+<h1 id="五、更多资源"><a href="#五、更多资源" class="headerlink" title="五、更多资源"></a>五、更多资源</h1><h2 id="Markdown-编辑器"><a href="#Markdown-编辑器" class="headerlink" title="Markdown 编辑器"></a>Markdown 编辑器</h2><ul>
+<li>Windows 上推荐：<br><a href="http://pad.haroopress.com/user.html" target="_blank" rel="external">Haroopad</a><br><a href="http://git.oschina.net/elerao/Smark" target="_blank" rel="external">Smark</a><br><a href="http://www.markdownpad.com/" target="_blank" rel="external">MarkdownPad</a></li>
+<li>Mac OS 上推荐：<br><a href="[http://mouapp.com/](http://mouapp.com/">Mou</a>) </li>
+<li>在线资源推荐：<br><a href="http://www.jianshu.com/" target="_blank" rel="external">简书</a><br><a href="https://www.zybuluo.com/mdeditor" target="_blank" rel="external">作业部落</a><br><a href="https://maxiang.io/" target="_blank" rel="external">马克飞象</a></li>
+</ul>
+<h2 id="Markdown语法参考"><a href="#Markdown语法参考" class="headerlink" title="Markdown语法参考"></a>Markdown语法参考</h2><p><a href="https://www.baidu.com/link?url=X6ZBpOvF44R7UbHJd-4uf8Ui7MZYYggb1-0mk22vWh3rXTwCIYafGsbJ7JrNz7mm&amp;wd=&amp;eqid=cc17be7a0014ecc900000003572005da" target="_blank" rel="external">Markdown 语法说明(简体中文版)</a><br><a href="http://www.jianshu.com/p/1e402922ee32/" target="_blank" rel="external">Markdown——入门指南</a><br><a href="http://www.jeyzhang.com/markdown-common-problems.html" target="_blank" rel="external">markdown写作中的常见问题</a></p>
+<blockquote>
+<p><strong>提示：</strong>更简单的学习方法上是直接用示例修改，可参考：<a href="https://www.zybuluo.com/mdeditor" target="_blank" rel="external">作业部落</a> 或者<br><a href="https://maxiang.io/" target="_blank" rel="external">马克飞象</a> 的示例文稿。</p>
+</blockquote>
+<h2 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h2><ul>
+<li>Windows 上推荐：<br><a href="https://www.mindjet.com/" target="_blank" rel="external">Mindjet</a></li>
+<li>Mac OS 上推荐：<br><a href="http://www.xmindchina.net/" target="_blank" rel="external">XMind</a></li>
+<li>在线资源推荐：<br><a href="https://www.processon.com/" target="_blank" rel="external">ProcessOn</a><br><a href="http://naotu.baidu.com/" target="_blank" rel="external">百度脑图</a><br><a href="http://www.mindpin.com/" target="_blank" rel="external">MINDPIN</a></li>
+</ul>
+<h2 id="Hexo-相关资料"><a href="#Hexo-相关资料" class="headerlink" title="Hexo 相关资料"></a>Hexo 相关资料</h2><p><a href="https://hexo.io/zh-cn/" target="_blank" rel="external">Hexo官网</a><br><a href="https://segmentfault.com/a/1190000002632530" target="_blank" rel="external">hexo常用命令笔记</a></p>
+<h2 id="Next-相关资料"><a href="#Next-相关资料" class="headerlink" title="Next 相关资料"></a>Next 相关资料</h2><p><a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="external">hexo-theme-next</a><br><a href="http://theme-next.iissnan.com/" target="_blank" rel="external">Next 使用文档</a></p>
+<h2 id="更多主题"><a href="#更多主题" class="headerlink" title="更多主题"></a>更多主题</h2><p><a href="https://hexo.io/themes/" target="_blank" rel="external">Hexo Themes</a><br><a href="https://www.zhihu.com/question/24422335" target="_blank" rel="external">有哪些好看的 Hexo 主题？</a></p>
+<h2 id="绑定顶级域名"><a href="#绑定顶级域名" class="headerlink" title="绑定顶级域名"></a>绑定顶级域名</h2><p><a href="http://ipytlab.com/2016/01/23/GitHub-Pages%E7%BB%91%E5%AE%9A%E9%A1%B6%E7%BA%A7%E5%9F%9F%E5%90%8D/" target="_blank" rel="external">GitHub Pages绑定顶级域名的方法</a><br><a href="http://jingyan.baidu.com/article/3c343ff70fb6e60d3779632f.html" target="_blank" rel="external">怎样将域名绑定到github pages 博客上</a></p>
+<h2 id="第三方服务"><a href="#第三方服务" class="headerlink" title="第三方服务"></a>第三方服务</h2><p><strong>站长工具</strong><br><a href="http://zhanzhang.baidu.com/" target="_blank" rel="external">百度站长工具</a><br><a href="http://tool.chinaz.com/" target="_blank" rel="external">站长之家工具</a><br><a href="http://jk.cloud.360.cn/" target="_blank" rel="external">360云监控</a></p>
+<p><strong>数据统计</strong><br><a href="http://tongji.baidu.com/" target="_blank" rel="external">百度统计</a><br><a href="http://busuanzi.ibruce.info/" target="_blank" rel="external">不蒜子</a></p>
+<h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>更多的配置可以去看看官方文档，我对<a href="http://diy-green.github.io" target="_blank" rel="external">我的博客</a>目前的效果已经比较满意。我觉得简洁就是美，我们应该专注内容。更多的设置以及喜欢折腾的朋友自己去百度、Google 吧！</p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://cn.wordpress.org/" target="_blank" rel="external">WordPress.org</a><br><a href="http://www.tuicool.com/articles/ruMVjyN" target="_blank" rel="external">每个人都应该有一个Jekyll博客</a><br><a href="https://hexo.io/themes/" target="_blank" rel="external">Hexo Themes</a><br><a href="https://hexo.io/zh-cn/" target="_blank" rel="external">Hexo官网</a><br><a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="external">Hexo官方文档</a><br><a href="http://www.jianshu.com/p/61987cec0fad#" target="_blank" rel="external">GitHub+Hexo+Next搭建免费独立个人博客</a><br><a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="external">hexo-theme-next</a><br><a href="http://theme-next.iissnan.com/getting-started.html#theme-settings" target="_blank" rel="external">Next主题官方文档</a><br><a href="http://zipperary.com/2013/05/28/hexo-guide-1/#more" target="_blank" rel="external">hexo系列教程：（一）hexo介绍</a><br><a href="http://zipperary.com/2013/05/28/hexo-guide-2/" target="_blank" rel="external">hexo系列教程：（二）搭建hexo博客</a><br><a href="http://www.zipperary.com/2013/05/29/hexo-guide-3/" target="_blank" rel="external">hexo系列教程：（三）hexo博客的配置、使用</a><br><a href="http://www.tuicool.com/articles/NneMnuF" target="_blank" rel="external">玩转hexo博客之next</a><br><a href="http://www.jianshu.com/p/f66103553c45" target="_blank" rel="external">使用Hexo + Next搭建静态博客</a><br><a href="https://github.com/hexojs/hexo" target="_blank" rel="external">hexo</a><br><a href="如何使用10个小时搭建出个人域名而又Geek的独立博客？">如何使用10个小时搭建出个人域名而又Geek的独立博客？</a><br><a href="http://cyzus.github.io/2015/06/21/github-build-blog/" target="_blank" rel="external">傻瓜都可以利用github pages建博客</a><br><a href="http://www.jianshu.com/p/465830080ea9#" target="_blank" rel="external">HEXO+Github,搭建属于自己的博客</a><br><a href="http://www.cnblogs.com/purediy/archive/2013/03/07/2948892.html" target="_blank" rel="external">通过GitHub Pages建立个人站点（详细步骤）</a><br><a href="http://jingyan.baidu.com/article/0bc808fc9bbcf21bd585b97f.html" target="_blank" rel="external">免费顶级TK域名注册图文教程+DNS修改！</a><br><a href="http://www.chinaz.com/web/2015/0312/389381.shtml" target="_blank" rel="external">Freenom免费域名.TK、.CF、.ML、.GA注册及使用方法</a><br><a href="http://ibruce.info/2013/11/22/hexo-your-blog/" target="_blank" rel="external">hexo你的博客</a><br><a href="http://www.jianshu.com/p/4eaddcbe4d12" target="_blank" rel="external">5分钟 搭建免费个人博客</a><br><a href="http://www.jianshu.com/p/a2023a601ceb" target="_blank" rel="external">hexo–搭建</a><br><a href="http://blog.csdn.net/poem_of_sunshine/article/details/29369785" target="_blank" rel="external">如何搭建一个独立博客——简明Github Pages与Hexo教程</a><br><a href="http://lucifr.com/2013/06/02/hexo-on-cloud-with-dropbox-and-vps" target="_blank" rel="external">Hexo服务器端布署及Dropbox同步</a></p>
+
+      
+    </div>
+    
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+<div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton", disable="enable", onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}", style="cursor: pointer; border: 0; outline: 0; border-radius: 100%; padding: 0; margin: 0; letter-spacing: normal; text-transform: none; text-indent: 0px; text-shadow: none">
+    <span onmouseover="this.style.color='rgb(236,96,0)';this.style.background='rgb(204,204,204)'" onMouseOut="this.style.color='#fff';this.style.background='rgb(236,96,0)'" style="display: inline-block; width: 70px; height: 70px; border-radius: 100%; line-height: 81px; color: #fff; font: 400 35px/75px 'microsofty'; background: rgb(236,96,0)">赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/uploads/images/wechat-reward-image.png" alt="DIY-green WeChat Pay" style="width: 200px; max-width: 100%; display: inline-block"/>
+        <p>微信打赏</p>
+      </div>
+    
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/uploads/images/alipay-reward-image.png" alt="DIY-green Alipay" style="width: 200px; max-width: 100%; display: inline-block"/>
+        <p>支付宝打赏</p>
+      </div>
+    
+  </div>
+</div>
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/实用/" rel="tag">#实用</a>
+          
+            <a href="/tags/GitHub/" rel="tag">#GitHub</a>
+          
+            <a href="/tags/个人博客/" rel="tag">#个人博客</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/05/07/AndroidStudyDemo系列/Android6.x新控件介绍(一)/" rel="next" title="Android6.x新控件介绍(一)">
+                <i class="fa fa-chevron-left"></i> Android6.x新控件介绍(一)
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/05/07/随笔/随笔说明/" rel="prev" title="随笔说明">
+                随笔说明 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/05/07/实用技术/个人博客搭建详解(Windows和Mac通用版)/"
+           data-title="个人博客搭建详解（Windows和Mac通用版）" data-url="http://diy-green.com/2016/05/07/实用技术/个人博客搭建详解(Windows和Mac通用版)/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/images/avatar.jpg"
+               alt="DIY-green" />
+          <p class="site-author-name" itemprop="name">DIY-green</p>
+          <p class="site-description motion-element" itemprop="description">男子千年志，吾生未有涯。心随朗月高，志与秋霜洁。</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">52</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">27</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/DIY-green" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/users/0ad0a0afc409/latest_articles" target="_blank" title="JianShu">
+                  
+                    <i class="fa fa-globe"></i>
+                  
+                  JianShu
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element">
+            <div class="links-of-blogroll-title">
+              <i class="fa fa-globe fa-fw"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.jianshu.com/users/0ad0a0afc409/latest_articles" title="DIY-green简书" target="_blank">DIY-green简书</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.jianshu.com/users/3a482c4f0658/latest_articles" title="天接水0001" target="_blank">天接水0001</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://sunfusheng.com" title="孙福生" target="_blank">孙福生</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://kuanggang.github.io" title="匡罡" target="_blank">匡罡</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://Ivorfason.github.io" title="尹明仁" target="_blank">尹明仁</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://mengqingxiang.github.io" title="孟庆祥" target="_blank">孟庆祥</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、技术选型"><span class="nav-number">1.</span> <span class="nav-text">一、技术选型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#常见个人博客搭建方案"><span class="nav-number">1.1.</span> <span class="nav-text">常见个人博客搭建方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#选择-GitHubPages-Hexo"><span class="nav-number">1.2.</span> <span class="nav-text">选择 GitHubPages + Hexo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hexo-简介"><span class="nav-number">1.3.</span> <span class="nav-text">Hexo 简介</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、博客搭建"><span class="nav-number">2.</span> <span class="nav-text">二、博客搭建</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建-GitHub-仓库"><span class="nav-number">2.1.</span> <span class="nav-text">创建 GitHub 仓库</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#注册-登录"><span class="nav-number">2.1.1.</span> <span class="nav-text">注册/登录</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建仓库"><span class="nav-number">2.2.</span> <span class="nav-text">创建仓库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#本地环境准备"><span class="nav-number">2.3.</span> <span class="nav-text">本地环境准备</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Git-安装"><span class="nav-number">2.3.1.</span> <span class="nav-text">Git 安装</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Windows-中"><span class="nav-number">2.3.1.1.</span> <span class="nav-text">Windows 中</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Mac-OS-中"><span class="nav-number">2.3.1.2.</span> <span class="nav-text">Mac OS 中</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Nodejs安装"><span class="nav-number">2.3.2.</span> <span class="nav-text">Nodejs安装</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Windows-中-1"><span class="nav-number">2.3.2.1.</span> <span class="nav-text">Windows 中</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Mac-OS-中-1"><span class="nav-number">2.3.2.2.</span> <span class="nav-text">Mac OS 中</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hexo-安装"><span class="nav-number">2.3.3.</span> <span class="nav-text">Hexo 安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Windows-中-2"><span class="nav-number">2.3.4.</span> <span class="nav-text">Windows 中</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Mac-OS-中-2"><span class="nav-number">2.3.4.1.</span> <span class="nav-text">Mac OS 中</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建本地博客"><span class="nav-number">2.3.5.</span> <span class="nav-text">创建本地博客</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Windows-中-3"><span class="nav-number">2.3.6.</span> <span class="nav-text">Windows 中</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Mac-OS-中-3"><span class="nav-number">2.3.6.1.</span> <span class="nav-text">Mac OS 中</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Next-安装"><span class="nav-number">2.3.7.</span> <span class="nav-text">Next 安装</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三、Next-配置"><span class="nav-number">3.</span> <span class="nav-text">三、Next 配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Next-配置详解"><span class="nav-number">3.1.</span> <span class="nav-text">Next 配置详解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建分类页面"><span class="nav-number">3.2.</span> <span class="nav-text">创建分类页面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建标签云页面"><span class="nav-number">3.3.</span> <span class="nav-text">创建标签云页面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注意事项"><span class="nav-number">3.4.</span> <span class="nav-text">注意事项</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#四、写博客与发布"><span class="nav-number">4.</span> <span class="nav-text">四、写博客与发布</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#操作步骤"><span class="nav-number">4.1.</span> <span class="nav-text">操作步骤</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注意事项-1"><span class="nav-number">4.2.</span> <span class="nav-text">注意事项</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#五、更多资源"><span class="nav-number">5.</span> <span class="nav-text">五、更多资源</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Markdown-编辑器"><span class="nav-number">5.1.</span> <span class="nav-text">Markdown 编辑器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Markdown语法参考"><span class="nav-number">5.2.</span> <span class="nav-text">Markdown语法参考</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#思维导图"><span class="nav-number">5.3.</span> <span class="nav-text">思维导图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hexo-相关资料"><span class="nav-number">5.4.</span> <span class="nav-text">Hexo 相关资料</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Next-相关资料"><span class="nav-number">5.5.</span> <span class="nav-text">Next 相关资料</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#更多主题"><span class="nav-number">5.6.</span> <span class="nav-text">更多主题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#绑定顶级域名"><span class="nav-number">5.7.</span> <span class="nav-text">绑定顶级域名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第三方服务"><span class="nav-number">5.8.</span> <span class="nav-text">第三方服务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#说明"><span class="nav-number">5.9.</span> <span class="nav-text">说明</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考"><span class="nav-number">6.</span> <span class="nav-text">参考</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+<div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">DIY-green</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info powered-by">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+<div class="powered-by">
+  <span id="busuanzi_container_site_pv">
+    本站总访问量<span id="busuanzi_value_site_pv"></span>次
+  </span>
+</div>
+<div style="display:inline-block;">
+  <span id="busuanzi_container_site_uv">
+    本站访客数<span id="busuanzi_value_site_uv"></span>人次
+  </span>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"DIY-green"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+      
+      <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+      <script src="/js/src/hook-duoshuo.js"></script>
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+  
+  
+  <!-- custom analytics part create by xiamo -->
+<script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+<script>AV.initialize("UnkeFG0pM1t3q8H3y7NTLUA0-gzGzoHsz", "2oBUu9nxByteYjLFtBtqOPwN");</script>
+<script>
+function showTime(Counter) {
+	var query = new AV.Query(Counter);
+	$(".leancloud_visitors").each(function() {
+		var url = $(this).attr("id").trim();
+		query.equalTo("url", url);
+		query.find({
+			success: function(results) {
+				if (results.length == 0) {
+					var content = '0 ' + $(document.getElementById(url)).text();
+					$(document.getElementById(url)).text(content);
+					return;
+				}
+				for (var i = 0; i < results.length; i++) {
+					var object = results[i];
+					var content = object.get('time') + ' ' + $(document.getElementById(url)).text();
+					$(document.getElementById(url)).text(content);
+				}
+			},
+			error: function(object, error) {
+				console.log("Error: " + error.code + " " + error.message);
+			}
+		});
+
+	});
+}
+
+function addCount(Counter) {
+	var Counter = AV.Object.extend("Counter");
+	url = $(".leancloud_visitors").attr('id').trim();
+	title = $(".leancloud_visitors").attr('data-flag-title').trim();
+	var query = new AV.Query(Counter);
+	query.equalTo("url", url);
+	query.find({
+		success: function(results) {
+			if (results.length > 0) {
+				var counter = results[0];
+				counter.fetchWhenSave(true);
+				counter.increment("time");
+				counter.save(null, {
+					success: function(counter) {
+						var content =  counter.get('time') + ' ' + $(document.getElementById(url)).text();
+						$(document.getElementById(url)).text(content);
+					},
+					error: function(counter, error) {
+						console.log('Failed to save Visitor num, with error message: ' + error.message);
+					}
+				});
+			} else {
+				var newcounter = new Counter();
+				newcounter.set("title", title);
+				newcounter.set("url", url);
+				newcounter.set("time", 1);
+				newcounter.save(null, {
+					success: function(newcounter) {
+					    console.log("newcounter.get('time')="+newcounter.get('time'));
+						var content = newcounter.get('time') + ' ' + $(document.getElementById(url)).text();
+						$(document.getElementById(url)).text(content);
+					},
+					error: function(newcounter, error) {
+						console.log('Failed to create');
+					}
+				});
+			}
+		},
+		error: function(error) {
+			console.log('Error:' + error.code + " " + error.message);
+		}
+	});
+}
+$(function() {
+	var Counter = AV.Object.extend("Counter");
+	if ($('.leancloud_visitors').length == 1) {
+		addCount(Counter);
+	} else if ($('.post-title-link').length > 1) {
+		showTime(Counter);
+	}
+}); 
+</script>
+  
+  
+</body>
+</html>

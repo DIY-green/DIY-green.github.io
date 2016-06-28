@@ -1,0 +1,1016 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Android,StudyDemo," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="作者：李旺成时间：2016年4月6日
+
+
+开源项目 AndroidStudyDemo 系列文章导航，Android 进阶从这里开始。说明：这是一个学习 Android 开发相关技术的项目，旨在收集和整理学习和开发 Android 的过程中所学、所获、所感、所思…
+
+
+
+Tips：这会是一个系列，计划将在2016年全部完成，系列博客会陆续同步到该文章下，项目也会同步更新；学习 Android 的朋">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AndroidStudyDemo你值得拥有">
+<meta property="og:url" content="http://diy-green.com/2016/05/07/AndroidStudyDemo系列/AndroidStudyDemo你值得拥有/index.html">
+<meta property="og:site_name" content="DIY-green">
+<meta property="og:description" content="作者：李旺成时间：2016年4月6日
+
+
+开源项目 AndroidStudyDemo 系列文章导航，Android 进阶从这里开始。说明：这是一个学习 Android 开发相关技术的项目，旨在收集和整理学习和开发 Android 的过程中所学、所获、所感、所思…
+
+
+
+Tips：这会是一个系列，计划将在2016年全部完成，系列博客会陆续同步到该文章下，项目也会同步更新；学习 Android 的朋">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\androidstudydemo_introduce_1.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\androidstudydemo_introduce_2.png">
+<meta property="og:updated_time" content="2016-05-03T03:02:58.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AndroidStudyDemo你值得拥有">
+<meta name="twitter:description" content="作者：李旺成时间：2016年4月6日
+
+
+开源项目 AndroidStudyDemo 系列文章导航，Android 进阶从这里开始。说明：这是一个学习 Android 开发相关技术的项目，旨在收集和整理学习和开发 Android 的过程中所学、所获、所感、所思…
+
+
+
+Tips：这会是一个系列，计划将在2016年全部完成，系列博客会陆续同步到该文章下，项目也会同步更新；学习 Android 的朋">
+<meta name="twitter:image" content="http://diy-green.com/\uploads\androidstudydemo\androidstudydemo_introduce_1.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'DIY-green'
+    }
+  };
+</script>
+
+  <title> AndroidStudyDemo你值得拥有 | DIY-green </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?af1b7efbf565bc568165c5a0600a0207";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+  <div style="display: none;">
+    <script src="http://s6.cnzz.com/stat.php?id=1258791461&web_id=1258791461" type="text/javascript"></script>
+  </div>
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">DIY-green</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            全部
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-androidstudydemo">
+          <a href="/categories/AndroidStudyDemo/" rel="section">
+            
+              <i class="menu-item-icon fa fa-hand-right fa-fw"></i> <br />
+            
+            ● &nbsp; AndroidStudyDemo
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-androidganhuo">
+          <a href="/categories/Android干货/" rel="section">
+            
+              <i class="menu-item-icon fa fa-hand-right fa-fw"></i> <br />
+            
+            ● &nbsp; Android干货
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-androidhacks">
+          <a href="/categories/Android小技巧/" rel="section">
+            
+              <i class="menu-item-icon fa fa-hand-right fa-fw"></i> <br />
+            
+            ● &nbsp; Android小技巧
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-androidstudio">
+          <a href="/categories/AndroidStudio/" rel="section">
+            
+              <i class="menu-item-icon fa fa-hand-right fa-fw"></i> <br />
+            
+            ● &nbsp; AndroidStudio
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-essay">
+          <a href="/categories/随笔/" rel="section">
+            
+              <i class="menu-item-icon fa fa-hand-right fa-fw"></i> <br />
+            
+            ● &nbsp; 随笔
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                AndroidStudyDemo你值得拥有
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-05-07T20:39:24+08:00" content="2016-05-07">
+              2016-05-07
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/AndroidStudyDemo/" itemprop="url" rel="index">
+                    <span itemprop="name">AndroidStudyDemo</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/05/07/AndroidStudyDemo系列/AndroidStudyDemo你值得拥有/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/07/AndroidStudyDemo系列/AndroidStudyDemo你值得拥有/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+		  &nbsp; | &nbsp;
+             <span id="/2016/05/07/AndroidStudyDemo系列/AndroidStudyDemo你值得拥有/" class="leancloud_visitors" data-flag-title="AndroidStudyDemo你值得拥有">
+               
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+		  
+		  <!--<span id="busuanzi_container_page_pv">
+		    &nbsp; | &nbsp;<span id="busuanzi_value_page_pv"></span>阅读
+		  </span>
+		  
+		  
+			&nbsp; | &nbsp;
+			<span id="/2016/05/07/AndroidStudyDemo系列/AndroidStudyDemo你值得拥有/"class="leancloud_visitors" data-flag-title="AndroidStudyDemo你值得拥有">
+					 &nbsp;阅读
+					</span>
+			-->
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="\uploads\androidstudydemo\androidstudydemo_introduce_1.png" alt="AndroidStudyDemo思维导图"></p>
+<p><strong>作者：<a href="https://github.com/DIY-green/" target="_blank" rel="external">李旺成</a></strong><br><strong>时间：2016年4月6日</strong></p>
+<hr>
+<blockquote>
+<p>开源项目 <strong>AndroidStudyDemo</strong> 系列文章导航，Android 进阶从这里开始。<br><strong>说明：</strong>这是一个学习 Android 开发相关技术的项目，旨在收集和整理学习和开发 Android 的过程中所学、所获、所感、所思…</p>
+</blockquote>
+<hr>
+<blockquote>
+<p><strong>Tips：</strong>这会是一个系列，计划将在2016年全部完成，系列博客会陆续同步到该文章下，项目也会同步更新；学习 Android 的朋友以及 Android 大牛们欢迎提建议…（顺便说一句：<strong><a href="http://www.jianshu.com/users/0ad0a0afc409/latest_articles" target="_blank" rel="external">简书</a></strong> 专题已经开通，也会在那里同步，欢迎大家围观）</p>
+</blockquote>
+<h1 id="AndroidStudyDemo"><a href="#AndroidStudyDemo" class="headerlink" title="AndroidStudyDemo"></a>AndroidStudyDemo</h1><p>顾名思义，就是我在学习 Android 的过程当中所做的 <strong>Demo 项目（合集）</strong> 。</p>
+<p>为什么我要把它做成<strong>合集</strong>，我是从有以下几个方面考虑的：</p>
+<ol>
+<li>方便<strong>统一管理</strong>，通过合理分类，配合适当的说明文档，集中在一块比散乱的管理起来要方便</li>
+<li>方便<strong>检索</strong>，俗话说的好——好记心不如烂笔头；作为程序员代码和Blog应该成为我们的笔记</li>
+<li>提供<strong>持续动力</strong>，前不久看过一篇文字（只看了标题），讨论程序员的个人项目为什么一般难以持久维护；我觉得最大的问题是没有持续的动力</li>
+<li>方便<strong>他人使用</strong>，你可以 fork 过去，把你喜欢的，见过的好代码都放上去（送人玫瑰，手有余香——让我们一起拥抱开源）</li>
+</ol>
+<blockquote>
+<p><strong>说明：</strong>当然这样做也有缺点，最大的缺点就是这个工程会变得很大，你可能需要耗费点时间来编译它（我相信对大家来讲这不是问题，如果实在是比较慢，影响效率了，可以在 settings.gradle 文件中注释掉目前不需要用到的 module 就好了）。</p>
+</blockquote>
+<h1 id="AndroidStudyDemo-的目标"><a href="#AndroidStudyDemo-的目标" class="headerlink" title="AndroidStudyDemo 的目标"></a>AndroidStudyDemo 的目标</h1><p>提高学习效率，系统管理我们所掌握的 Android 技能，夯实 Android 基本功，提供持续学习和进阶的动力。</p>
+<h1 id="AndroidStudyDemo-的推进方式"><a href="#AndroidStudyDemo-的推进方式" class="headerlink" title="AndroidStudyDemo 的推进方式"></a>AndroidStudyDemo 的推进方式</h1><p>将平时在网上看到的、在书上学到的、前辈们教的以及自己写的（解决的问题）等等学到的用到的知识都转化为代码。</p>
+<p>刚学编程的时候，听过最多的一句话就是项目驱动学习。希望你和我一样，将学到的知识都用到这个项目当中，即完善了项目又巩固了知识（这就是我上面所说的动力）。</p>
+<h1 id="AndroidStudyDemo-说明"><a href="#AndroidStudyDemo-说明" class="headerlink" title="AndroidStudyDemo 说明"></a>AndroidStudyDemo 说明</h1><h2 id="项目推进计划"><a href="#项目推进计划" class="headerlink" title="项目推进计划"></a>项目推进计划</h2><ol>
+<li>搭建项目框架</li>
+<li>分专题学习和研究</li>
+<li>分阶段总结和推进项目</li>
+</ol>
+<h2 id="项目要求"><a href="#项目要求" class="headerlink" title="项目要求"></a>项目要求</h2><p>编码一定要规范（编码规范是一个程序员的修养）…</p>
+<h2 id="项目更新计划"><a href="#项目更新计划" class="headerlink" title="项目更新计划"></a>项目更新计划</h2><p>周末，节假日不定时更新（宅着还不如写代码，哈哈）…</p>
+<h2 id="项目目的"><a href="#项目目的" class="headerlink" title="项目目的"></a>项目目的</h2><p>最主要的当然是为了<strong>个人成长</strong>，能帮到你那就是我们的缘分，希望各位看官能有所收获。</p>
+<p>第一阶段，以个人积累为主（在 Demo上稍做展示）<br>第二阶段，直接为每个点提供代码展示和说明，使用 Blog 做专题总结<br>第三阶段，升华…</p>
+<h2 id="项目主要有如下几大板块"><a href="#项目主要有如下几大板块" class="headerlink" title="项目主要有如下几大板块"></a>项目主要有如下几大板块</h2><ul>
+<li>Android 新版本 API 和新特性的学习和使用</li>
+<li>Java 以及 Andorid 基本功，机制等的学习和使用</li>
+<li>Android UI 和动画相关技术的学习和使用</li>
+<li>项目基础框架的搭建、研究和学习</li>
+<li>Android 和 Java SE 中最新技术和前沿的跟进</li>
+<li>常用第三方开源库的使用、二次封装和源码分析</li>
+<li>网络、图片等常用框架的研究和学习</li>
+<li>工具类、常用基类的封装和分析</li>
+<li>…</li>
+</ul>
+<blockquote>
+<p><strong>说明：</strong>不同的<strong>板块</strong>在思维导图中已经用不同的颜色做了区分</p>
+</blockquote>
+<h2 id="项目-Modules-简介"><a href="#项目-Modules-简介" class="headerlink" title="项目 Modules 简介"></a>项目 Modules 简介</h2><p><img src="\uploads\androidstudydemo\androidstudydemo_introduce_2.png" alt="AndroidStudyDemo Module 示意图"></p>
+<h3 id="1-Android4Study"><a href="#1-Android4Study" class="headerlink" title="1. Android4Study"></a>1. Android4Study</h3><p>Android 4.x 版本提供的新 API 和新特性等的学习和使用。<br>Android 4.x 相关内容目前已经完成，相应介绍在这里：<br><strong><a href="http://diy-green.github.io/2016/04/26/AndroidStudyDemo&#x7CFB;&#x5217;/Android4.x&#x4ECB;&#x7ECD;/" target="_blank" rel="external">AndroidStudyDemo之Android4.x介绍</a></strong></p>
+<h3 id="2-Android5Study"><a href="#2-Android5Study" class="headerlink" title="2. Android5Study"></a>2. Android5Study</h3><p>Android 5.x 版本提供的新 API 和新特性等的学习和使用。<br>Android 5.x 相关内容目前已经完成，相应介绍在这里：<br><strong><a href="http://diy-green.github.io/2016/04/26/AndroidStudyDemo系列/Android5.x新API介绍(一)/" target="_blank" rel="external">AndroidStudyDemo之Android5.x新API介绍（一）</a></strong><br><strong><a href="http://diy-green.github.io/2016/04/26/AndroidStudyDemo系列/Android5.x新API介绍(二)/" target="_blank" rel="external">AndroidStudyDemo之Android5.x新API介绍（二）</a></strong><br><strong><a href="http://diy-green.github.io/2016/04/26/AndroidStudyDemo系列/Android5.x新控件介绍(一)/" target="_blank" rel="external">AndroidStudyDemo之Android5.x新控件介绍（一）</a></strong><br><strong><a href="http://diy-green.github.io/2016/04/26/AndroidStudyDemo系列/Android5.x新控件介绍(二)/" target="_blank" rel="external">AndroidStudyDemo之Android5.x新控件介绍（二）</a></strong><br><strong><a href="http://diy-green.github.io/2016/04/26/AndroidStudyDemo系列/Android5.x新控件介绍(三)/" target="_blank" rel="external">AndroidStudyDemo之Android5.x新控件介绍（三）</a></strong></p>
+<h3 id="3-Android6Study"><a href="#3-Android6Study" class="headerlink" title="3. Android6Study"></a>3. Android6Study</h3><p>Android 6.x 版本提供的新 API 和新特性等的学习和使用。<br>Android 6.x 相关内容目前已经完成，相应介绍在这里：<br><strong><a href="http://diy-green.github.io/2016/04/26/AndroidStudyDemo系列/Android6.x新API介绍(一)/" target="_blank" rel="external">AndroidStudyDemo之Android6.x新API介绍（一）</a></strong><br><strong><a href="http://diy-green.github.io/2016/04/26/AndroidStudyDemo系列/Android6.x新API介绍(二)/" target="_blank" rel="external">AndroidStudyDemo之Android6.x新API介绍（二）</a></strong><br><strong><a href="http://diy-green.github.io/2016/04/26/AndroidStudyDemo系列/Android6.x新控件介绍(一)/" target="_blank" rel="external">AndroidStudyDemo之Android6.x新控件介绍（一）</a></strong><br><strong><a href="http://diy-green.github.io/2016/04/26/AndroidStudyDemo系列/Android6.x新控件介绍(二)/" target="_blank" rel="external">AndroidStudyDemo之Android6.x新控件介绍（二）</a></strong><br><strong><a href="http://diy-green.github.io/2016/04/26/AndroidStudyDemo系列/Android6.x新控件介绍(三)/" target="_blank" rel="external">AndroidStudyDemo之Android6.x新控件介绍（三）</a></strong></p>
+<h3 id="4-AndroidNStudy"><a href="#4-AndroidNStudy" class="headerlink" title="4. AndroidNStudy"></a>4. AndroidNStudy</h3><p>为 Android N 虚位以待…</p>
+<h3 id="5-AnimationStudy"><a href="#5-AnimationStudy" class="headerlink" title="5. AnimationStudy"></a>5. AnimationStudy</h3><p>Android 动画的学习和使用，各种有意思动画的模仿和整理。</p>
+<h3 id="6-ArithmeticStudy"><a href="#6-ArithmeticStudy" class="headerlink" title="6. ArithmeticStudy"></a>6. ArithmeticStudy</h3><p>常用算法和数据结构的 Java 实现，学习和分析实现原理。</p>
+<h3 id="7-CommonLibsStudy"><a href="#7-CommonLibsStudy" class="headerlink" title="7. CommonLibsStudy"></a>7. CommonLibsStudy</h3><p>Android 中常用第三方库的使用范例、二次封装、对比学习以及源码分析。</p>
+<h3 id="8-CustomViewStudy"><a href="#8-CustomViewStudy" class="headerlink" title="8. CustomViewStudy"></a>8. CustomViewStudy</h3><p>Android 自定义 View 的使用和第三方自定义控件的学习及源码分析</p>
+<h3 id="9-DataRelatedStudy"><a href="#9-DataRelatedStudy" class="headerlink" title="9. DataRelatedStudy"></a>9. DataRelatedStudy</h3><p>Android 中数据使用相关（JSON、xml、SQLite、文件缓存、序列化等，所有与数据有关的技术 – 都将在这里学习和分析）</p>
+<h3 id="10-DesignPatternStudy"><a href="#10-DesignPatternStudy" class="headerlink" title="10. DesignPatternStudy"></a>10. DesignPatternStudy</h3><p>设计模式在 Android 源码中的使用分析以及项目中设计模式的实际使用。</p>
+<h3 id="11-FrontierTechnologyStudy"><a href="#11-FrontierTechnologyStudy" class="headerlink" title="11. FrontierTechnologyStudy"></a>11. FrontierTechnologyStudy</h3><p>Java 或 Android 中新的或前沿技术的研究和学习。</p>
+<h3 id="12-HotFixStudy"><a href="#12-HotFixStudy" class="headerlink" title="12. HotFixStudy"></a>12. HotFixStudy</h3><p>热修复相关技术学习和分析。</p>
+<h3 id="13-ImageRelatedStudy"><a href="#13-ImageRelatedStudy" class="headerlink" title="13. ImageRelatedStudy"></a>13. ImageRelatedStudy</h3><p>图片相关技术学习，Bitmap 处理，网络图片缓存等等（图片相关内容很多的）。</p>
+<h3 id="14-MaterialDesignStudy"><a href="#14-MaterialDesignStudy" class="headerlink" title="14. MaterialDesignStudy"></a>14. MaterialDesignStudy</h3><p>Andorid 上热火朝天的 Material Design，是时候试试了。</p>
+<h3 id="15-MechanismStudy"><a href="#15-MechanismStudy" class="headerlink" title="15. MechanismStudy"></a>15. MechanismStudy</h3><p>Android 系统机制研究和学习（Handler 机制、事件传递、IPC、Intent等 – 源码解析，各种实验）。</p>
+<h3 id="16-MultithreadStudy"><a href="#16-MultithreadStudy" class="headerlink" title="16.  MultithreadStudy"></a>16.  MultithreadStudy</h3><p>Android 或 Java 中多线程技术使用和学习（可以研究第三方一些多线程库，学习原理和思路）。</p>
+<h3 id="17-MVCFrameStudy"><a href="#17-MVCFrameStudy" class="headerlink" title="17. MVCFrameStudy"></a>17. MVCFrameStudy</h3><p>Android 中 MVC 模式的使用（使用 MVC 模式搭建一个项目框架）。</p>
+<h3 id="18-MVPFrameStudy"><a href="#18-MVPFrameStudy" class="headerlink" title="18. MVPFrameStudy"></a>18. MVPFrameStudy</h3><p>Android 中 MVP 模式的使用，各种实现思路的探讨和研究（使用 MVP 模式搭建一个基础项目）。</p>
+<h3 id="19-MVVMFrameStudy"><a href="#19-MVVMFrameStudy" class="headerlink" title="19. MVVMFrameStudy"></a>19. MVVMFrameStudy</h3><p>Android 中 MVVM 模式的使用，各种实现思路的探讨和研究（使用 MVVM 模式搭建一个基础项目）</p>
+<h3 id="20-NetworkFrameStudy"><a href="#20-NetworkFrameStudy" class="headerlink" title="20. NetworkFrameStudy"></a>20. NetworkFrameStudy</h3><p>Android 中各种网络框架的学习、使用和对比分析等（自己模仿学习实现一个）。</p>
+<h3 id="21-OptimizeStudy"><a href="#21-OptimizeStudy" class="headerlink" title="21. OptimizeStudy"></a>21. OptimizeStudy</h3><p>Android 优化相关技术学习（性能优化方法和优化工具使用等）。</p>
+<h3 id="22-PluggableStudy"><a href="#22-PluggableStudy" class="headerlink" title="22. PluggableStudy"></a>22. PluggableStudy</h3><p>Android 插件化学习。</p>
+<h3 id="23-SecurityStudy"><a href="#23-SecurityStudy" class="headerlink" title="23. SecurityStudy"></a>23. SecurityStudy</h3><p>Android 安全相关的奇技淫巧学习。</p>
+<h3 id="24-StyleStudy"><a href="#24-StyleStudy" class="headerlink" title="24. StyleStudy"></a>24. StyleStudy</h3><p>Android 样式、主题、换肤等的学习和使用。</p>
+<h3 id="25-SystemWidgetUseStudy"><a href="#25-SystemWidgetUseStudy" class="headerlink" title="25. SystemWidgetUseStudy"></a>25. SystemWidgetUseStudy</h3><p>Android 系统控件不常用技巧学习。</p>
+<h3 id="26-UiImitateStudy"><a href="#26-UiImitateStudy" class="headerlink" title="26. UiImitateStudy"></a>26. UiImitateStudy</h3><p>好看、新奇的 UI 和效果等的模仿和学习。</p>
+<h3 id="27-Utils"><a href="#27-Utils" class="headerlink" title="27. Utils"></a>27. Utils</h3><p>常用工具类的封装和整理。</p>
+<h3 id="28-zBase"><a href="#28-zBase" class="headerlink" title="28. zBase"></a>28. zBase</h3><p>基类终极模式的探讨学习。</p>
+<h1 id="项目地址"><a href="#项目地址" class="headerlink" title="项目地址"></a>项目地址</h1><p><strong>Talk is cheap show me the code.</strong><br><a href="https://github.com/DIY-green/AndroidStudyDemo" target="_blank" rel="external">GitHub</a><br>欢迎大家 <strong>Star</strong> 和 <strong>Fork</strong></p>
+<h1 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h1><p><a href="http://pan.baidu.com/s/1i445z5j" target="_blank" rel="external">思维导图</a></p>
+
+      
+    </div>
+    
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+<div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton", disable="enable", onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}", style="cursor: pointer; border: 0; outline: 0; border-radius: 100%; padding: 0; margin: 0; letter-spacing: normal; text-transform: none; text-indent: 0px; text-shadow: none">
+    <span onmouseover="this.style.color='rgb(236,96,0)';this.style.background='rgb(204,204,204)'" onMouseOut="this.style.color='#fff';this.style.background='rgb(236,96,0)'" style="display: inline-block; width: 70px; height: 70px; border-radius: 100%; line-height: 81px; color: #fff; font: 400 35px/75px 'microsofty'; background: rgb(236,96,0)">赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/uploads/images/wechat-reward-image.png" alt="DIY-green WeChat Pay" style="width: 200px; max-width: 100%; display: inline-block"/>
+        <p>微信打赏</p>
+      </div>
+    
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/uploads/images/alipay-reward-image.png" alt="DIY-green Alipay" style="width: 200px; max-width: 100%; display: inline-block"/>
+        <p>支付宝打赏</p>
+      </div>
+    
+  </div>
+</div>
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Android/" rel="tag">#Android</a>
+          
+            <a href="/tags/StudyDemo/" rel="tag">#StudyDemo</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/05/07/AndroidStudyDemo系列/Android5.x新控件介绍(二)/" rel="next" title="Android5.x新控件介绍(二)">
+                <i class="fa fa-chevron-left"></i> Android5.x新控件介绍(二)
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/05/07/AndroidStudyDemo系列/Android6.x新控件介绍(三)/" rel="prev" title="Android6.x新控件介绍(三)">
+                Android6.x新控件介绍(三) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/05/07/AndroidStudyDemo系列/AndroidStudyDemo你值得拥有/"
+           data-title="AndroidStudyDemo你值得拥有" data-url="http://diy-green.com/2016/05/07/AndroidStudyDemo系列/AndroidStudyDemo你值得拥有/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/images/avatar.jpg"
+               alt="DIY-green" />
+          <p class="site-author-name" itemprop="name">DIY-green</p>
+          <p class="site-description motion-element" itemprop="description">男子千年志，吾生未有涯。心随朗月高，志与秋霜洁。</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">52</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">27</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/DIY-green" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/users/0ad0a0afc409/latest_articles" target="_blank" title="JianShu">
+                  
+                    <i class="fa fa-globe"></i>
+                  
+                  JianShu
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element">
+            <div class="links-of-blogroll-title">
+              <i class="fa fa-globe fa-fw"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.jianshu.com/users/0ad0a0afc409/latest_articles" title="DIY-green简书" target="_blank">DIY-green简书</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.jianshu.com/users/3a482c4f0658/latest_articles" title="天接水0001" target="_blank">天接水0001</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://sunfusheng.com" title="孙福生" target="_blank">孙福生</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://kuanggang.github.io" title="匡罡" target="_blank">匡罡</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://Ivorfason.github.io" title="尹明仁" target="_blank">尹明仁</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://mengqingxiang.github.io" title="孟庆祥" target="_blank">孟庆祥</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#AndroidStudyDemo"><span class="nav-number">1.</span> <span class="nav-text">AndroidStudyDemo</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#AndroidStudyDemo-的目标"><span class="nav-number">2.</span> <span class="nav-text">AndroidStudyDemo 的目标</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#AndroidStudyDemo-的推进方式"><span class="nav-number">3.</span> <span class="nav-text">AndroidStudyDemo 的推进方式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#AndroidStudyDemo-说明"><span class="nav-number">4.</span> <span class="nav-text">AndroidStudyDemo 说明</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#项目推进计划"><span class="nav-number">4.1.</span> <span class="nav-text">项目推进计划</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#项目要求"><span class="nav-number">4.2.</span> <span class="nav-text">项目要求</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#项目更新计划"><span class="nav-number">4.3.</span> <span class="nav-text">项目更新计划</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#项目目的"><span class="nav-number">4.4.</span> <span class="nav-text">项目目的</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#项目主要有如下几大板块"><span class="nav-number">4.5.</span> <span class="nav-text">项目主要有如下几大板块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#项目-Modules-简介"><span class="nav-number">4.6.</span> <span class="nav-text">项目 Modules 简介</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-Android4Study"><span class="nav-number">4.6.1.</span> <span class="nav-text">1. Android4Study</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-Android5Study"><span class="nav-number">4.6.2.</span> <span class="nav-text">2. Android5Study</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-Android6Study"><span class="nav-number">4.6.3.</span> <span class="nav-text">3. Android6Study</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-AndroidNStudy"><span class="nav-number">4.6.4.</span> <span class="nav-text">4. AndroidNStudy</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-AnimationStudy"><span class="nav-number">4.6.5.</span> <span class="nav-text">5. AnimationStudy</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-ArithmeticStudy"><span class="nav-number">4.6.6.</span> <span class="nav-text">6. ArithmeticStudy</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-CommonLibsStudy"><span class="nav-number">4.6.7.</span> <span class="nav-text">7. CommonLibsStudy</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-CustomViewStudy"><span class="nav-number">4.6.8.</span> <span class="nav-text">8. CustomViewStudy</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-DataRelatedStudy"><span class="nav-number">4.6.9.</span> <span class="nav-text">9. DataRelatedStudy</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-DesignPatternStudy"><span class="nav-number">4.6.10.</span> <span class="nav-text">10. DesignPatternStudy</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#11-FrontierTechnologyStudy"><span class="nav-number">4.6.11.</span> <span class="nav-text">11. FrontierTechnologyStudy</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#12-HotFixStudy"><span class="nav-number">4.6.12.</span> <span class="nav-text">12. HotFixStudy</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#13-ImageRelatedStudy"><span class="nav-number">4.6.13.</span> <span class="nav-text">13. ImageRelatedStudy</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#14-MaterialDesignStudy"><span class="nav-number">4.6.14.</span> <span class="nav-text">14. MaterialDesignStudy</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#15-MechanismStudy"><span class="nav-number">4.6.15.</span> <span class="nav-text">15. MechanismStudy</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#16-MultithreadStudy"><span class="nav-number">4.6.16.</span> <span class="nav-text">16.  MultithreadStudy</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#17-MVCFrameStudy"><span class="nav-number">4.6.17.</span> <span class="nav-text">17. MVCFrameStudy</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#18-MVPFrameStudy"><span class="nav-number">4.6.18.</span> <span class="nav-text">18. MVPFrameStudy</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#19-MVVMFrameStudy"><span class="nav-number">4.6.19.</span> <span class="nav-text">19. MVVMFrameStudy</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#20-NetworkFrameStudy"><span class="nav-number">4.6.20.</span> <span class="nav-text">20. NetworkFrameStudy</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#21-OptimizeStudy"><span class="nav-number">4.6.21.</span> <span class="nav-text">21. OptimizeStudy</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#22-PluggableStudy"><span class="nav-number">4.6.22.</span> <span class="nav-text">22. PluggableStudy</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#23-SecurityStudy"><span class="nav-number">4.6.23.</span> <span class="nav-text">23. SecurityStudy</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#24-StyleStudy"><span class="nav-number">4.6.24.</span> <span class="nav-text">24. StyleStudy</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#25-SystemWidgetUseStudy"><span class="nav-number">4.6.25.</span> <span class="nav-text">25. SystemWidgetUseStudy</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#26-UiImitateStudy"><span class="nav-number">4.6.26.</span> <span class="nav-text">26. UiImitateStudy</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#27-Utils"><span class="nav-number">4.6.27.</span> <span class="nav-text">27. Utils</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#28-zBase"><span class="nav-number">4.6.28.</span> <span class="nav-text">28. zBase</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#项目地址"><span class="nav-number">5.</span> <span class="nav-text">项目地址</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#附录"><span class="nav-number">6.</span> <span class="nav-text">附录</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+<div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">DIY-green</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info powered-by">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+<div class="powered-by">
+  <span id="busuanzi_container_site_pv">
+    本站总访问量<span id="busuanzi_value_site_pv"></span>次
+  </span>
+</div>
+<div style="display:inline-block;">
+  <span id="busuanzi_container_site_uv">
+    本站访客数<span id="busuanzi_value_site_uv"></span>人次
+  </span>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"DIY-green"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+      
+      <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+      <script src="/js/src/hook-duoshuo.js"></script>
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+  
+  
+  <!-- custom analytics part create by xiamo -->
+<script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+<script>AV.initialize("UnkeFG0pM1t3q8H3y7NTLUA0-gzGzoHsz", "2oBUu9nxByteYjLFtBtqOPwN");</script>
+<script>
+function showTime(Counter) {
+	var query = new AV.Query(Counter);
+	$(".leancloud_visitors").each(function() {
+		var url = $(this).attr("id").trim();
+		query.equalTo("url", url);
+		query.find({
+			success: function(results) {
+				if (results.length == 0) {
+					var content = '0 ' + $(document.getElementById(url)).text();
+					$(document.getElementById(url)).text(content);
+					return;
+				}
+				for (var i = 0; i < results.length; i++) {
+					var object = results[i];
+					var content = object.get('time') + ' ' + $(document.getElementById(url)).text();
+					$(document.getElementById(url)).text(content);
+				}
+			},
+			error: function(object, error) {
+				console.log("Error: " + error.code + " " + error.message);
+			}
+		});
+
+	});
+}
+
+function addCount(Counter) {
+	var Counter = AV.Object.extend("Counter");
+	url = $(".leancloud_visitors").attr('id').trim();
+	title = $(".leancloud_visitors").attr('data-flag-title').trim();
+	var query = new AV.Query(Counter);
+	query.equalTo("url", url);
+	query.find({
+		success: function(results) {
+			if (results.length > 0) {
+				var counter = results[0];
+				counter.fetchWhenSave(true);
+				counter.increment("time");
+				counter.save(null, {
+					success: function(counter) {
+						var content =  counter.get('time') + ' ' + $(document.getElementById(url)).text();
+						$(document.getElementById(url)).text(content);
+					},
+					error: function(counter, error) {
+						console.log('Failed to save Visitor num, with error message: ' + error.message);
+					}
+				});
+			} else {
+				var newcounter = new Counter();
+				newcounter.set("title", title);
+				newcounter.set("url", url);
+				newcounter.set("time", 1);
+				newcounter.save(null, {
+					success: function(newcounter) {
+					    console.log("newcounter.get('time')="+newcounter.get('time'));
+						var content = newcounter.get('time') + ' ' + $(document.getElementById(url)).text();
+						$(document.getElementById(url)).text(content);
+					},
+					error: function(newcounter, error) {
+						console.log('Failed to create');
+					}
+				});
+			}
+		},
+		error: function(error) {
+			console.log('Error:' + error.code + " " + error.message);
+		}
+	});
+}
+$(function() {
+	var Counter = AV.Object.extend("Counter");
+	if ($('.leancloud_visitors').length == 1) {
+		addCount(Counter);
+	} else if ($('.post-title-link').length > 1) {
+		showTime(Counter);
+	}
+}); 
+</script>
+  
+  
+</body>
+</html>

@@ -1,0 +1,1087 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Android 4,StudyDemo," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="作者：李旺成时间：2016年4月7日
+
+AndroidStudyDemo 系列篇章开始了!!!
+AndroidStudyDemo 你值得拥有AndroidStudyDemo之Android4.x介绍AndroidStudyDemo之Android5.x新API介绍（一）AndroidStudyDemo之Android5.x新API介绍（二）
+今天给大家介绍一下我的 AndroidStudyDem">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android4.x介绍">
+<meta property="og:url" content="http://diy-green.com/2016/05/07/AndroidStudyDemo系列/Android4.x介绍/index.html">
+<meta property="og:site_name" content="DIY-green">
+<meta property="og:description" content="作者：李旺成时间：2016年4月7日
+
+AndroidStudyDemo 系列篇章开始了!!!
+AndroidStudyDemo 你值得拥有AndroidStudyDemo之Android4.x介绍AndroidStudyDemo之Android5.x新API介绍（一）AndroidStudyDemo之Android5.x新API介绍（二）
+今天给大家介绍一下我的 AndroidStudyDem">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android4\android4_1.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android4\android4_2.gif">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android4\android4_3.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android4\android4_4.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android4\android4_5.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android4\android4_6.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android4\android4_7.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android4\android4_8.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android4\android4_9.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android4\android4_10.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android4\android4_11.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android4\android4_12.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android4\android4_13.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android4\android4_14.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android4\android4_15.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android4\android4_16.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android4\android4_17.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android4\android4_18.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android4\android4_19.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android4\android4_20.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android4\android4_21.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android4\android4_22.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android4\android4_23.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android4\android4_24.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android4\android4_25.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android4\android4_26.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android4\android4_27.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android4\android4_28.png">
+<meta property="og:image" content="http://diy-green.com/\uploads\androidstudydemo\android4\android4_29.png">
+<meta property="og:updated_time" content="2016-04-26T02:39:40.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android4.x介绍">
+<meta name="twitter:description" content="作者：李旺成时间：2016年4月7日
+
+AndroidStudyDemo 系列篇章开始了!!!
+AndroidStudyDemo 你值得拥有AndroidStudyDemo之Android4.x介绍AndroidStudyDemo之Android5.x新API介绍（一）AndroidStudyDemo之Android5.x新API介绍（二）
+今天给大家介绍一下我的 AndroidStudyDem">
+<meta name="twitter:image" content="http://diy-green.com/\uploads\androidstudydemo\android4\android4_1.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'DIY-green'
+    }
+  };
+</script>
+
+  <title> Android4.x介绍 | DIY-green </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?af1b7efbf565bc568165c5a0600a0207";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+  <div style="display: none;">
+    <script src="http://s6.cnzz.com/stat.php?id=1258791461&web_id=1258791461" type="text/javascript"></script>
+  </div>
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">DIY-green</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            全部
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-androidstudydemo">
+          <a href="/categories/AndroidStudyDemo/" rel="section">
+            
+              <i class="menu-item-icon fa fa-hand-right fa-fw"></i> <br />
+            
+            ● &nbsp; AndroidStudyDemo
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-androidganhuo">
+          <a href="/categories/Android干货/" rel="section">
+            
+              <i class="menu-item-icon fa fa-hand-right fa-fw"></i> <br />
+            
+            ● &nbsp; Android干货
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-androidhacks">
+          <a href="/categories/Android小技巧/" rel="section">
+            
+              <i class="menu-item-icon fa fa-hand-right fa-fw"></i> <br />
+            
+            ● &nbsp; Android小技巧
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-androidstudio">
+          <a href="/categories/AndroidStudio/" rel="section">
+            
+              <i class="menu-item-icon fa fa-hand-right fa-fw"></i> <br />
+            
+            ● &nbsp; AndroidStudio
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-essay">
+          <a href="/categories/随笔/" rel="section">
+            
+              <i class="menu-item-icon fa fa-hand-right fa-fw"></i> <br />
+            
+            ● &nbsp; 随笔
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Android4.x介绍
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-05-07T20:39:23+08:00" content="2016-05-07">
+              2016-05-07
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/AndroidStudyDemo/" itemprop="url" rel="index">
+                    <span itemprop="name">AndroidStudyDemo</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/AndroidStudyDemo/Android-4/" itemprop="url" rel="index">
+                    <span itemprop="name">Android 4</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/05/07/AndroidStudyDemo系列/Android4.x介绍/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/07/AndroidStudyDemo系列/Android4.x介绍/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+		  &nbsp; | &nbsp;
+             <span id="/2016/05/07/AndroidStudyDemo系列/Android4.x介绍/" class="leancloud_visitors" data-flag-title="Android4.x介绍">
+               
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+		  
+		  <!--<span id="busuanzi_container_page_pv">
+		    &nbsp; | &nbsp;<span id="busuanzi_value_page_pv"></span>阅读
+		  </span>
+		  
+		  
+			&nbsp; | &nbsp;
+			<span id="/2016/05/07/AndroidStudyDemo系列/Android4.x介绍/"class="leancloud_visitors" data-flag-title="Android4.x介绍">
+					 &nbsp;阅读
+					</span>
+			-->
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="\uploads\androidstudydemo\android4\android4_1.png" alt="Android4.x 思维导图" title="Android4.x 思维导图"></p>
+<p><strong>作者：<a href="https://github.com/DIY-green/" target="_blank" rel="external">李旺成</a></strong><br><strong>时间：2016年4月7日</strong></p>
+<hr>
+<p><strong><a href="http://www.jianshu.com/p/617cbc1268fc" target="_blank" rel="external">AndroidStudyDemo</a> 系列篇章开始了!!!</strong></p>
+<p><a href="http://www.jianshu.com/p/617cbc1268fc" target="_blank" rel="external">AndroidStudyDemo 你值得拥有</a><br><a href="http://www.jianshu.com/p/7ca6525fddcb" target="_blank" rel="external">AndroidStudyDemo之Android4.x介绍</a><br><a href="http://www.jianshu.com/p/ba72bb5d181d" target="_blank" rel="external">AndroidStudyDemo之Android5.x新API介绍（一）</a><br><a href="http://www.jianshu.com/p/c82ea2333af6" target="_blank" rel="external">AndroidStudyDemo之Android5.x新API介绍（二）</a></p>
+<p>今天给大家介绍一下我的 <a href="http://www.jianshu.com/p/617cbc1268fc" target="_blank" rel="external">AndroidStudyDemo</a> 下的 Android4Study 中的相关内容，先看下面的动态图，演示了该 Demo 中所包含的内容。</p>
+<blockquote>
+<p><strong>提示：</strong>该 Demo 会以单独项目的的形式提供，并且会集成到 AndroidStudyDemo 项目当中（周末），你可以根据自己的需要选取。</p>
+</blockquote>
+<p><img src="\uploads\androidstudydemo\android4\android4_2.gif" alt="Android4新控件" title="Android4新控件"></p>
+<p>下面我将阐述一下该 Demo 中所涉及的知识点。</p>
+<h1 id="一、Switch"><a href="#一、Switch" class="headerlink" title="一、Switch"></a>一、Switch</h1><p>Switch 是一个可以在两种状态切换的开关控件，它只有两个状态：开和关；和 CheckBox 挺像。</p>
+<p>Google 的 Nexus 系列的升级到 4.x（汗，就是原生系统），在系统设置页面可以看到很多打开设备都使用了该控件。以前羡慕 iOS 上提供了漂亮的 UISwitch控件，OK，Google 也为广大 Android 程序员提供了类似的开关（别高兴的太早，设计师们会告诉你，我要的不是这个效果~~哈哈，我们早已习惯了不是，但是不妨碍我们自己用…）。</p>
+<p>来看看效果图：<br><img src="\uploads\androidstudydemo\android4\android4_3.png" alt="Switch 控件"></p>
+<h2 id="Switch-类关系图"><a href="#Switch-类关系图" class="headerlink" title="Switch 类关系图"></a>Switch 类关系图</h2><p>学习一个新控件的时候，我的习惯是先看看该控件的继承结构（在 AndroidStudio 光标置类名上，点击 F4 按钮即可查看该类的继承结构）。为什么？如果该控件是继承自你熟悉的控件，那简单了，看看是不是多加了几个属性就好了；如果不是，那可能就需要花点时间来熟悉下了。好了，不多说这些，上图：</p>
+<p><img src="\uploads\androidstudydemo\android4\android4_4.png" alt="Switch 继承结构" title="Switch 继承结构"></p>
+<p>Button，熟悉吧！CompoundButton，这个不是很眼熟，那好来看看下面这个段代码：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">mCheckBox.setOnCheckedChangeListener(<span class="keyword">new</span> CompoundButton.OnCheckedChangeListener() &#123;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCheckedChanged</span><span class="params">(CompoundButton buttonView, <span class="keyword">boolean</span> isChecked)</span> </span>&#123;</span><br><span class="line">		<span class="comment">// TODO</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>没错 CheckBox 的 setOnCheckedChangeListener 用的就是 CompoundButton 中的 OnCheckedChangeListener 接口，CompoundButton 出现了，还和 CheckBox 扯上了关系。好吧，这个时候要么去看看 CompoundButton，要么去看看 CheckBox，看你喜好。我选熟悉的 —— CheckBox，如下图：</p>
+<p><img src="\uploads\androidstudydemo\android4\android4_5.png" alt="CheckBox 继承结构" title="CheckBox 继承结构"></p>
+<h2 id="Switch-的简单使用"><a href="#Switch-的简单使用" class="headerlink" title="Switch 的简单使用"></a>Switch 的简单使用</h2><p>这下清晰了吧！CheckBox 和 Switch 是兄弟。好了绕了这么一大圈，其实只是想分享下我一般怎么去学习一个新控件。<br>既然是兄弟，那应该很像，那直接当成 CheckBox 试一下啊！好，试一下设置 textXXX 相关的属性，直接看提示有哪些 textXXX 属性：</p>
+<p><img src="\uploads\androidstudydemo\android4\android4_6.png" alt="Switch 的 TextXXX 属性" title="Switch 的 TextXXX 属性"></p>
+<p>上图用红色框圈出来的有点面生，看下 CheckBox 的，类比学习嘛，上图：</p>
+<p><img src="\uploads\androidstudydemo\android4\android4_7.png" alt="CheckBox 的 TextXXX 属性" title="CheckBox 的 TextXXX 属性"></p>
+<p>上面那几个在 CheckBox 中没有，嗯，看着字面上就是“关的文本”和“开的文本”的意思（方法二：<strong>猜</strong>），实践出真知，多简单的事。上代码：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;Switch</span><br><span class="line">	android:id=<span class="string">"@+id/switch_test1"</span></span><br><span class="line">	android:layout_width=<span class="string">"wrap_content"</span></span><br><span class="line">	android:layout_height=<span class="string">"wrap_content"</span></span><br><span class="line">	android:textOn=<span class="string">"开"</span></span><br><span class="line">	android:textOff=<span class="string">"关"</span>/&gt;</span><br></pre></td></tr></table></figure></p>
+<p>好了，布局文件搞定了，来监听下事件：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">this</span>.mTest1Switch.setOnCheckedChangeListener(<span class="keyword">new</span> CompoundButton.OnCheckedChangeListener() &#123;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCheckedChanged</span><span class="params">(CompoundButton buttonView, <span class="keyword">boolean</span> isChecked)</span> </span>&#123;</span><br><span class="line">		<span class="comment">// TODO</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>毫无违和感，和 CheckBox 一样。看到这里应该清楚了，这就是 CheckBox 的另一个版本，做成了开关的样式而已，多加了几个属性，用法和 CheckBox 基本类似。</p>
+<h2 id="Switch-自定义样式"><a href="#Switch-自定义样式" class="headerlink" title="Switch 自定义样式"></a>Switch 自定义样式</h2><p><strong>android:thumb</strong> ： 设置滑块图片<br><strong>android:thumbTextPadding</strong> ： 设置背景图片和文字之间的间距，可用来控制 Switch 整体宽度<br><strong>android:track</strong> ： 设置背景图</p>
+<blockquote>
+<p>提示：等你高高兴兴的把自己的 .9 图都设置上去后来看效果，怎么看都感觉不对劲。为什么？高度好像有点不听使唤，layout_height 和 minHeight 齐上，还是不管用。好吧！这不是本文重点（咱就用原生的，要不就自己去实现一个，网上多的是仿 iOS 开关的自定义控件）</p>
+</blockquote>
+<p>好了，Switch 的介绍到这里了。</p>
+<h1 id="二、Space"><a href="#二、Space" class="headerlink" title="二、Space"></a>二、Space</h1><p>Space 是一个空白控件，那有什么用 —— 占位。要效果图，好吧，上图：</p>
+<p><img src="\uploads\androidstudydemo\android4\android4_8.png" alt="Space效果图" title="Space效果图"></p>
+<h2 id="Space-类关系图"><a href="#Space-类关系图" class="headerlink" title="Space 类关系图"></a>Space 类关系图</h2><p>继承结构很简单，看图：</p>
+<p><img src="\uploads\androidstudydemo\android4\android4_9.png" alt="Space 继承结构" title="Space 继承结构"></p>
+<p>对，就是继承自 View，熟悉吧！但是，这回没辙了，View 基本上算是所有控件的基类了，这回看你怎么类比学习。确实，龙生九子各有不同，甚至很多都不像龙了。那就不类比了，直接点击进去看看，看什么是个问题 —— 这还用说，当然是看 draw() 方法，上图：</p>
+<p><img src="\uploads\androidstudydemo\android4\android4_10.png" alt="Space 的 draw()方法" title="Space 的 draw()方法"></p>
+<p>坑！空方法，什么都没有。对了，就是什么都没有，所以才高效（没什么要 draw 的当然高效了）。因为 Space 的定位就是空白控件，哥们就是用来占位的，不要想多了。</p>
+<h2 id="Space-的简单使用"><a href="#Space-的简单使用" class="headerlink" title="Space 的简单使用"></a>Space 的简单使用</h2><p>侮辱我的智商吗？好吧，为了队形整齐，看代码吧：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;Space</span><br><span class="line">	android:id=<span class="string">"@+id/space_test1"</span></span><br><span class="line">	android:layout_width=<span class="string">"match_parent"</span></span><br><span class="line">	android:layout_height=<span class="string">"100dp"</span></span><br><span class="line">	android:background=<span class="string">"#ff00ff"</span>/&gt;</span><br></pre></td></tr></table></figure></p>
+<p>background，这是几个意思，别介，只是验证一下，哥们就是个空白控件…</p>
+<p>好了，Space 结束。</p>
+<h1 id="三、PopupMenu"><a href="#三、PopupMenu" class="headerlink" title="三、PopupMenu"></a>三、PopupMenu</h1><p>PopupMenu 是弹出式菜单，它会在指定组件上方或下方弹出菜单。</p>
+<p>PopupMenu 有没有感觉和 PopupWindow 名字上很像，先看看效果图：</p>
+<p><img src="\uploads\androidstudydemo\android4\android4_11.png" alt="PopupMenu 效果图" title="PopupMenu 效果图"></p>
+<h2 id="PopupMenu-类关系图"><a href="#PopupMenu-类关系图" class="headerlink" title="PopupMenu 类关系图"></a>PopupMenu 类关系图</h2><p><img src="\uploads\androidstudydemo\android4\android4_12.png" alt="PopupMenu 继承结构" title="PopupMenu 继承结构"></p>
+<p>继承自 Object，这个更熟悉了，但是没用…<br>那在看看它的基友 PopupWindow，上图：</p>
+<p><img src="\uploads\androidstudydemo\android4\android4_13.png" alt="PopupWindow 继承结构" title="PopupWindow 继承结构"></p>
+<p>没辙了，只能看文档了，看下 PopupMenu 的官方文档：</p>
+<p><img src="\uploads\androidstudydemo\android4\android4_14.png" alt="PopupMenu 文档" title="PopupMenu 文档"></p>
+<p>没什么可说的，先看看怎么让它显示出来。</p>
+<h2 id="PopupMenu-的简单使用"><a href="#PopupMenu-的简单使用" class="headerlink" title="PopupMenu 的简单使用"></a>PopupMenu 的简单使用</h2><p>使用 PopupMenu 创建菜单的步骤：</p>
+<ol>
+<li>调用new PopupMenu(Context context,View anchor)创建下拉菜单，anchor代表要激发该弹出菜单的组件。</li>
+<li>调用MenuInflater的inflate()方法将菜单资源填充到PopupMenu中。</li>
+<li>调用PopupMenu的show()方法显示弹出式菜单。</li>
+</ol>
+<p>看代码，源码之下，一切都无所遁形：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建 PopupMenu</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">createPopupMenuByCode</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	mPopupMenu1 = <span class="keyword">new</span> PopupMenu(<span class="keyword">this</span>, findViewById(R.id.btn_popupmenu1));</span><br><span class="line">	Menu menu = mPopupMenu1.getMenu();</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 通过代码添加菜单项</span></span><br><span class="line">	menu.add(Menu.NONE, MENU_ITEM_COPY_ID, <span class="number">0</span>, <span class="string">"唐僧"</span>);</span><br><span class="line">	menu.add(Menu.NONE, MENU_ITEM_PASTE_ID, <span class="number">1</span>, <span class="string">"孙悟空"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">createPopupMenuFromXML</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	mPopupMenu2 = <span class="keyword">new</span> PopupMenu(<span class="keyword">this</span>, findViewById(R.id.btn_popupmenu2));</span><br><span class="line">	Menu menu = mPopupMenu2.getMenu();</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 通过XML文件添加菜单项</span></span><br><span class="line">	MenuInflater menuInflater = getMenuInflater();</span><br><span class="line">	menuInflater.inflate(R.menu.popupmenu, menu);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">createPopupMenuFromMixture</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	mPopupMenu3 = <span class="keyword">new</span> PopupMenu(<span class="keyword">this</span>, findViewById(R.id.btn_popupmenu3));</span><br><span class="line">	Menu menu = mPopupMenu3.getMenu();</span><br><span class="line">	<span class="comment">// 通过代码添加菜单项</span></span><br><span class="line">	menu.add(Menu.NONE, MENU_ITEM_COPY_ID, <span class="number">0</span>, <span class="string">"唐僧"</span>);</span><br><span class="line">	menu.add(Menu.NONE, MENU_ITEM_PASTE_ID, <span class="number">1</span>, <span class="string">"孙悟空"</span>);</span><br><span class="line">	<span class="comment">// 通过XML文件添加菜单项</span></span><br><span class="line">	MenuInflater menuInflater = getMenuInflater();</span><br><span class="line">	menuInflater.inflate(R.menu.popupmenu, menu);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 显示 PopupMenu</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">showPopupMenu1</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	mPopupMenu1.show();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">showPopupMenu2</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	mPopupMenu2.show();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">showPopupMenu3</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	mPopupMenu3.show();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>很简单吧，这里就不和 PopupWindow 对比了，没什么意思，也不是本文重点，PopupMenu 介绍到这里了。项目源码在文末会给出 GitHub 地址。</p>
+<h1 id="四、GlidLayout"><a href="#四、GlidLayout" class="headerlink" title="四、GlidLayout"></a>四、GlidLayout</h1><p>GridLayout 是网格布局，为解决嵌套而生，将布局以行和列进行分割。同样的先看效果图：</p>
+<p><img src="\uploads\androidstudydemo\android4\android4_15.png" alt="GlidLayout 效果图" title="GlidLayout 效果图"></p>
+<p>上图将网格的行列显示的很清晰，对人如其名（错了，控件如其名），这货就是个网格布局，使用虚细线将布局划分为行，列和单元格——支持一个控件在行，列上都有交错排列。（参考自：<a href="http://tech.it168.com/a2011/1122/1277/000001277274.shtml" target="_blank" rel="external">廖煜嵘——“Android 4.0新增Space及GridLayout初谈”</a>）</p>
+<p>前面说了，GridLayout 是为了解决嵌套而生（嵌套，不用说了吧！不好，不仅影响性能，还增加了布局文件的复杂度），如果仅仅是这个可能还体现不了 GlidLayout 的强大。拿 LinearLayout 开刀（谁让它最容易写出嵌套，不找它找谁），在一些复杂的布局中，有时会遇到这样一个问题 —— 在 LinearLayout 中不能同时在 X，Y 轴方向上进行控件的对齐。</p>
+<p>如下图描述了这个缺点（引自：<a href="http://tech.it168.com/a2011/1122/1277/000001277274.shtml" target="_blank" rel="external">廖煜嵘——“Android 4.0新增Space及GridLayout初谈”</a>）：</p>
+<p><img src="\uploads\androidstudydemo\android4\android4_16.png" alt="LinearLayout 的缺点" title="LinearLayout 的缺点"></p>
+<p>这里，当 Email address 这个标签的文本发生变化时，既要保持跟其右边控件的下部的基线对齐，又要保持跟下面的控件的右边缘对齐，而用嵌套布局的方式是不能实现的，因为不能够同时在 X，Y 轴上进行控件的对齐。于是我们便需要引入新的布局方式 GridLayout。（引自：<a href="http://tech.it168.com/a2011/1122/1277/000001277274.shtml" target="_blank" rel="external">廖煜嵘——“Android 4.0新增Space及GridLayout初谈”</a>）</p>
+<h2 id="GlidLayout-类关系图"><a href="#GlidLayout-类关系图" class="headerlink" title="GlidLayout 类关系图"></a>GlidLayout 类关系图</h2><p><img src="\uploads\androidstudydemo\android4\android4_17.png" alt="GlidLayout 继承结构" title="GlidLayout 继承结构"></p>
+<p>不出意料，没有继承自常见的那五大布局，那只能是 ViewGroup 了。来看看官方文档：</p>
+<p><img src="\uploads\androidstudydemo\android4\android4_18.png" alt="GildLayout 文档" title="GildLayout 文档"><br>一眼扫去，加了几个行列相关的属性，那就试试吧！</p>
+<h2 id="GlidLayout-简单使用"><a href="#GlidLayout-简单使用" class="headerlink" title="GlidLayout 简单使用"></a>GlidLayout 简单使用</h2><h3 id="简易计算器布局"><a href="#简易计算器布局" class="headerlink" title="简易计算器布局"></a>简易计算器布局</h3><p>先看效果图：</p>
+<p><img src="\uploads\androidstudydemo\android4\android4_19.png" alt="GlidLayout 实现计算器布局" title="GlidLayout 实现计算器布局"></p>
+<p>布局代码如下：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span><br><span class="line">&lt;GridLayout xmlns:android="http://schemas.android.com/apk/res/android"</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    android:layout_width="match_parent"</span><br><span class="line">    android:layout_height="wrap_content"</span><br><span class="line">    android:alignmentMode="alignBounds"</span><br><span class="line">    android:columnCount="4"</span><br><span class="line">    android:orientation="horizontal"</span><br><span class="line">    android:rowCount="5"&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- 第一行 --&gt;</span><br><span class="line">    &lt;Button</span><br><span class="line">        android:id="@+id/one"</span><br><span class="line">        android:text="1"/&gt;</span><br><span class="line">    &lt;Button</span><br><span class="line">        android:id="@+id/two"</span><br><span class="line">        android:text="2" /&gt;</span><br><span class="line">    &lt;Button</span><br><span class="line">        android:id="@+id/three"</span><br><span class="line">        android:text="3" /&gt;</span><br><span class="line">    &lt;Button</span><br><span class="line">        android:id="@+id/devide"</span><br><span class="line">        android:text="/" /&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- 第二行 --&gt;</span><br><span class="line">    &lt;Button</span><br><span class="line">        android:id="@+id/four"</span><br><span class="line">        android:text="4" /&gt;</span><br><span class="line">    &lt;Button</span><br><span class="line">        android:id="@+id/five"</span><br><span class="line">        android:text="5" /&gt;</span><br><span class="line">    &lt;Button</span><br><span class="line">        android:id="@+id/six"</span><br><span class="line">        android:text="6" /&gt;</span><br><span class="line">    &lt;Button</span><br><span class="line">        android:id="@+id/multiply"</span><br><span class="line">        android:text="×"</span><br><span class="line">        android:layout_gravity="fill" /&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- 第三行 --&gt;</span><br><span class="line">    &lt;Button</span><br><span class="line">        android:id="@+id/seven"</span><br><span class="line">        android:text="7" /&gt;</span><br><span class="line">    &lt;Button</span><br><span class="line">        android:id="@+id/eight"</span><br><span class="line">        android:text="8" /&gt;</span><br><span class="line">    &lt;Button</span><br><span class="line">        android:id="@+id/nine"</span><br><span class="line">        android:text="9" /&gt;</span><br><span class="line">    &lt;Button</span><br><span class="line">        android:id="@+id/minus"</span><br><span class="line">        android:text="-"</span><br><span class="line">        android:layout_gravity="fill"/&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- 第四行 --&gt;</span><br><span class="line">    &lt;Button</span><br><span class="line">        android:id="@+id/zero"</span><br><span class="line">        android:layout_columnSpan="2"</span><br><span class="line">        android:layout_gravity="fill"</span><br><span class="line">        android:text="0" /&gt;</span><br><span class="line">    &lt;Button</span><br><span class="line">        android:id="@+id/point"</span><br><span class="line">        android:text="." /&gt;</span><br><span class="line">    &lt;Button</span><br><span class="line">        android:id="@+id/plus"</span><br><span class="line">        android:layout_gravity="fill"</span><br><span class="line">        android:layout_rowSpan="2"</span><br><span class="line">        android:text="+" /&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- 第五行 --&gt;</span><br><span class="line">    &lt;Button</span><br><span class="line">        android:id="@+id/equal"</span><br><span class="line">        android:layout_columnSpan="3"</span><br><span class="line">        android:layout_gravity="fill"</span><br><span class="line">        android:text="=" /&gt;</span><br><span class="line"></span><br><span class="line">&lt;/GridLayout&gt;</span><br></pre></td></tr></table></figure></p>
+<p>简单解释一下<br>GridLayout 提供了和 LinearLayout 类似的 API（降低使用门槛，它们也算兄弟不是），只是布局的思路不大一样，GridLayout 有点像屏幕显示的原理，占用不同的单元格来形成不同的图案（当然只是简单的类比一下，不要较真，为了便于理解而已）。</p>
+<p>GridLayout的布局策略简单分为以下三个部分：</p>
+<p><strong>首先</strong>，它与LinearLayout布局一样，也分为水平和垂直两种方式，默认是水平布局，一个控件挨着一个控件从左到右依次排列，但是通过指定android:columnCount 设置列数的属性后，控件会自动换行进行排列。另一方面，对于 GridLayout 布局中的子控件，默认按照 wrap_content 的方式设置其显示，这只需要在 GridLayout 布局中显式声明即可。</p>
+<p><strong>其次</strong>，若要指定某控件显示在固定的行或列，只需设置该子控件的android:layout_row 和 android:layout_column 属性即可，但是需要注意：android:layout_row=”0”表示从第一行开始，android:layout_column=”0”表示从第一列开始，这与编程语言中一维数组的赋值情况类似。</p>
+<p><strong>最后</strong>，如果需要设置某控件跨越多行或多列，只需将该子控件的android:layout_rowSpan 或者 layout_columnSpan 属性设置为数值，再设置其 layout_gravity 属性为 fill 即可，前一个设置表明该控件跨越的行数或列数，后一个设置表明该控件填满所跨越的整行或整列。<br>（参考自：<a href="http://blog.csdn.net/pku_android/article/details/7343258" target="_blank" rel="external">李响——“浅谈android4.0开发之GridLayout布局”</a>）</p>
+<h3 id="LinearLayout-之殇"><a href="#LinearLayout-之殇" class="headerlink" title="LinearLayout 之殇"></a>LinearLayout 之殇</h3><p>上面说了，LinearLayout 容易嵌套（那你不会用 RelativeLayout啊，“剧情”需要，不要较真），而且不能同时在X，Y轴方向上进行控件的对齐。好，GridLayout 闪亮登出的时刻到了，先看效果图：</p>
+<p><img src="\uploads\androidstudydemo\android4\android4_20.png" alt="GridLayout 解决 LinearLayout 的问题" title="GridLayout 解决 LinearLayout 的问题"></p>
+<p>直接上代码：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span><br><span class="line">&lt;GridLayout xmlns:android="http://schemas.android.com/apk/res/android"</span><br><span class="line">    android:layout_width="match_parent"</span><br><span class="line">    android:layout_height="match_parent"</span><br><span class="line">    android:alignmentMode="alignBounds"</span><br><span class="line">    android:columnCount="4"</span><br><span class="line">    android:columnOrderPreserved="false"</span><br><span class="line">    android:useDefaultMargins="true"&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- 第一行跨4列 --&gt;</span><br><span class="line">    &lt;TextView</span><br><span class="line">        android:layout_columnSpan="4"</span><br><span class="line">        android:layout_gravity="center_horizontal"</span><br><span class="line">        android:text="@string/text_emailsetup"</span><br><span class="line">        android:textSize="22sp" /&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- 第二行跨4列 --&gt;</span><br><span class="line">    &lt;TextView</span><br><span class="line">        android:layout_columnSpan="4"</span><br><span class="line">        android:layout_gravity="left"</span><br><span class="line">        android:text="@string/text_emailsetup_tip"</span><br><span class="line">        android:textSize="14sp" /&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- 第三行一列 --&gt;</span><br><span class="line">    &lt;TextView</span><br><span class="line">        android:layout_gravity="right"</span><br><span class="line">        android:text="@string/text_emailaddress_tip" /&gt;</span><br><span class="line">    &lt;!-- 第三行二列 --&gt;</span><br><span class="line">    &lt;EditText android:ems="8" /&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- 第四行一列 --&gt;</span><br><span class="line">    &lt;TextView</span><br><span class="line">        android:layout_column="0"</span><br><span class="line">        android:layout_gravity="right"</span><br><span class="line">        android:text="@string/text_emailpassword_tip" /&gt;</span><br><span class="line">    &lt;!-- 第四行二列 --&gt;</span><br><span class="line">    &lt;EditText android:ems="6" /&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- 第五行跨三列 --&gt;</span><br><span class="line">    &lt;Space</span><br><span class="line">        android:layout_row="4"</span><br><span class="line">        android:layout_column="0"</span><br><span class="line">        android:layout_columnSpan="3"</span><br><span class="line">        android:layout_gravity="fill" /&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- 第六行四列 --&gt;</span><br><span class="line">    &lt;Button</span><br><span class="line">        android:layout_row="5"</span><br><span class="line">        android:layout_column="3"</span><br><span class="line">        android:text="@string/text_nextstep" /&gt;</span><br><span class="line">&lt;/GridLayout&gt;</span><br></pre></td></tr></table></figure></p>
+<p>看到 layout_row、layout_column 和 layout_columnSpan，有没有觉得和 TabLayout 有点像，对，在这两个布局中这些属性的作用是相似的，看看注释，自己再去试试，相信这没什么难的。（<a href="http://tech.it168.com/a2011/1122/1277/000001277274.shtml" target="_blank" rel="external">Android 4.0新增Space及GridLayout初谈</a> 中有较详细的说明，在这我就不赘述了）</p>
+<h3 id="GridLayout-的布局方向"><a href="#GridLayout-的布局方向" class="headerlink" title="GridLayout 的布局方向"></a>GridLayout 的布局方向</h3><p>在 GridLayout 中，默认的布局是水平方向的，即将控件从左到右，从上到下进行排列，比如下图中的文本“1-1”即放置在第1行第1列中，以此类推。</p>
+<p>要使用垂直的布局，很简单，和 LinearLayout 一样，它也有 orientation 属性，设置为“vertical”即可，注意查看控件排列的变化。</p>
+<p>直接看图：</p>
+<p><img src="\uploads\androidstudydemo\android4\android4_21.png" alt="GridLayout 的默认布局为水平" title="GridLayout 的默认布局为水平"></p>
+<p><img src="\uploads\androidstudydemo\android4\android4_22.png" alt="GridLayout 使用垂直布局" title="GridLayout 使用垂直布局"></p>
+<h3 id="GridLayout-中子控件-layout-gravity-和-gravity-使用"><a href="#GridLayout-中子控件-layout-gravity-和-gravity-使用" class="headerlink" title="GridLayout 中子控件 layout_gravity 和 gravity 使用"></a>GridLayout 中子控件 layout_gravity 和 gravity 使用</h3><p>要实现控件间的对齐，可以通过设置android:layout_gravity=”fill_horizontal”，来，看看效果：</p>
+<p><img src="\uploads\androidstudydemo\android4\android4_23.png" alt="GridLayout 子控件的 layout_gravity 使用" title="GridLayout 子控件的 layout_gravity 使用"></p>
+<p>使用android:layout_gravity=”fill”，可以使子控件伸展充满被包含的父控件，看效果：</p>
+<p><img src="\uploads\androidstudydemo\android4\android4_24.png" alt="GridLayout 子控件的 layout_gravity / gravity 使用" title="GridLayout 子控件的 layout_gravity / gravity 使用"></p>
+<h3 id="GridLayout-中子控件的-xxxWeight-属性"><a href="#GridLayout-中子控件的-xxxWeight-属性" class="headerlink" title="GridLayout 中子控件的 xxxWeight 属性"></a>GridLayout 中子控件的 xxxWeight 属性</h3><p>xxxWeight，与 LinearLayout 中子控件的 layout_weight 属性功能类似，可以实现行或列平均分配，上图：</p>
+<p><img src="\uploads\androidstudydemo\android4\android4_25.png" alt="GridLayout 中 xxxWeight 属性" title="GridLayout 中 xxxWeight 属性"></p>
+<p>一切都在代码里，你懂的：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span><br><span class="line">&lt;GridLayout xmlns:android="http://schemas.android.com/apk/res/android"</span><br><span class="line">    android:id="@+id/gl_gridlayout"</span><br><span class="line">    android:layout_width="match_parent"</span><br><span class="line">    android:layout_height="match_parent"</span><br><span class="line">    android:columnCount="4"</span><br><span class="line">    android:rowCount="7"&gt;</span><br><span class="line"></span><br><span class="line">    &lt;TextView</span><br><span class="line">        android:layout_width="match_parent"</span><br><span class="line">        android:layout_height="wrap_content"</span><br><span class="line">        android:background="#eee"</span><br><span class="line">        android:text="0"</span><br><span class="line">        android:textColor="#000"</span><br><span class="line">        android:textSize="50sp"</span><br><span class="line">        android:layout_columnSpan="4" /&gt;</span><br><span class="line"></span><br><span class="line">    &lt;Button</span><br><span class="line">        android:layout_width="match_parent"</span><br><span class="line">        android:layout_height="wrap_content"</span><br><span class="line">        android:text="Clear"</span><br><span class="line">        android:layout_columnSpan="4" /&gt;</span><br><span class="line"></span><br><span class="line">    &lt;Button</span><br><span class="line">        android:id="@+id/one"</span><br><span class="line">        android:text="1"</span><br><span class="line">        android:layout_columnWeight="1"</span><br><span class="line">        android:layout_rowWeight="1" /&gt;</span><br><span class="line"></span><br><span class="line">    &lt;Button</span><br><span class="line">        android:id="@+id/two"</span><br><span class="line">        android:text="2"</span><br><span class="line">        android:layout_columnWeight="1"</span><br><span class="line">        android:layout_rowWeight="1" /&gt;</span><br><span class="line"></span><br><span class="line">    &lt;Button</span><br><span class="line">        android:id="@+id/three"</span><br><span class="line">        android:text="3"</span><br><span class="line">        android:layout_columnWeight="1"</span><br><span class="line">        android:layout_rowWeight="1" /&gt;</span><br><span class="line"></span><br><span class="line">    &lt;Button</span><br><span class="line">        android:id="@+id/devide"</span><br><span class="line">        android:text="/"</span><br><span class="line">        android:layout_columnWeight="1"</span><br><span class="line">        android:layout_rowWeight="1" /&gt;</span><br><span class="line">    　　</span><br><span class="line">    &lt;Button</span><br><span class="line">        android:id="@+id/four"</span><br><span class="line">        android:text="4"</span><br><span class="line">        android:layout_columnWeight="1"</span><br><span class="line">        android:layout_rowWeight="1" /&gt;</span><br><span class="line"></span><br><span class="line">    &lt;Button</span><br><span class="line">        android:id="@+id/five"</span><br><span class="line">        android:text="5"</span><br><span class="line">        android:layout_columnWeight="1"</span><br><span class="line">        android:layout_rowWeight="1" /&gt;</span><br><span class="line"></span><br><span class="line">    &lt;Button</span><br><span class="line">        android:id="@+id/six"</span><br><span class="line">        android:text="6"</span><br><span class="line">        android:layout_columnWeight="1"</span><br><span class="line">        android:layout_rowWeight="1" /&gt;</span><br><span class="line">    　　</span><br><span class="line">    &lt;Button</span><br><span class="line">        android:id="@+id/multiply"</span><br><span class="line">        android:text="×"</span><br><span class="line">        android:layout_columnWeight="1"</span><br><span class="line">        android:layout_rowWeight="1" /&gt;</span><br><span class="line"></span><br><span class="line">    &lt;Button</span><br><span class="line">        android:id="@+id/seven"</span><br><span class="line">        android:text="7"</span><br><span class="line">        android:layout_columnWeight="1"</span><br><span class="line">        android:layout_rowWeight="1" /&gt;</span><br><span class="line">    　　</span><br><span class="line">    &lt;Button</span><br><span class="line">        android:id="@+id/eight"</span><br><span class="line">        android:text="8"</span><br><span class="line">        android:layout_columnWeight="1"</span><br><span class="line">        android:layout_rowWeight="1" /&gt;</span><br><span class="line">    　　</span><br><span class="line">    &lt;Button</span><br><span class="line">        android:id="@+id/nine"</span><br><span class="line">        android:text="9"</span><br><span class="line">        android:layout_columnWeight="1"</span><br><span class="line">        android:layout_rowWeight="1" /&gt;</span><br><span class="line"></span><br><span class="line">    &lt;Button</span><br><span class="line">        android:id="@+id/minus"</span><br><span class="line">        android:text="-"</span><br><span class="line">        android:layout_columnWeight="1"</span><br><span class="line">        android:layout_rowWeight="1" /&gt;</span><br><span class="line"></span><br><span class="line">    &lt;Button</span><br><span class="line">        android:id="@+id/zero"</span><br><span class="line">        android:text="0"</span><br><span class="line">        android:layout_columnSpan="2"</span><br><span class="line">        android:layout_columnWeight="1"</span><br><span class="line">        android:layout_gravity="fill"</span><br><span class="line">        android:layout_rowWeight="1" /&gt;</span><br><span class="line"></span><br><span class="line">    &lt;Button</span><br><span class="line">        android:id="@+id/point"</span><br><span class="line">        android:text="."</span><br><span class="line">        android:layout_columnWeight="1"</span><br><span class="line">        android:layout_rowWeight="1" /&gt;</span><br><span class="line"></span><br><span class="line">    &lt;Button</span><br><span class="line">        android:id="@+id/plus"</span><br><span class="line">        android:text="+"</span><br><span class="line">        android:layout_columnWeight="1"</span><br><span class="line">        android:layout_rowSpan="2"</span><br><span class="line">        android:layout_rowWeight="1" /&gt;</span><br><span class="line"></span><br><span class="line">    &lt;Button</span><br><span class="line">        android:id="@+id/equal"</span><br><span class="line">        android:text="="</span><br><span class="line">        android:layout_width="match_parent"</span><br><span class="line">        android:layout_columnSpan="4"</span><br><span class="line">        android:layout_rowWeight="1" /&gt;</span><br><span class="line">&lt;/GridLayout&gt;</span><br></pre></td></tr></table></figure></p>
+<p>好了，GridLayout 的介绍就到这里了。</p>
+<h1 id="五、TextureView"><a href="#五、TextureView" class="headerlink" title="五、TextureView"></a>五、TextureView</h1><p>TextureView 作为 SurfaceView 的兄弟，可弥补其不足。老规矩了，先上图：</p>
+<p><img src="\uploads\androidstudydemo\android4\android4_26.png" alt="TextureView 效果图" title="TextureView 效果图"></p>
+<blockquote>
+<p>如果你想显示一段在线视频或者任意的数据流比如视频或者 OpenGL 场景，你可以用 android 中的 TextureView 做到。</p>
+<p><strong>TextureView 的兄弟 SurfaceView</strong><br>应用程序的视频或者opengl内容往往是显示在一个特别的UI控件中：SurfaceView。SurfaceView 的工作方式是创建一个置于应用窗口之后的新窗口。这种方式的效率非常高，因为 SurfaceView 窗口刷新的时候不需要重绘应用程序的窗口（Android 普通窗口的视图绘制机制是一层一层的，任何一个子元素或者是局部的刷新都会导致整个视图结构全部重绘一次，因此效率非常低下，不过满足普通应用界面的需求还是绰绰有余），但是 SurfaceView 也有一些非常不便的限制。</p>
+<p>因为 SurfaceView 的内容不在应用窗口上，所以不能使用变换（平移、缩放、旋转等）。也难以放在 ListView 或者 ScrollView 中，不能使用 UI 控件的一些特性比如 View.setAlpha()。</p>
+<p>为了解决这个问题 Android 4.0 中引入了 TextureView。</p>
+</blockquote>
+<p>（原谅我吧，上述内容引自： <a href="http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2014/1213/2153.html" target="_blank" rel="external">Android TextureView 简易教程</a>，该作者确实说得不错，我没什么好补充的了，哈哈，还有个原因就是有点累了，偷个懒）</p>
+<h2 id="TextureView-类关系图"><a href="#TextureView-类关系图" class="headerlink" title="TextureView 类关系图"></a>TextureView 类关系图</h2><p>看看继承结构，如下图：<br><img src="\uploads\androidstudydemo\android4\android4_27.png" alt="TextureView 继承结构" title="TextureView 继承结构"></p>
+<p>继承自 View，那没什么说的，看看它的兄弟 SurfaceView，见图：</p>
+<p><img src="\uploads\androidstudydemo\android4\android4_28.png" alt="SurfaceView 继承结构" title="SurfaceView 继承结构"></p>
+<p>还真是好兄弟，一个“德性”。好吧，那看看文档：</p>
+<p><img src="\uploads\androidstudydemo\android4\android4_29.png" alt="TextureView 文档节选" title="TextureView 文档节选"></p>
+<p>（Tip：一个文档还节选，别说屏幕不够长，就是不愿折腾…呵呵）<br>不多说了，官方文档上直接给了示例代码，OK，那就用它的代码试试（试试又不会**不是）。</p>
+<h3 id="TextureView-的简单使用"><a href="#TextureView-的简单使用" class="headerlink" title="TextureView 的简单使用"></a>TextureView 的简单使用</h3><p>TextureView 可以像一般的 View 一样执行一些变换操作，设置透明度等。这里为了演示方便，我使用了两个下拉列表来改变透明度和变换角度，看代码吧：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TextureViewDemoActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> <span class="keyword">implements</span> <span class="title">TextureView</span>.<span class="title">SurfaceTextureListener</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String TAG = <span class="string">"TextureViewDemoActivity"</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> Spinner mSPSetAlpha;</span><br><span class="line">    <span class="keyword">private</span> Spinner mSPSetRotation;</span><br><span class="line">    <span class="keyword">private</span> TextureView mTTVTest;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> Camera mCamera;</span><br><span class="line">    <span class="keyword">private</span> Float[] mAlphaValueArr = &#123;<span class="number">0.2f</span>, <span class="number">0.4f</span>, <span class="number">0.6f</span>, <span class="number">0.8f</span>, <span class="number">1.0f</span>&#125;;</span><br><span class="line">    <span class="keyword">private</span> Float[] mRotationValueArr = &#123;<span class="number">15.0f</span>, <span class="number">30.0f</span>, <span class="number">45.0f</span>, <span class="number">60.0f</span>, <span class="number">90.0f</span>&#125;;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">float</span> mAlphaValue = <span class="number">1.0f</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">float</span> mRotationValue = <span class="number">90.0f</span>;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_textureviewdemo);</span><br><span class="line"></span><br><span class="line">        initView();</span><br><span class="line">        initData();</span><br><span class="line">        initListener();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">initView</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.mSPSetAlpha = (Spinner) <span class="keyword">this</span>.findViewById(R.id.sp_setalphavalue);</span><br><span class="line">        <span class="keyword">this</span>.mSPSetRotation = (Spinner) <span class="keyword">this</span>.findViewById(R.id.sp_setrotationvalue);</span><br><span class="line">        <span class="keyword">this</span>.mTTVTest = (TextureView) <span class="keyword">this</span>.findViewById(R.id.ttv_test);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">initData</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        ArrayAdapter&lt;Float&gt; setAlphaAdapter = <span class="keyword">new</span> ArrayAdapter&lt;Float&gt;(<span class="keyword">this</span>,android.R.layout.simple_list_item_1, mAlphaValueArr);</span><br><span class="line">        setAlphaAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);</span><br><span class="line">        <span class="keyword">this</span>.mSPSetAlpha.setAdapter(setAlphaAdapter);</span><br><span class="line">        ArrayAdapter&lt;Float&gt; setRotationAdapter = <span class="keyword">new</span> ArrayAdapter&lt;Float&gt;(<span class="keyword">this</span>,android.R.layout.simple_list_item_1, mRotationValueArr);</span><br><span class="line">        setRotationAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);</span><br><span class="line">        <span class="keyword">this</span>.mSPSetRotation.setAdapter(setRotationAdapter);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">initListener</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.mTTVTest.setSurfaceTextureListener(<span class="keyword">this</span>);</span><br><span class="line">        <span class="keyword">this</span>.mSPSetAlpha.setOnItemSelectedListener(<span class="keyword">new</span> AdapterView.OnItemSelectedListener() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onItemSelected</span><span class="params">(AdapterView&lt;?&gt; parent, View view, <span class="keyword">int</span> position, <span class="keyword">long</span> id)</span> </span>&#123;</span><br><span class="line">                mAlphaValue = mAlphaValueArr[position];</span><br><span class="line">                mTTVTest.setAlpha(mAlphaValue);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onNothingSelected</span><span class="params">(AdapterView&lt;?&gt; parent)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">        <span class="keyword">this</span>.mSPSetRotation.setOnItemSelectedListener(<span class="keyword">new</span> AdapterView.OnItemSelectedListener() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onItemSelected</span><span class="params">(AdapterView&lt;?&gt; parent, View view, <span class="keyword">int</span> position, <span class="keyword">long</span> id)</span> </span>&#123;</span><br><span class="line">                mRotationValue = mRotationValueArr[position];</span><br><span class="line">                mTTVTest.setRotation(mRotationValue);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onNothingSelected</span><span class="params">(AdapterView&lt;?&gt; parent)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onSurfaceTextureAvailable</span><span class="params">(SurfaceTexture surface, <span class="keyword">int</span> width, <span class="keyword">int</span> height)</span> </span>&#123;</span><br><span class="line">        mCamera = Camera.open();</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            mCamera.setPreviewTexture(surface);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException t) &#123;</span><br><span class="line">            Log.e(TAG, t.getMessage());</span><br><span class="line">        &#125;</span><br><span class="line">        mCamera.startPreview();</span><br><span class="line">        mTTVTest.setAlpha(mAlphaValue);</span><br><span class="line">        mTTVTest.setRotation(mRotationValue);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onSurfaceTextureSizeChanged</span><span class="params">(SurfaceTexture surface, <span class="keyword">int</span> width, <span class="keyword">int</span> height)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onSurfaceTextureDestroyed</span><span class="params">(SurfaceTexture surface)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (mCamera != <span class="keyword">null</span>) &#123;</span><br><span class="line">            mCamera.stopPreview();</span><br><span class="line">            mCamera.release();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onSurfaceTextureUpdated</span><span class="params">(SurfaceTexture surface)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>布局很简单，这里就不贴了！</p>
+<p>这里只是一个简单的用法展示，具体的使用中有没有坑，还未知，你要是遇到了，请告诉我。</p>
+<blockquote>
+<p>推荐：一个不用翻墙的在线 Android 文档网站：<a href="http://wear.techbrood.com/index.html" target="_blank" rel="external">踏得网</a></p>
+</blockquote>
+<p><a href="https://github.com/DIY-green/ASD-Android4Study.git" target="_blank" rel="external">GitHub</a></p>
+<p>总结到这，讲的比较简单，你要是感觉有用，那就帮忙点个喜欢，祝好…</p>
+<h1 id="附录："><a href="#附录：" class="headerlink" title="附录："></a>附录：</h1><p><a href="http://pan.baidu.com/s/1c19zvKO" target="_blank" rel="external">Andorid4.x 新控件介绍思维导图</a><br><a href="http://pan.baidu.com/s/1geUXUz5" target="_blank" rel="external">Andorid4.x 新控件介绍思维导图.png</a></p>
+<h1 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h1><p><a href="http://blog.csdn.net/pku_android/article/details/7343258" target="_blank" rel="external">http://blog.csdn.net/pku_android/article/details/7343258</a><br><a href="http://blog.csdn.net/pku_android/article/details/7343258" target="_blank" rel="external">http://blog.csdn.net/pku_android/article/details/7343258</a><br><a href="http://blog.csdn.net/xerophyte000/article/details/46045041" target="_blank" rel="external">http://blog.csdn.net/xerophyte000/article/details/46045041</a><br><a href="http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2014/1213/2153.html" target="_blank" rel="external">http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2014/1213/2153.html</a><br><a href="http://tech.it168.com/a2011/1122/1277/000001277274.shtml" target="_blank" rel="external">http://tech.it168.com/a2011/1122/1277/000001277274.shtml</a><br><a href="http://blog.csdn.net/zhangzeyuaaa/article/details/40711047" target="_blank" rel="external">http://blog.csdn.net/zhangzeyuaaa/article/details/40711047</a><br><a href="http://www.tuicool.com/articles/Abu6ji" target="_blank" rel="external">http://www.tuicool.com/articles/Abu6ji</a></p>
+
+      
+    </div>
+    
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+<div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton", disable="enable", onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}", style="cursor: pointer; border: 0; outline: 0; border-radius: 100%; padding: 0; margin: 0; letter-spacing: normal; text-transform: none; text-indent: 0px; text-shadow: none">
+    <span onmouseover="this.style.color='rgb(236,96,0)';this.style.background='rgb(204,204,204)'" onMouseOut="this.style.color='#fff';this.style.background='rgb(236,96,0)'" style="display: inline-block; width: 70px; height: 70px; border-radius: 100%; line-height: 81px; color: #fff; font: 400 35px/75px 'microsofty'; background: rgb(236,96,0)">赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/uploads/images/wechat-reward-image.png" alt="DIY-green WeChat Pay" style="width: 200px; max-width: 100%; display: inline-block"/>
+        <p>微信打赏</p>
+      </div>
+    
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/uploads/images/alipay-reward-image.png" alt="DIY-green Alipay" style="width: 200px; max-width: 100%; display: inline-block"/>
+        <p>支付宝打赏</p>
+      </div>
+    
+  </div>
+</div>
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Android-4/" rel="tag">#Android 4</a>
+          
+            <a href="/tags/StudyDemo/" rel="tag">#StudyDemo</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/05/07/AndroidStudio系列/AndroidStudio系列/" rel="next" title="AndroidStudio系列说明">
+                <i class="fa fa-chevron-left"></i> AndroidStudio系列说明
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/05/07/AndroidStudyDemo系列/Android5.x新API介绍(一)/" rel="prev" title="Android5.x新API介绍(一)">
+                Android5.x新API介绍(一) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/05/07/AndroidStudyDemo系列/Android4.x介绍/"
+           data-title="Android4.x介绍" data-url="http://diy-green.com/2016/05/07/AndroidStudyDemo系列/Android4.x介绍/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/images/avatar.jpg"
+               alt="DIY-green" />
+          <p class="site-author-name" itemprop="name">DIY-green</p>
+          <p class="site-description motion-element" itemprop="description">男子千年志，吾生未有涯。心随朗月高，志与秋霜洁。</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">52</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">27</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/DIY-green" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/users/0ad0a0afc409/latest_articles" target="_blank" title="JianShu">
+                  
+                    <i class="fa fa-globe"></i>
+                  
+                  JianShu
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element">
+            <div class="links-of-blogroll-title">
+              <i class="fa fa-globe fa-fw"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.jianshu.com/users/0ad0a0afc409/latest_articles" title="DIY-green简书" target="_blank">DIY-green简书</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.jianshu.com/users/3a482c4f0658/latest_articles" title="天接水0001" target="_blank">天接水0001</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://sunfusheng.com" title="孙福生" target="_blank">孙福生</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://kuanggang.github.io" title="匡罡" target="_blank">匡罡</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://Ivorfason.github.io" title="尹明仁" target="_blank">尹明仁</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://mengqingxiang.github.io" title="孟庆祥" target="_blank">孟庆祥</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、Switch"><span class="nav-number">1.</span> <span class="nav-text">一、Switch</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Switch-类关系图"><span class="nav-number">1.1.</span> <span class="nav-text">Switch 类关系图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Switch-的简单使用"><span class="nav-number">1.2.</span> <span class="nav-text">Switch 的简单使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Switch-自定义样式"><span class="nav-number">1.3.</span> <span class="nav-text">Switch 自定义样式</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、Space"><span class="nav-number">2.</span> <span class="nav-text">二、Space</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Space-类关系图"><span class="nav-number">2.1.</span> <span class="nav-text">Space 类关系图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Space-的简单使用"><span class="nav-number">2.2.</span> <span class="nav-text">Space 的简单使用</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三、PopupMenu"><span class="nav-number">3.</span> <span class="nav-text">三、PopupMenu</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#PopupMenu-类关系图"><span class="nav-number">3.1.</span> <span class="nav-text">PopupMenu 类关系图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PopupMenu-的简单使用"><span class="nav-number">3.2.</span> <span class="nav-text">PopupMenu 的简单使用</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#四、GlidLayout"><span class="nav-number">4.</span> <span class="nav-text">四、GlidLayout</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#GlidLayout-类关系图"><span class="nav-number">4.1.</span> <span class="nav-text">GlidLayout 类关系图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GlidLayout-简单使用"><span class="nav-number">4.2.</span> <span class="nav-text">GlidLayout 简单使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#简易计算器布局"><span class="nav-number">4.2.1.</span> <span class="nav-text">简易计算器布局</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LinearLayout-之殇"><span class="nav-number">4.2.2.</span> <span class="nav-text">LinearLayout 之殇</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GridLayout-的布局方向"><span class="nav-number">4.2.3.</span> <span class="nav-text">GridLayout 的布局方向</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GridLayout-中子控件-layout-gravity-和-gravity-使用"><span class="nav-number">4.2.4.</span> <span class="nav-text">GridLayout 中子控件 layout_gravity 和 gravity 使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GridLayout-中子控件的-xxxWeight-属性"><span class="nav-number">4.2.5.</span> <span class="nav-text">GridLayout 中子控件的 xxxWeight 属性</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#五、TextureView"><span class="nav-number">5.</span> <span class="nav-text">五、TextureView</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#TextureView-类关系图"><span class="nav-number">5.1.</span> <span class="nav-text">TextureView 类关系图</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#TextureView-的简单使用"><span class="nav-number">5.1.1.</span> <span class="nav-text">TextureView 的简单使用</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#附录："><span class="nav-number">6.</span> <span class="nav-text">附录：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考："><span class="nav-number">7.</span> <span class="nav-text">参考：</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+<div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">DIY-green</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info powered-by">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+<div class="powered-by">
+  <span id="busuanzi_container_site_pv">
+    本站总访问量<span id="busuanzi_value_site_pv"></span>次
+  </span>
+</div>
+<div style="display:inline-block;">
+  <span id="busuanzi_container_site_uv">
+    本站访客数<span id="busuanzi_value_site_uv"></span>人次
+  </span>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"DIY-green"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+      
+      <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+      <script src="/js/src/hook-duoshuo.js"></script>
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+  
+  
+  <!-- custom analytics part create by xiamo -->
+<script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+<script>AV.initialize("UnkeFG0pM1t3q8H3y7NTLUA0-gzGzoHsz", "2oBUu9nxByteYjLFtBtqOPwN");</script>
+<script>
+function showTime(Counter) {
+	var query = new AV.Query(Counter);
+	$(".leancloud_visitors").each(function() {
+		var url = $(this).attr("id").trim();
+		query.equalTo("url", url);
+		query.find({
+			success: function(results) {
+				if (results.length == 0) {
+					var content = '0 ' + $(document.getElementById(url)).text();
+					$(document.getElementById(url)).text(content);
+					return;
+				}
+				for (var i = 0; i < results.length; i++) {
+					var object = results[i];
+					var content = object.get('time') + ' ' + $(document.getElementById(url)).text();
+					$(document.getElementById(url)).text(content);
+				}
+			},
+			error: function(object, error) {
+				console.log("Error: " + error.code + " " + error.message);
+			}
+		});
+
+	});
+}
+
+function addCount(Counter) {
+	var Counter = AV.Object.extend("Counter");
+	url = $(".leancloud_visitors").attr('id').trim();
+	title = $(".leancloud_visitors").attr('data-flag-title').trim();
+	var query = new AV.Query(Counter);
+	query.equalTo("url", url);
+	query.find({
+		success: function(results) {
+			if (results.length > 0) {
+				var counter = results[0];
+				counter.fetchWhenSave(true);
+				counter.increment("time");
+				counter.save(null, {
+					success: function(counter) {
+						var content =  counter.get('time') + ' ' + $(document.getElementById(url)).text();
+						$(document.getElementById(url)).text(content);
+					},
+					error: function(counter, error) {
+						console.log('Failed to save Visitor num, with error message: ' + error.message);
+					}
+				});
+			} else {
+				var newcounter = new Counter();
+				newcounter.set("title", title);
+				newcounter.set("url", url);
+				newcounter.set("time", 1);
+				newcounter.save(null, {
+					success: function(newcounter) {
+					    console.log("newcounter.get('time')="+newcounter.get('time'));
+						var content = newcounter.get('time') + ' ' + $(document.getElementById(url)).text();
+						$(document.getElementById(url)).text(content);
+					},
+					error: function(newcounter, error) {
+						console.log('Failed to create');
+					}
+				});
+			}
+		},
+		error: function(error) {
+			console.log('Error:' + error.code + " " + error.message);
+		}
+	});
+}
+$(function() {
+	var Counter = AV.Object.extend("Counter");
+	if ($('.leancloud_visitors').length == 1) {
+		addCount(Counter);
+	} else if ($('.post-title-link').length > 1) {
+		showTime(Counter);
+	}
+}); 
+</script>
+  
+  
+</body>
+</html>
